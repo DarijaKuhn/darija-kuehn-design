@@ -20,10 +20,12 @@ function Index() {
         <div className="hero-kicker">СЛУШАТЬ&nbsp;&nbsp;СЛОВО</div>
       </div>
 
-      <h1 className="hero-h1">
-        <span className="rise" style={{ animationDelay: ".05s" }}>Дом,</span>{" "}
-        <span className="rise script" style={{ animationDelay: ".25s" }}>где&nbsp;звучит&nbsp;живое</span>{" "}
-        <span className="rise" style={{ animationDelay: ".45s" }}>Слово</span>
+      <h1 className="hero-h1" aria-label="Дом, где звучит живое Слово">
+        <Typewriter parts={[
+          { text: "Дом, " },
+          { text: "где звучит живое ", className: "script" },
+          { text: "Слово" },
+        ]} />
       </h1>
 
       <p className="hero-sub rise" style={{ animationDelay: ".7s" }}>
