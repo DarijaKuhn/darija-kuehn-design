@@ -5,13 +5,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TOP_LINKS = [
+const TOP_LINKS: { to: "/about" | "/schedule" | "/ministries" | "/contact"; label: string; accent?: boolean }[] = [
   { to: "/about", label: "О нас" },
   { to: "/schedule", label: "Расписание" },
   { to: "/ministries", label: "Служения" },
   { to: "/contact", label: "Контакт" },
   { to: "/contact", label: "Как нас найти", accent: true },
-] as const;
+];
 
 function Index() {
   const navigate = useNavigate();
