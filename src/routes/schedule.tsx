@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/schedule")({
   component: Schedule,
@@ -16,6 +16,7 @@ function Schedule() {
   ];
   return (
     <main className="page-wrap">
+      <Link to="/" className="back-home"><span className="ar">←</span> На главную</Link>
       <div className="page-eyebrow">Расписание</div>
       <h1 className="page-h1">Когда мы <em>собираемся</em></h1>
       <p className="page-lead">

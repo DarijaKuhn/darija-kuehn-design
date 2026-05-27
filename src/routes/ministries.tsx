@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/ministries")({
   component: Ministries,
@@ -16,6 +16,7 @@ function Ministries() {
   ];
   return (
     <main className="page-wrap">
+      <Link to="/" className="back-home"><span className="ar">←</span> На главную</Link>
       <div className="page-eyebrow">Наши служения</div>
       <h1 className="page-h1">Жизнь общины — <em>больше</em>, чем воскресенье</h1>
       <div className="card-grid">
