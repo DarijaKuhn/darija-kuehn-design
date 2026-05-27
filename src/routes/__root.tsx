@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -69,7 +70,7 @@ const NAV_LINKS = [
   { to: "/contact", label: "Контакт" },
 ] as const;
 
-function Header() {
+function InnerHeader() {
   return (
     <nav className="nav">
       <Link to="/" className="brand">
@@ -127,11 +128,13 @@ function Footer() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
+      {!isHome && <InnerHeader />}
       <Outlet />
-      <Footer />
+      {!isHome && <Footer />}
     </QueryClientProvider>
   );
 }
