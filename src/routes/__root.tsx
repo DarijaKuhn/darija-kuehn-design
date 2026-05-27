@@ -70,21 +70,14 @@ const NAV_LINKS = [
 ] as const;
 
 function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
-      <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
+      <nav className="nav">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
           <div className="brand-mark">✝</div>
-          <div className="brand-name">Евангельские Христиане<small>Dresden · Germany</small></div>
+          <div className="brand-name">EChG<small>Dresden</small></div>
         </Link>
 
         <div className="nav-pills">
@@ -129,6 +122,7 @@ function Header() {
     </>
   );
 }
+
 
 function Footer() {
   return (
