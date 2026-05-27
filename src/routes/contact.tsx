@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -8,6 +8,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <main className="page-wrap">
+      <Link to="/" className="back-home"><span className="ar">←</span> На главную</Link>
       <div className="page-eyebrow">Контакт</div>
       <h1 className="page-h1">Приходите <em>в гости</em></h1>
       <p className="page-lead">

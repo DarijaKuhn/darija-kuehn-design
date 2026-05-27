@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -8,6 +8,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <main className="page-wrap">
+      <Link to="/" className="back-home"><span className="ar">←</span> На главную</Link>
       <div className="page-eyebrow">О нашей общине</div>
       <h1 className="page-h1">Тихая радость <em>совместной</em> веры</h1>
       <p className="page-lead">
