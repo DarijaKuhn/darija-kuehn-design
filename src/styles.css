@@ -279,3 +279,14 @@ footer {
   display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   font-size: 11px; color: var(--muted);
 }
+
+/* typewriter caret */
+.tw-caret {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 300;
+  color: var(--ink);
+  animation: tw-blink 1s steps(1) infinite;
+}
+.tw-caret-stop { animation: none; opacity: 0; }
+@keyframes tw-blink { 50% { opacity: 0; } }
