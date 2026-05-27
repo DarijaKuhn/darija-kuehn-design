@@ -1,29 +1,18 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import churchPhoto from "@/assets/church.jpeg";
 
-type TWPart = { text: string; className?: string };
-
-function Typewriter({ parts, speed = 55 }: { parts: TWPart[]; speed?: number }) {
-  const full = parts.map((p) => p.text).join("");
+function Typewriter({ text, speed = 90 }: { text: string; speed?: number }) {
   const [n, setN] = useState(0);
   useEffect(() => {
-    if (n >= full.length) return;
+    if (n >= text.length) return;
     const id = setTimeout(() => setN(n + 1), speed);
     return () => clearTimeout(id);
-  }, [n, full.length, speed]);
-
-  let remaining = n;
-  const done = n >= full.length;
+  }, [n, text.length, speed]);
+  const done = n >= text.length;
   return (
     <>
-      {parts.map((p, i) => {
-        const slice = p.text.slice(0, Math.max(0, Math.min(p.text.length, remaining)));
-        remaining -= p.text.length;
-        return (
-          <span key={i} className={p.className}>{slice}</span>
-        );
-      })}
+      {text.slice(0, n)}
       <span className={`tw-caret ${done ? "tw-caret-stop" : ""}`} aria-hidden>|</span>
     </>
   );
@@ -36,50 +25,44 @@ export const Route = createFileRoute("/")({
 function Index() {
   const navigate = useNavigate();
   return (
-    <header className="hero">
-      <div className="hero-stage">
-        <div className="hero-photo-circle">
-          <div className="ring r1" />
-          <div className="ring r2" />
-          <img src={churchPhoto} alt="Freie Evangeliums-Christen-Gemeinde Dresden" />
-          <div className="play">▶</div>
-        </div>
+    <section className="cover">
+      <img className="cover-bg" src={churchPhoto} alt="Freie Evangeliums-Christen-Gemeinde Dresden" />
+      <div className="cover-tint" />
 
-        <div className="hero-kicker">СЛУШАТЬ&nbsp;&nbsp;СЛОВО</div>
+      <Link to="/schedule" className="cover-menu">
+        <span className="cm-icon"><span /><span /></span>
+        Menu
+      </Link>
+
+      <div className="cover-inner">
+        <h1 className="cover-title">
+          <span className="ct-line">
+            <Typewriter text="Евангельские" speed={80} />
+          </span>
+          <span className="ct-line ct-script">
+            <Typewriter text="Христиане" speed={110} />
+          </span>
+        </h1>
+
+        <div className="cover-body">
+          <div className="cover-kicker">Дом, где звучит живое Слово</div>
+          <p className="cover-sub">
+            Русскоязычная евангельская община в Дрездене — место молитвы,
+            изучения Писания и тёплого общения во Христе. Мы будем рады встретить вас на богослужении.
+          </p>
+
+          <button className="cover-cta" onClick={() => navigate({ to: "/contact" })}>
+            Как нас найти <span className="arr">➜</span>
+          </button>
+        </div>
       </div>
 
-      <h1 className="hero-h1" aria-label="Дом, где звучит живое Слово">
-        <Typewriter parts={[
-          { text: "Дом, " },
-          { text: "где звучит живое ", className: "script" },
-          { text: "Слово" },
-        ]} />
-      </h1>
-
-      <p className="hero-sub rise" style={{ animationDelay: ".7s" }}>
-        РУССКОЯЗЫЧНАЯ <b>ЕВАНГЕЛЬСКАЯ ОБЩИНА</b> В САМОМ СЕРДЦЕ САКСОНИИ — МОЛИТВА, ПИСАНИЕ И СЛУЖЕНИЕ БЛИЖНЕМУ.
-      </p>
-
-      <div className="hero-bottom">
-        <div className="sched mini">
-          {[
-            ["Среда", "18:00", "Молитва"],
-            ["Пятница", "18:00", "Изучение Библии"],
-            ["Воскресенье", "10:00", "Богослужение"],
-          ].map(([d, t, n], i) => (
-            <div className="sched-card" key={n} style={{ animationDelay: `${0.9 + i * 0.12}s` }}>
-              <div className="sched-day">{d}</div>
-              <div className="sched-time">{t}</div>
-              <div className="sched-title">{n}</div>
-            </div>
-          ))}
-        </div>
-
-        <button className="find-cta rise" style={{ animationDelay: "1.4s" }} onClick={() => navigate({ to: "/contact" })}>
-          Как нас найти
-          <span className="arr">▷</span>
-        </button>
+      <div className="cover-roles">
+        <Link to="/schedule">Богослужения</Link><span>|</span>
+        <Link to="/ministries">Служения</Link><span>|</span>
+        <Link to="/about">О нас</Link><span>|</span>
+        <Link to="/contact">Контакт</Link>
       </div>
-    </header>
+    </section>
   );
 }
