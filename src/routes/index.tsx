@@ -1,5 +1,33 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import churchPhoto from "@/assets/church.jpeg";
+
+type TWPart = { text: string; className?: string };
+
+function Typewriter({ parts, speed = 55 }: { parts: TWPart[]; speed?: number }) {
+  const full = parts.map((p) => p.text).join("");
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (n >= full.length) return;
+    const id = setTimeout(() => setN(n + 1), speed);
+    return () => clearTimeout(id);
+  }, [n, full.length, speed]);
+
+  let remaining = n;
+  const done = n >= full.length;
+  return (
+    <>
+      {parts.map((p, i) => {
+        const slice = p.text.slice(0, Math.max(0, Math.min(p.text.length, remaining)));
+        remaining -= p.text.length;
+        return (
+          <span key={i} className={p.className}>{slice}</span>
+        );
+      })}
+      <span className={`tw-caret ${done ? "tw-caret-stop" : ""}`} aria-hidden>|</span>
+    </>
+  );
+}
 
 export const Route = createFileRoute("/")({
   component: Index,
