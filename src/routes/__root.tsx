@@ -70,56 +70,27 @@ const NAV_LINKS = [
 ] as const;
 
 function Header() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <>
-      <nav className="nav">
-        <Link to="/" className="brand" onClick={() => setOpen(false)}>
-          <div className="brand-mark">✝</div>
-          <div className="brand-name">EChG<small>Dresden</small></div>
-        </Link>
+    <nav className="nav">
+      <Link to="/" className="brand">
+        <div className="brand-mark">✝</div>
+        <div className="brand-name">EChG<small>Dresden</small></div>
+      </Link>
 
-        <div className="nav-pills">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="pill"
-              activeProps={{ className: "pill active" }}
-              activeOptions={{ exact: l.to === "/" }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
-
-        <button
-          className={`burger ${open ? "open" : ""}`}
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Меню"
-        >
-          <span />
-        </button>
-      </nav>
-
-      {open && (
-        <div className="mobile-menu">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="pill"
-              activeProps={{ className: "pill active" }}
-              activeOptions={{ exact: l.to === "/" }}
-              onClick={() => setOpen(false)}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </>
+      <div className="nav-pills">
+        {NAV_LINKS.map((l) => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className="pill"
+            activeProps={{ className: "pill active" }}
+            activeOptions={{ exact: l.to === "/" }}
+          >
+            {l.label}
+          </Link>
+        ))}
+      </div>
+    </nav>
   );
 }
 
