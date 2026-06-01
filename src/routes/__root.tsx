@@ -117,7 +117,7 @@ function Footer() {
           </div>
           <div>
             <h4>Навигация</h4>
-            {NAV_LINKS.map((l) => <Link key={l.to} to={l.to}>{l.label}</Link>)}
+            {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{l.label}</Link>)}
           </div>
           <div>
             <h4>Контакт</h4>
