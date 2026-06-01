@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SermonsRouteImport } from './routes/sermons'
 import { Route as MapRouteImport } from './routes/map'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfessionRouteImport } from './routes/confession'
 import { Route as IndexRouteImport } from './routes/index'
@@ -32,9 +34,19 @@ const MapRoute = MapRouteImport.update({
   path: '/map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -57,7 +69,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/confession': typeof ConfessionRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -66,7 +80,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/confession': typeof ConfessionRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -76,7 +92,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/confession': typeof ConfessionRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -87,7 +105,9 @@ export interface FileRouteTypes {
     | '/'
     | '/confession'
     | '/contact'
+    | '/datenschutz'
     | '/gallery'
+    | '/impressum'
     | '/map'
     | '/sermons'
     | '/services'
@@ -96,7 +116,9 @@ export interface FileRouteTypes {
     | '/'
     | '/confession'
     | '/contact'
+    | '/datenschutz'
     | '/gallery'
+    | '/impressum'
     | '/map'
     | '/sermons'
     | '/services'
@@ -105,7 +127,9 @@ export interface FileRouteTypes {
     | '/'
     | '/confession'
     | '/contact'
+    | '/datenschutz'
     | '/gallery'
+    | '/impressum'
     | '/map'
     | '/sermons'
     | '/services'
@@ -115,7 +139,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ConfessionRoute: typeof ConfessionRoute
   ContactRoute: typeof ContactRoute
+  DatenschutzRoute: typeof DatenschutzRoute
   GalleryRoute: typeof GalleryRoute
+  ImpressumRoute: typeof ImpressumRoute
   MapRoute: typeof MapRoute
   SermonsRoute: typeof SermonsRoute
   ServicesRoute: typeof ServicesRoute
@@ -144,11 +170,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -179,7 +219,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ConfessionRoute: ConfessionRoute,
   ContactRoute: ContactRoute,
+  DatenschutzRoute: DatenschutzRoute,
   GalleryRoute: GalleryRoute,
+  ImpressumRoute: ImpressumRoute,
   MapRoute: MapRoute,
   SermonsRoute: SermonsRoute,
   ServicesRoute: ServicesRoute,
@@ -187,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
