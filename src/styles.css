@@ -338,33 +338,36 @@ footer a:hover { color: #fff; }
 /* Field band between hero and footer */
 .field-band {
   position: relative;
-  min-height: 280px;
+  min-height: 360px;
   background-size: cover;
-  background-position: center 60%;
+  background-position: center center;
   display: flex; align-items: center; justify-content: center;
   text-align: center;
   overflow: hidden;
 }
 .field-band::before {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,.35) 30%, rgba(26,32,24,.45) 100%);
+  background: linear-gradient(180deg, rgba(26,32,24,.25) 0%, rgba(26,32,24,.55) 100%);
 }
 .field-band-inner {
-  position: relative; z-index: 1; padding: 64px 24px; max-width: 880px;
+  position: relative; z-index: 1; padding: 72px 24px; max-width: 880px;
 }
 .field-band-eyebrow {
   font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--green-dark); margin-bottom: 14px;
+  color: #fff; margin-bottom: 14px;
+  text-shadow: 0 1px 6px rgba(0,0,0,.5);
 }
 .field-band-title {
   font-family: var(--font-serif); font-size: clamp(26px, 3.4vw, 42px);
-  font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2;
+  font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.2;
+  text-shadow: 0 1px 8px rgba(0,0,0,.5);
 }
 .field-band-text {
   font-family: var(--font-serif); font-style: italic;
-  font-size: clamp(16px, 1.8vw, 20px); color: #fff;
-  text-shadow: 0 1px 8px rgba(0,0,0,.4);
-  max-width: 640px; margin: 0 auto;
+  font-size: clamp(18px, 2vw, 24px); color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.65);
+  max-width: 720px; margin: 0 auto;
+  line-height: 1.5;
 }
 
 /* Footer instagram */
