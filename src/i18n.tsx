@@ -73,7 +73,7 @@ const translations: Record<Lang, Dict> = {
     "nav.sermons": "Проповіді",
     "nav.contact": "Контакт",
     "hero.eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
-    "hero.h1": "Церква Євангельських Християн-Баптистів у Дрездені",
+    "hero.h1": "Церква Євангельських Християн\nБаптистів у Дрездені",
     "hero.h2": "Раді бачити вас у нашій громаді.",
     "hero.desc": "Російськомовна християнська громада.",
     "hero.schedule": "Розклад богослужінь",
