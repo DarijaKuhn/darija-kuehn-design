@@ -73,7 +73,7 @@ function Index() {
       </header>
 
       {/* Field band — fills space between hero and footer */}
-      <section className="field-band" style={{ backgroundImage: `url(${fieldAsset.url})` }} aria-label="">
+      <section className="field-band" style={{ backgroundImage: `url(${fieldGrassAsset.url})` }} aria-label="">
         <div className="field-band-inner">
           <p className="field-band-eyebrow">Псалом 23:1</p>
           <p className="field-band-text">«Господь — Пастырь мой; я ни в чём не буду нуждаться. Он покоит меня на злачных пажитях и водит меня к водам тихим».</p>
