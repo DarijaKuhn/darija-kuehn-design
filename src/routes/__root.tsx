@@ -9,9 +9,10 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import appCss from "../styles.css?url";
 import logoAsset from "@/assets/fecg-logo.jpg.asset.json";
+import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 
 function NotFoundComponent() {
   return (
@@ -69,27 +70,70 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NAV_LINKS: ReadonlyArray<{ to: string; label: string; home?: boolean }> = [
-  { to: "/", label: "Главная", home: true },
-  { to: "/confession", label: "Вероисповедание" },
-  { to: "/services", label: "Богослужения" },
-  { to: "/map", label: "Как нас найти" },
-  { to: "/gallery", label: "Фото" },
-  { to: "/sermons", label: "Проповеди" },
-  { to: "/contact", label: "Контакт" },
+const NAV_LINKS: ReadonlyArray<{ to: string; key: string; home?: boolean }> = [
+  { to: "/", key: "nav.home", home: true },
+  { to: "/confession", key: "nav.confession" },
+  { to: "/services", key: "nav.services" },
+  { to: "/map", key: "nav.map" },
+  { to: "/gallery", key: "nav.gallery" },
+  { to: "/sermons", key: "nav.sermons" },
+  { to: "/contact", key: "nav.contact" },
 ];
 
-function Header() {
-  const [lang, setLang] = useState<"ru" | "de">("ru");
+function LanguagePicker() {
+  const { lang, setLang } = useI18n();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const saved = (typeof window !== "undefined" && (localStorage.getItem("lang") as "ru" | "de")) || "ru";
-    setLang(saved);
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
   }, []);
-  const toggleLang = () => {
-    const next = lang === "ru" ? "de" : "ru";
-    setLang(next);
-    if (typeof window !== "undefined") localStorage.setItem("lang", next);
-  };
+  const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+  return (
+    <div className="lang-picker" ref={ref}>
+      <button
+        type="button"
+        className="lang-switch"
+        onClick={() => setOpen((o) => !o)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="Sprache wählen / Choose language"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+        <span>{current.flag} {current.label}</span>
+      </button>
+      {open && (
+        <ul className="lang-menu" role="listbox">
+          {LANGS.map((l) => (
+            <li key={l.code}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={l.code === lang}
+                className={`lang-menu-item ${l.code === lang ? "active" : ""}`}
+                onClick={() => { setLang(l.code as Lang); setOpen(false); }}
+              >
+                <span className="lang-flag">{l.flag}</span>
+                <span className="lang-name">{l.name}</span>
+                <span className="lang-code">{l.label}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function Header() {
+  const { t } = useI18n();
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -105,23 +149,12 @@ function Header() {
               activeProps={{ className: `nav-btn ${l.home ? "nav-btn-home" : ""} active` }}
               activeOptions={{ exact: l.to === "/" }}
             >
-              {l.label}
+              {t(l.key)}
             </Link>
           ))}
-          <button
-            type="button"
-            onClick={toggleLang}
-            className="lang-switch"
-            aria-label={lang === "ru" ? "Sprache wechseln zu Deutsch" : "Сменить язык на русский"}
-            title={lang === "ru" ? "Deutsch" : "Русский"}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span>{lang === "ru" ? "RU" : "DE"}</span>
-          </button>
+        </div>
+        <div className="nav-right">
+          <LanguagePicker />
         </div>
       </div>
     </nav>
@@ -129,6 +162,7 @@ function Header() {
 }
 
 function Footer() {
+  const { t } = useI18n();
   return (
     <footer>
       <div className="container">
@@ -141,7 +175,7 @@ function Footer() {
           </div>
           <div>
             <h4>Навигация</h4>
-            {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{l.label}</Link>)}
+            {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{t(l.key)}</Link>)}
           </div>
           <div>
             <h4>Контакт</h4>
@@ -166,9 +200,11 @@ function RootComponent() {
   const isHome = pathname === "/";
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Outlet />
-      {!isHome && <Footer />}
+      <I18nProvider>
+        <Header />
+        <Outlet />
+        {!isHome && <Footer />}
+      </I18nProvider>
     </QueryClientProvider>
   );
 }
