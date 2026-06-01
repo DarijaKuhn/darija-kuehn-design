@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import churchAsset from "@/assets/church.jpg.asset.json";
-import fieldAsset from "@/assets/field.jpg.asset.json";
+import fieldAsset from "@/assets/field-new.jpg.asset.json";
 import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/")({
