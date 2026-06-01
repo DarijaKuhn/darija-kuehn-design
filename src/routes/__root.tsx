@@ -135,8 +135,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <div className="nav-logo-mark">✝</div>
-              FECG Dresden
+              <img src={logoAsset.url} alt="FECG Dresden" style={{ height: 36, width: "auto" }} />
             </div>
             <p>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.</p>
           </div>
