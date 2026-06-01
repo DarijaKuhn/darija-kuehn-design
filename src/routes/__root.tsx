@@ -67,7 +67,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NAV_LINKS = [
+const NAV_LINKS: ReadonlyArray<{ to: string; label: string; home?: boolean }> = [
   { to: "/", label: "Главная", home: true },
   { to: "/confession", label: "Вероисповедание" },
   { to: "/services", label: "Богослужения" },
@@ -75,7 +75,7 @@ const NAV_LINKS = [
   { to: "/gallery", label: "Фото" },
   { to: "/sermons", label: "Проповеди" },
   { to: "/contact", label: "Контакт" },
-] as const;
+];
 
 function Header() {
   return (
