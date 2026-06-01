@@ -47,7 +47,7 @@ const translations: Record<Lang, Dict> = {
     "nav.sermons": "Predigten",
     "nav.contact": "Kontakt",
     "hero.eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
-    "hero.h1": "Kirche der Evangeliums-Christen-Baptisten in Dresden",
+    "hero.h1": "Kirche der Evangeliums-Christen\nBaptisten in Dresden",
     "hero.h2": "Wir freuen uns, Sie in unserer Gemeinde zu sehen.",
     "hero.desc": "Russischsprachige christliche Gemeinde.",
     "hero.schedule": "Gottesdienstplan",
