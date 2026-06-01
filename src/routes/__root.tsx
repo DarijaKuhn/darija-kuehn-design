@@ -9,7 +9,9 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { useState, useEffect } from "react";
 import appCss from "../styles.css?url";
+import logoAsset from "@/assets/fecg-logo.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
