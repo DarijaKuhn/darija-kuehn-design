@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { z } from "zod";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -11,13 +12,58 @@ export const Route = createFileRoute("/contact")({
   }),
 });
 
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Введите имя").max(100),
+  email: z.string().trim().email("Неверный email").max(255),
+  msg: z.string().trim().min(10, "Сообщение слишком короткое").max(2000),
+});
+
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const mountedAt = useRef<number>(Date.now());
+  const [captcha, setCaptcha] = useState<{ a: number; b: number }>({ a: 0, b: 0 });
+
+  useEffect(() => {
+    mountedAt.current = Date.now();
+    setCaptcha({ a: Math.floor(Math.random() * 8) + 2, b: Math.floor(Math.random() * 8) + 1 });
+  }, []);
+
+  const captchaAnswer = useMemo(() => captcha.a + captcha.b, [captcha]);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     const fd = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(`Сообщение с сайта: ${fd.get("name")}`);
-    const body = encodeURIComponent(`${fd.get("msg")}\n\nОт: ${fd.get("name")} (${fd.get("email")})`);
+
+    // Honeypot: hidden field that humans never fill
+    if ((fd.get("website") as string)?.length) {
+      setError("Ошибка отправки.");
+      return;
+    }
+    // Min time-to-submit (bots fill instantly)
+    if (Date.now() - mountedAt.current < 3000) {
+      setError("Пожалуйста, заполняйте форму внимательно.");
+      return;
+    }
+    // Math captcha
+    if (Number(fd.get("captcha")) !== captchaAnswer) {
+      setError("Неверный ответ на проверочный вопрос.");
+      return;
+    }
+
+    const parsed = contactSchema.safeParse({
+      name: fd.get("name"),
+      email: fd.get("email"),
+      msg: fd.get("msg"),
+    });
+    if (!parsed.success) {
+      setError(parsed.error.issues[0]?.message ?? "Проверьте данные.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Сообщение с сайта: ${parsed.data.name}`);
+    const body = encodeURIComponent(`${parsed.data.msg}\n\nОт: ${parsed.data.name} (${parsed.data.email})`);
     window.location.href = `mailto:info@fecg-dresden.de?subject=${subject}&body=${body}`;
     setSent(true);
   };
@@ -60,22 +106,46 @@ function Contact() {
                 <div className="field-row">
                   <div>
                     <div className="field-label">Имя <span className="req">*</span></div>
-                    <input className="field-input" type="text" name="name" placeholder="Иван Петров" autoComplete="given-name" required />
+                    <input className="field-input" type="text" name="name" placeholder="Иван Петров" autoComplete="given-name" maxLength={100} required />
                   </div>
                   <div>
                     <div className="field-label">E-mail <span className="req">*</span></div>
-                    <input className="field-input" type="email" name="email" placeholder="ivan@beispiel.de" autoComplete="email" required />
+                    <input className="field-input" type="email" name="email" placeholder="ivan@beispiel.de" autoComplete="email" maxLength={255} required />
                   </div>
                 </div>
                 <div>
                   <div className="field-label">Сообщение <span className="req">*</span></div>
-                  <textarea className="field-input" name="msg" placeholder="Ваш вопрос или комментарий..." required />
+                  <textarea className="field-input" name="msg" placeholder="Ваш вопрос или комментарий..." maxLength={2000} required />
                 </div>
+
+                {/* Honeypot — visually hidden, hidden from screen readers and tab order */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+                  <label>Не заполняйте это поле<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
+                </div>
+
+                {/* Simple math captcha */}
+                <div style={{ marginTop: 12 }}>
+                  <div className="field-label">
+                    Защита от спама: сколько будет {captcha.a} + {captcha.b}? <span className="req">*</span>
+                  </div>
+                  <input
+                    className="field-input"
+                    type="number"
+                    name="captcha"
+                    inputMode="numeric"
+                    autoComplete="off"
+                    placeholder="Введите число"
+                    required
+                    style={{ maxWidth: 200 }}
+                  />
+                </div>
+
                 <div className="form-footer-row">
                   <button type="submit" className="btn btn-primary">Отправить письмо →</button>
                   <p className="form-privacy">Данные используются только для ответа на ваше сообщение.</p>
                 </div>
-                {sent && <p style={{ marginTop: 12, fontSize: 13, color: "var(--green)" }}>Открыт почтовый клиент — отправьте письмо для завершения.</p>}
+                {error && <p style={{ marginTop: 12, fontSize: 13, color: "#c4392a" }}>{error}</p>}
+                {sent && !error && <p style={{ marginTop: 12, fontSize: 13, color: "var(--green)" }}>Открыт почтовый клиент — отправьте письмо для завершения.</p>}
               </form>
             </div>
           </div>
