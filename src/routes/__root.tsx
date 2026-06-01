@@ -9,7 +9,9 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { useState, useEffect } from "react";
 import appCss from "../styles.css?url";
+import logoAsset from "@/assets/fecg-logo.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -78,12 +80,21 @@ const NAV_LINKS: ReadonlyArray<{ to: string; label: string; home?: boolean }> = 
 ];
 
 function Header() {
+  const [lang, setLang] = useState<"ru" | "de">("ru");
+  useEffect(() => {
+    const saved = (typeof window !== "undefined" && (localStorage.getItem("lang") as "ru" | "de")) || "ru";
+    setLang(saved);
+  }, []);
+  const toggleLang = () => {
+    const next = lang === "ru" ? "de" : "ru";
+    setLang(next);
+    if (typeof window !== "undefined") localStorage.setItem("lang", next);
+  };
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <Link to="/" className="nav-logo">
-          <div className="nav-logo-mark">✝</div>
-          <div className="nav-logo-text">FECG<small>Dresden</small></div>
+        <Link to="/" className="nav-logo" aria-label="FECG Dresden">
+          <img src={logoAsset.url} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
         </Link>
         <div className="nav-links">
           {NAV_LINKS.map((l) => (
@@ -97,6 +108,20 @@ function Header() {
               {l.label}
             </Link>
           ))}
+          <button
+            type="button"
+            onClick={toggleLang}
+            className="lang-switch"
+            aria-label={lang === "ru" ? "Sprache wechseln zu Deutsch" : "Сменить язык на русский"}
+            title={lang === "ru" ? "Deutsch" : "Русский"}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span>{lang === "ru" ? "RU" : "DE"}</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -110,8 +135,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <div className="nav-logo-mark">✝</div>
-              FECG Dresden
+              <img src={logoAsset.url} alt="FECG Dresden" style={{ height: 36, width: "auto" }} />
             </div>
             <p>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.</p>
           </div>

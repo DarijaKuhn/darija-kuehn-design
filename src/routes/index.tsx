@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import churchAsset from "@/assets/church.jpg.asset.json";
+import fieldAsset from "@/assets/field.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -14,11 +15,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <header className="hero" id="start" role="banner">
-      {/* Left — Dresden Frauenkirche */}
+      {/* Left — field, clouds, tree */}
       <div className="hero-photo hero-photo-fade-r" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=88"
-          alt="Дрезден — Фрауэнкирхе, исторический центр города"
+          src={fieldAsset.url}
+          alt="Поле, дерево и облака — окрестности Дрездена"
           loading="eager"
         />
       </div>
