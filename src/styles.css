@@ -152,7 +152,8 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to left, transparent 45%, var(--white) 100%);
   pointer-events: none;
 }
-.church-building-photo img { object-position: center center; filter: brightness(1.02) saturate(1.05); }
+.church-building-photo img { object-position: left center; filter: brightness(1.02) saturate(1.05); }
+.hero-photo-left img { object-position: center center; }
 
 .hero-center {
   display: flex; flex-direction: column; align-items: center;
