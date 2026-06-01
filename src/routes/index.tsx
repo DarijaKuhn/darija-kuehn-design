@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import churchAsset from "@/assets/church.jpg.asset.json";
-import fieldAsset from "@/assets/field-new.jpg.asset.json";
+import fieldAsset from "@/assets/field-grass.jpg.asset.json";
 import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/")({
@@ -55,14 +55,14 @@ function Index() {
             </div>
           </div>
 
-          <div style={{ marginTop: 36, display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={{ marginTop: 20, display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
             <Link to="/map" className="btn btn-primary">{t("hero.findUs")}</Link>
             <Link to="/confession" className="btn btn-outline">{t("hero.ourFaith")}</Link>
           </div>
         </div>
 
-        {/* Right — church building, fully visible */}
-        <div className="hero-photo hero-photo-fade-l church-building-photo" aria-hidden="true">
+        {/* Right — church building, fills the column edge-to-edge */}
+        <div className="hero-photo church-building-photo" aria-hidden="true">
           <img
             src={churchAsset.url}
             alt="Здание Freie Evangeliums-Christen-Gemeinde Dresden e.V."

@@ -10,7 +10,7 @@ import {
 
 import { useState, useEffect, useRef } from "react";
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/fecg-logo.jpg.asset.json";
+import logoAsset from "@/assets/fecg-logo-new.png.asset.json";
 import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 
 function NotFoundComponent() {
