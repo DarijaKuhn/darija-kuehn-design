@@ -99,7 +99,7 @@ const translations: Record<Lang, Dict> = {
     "nav.sermons": "Sermons",
     "nav.contact": "Contact",
     "hero.eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
-    "hero.h1": "Evangelical Christian Baptist Church in Dresden",
+    "hero.h1": "Evangelical Christian Baptist\nChurch in Dresden",
     "hero.h2": "We are glad to welcome you to our community.",
     "hero.desc": "Russian-speaking Christian community.",
     "hero.schedule": "Service schedule",
