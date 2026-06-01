@@ -138,9 +138,20 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: minmax(0, 1fr) minmax(0, 760px) minmax(0, 1fr);
   background: var(--white);
   padding-top: 64px;
-  padding-bottom: 3rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
   position: relative;
   gap: 0;
+}
+.hero > * { margin-bottom: 0; }
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(30, 58, 30, 0.85) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 .hero-photo { overflow: hidden; position: relative; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -339,7 +350,7 @@ textarea.field-input { min-height: 120px; resize: vertical; }
 .quote-ref { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 
 /* Footer */
-footer { background: #1a2018; color: rgba(255,255,255,.78); padding: 48px 0 24px; margin-top: 0; }
+footer { background: #1e3a1e; color: rgba(255,255,255,.78); padding: 48px 0 24px; margin-top: 0; position: relative; z-index: 3; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 28px; }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
 footer h4 { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
@@ -347,7 +358,7 @@ footer p, footer a { font-size: 13.5px; line-height: 1.7; color: rgba(255,255,25
 footer a:hover { color: #fff; }
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: #fff; }
 .footer-brand .nav-logo-mark { background: var(--green); }
-.footer-bottom { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,.5); }
+.footer-bottom { margin-top: 32px; padding: 18px 24px 0; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,.5); background: #152b15; margin-left: -24px; margin-right: -24px; padding-bottom: 12px; }
 
 /* Field band between hero and footer */
 .field-band {
