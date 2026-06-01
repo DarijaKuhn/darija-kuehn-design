@@ -163,6 +163,7 @@ function Header() {
 
 function Footer() {
   const { t } = useI18n();
+  const year = new Date().getFullYear();
   return (
     <footer>
       <div className="container">
@@ -172,22 +173,34 @@ function Footer() {
               <img src={logoAsset.url} alt="FECG Dresden" style={{ height: 36, width: "auto" }} />
             </div>
             <p>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.</p>
+            <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>DSGVO-konform · Hosted in der EU</p>
           </div>
           <div>
-            <h4>Навигация</h4>
+            <h4>Navigation</h4>
             {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{t(l.key)}</Link>)}
           </div>
           <div>
-            <h4>Контакт</h4>
+            <h4>Kontakt</h4>
             <p>Altenberger Strasse 87<br />01279 Dresden, Deutschland</p>
             <a href="tel:+493512530403">+49 351 253 04 03</a>
             <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a>
-            <a href="https://propovednik.my1.ru" target="_blank" rel="noreferrer">propovednik.my1.ru</a>
+          </div>
+          <div>
+            <h4>Rechtliches</h4>
+            <Link to="/impressum">Impressum</Link>
+            <Link to="/datenschutz">Datenschutzerklärung</Link>
+            <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>
+              Vereinsregister: <em>AG Dresden, VR [Nr.]</em><br />
+              Vertreten durch: <em>[Vorstand]</em>
+            </p>
           </div>
         </div>
         <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} Freie Evangeliums-Christen-Gemeinde Dresden e.V.</div>
-          <div>DSGVO-konform</div>
+          <div>© {year} FREIE EVANGELIUMS-CHRISTEN-GEMEINDE DRESDEN E.V. — Alle Rechte vorbehalten.</div>
+          <div style={{ display: "flex", gap: 14 }}>
+            <Link to="/impressum">Impressum</Link>
+            <Link to="/datenschutz">Datenschutz</Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -196,14 +209,12 @@ function Footer() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHome = pathname === "/";
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
         <Header />
         <Outlet />
-        {!isHome && <Footer />}
+        <Footer />
       </I18nProvider>
     </QueryClientProvider>
   );
