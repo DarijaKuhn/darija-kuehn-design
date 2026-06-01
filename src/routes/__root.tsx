@@ -9,7 +9,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -17,8 +16,8 @@ function NotFoundComponent() {
     <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24 }}>
       <div style={{ textAlign: "center" }}>
         <h1 style={{ fontSize: 64, margin: 0 }}>404</h1>
-        <p style={{ color: "#6b716b" }}>Страница не найдена</p>
-        <Link to="/" className="pill" style={{ display: "inline-block", marginTop: 16 }}>На главную</Link>
+        <p style={{ color: "#7a9076" }}>Страница не найдена</p>
+        <Link to="/" className="btn btn-primary" style={{ display: "inline-block", marginTop: 16 }}>На главную</Link>
       </div>
     </div>
   );
@@ -31,7 +30,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24 }}>
       <div style={{ textAlign: "center" }}>
         <h1>Что-то пошло не так</h1>
-        <button className="pill" onClick={() => { router.invalidate(); reset(); }}>Попробовать снова</button>
+        <button className="btn btn-primary" onClick={() => { router.invalidate(); reset(); }}>Попробовать снова</button>
       </div>
     </div>
   );
@@ -42,16 +41,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Евангельские Христиане Дрезден — Freie Evangeliums-Christen-Gemeinde Dresden e.V." },
-      { name: "description", content: "Русскоязычная евангельская община в Дрездене. Altenberger Strasse 87, 01279 Dresden." },
-      { property: "og:title", content: "Евангельские Христиане Дрезден — Freie Evangeliums-Christen-Gemeinde Dresden e.V." },
-      { name: "twitter:title", content: "Евангельские Христиане Дрезден — Freie Evangeliums-Christen-Gemeinde Dresden e.V." },
-      { property: "og:description", content: "Русскоязычная евангельская община в Дрездене. Altenberger Strasse 87, 01279 Dresden." },
-      { name: "twitter:description", content: "Русскоязычная евангельская община в Дрездене. Altenberger Strasse 87, 01279 Dresden." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dcc3f074-d57c-47cb-a601-316ad3331458/id-preview-768f6f87--2934dca8-bc6c-431c-9cd9-03436b0982ae.lovable.app-1779908242532.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dcc3f074-d57c-47cb-a601-316ad3331458/id-preview-768f6f87--2934dca8-bc6c-431c-9cd9-03436b0982ae.lovable.app-1779908242532.png" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "FECG Dresden — Евангельская церковь, богослужения Вс 10:00" },
+      { name: "description", content: "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная церковь евангельских христиан-баптистов в Дрездене. Воскресные богослужения в 10:00. Altenberger Str. 87, 01279 Dresden." },
+      { name: "robots", content: "index, follow" },
+      { name: "geo.region", content: "DE-SN" },
+      { name: "geo.placename", content: "Dresden, Sachsen, Deutschland" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "FECG Dresden — Русскоязычная евангельская церковь" },
+      { property: "og:description", content: "Богослужения каждое воскресенье в 10:00. Altenberger Str. 87, 01279 Dresden." },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -70,65 +67,70 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NAV_LINKS = [
-  { to: "/", label: "Главная" },
-  { to: "/about", label: "О нас" },
-  { to: "/schedule", label: "Расписание" },
-  { to: "/ministries", label: "Служения" },
+const NAV_LINKS: ReadonlyArray<{ to: string; label: string; home?: boolean }> = [
+  { to: "/", label: "Главная", home: true },
+  { to: "/confession", label: "Вероисповедание" },
+  { to: "/services", label: "Богослужения" },
+  { to: "/map", label: "Как нас найти" },
+  { to: "/gallery", label: "Фото" },
+  { to: "/sermons", label: "Проповеди" },
   { to: "/contact", label: "Контакт" },
-] as const;
+];
 
-function InnerHeader() {
+function Header() {
   return (
     <nav className="nav">
-      <Link to="/" className="brand">
-        <div className="brand-mark">✝</div>
-        <div className="brand-name">EChG<small>Dresden</small></div>
-      </Link>
-
-      <div className="nav-pills">
-        {NAV_LINKS.map((l) => (
-          <Link
-            key={l.to}
-            to={l.to}
-            className="pill"
-            activeProps={{ className: "pill active" }}
-            activeOptions={{ exact: l.to === "/" }}
-          >
-            {l.label}
-          </Link>
-        ))}
+      <div className="nav-inner">
+        <Link to="/" className="nav-logo">
+          <div className="nav-logo-mark">✝</div>
+          <div className="nav-logo-text">FECG<small>Dresden</small></div>
+        </Link>
+        <div className="nav-links">
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to as "/"}
+              className={`nav-btn ${l.home ? "nav-btn-home" : ""}`}
+              activeProps={{ className: `nav-btn ${l.home ? "nav-btn-home" : ""} active` }}
+              activeOptions={{ exact: l.to === "/" }}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );
 }
 
-
 function Footer() {
   return (
     <footer>
-      <div className="foot-inner">
-        <div className="foot-col">
-          <div className="brand" style={{ marginBottom: 14 }}>
-            <div className="brand-mark">✝</div>
-            <div className="brand-name">Евангельские Христиане<small>Dresden · Germany</small></div>
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <div className="footer-brand">
+              <div className="nav-logo-mark">✝</div>
+              FECG Dresden
+            </div>
+            <p>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.</p>
           </div>
-          <p style={{ color: "#6b716b" }}>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская община в Саксонии.</p>
+          <div>
+            <h4>Навигация</h4>
+            {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{l.label}</Link>)}
+          </div>
+          <div>
+            <h4>Контакт</h4>
+            <p>Altenberger Strasse 87<br />01279 Dresden, Deutschland</p>
+            <a href="tel:+493512530403">+49 351 253 04 03</a>
+            <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a>
+            <a href="https://propovednik.my1.ru" target="_blank" rel="noreferrer">propovednik.my1.ru</a>
+          </div>
         </div>
-        <div className="foot-col">
-          <h4>Навигация</h4>
-          {NAV_LINKS.map((l) => <Link key={l.to} to={l.to}>{l.label}</Link>)}
+        <div className="footer-bottom">
+          <div>© {new Date().getFullYear()} Freie Evangeliums-Christen-Gemeinde Dresden e.V.</div>
+          <div>DSGVO-konform</div>
         </div>
-        <div className="foot-col">
-          <h4>Контакт</h4>
-          <p>Altenberger Strasse 87<br/>01279 Dresden, Deutschland</p>
-          <a href="tel:+4903512530403">+49 (0) 351 253 04 03</a>
-          <a href="https://propovednik.my1.ru" target="_blank" rel="noreferrer">propovednik.my1.ru</a>
-        </div>
-      </div>
-      <div className="foot-bottom">
-        <div>© {new Date().getFullYear()} Freie Evangeliums-Christen-Gemeinde Dresden e.V.</div>
-        <div>DSGVO-konform · Keine externen Fonts</div>
       </div>
     </footer>
   );
@@ -140,7 +142,7 @@ function RootComponent() {
   const isHome = pathname === "/";
   return (
     <QueryClientProvider client={queryClient}>
-      {!isHome && <InnerHeader />}
+      <Header />
       <Outlet />
       {!isHome && <Footer />}
     </QueryClientProvider>
