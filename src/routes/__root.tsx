@@ -89,7 +89,7 @@ function Header() {
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}
-              to={l.to}
+              to={l.to as "/"}
               className={`nav-btn ${l.home ? "nav-btn-home" : ""}`}
               activeProps={{ className: `nav-btn ${l.home ? "nav-btn-home" : ""} active` }}
               activeOptions={{ exact: l.to === "/" }}
