@@ -54,7 +54,7 @@ function Index() {
           </div>
         </div>
 
-        <div style={{ marginTop: 20, display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+        <div style={{ marginTop: 20, display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           <Link to="/map" className="btn btn-primary">{t("hero.findUs")}</Link>
           <Link to="/confession" className="btn btn-outline">{t("hero.ourFaith")}</Link>
         </div>
