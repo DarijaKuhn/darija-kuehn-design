@@ -1,68 +1,74 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import churchPhoto from "@/assets/church.jpeg";
-
-function Typewriter({ text, speed = 90 }: { text: string; speed?: number }) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (n >= text.length) return;
-    const id = setTimeout(() => setN(n + 1), speed);
-    return () => clearTimeout(id);
-  }, [n, text.length, speed]);
-  const done = n >= text.length;
-  return (
-    <>
-      {text.slice(0, n)}
-      <span className={`tw-caret ${done ? "tw-caret-stop" : ""}`} aria-hidden>|</span>
-    </>
-  );
-}
+import { createFileRoute, Link } from "@tanstack/react-router";
+import churchAsset from "@/assets/church.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "FECG Dresden — Евангельская церковь, богослужения Вс 10:00" },
+      { name: "description", content: "Русскоязычная евангельская церковь в Дрездене. Воскресные богослужения в 10:00. Altenberger Str. 87, 01279 Dresden." },
+    ],
+  }),
 });
 
 function Index() {
-  const navigate = useNavigate();
   return (
-    <section className="cover">
-      <img className="cover-bg" src={churchPhoto} alt="Freie Evangeliums-Christen-Gemeinde Dresden" />
-      <div className="cover-tint" />
+    <header className="hero" id="start" role="banner">
+      {/* Left — Dresden Frauenkirche */}
+      <div className="hero-photo hero-photo-fade-r" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=88"
+          alt="Дрезден — Фрауэнкирхе, исторический центр города"
+          loading="eager"
+        />
+      </div>
 
-      <Link to="/schedule" className="cover-menu">
-        <span className="cm-icon"><span /><span /></span>
-        Menu
-      </Link>
+      {/* Center */}
+      <div className="hero-center">
+        <p className="hero-eyebrow">Freie Evangeliums-Christen-Gemeinde Dresden e.V.</p>
+        <h1 className="hero-title">Рады видеть вас в нашей общине</h1>
+        <p className="hero-subtitle">Церковь Евангельских Христиан-Баптистов в Дрездене</p>
+        <p className="hero-desc">Русскоязычная христианская община.</p>
 
-      <div className="cover-inner">
-        <h1 className="cover-title">
-          <span className="ct-line">
-            <Typewriter text="Евангельские" speed={80} />
-          </span>
-          <span className="ct-line ct-script">
-            <Typewriter text="Христиане" speed={110} />
-          </span>
-        </h1>
+        <div className="hero-schedule" aria-label="Расписание богослужений">
+          <div className="hs-card">
+            <div className="hs-day">Среда</div>
+            <div className="hs-time">18:00</div>
+            <div className="hs-name">Молитвенное служение</div>
+          </div>
+          <div className="hs-card">
+            <div className="hs-day">Пятница</div>
+            <div className="hs-time">18:00</div>
+            <div className="hs-name">Изучение Библии</div>
+          </div>
+          <div className="hs-card">
+            <div className="hs-day">Суббота</div>
+            <div className="hs-time">13:30</div>
+            <div className="hs-name">Молодёжное общение</div>
+            <span className="hs-badge-gray">по договорённости</span>
+          </div>
+          <div className="hs-card hs-card-accent">
+            <div className="hs-day">Воскресенье</div>
+            <div className="hs-time">10:00</div>
+            <div className="hs-name">Воскресное богослужение</div>
+            <span className="hs-badge">Главное служение</span>
+          </div>
+        </div>
 
-        <div className="cover-body">
-          <div className="cover-kicker">Дом, где звучит живое Слово</div>
-          <p className="cover-sub">
-            Русскоязычная евангельская община в Дрездене — место молитвы,
-            изучения Писания и тёплого общения во Христе. Мы будем рады встретить вас на богослужении.
-          </p>
-
-          <button className="cover-cta" onClick={() => navigate({ to: "/contact" })}>
-            Как нас найти <span className="arr">➜</span>
-          </button>
+        <div style={{ marginTop: 36, display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+          <Link to="/map" className="btn btn-primary">Как нас найти →</Link>
+          <Link to="/confession" className="btn btn-outline">Наше вероисповедание</Link>
         </div>
       </div>
 
-      <div className="cover-roles">
-        <Link to="/schedule">Богослужения</Link><span>|</span>
-        <Link to="/ministries">Служения</Link><span>|</span>
-        <Link to="/about">О нас</Link><span>|</span>
-        <Link to="/contact">Контакт</Link>
+      {/* Right — church building */}
+      <div className="hero-photo hero-photo-fade-l church-building-photo" aria-hidden="true">
+        <img
+          src={churchAsset.url}
+          alt="Здание Freie Evangeliums-Christen-Gemeinde Dresden e.V."
+          loading="eager"
+        />
       </div>
-    </section>
+    </header>
   );
 }
