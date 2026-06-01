@@ -35,7 +35,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 1px 12px rgba(0,0,0,.06);
 }
 .nav-inner {
-  max-width: 1160px; margin: 0 auto; padding: 0 24px;
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
   height: 64px; display: flex; align-items: center; gap: 14px;
 }
 .nav-logo {
@@ -45,9 +45,16 @@ a { color: inherit; text-decoration: none; }
   height: 40px; width: auto; display: block;
   object-fit: contain;
 }
+
+.nav-links {
+  display: flex; gap: 5px; list-style: none; align-items: center; flex-wrap: wrap;
+  justify-content: center; flex: 1 1 auto;
+}
+.nav-right { display: flex; align-items: center; flex-shrink: 0; }
+
+.lang-picker { position: relative; }
 .lang-switch {
   display: inline-flex; align-items: center; gap: 6px;
-  margin-left: 6px;
   padding: 6px 11px;
   border-radius: 100px;
   border: 1.5px solid rgba(42,92,39,.3);
@@ -56,10 +63,28 @@ a { color: inherit; text-decoration: none; }
   transition: background .15s, border-color .15s, color .15s;
 }
 .lang-switch:hover { background: rgba(42,92,39,.08); border-color: var(--green); color: var(--green-dark); }
-
-.nav-links {
-  display: flex; gap: 5px; list-style: none; margin-left: auto; align-items: center; flex-wrap: wrap;
+.lang-menu {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 180px;
+  background: #fff; border: 1px solid var(--line-2);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+  list-style: none; margin: 0; padding: 6px;
+  z-index: 200;
 }
+.lang-menu-item {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border: none; background: transparent;
+  border-radius: 8px; cursor: pointer; text-align: left;
+  font: 500 13px var(--font-sans); color: var(--ink);
+  transition: background .12s;
+}
+.lang-menu-item:hover { background: var(--green-soft); }
+.lang-menu-item.active { background: var(--green-soft); color: var(--green-dark); font-weight: 700; }
+.lang-flag { font-size: 16px; line-height: 1; }
+.lang-name { flex: 1; }
+.lang-code { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .08em; }
+
 .nav-btn {
   position: relative;
   font-family: var(--font-sans);
@@ -127,7 +152,8 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to left, transparent 45%, var(--white) 100%);
   pointer-events: none;
 }
-.church-building-photo img { object-position: center center; filter: brightness(1.02) saturate(1.05); }
+.church-building-photo img { object-position: left center; filter: brightness(1.02) saturate(1.05); }
+.hero-photo-left img { object-position: center center; }
 
 .hero-center {
   display: flex; flex-direction: column; align-items: center;
