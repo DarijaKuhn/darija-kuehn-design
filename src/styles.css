@@ -135,7 +135,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   min-height: calc(100vh - 64px);
   display: grid;
-  grid-template-columns: minmax(0, 200px) minmax(0, 1fr) minmax(0, 440px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 760px) minmax(0, 1fr);
   background: var(--white);
   padding-top: 64px;
   position: relative;
@@ -145,11 +145,15 @@ a { color: inherit; text-decoration: none; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 .hero-photo-fade-r::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to right, transparent 70%, var(--white) 100%);
+  background: linear-gradient(to right, transparent 60%, var(--white) 100%);
   pointer-events: none;
 }
-.church-building-photo { background: var(--white); }
-.church-building-photo img { object-position: right center; object-fit: contain; }
+.hero-photo-fade-l::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to left, transparent 60%, var(--white) 100%);
+  pointer-events: none;
+}
+.church-building-photo img { object-position: right center; object-fit: cover; }
 
 .hero-center {
   display: flex; flex-direction: column; align-items: center;
