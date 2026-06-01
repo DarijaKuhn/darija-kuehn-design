@@ -138,9 +138,20 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: minmax(0, 1fr) minmax(0, 760px) minmax(0, 1fr);
   background: var(--white);
   padding-top: 64px;
-  padding-bottom: 3rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
   position: relative;
   gap: 0;
+}
+.hero > * { margin-bottom: 0; }
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(30, 58, 30, 0.85) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 .hero-photo { overflow: hidden; position: relative; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
