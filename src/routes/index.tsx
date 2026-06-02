@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import churchFieldAsset from "@/assets/church-field.jpg.asset.json";
-import fieldAsset from "@/assets/field-new.jpg.asset.json";
+import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
 import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/")({
@@ -16,14 +15,13 @@ export const Route = createFileRoute("/")({
 function Index() {
   const { t } = useI18n();
   return (
-    <header className="hero" id="start" role="banner">
-      {/* Left — field, clouds, tree */}
-      <div className="hero-photo hero-photo-fade-r hero-photo-left" aria-hidden="true">
-        <img src={fieldAsset.url} alt="" loading="eager" />
-      </div>
-
-      {/* Center */}
-      <div className="hero-center">
+    <header
+      className="hero"
+      id="start"
+      role="banner"
+      style={{ backgroundImage: `url(${heroBgAsset.url})` }}
+    >
+      <div className="hero-card">
         <p className="hero-eyebrow">{t("hero.eyebrow")}</p>
         <h1 className="hero-title">{t("hero.h1")}</h1>
         <h2 className="hero-subtitle">{t("hero.h2")}</h2>
@@ -58,15 +56,6 @@ function Index() {
           <Link to="/map" className="btn btn-primary">{t("hero.findUs")}</Link>
           <Link to="/confession" className="btn btn-outline">{t("hero.ourFaith")}</Link>
         </div>
-      </div>
-
-      {/* Right — church building photo full height */}
-      <div className="hero-photo hero-photo-fade-l church-building-photo" aria-hidden="true">
-        <img
-          src={churchFieldAsset.url}
-          alt="Здание Freie Evangeliums-Christen-Gemeinde Dresden e.V."
-          loading="eager"
-        />
       </div>
     </header>
   );
