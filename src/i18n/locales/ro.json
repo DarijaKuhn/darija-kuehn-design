@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "confession": "Credință",
+    "services": "Slujbe",
+    "map": "Cum ne găsiți",
+    "gallery": "Foto",
+    "sermons": "Predici",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Biserica Creștină Baptistă Evanghelică din Dresda",
+    "h2": "Ne bucurăm să vă întâmpinăm în comunitatea noastră.",
+    "desc": "Comunitate creștină vorbitoare de limba rusă.",
+    "schedule": "Programul slujbelor",
+    "wed": "Miercuri",
+    "fri": "Vineri",
+    "sat": "Sâmbătă",
+    "sun": "Duminică",
+    "prayer": "Slujbă de rugăciune",
+    "bible": "Studiu biblic",
+    "youth": "Întâlnirea tinerilor",
+    "byArr": "prin programare",
+    "sundaySvc": "Slujbă de duminică",
+    "mainSvc": "Slujba principală",
+    "findUs": "Cum ne găsiți →",
+    "ourFaith": "Credința noastră"
+  },
+  "footer": {
+    "navigation": "Navigare",
+    "contact": "Contact",
+    "legal": "Juridic",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — biserică evanghelică vorbitoare de rusă în Saxonia. Slujba de duminică la 10:00.",
+    "rights": "Toate drepturile rezervate.",
+    "instaText": "Urmărește-ne pe Instagram",
+    "dsgvo": "Conform GDPR · Găzduit în UE"
+  },
+  "legalDisclaimer": "Doar versiunea germană este obligatorie din punct de vedere juridic. Traducerile sunt furnizate doar pentru comoditatea utilizatorilor.",
+  "consent": {
+    "title": "Preferințe de confidențialitate",
+    "body": "Folosim cookie-uri și tehnologii similare pentru a opera acest site. Puteți decide ce categorii doriți să permiteți.",
+    "linksIntro": "Mai multe informații în",
+    "linkDatenschutz": "Politica de confidențialitate",
+    "and": "și în",
+    "linkImpressum": "Impressum",
+    "essential": "Necesare",
+    "essentialDesc": "Aceste cookie-uri sunt necesare pentru funcționarea site-ului și nu pot fi dezactivate.",
+    "analytics": "Analiză",
+    "analyticsDesc": "Ne ajută să înțelegem cum interacționează vizitatorii cu site-ul.",
+    "functional": "Funcționale",
+    "functionalDesc": "Permit funcții avansate precum selectarea limbii și personalizarea.",
+    "acceptAll": "Acceptă toate",
+    "acceptEssential": "Doar cele necesare",
+    "saveSettings": "Salvează selecția"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Politica de confidențialitate",
+    "breadcrumbHome": "Acasă",
+    "translationNotice": "Versiunea germană de mai jos este singurul text obligatoriu din punct de vedere juridic."
+  }
+}

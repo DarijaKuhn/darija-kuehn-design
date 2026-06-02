@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "confession": "Faith",
+    "services": "Services",
+    "map": "Find Us",
+    "gallery": "Photos",
+    "sermons": "Sermons",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Evangelical Christian Baptist Church in Dresden",
+    "h2": "We are glad to welcome you to our community.",
+    "desc": "Russian-speaking Christian community.",
+    "schedule": "Service schedule",
+    "wed": "Wednesday",
+    "fri": "Friday",
+    "sat": "Saturday",
+    "sun": "Sunday",
+    "prayer": "Prayer service",
+    "bible": "Bible study",
+    "youth": "Youth fellowship",
+    "byArr": "by arrangement",
+    "sundaySvc": "Sunday service",
+    "mainSvc": "Main service",
+    "findUs": "How to find us →",
+    "ourFaith": "Our faith"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "legal": "Legal",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — a Russian-speaking evangelical church in Saxony. Sunday service at 10:00.",
+    "rights": "All rights reserved.",
+    "instaText": "Follow us on Instagram",
+    "dsgvo": "GDPR-compliant · Hosted in the EU"
+  },
+  "legalDisclaimer": "The German version is the only legally binding version. Translations are provided for user convenience only.",
+  "consent": {
+    "title": "Privacy preferences",
+    "body": "We use cookies and similar technologies to operate this website. You can decide which categories you want to allow. Please note that based on your settings not all features may be available.",
+    "linksIntro": "More information in our",
+    "linkDatenschutz": "Privacy Policy",
+    "and": "and",
+    "linkImpressum": "Imprint",
+    "essential": "Essential",
+    "essentialDesc": "These cookies are required for the operation of the website and cannot be disabled.",
+    "analytics": "Analytics",
+    "analyticsDesc": "Help us understand how visitors interact with the website.",
+    "functional": "Functional",
+    "functionalDesc": "Enable enhanced features such as language selection and personalisation.",
+    "acceptAll": "Accept all",
+    "acceptEssential": "Accept only essential",
+    "saveSettings": "Save selection"
+  },
+  "legal": {
+    "impressumTitle": "Imprint",
+    "datenschutzTitle": "Privacy Policy",
+    "breadcrumbHome": "Home",
+    "translationNotice": "The German version below is the only legally binding text. This translation is provided for convenience."
+  }
+}

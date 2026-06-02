@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "confession": "Wyznanie wiary",
+    "services": "Nabożeństwa",
+    "map": "Jak nas znaleźć",
+    "gallery": "Zdjęcia",
+    "sermons": "Kazania",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Kościół Ewangelicznych Chrześcijan Baptystów w Dreźnie",
+    "h2": "Cieszymy się, że odwiedzasz naszą wspólnotę.",
+    "desc": "Rosyjskojęzyczna wspólnota chrześcijańska.",
+    "schedule": "Plan nabożeństw",
+    "wed": "Środa",
+    "fri": "Piątek",
+    "sat": "Sobota",
+    "sun": "Niedziela",
+    "prayer": "Nabożeństwo modlitewne",
+    "bible": "Studium Biblii",
+    "youth": "Spotkanie młodzieży",
+    "byArr": "po uzgodnieniu",
+    "sundaySvc": "Nabożeństwo niedzielne",
+    "mainSvc": "Nabożeństwo główne",
+    "findUs": "Jak nas znaleźć →",
+    "ourFaith": "Nasza wiara"
+  },
+  "footer": {
+    "navigation": "Nawigacja",
+    "contact": "Kontakt",
+    "legal": "Informacje prawne",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — rosyjskojęzyczny kościół ewangeliczny w Saksonii. Nabożeństwo niedzielne o 10:00.",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "instaText": "Obserwuj nas na Instagramie",
+    "dsgvo": "Zgodny z RODO · Hostowany w UE"
+  },
+  "legalDisclaimer": "Tylko wersja niemiecka jest prawnie wiążąca. Tłumaczenia są udostępniane wyłącznie dla wygody użytkowników.",
+  "consent": {
+    "title": "Ustawienia prywatności",
+    "body": "Używamy plików cookie i podobnych technologii do obsługi tej strony. Możesz zdecydować, które kategorie chcesz zezwolić.",
+    "linksIntro": "Więcej informacji w naszej",
+    "linkDatenschutz": "Polityce prywatności",
+    "and": "oraz w",
+    "linkImpressum": "Impressum",
+    "essential": "Niezbędne",
+    "essentialDesc": "Te pliki cookie są niezbędne do działania strony i nie można ich wyłączyć.",
+    "analytics": "Analityka",
+    "analyticsDesc": "Pomagają nam zrozumieć, jak odwiedzający korzystają ze strony.",
+    "functional": "Funkcjonalne",
+    "functionalDesc": "Umożliwiają funkcje takie jak wybór języka i personalizacja.",
+    "acceptAll": "Akceptuj wszystkie",
+    "acceptEssential": "Tylko niezbędne",
+    "saveSettings": "Zapisz wybór"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Polityka prywatności",
+    "breadcrumbHome": "Strona główna",
+    "translationNotice": "Wersja niemiecka poniżej jest jedynym prawnie wiążącym tekstem."
+  }
+}

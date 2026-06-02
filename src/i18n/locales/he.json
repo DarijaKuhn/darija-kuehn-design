@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "דף הבית",
+    "confession": "אמונה",
+    "services": "תפילות",
+    "map": "איך להגיע",
+    "gallery": "תמונות",
+    "sermons": "דרשות",
+    "contact": "צור קשר"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "כנסיית הבפטיסטים האוונגליסטים בדרזדן",
+    "h2": "אנו שמחים לראותכם בקהילתנו.",
+    "desc": "קהילה נוצרית דוברת רוסית.",
+    "schedule": "לוח התפילות",
+    "wed": "רביעי",
+    "fri": "שישי",
+    "sat": "שבת",
+    "sun": "ראשון",
+    "prayer": "תפילה",
+    "bible": "לימוד תנ\"ך",
+    "youth": "מפגש נוער",
+    "byArr": "בתיאום מראש",
+    "sundaySvc": "תפילת יום ראשון",
+    "mainSvc": "תפילה ראשית",
+    "findUs": "איך למצוא אותנו →",
+    "ourFaith": "האמונה שלנו"
+  },
+  "footer": {
+    "navigation": "ניווט",
+    "contact": "צור קשר",
+    "legal": "משפטי",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — כנסייה אוונגליסטית דוברת רוסית בסקסוניה. תפילת יום ראשון בשעה 10:00.",
+    "rights": "כל הזכויות שמורות.",
+    "instaText": "עקבו אחרינו באינסטגרם",
+    "dsgvo": "תואם GDPR · מאוחסן באיחוד האירופי"
+  },
+  "legalDisclaimer": "הגרסה הגרמנית בלבד מחייבת מבחינה משפטית. התרגומים מסופקים לנוחות המשתמשים בלבד.",
+  "consent": {
+    "title": "העדפות פרטיות",
+    "body": "אנו משתמשים בקובצי Cookie ובטכנולוגיות דומות להפעלת אתר זה. ניתן להחליט אילו קטגוריות לאשר.",
+    "linksIntro": "מידע נוסף ב",
+    "linkDatenschutz": "מדיניות הפרטיות",
+    "and": "וב",
+    "linkImpressum": "Impressum",
+    "essential": "הכרחי",
+    "essentialDesc": "קובצי Cookie אלה נדרשים להפעלת האתר ולא ניתן להשבית אותם.",
+    "analytics": "אנליטיקה",
+    "analyticsDesc": "עוזרים לנו להבין כיצד מבקרים משתמשים באתר.",
+    "functional": "פונקציונלי",
+    "functionalDesc": "מאפשרים תכונות כמו בחירת שפה והתאמה אישית.",
+    "acceptAll": "אשר הכל",
+    "acceptEssential": "אשר רק הכרחי",
+    "saveSettings": "שמור בחירה"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "מדיניות פרטיות",
+    "breadcrumbHome": "דף הבית",
+    "translationNotice": "הגרסה הגרמנית להלן היא הטקסט המחייב היחיד מבחינה משפטית."
+  }
+}
