@@ -67,12 +67,16 @@ a { color: inherit; text-decoration: none; }
 .lang-switch:hover { background: rgba(42,92,39,.08); border-color: var(--green); color: var(--green-dark); }
 .lang-menu {
   position: absolute; top: calc(100% + 8px); right: 0;
-  min-width: 180px;
+  min-width: 180px; max-height: 400px; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
   background: #fff; border: 1px solid var(--line-2);
   border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+  box-shadow: 0 20px 48px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.08);
   list-style: none; margin: 0; padding: 6px;
   z-index: 200;
+}
+@media (max-width: 767px) {
+  .lang-menu { max-height: 60vh; min-width: 200px; }
 }
 .lang-menu-item {
   width: 100%; display: flex; align-items: center; gap: 10px;
