@@ -1,49 +1,54 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
+import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
   head: () => ({
     meta: [
-      { title: "Фотоальбом — Наша жизнь в фотографиях — FECG Dresden" },
-      { name: "description", content: "Фотографии из жизни общины FECG Dresden: пение гимнов, изучение Библии, воскресная школа, праздник Жатвы и совместный отдых." },
+      { title: "Fotos — FECG Dresden" },
+      { name: "description", content: "Fotos aus dem Gemeindeleben der FECG Dresden." },
     ],
   }),
 });
 
-const photos = [
-  { src: "https://propovednik.my1.ru/_ph/2/929144416.jpg", caption: "Пение гимнов" },
-  { src: "https://propovednik.my1.ru/_ph/2/265012383.jpg", caption: "Слово Божие" },
-  { src: "https://propovednik.my1.ru/_ph/2/938507766.jpg", caption: "Воскресная школа" },
-  { src: "https://propovednik.my1.ru/_ph/2/156270282.jpg", caption: "Братское приветствие" },
-  { src: "https://propovednik.my1.ru/_ph/1/828782037.jpg", caption: "Совместный отдых" },
-  { src: "https://propovednik.my1.ru/_ph/2/279078373.jpg", caption: "Праздник Жатвы" },
+const photoSrcs = [
+  "https://propovednik.my1.ru/_ph/2/929144416.jpg",
+  "https://propovednik.my1.ru/_ph/2/265012383.jpg",
+  "https://propovednik.my1.ru/_ph/2/938507766.jpg",
+  "https://propovednik.my1.ru/_ph/2/156270282.jpg",
+  "https://propovednik.my1.ru/_ph/1/828782037.jpg",
+  "https://propovednik.my1.ru/_ph/2/279078373.jpg",
 ];
 
 function Gallery() {
+  const { t } = useI18n();
+  const { i18n } = useTranslation();
+  const captions = (i18n.t("pages.gallery.captions", { returnObjects: true }) as string[]) || [];
   return (
     <div className="page-panel">
       <div className="page-breadcrumb">
         <div className="page-breadcrumb-inner container">
-          <Link to="/">Главная</Link>
+          <Link to="/">{t("legal.breadcrumbHome")}</Link>
           <span>›</span>
-          <span className="crumb-here">Фотографии</span>
+          <span className="crumb-here">{t("pages.gallery.crumb")}</span>
         </div>
       </div>
       <section className="section section-bg">
         <div className="container">
-          <div className="label" style={{ marginBottom: 8 }}>Фотоальбом</div>
-          <h1 className="section-h">Наша жизнь в фотографиях</h1>
+          <div className="label" style={{ marginBottom: 8 }}>{t("pages.gallery.eyebrow")}</div>
+          <h1 className="section-h">{t("pages.gallery.h1")}</h1>
           <div className="gallery-grid">
-            {photos.map((p) => (
-              <div className="gallery-item" key={p.src}>
-                <img src={p.src} alt={`${p.caption} — FECG Dresden`} loading="lazy" />
-                <div className="gallery-caption">{p.caption}</div>
+            {photoSrcs.map((src, i) => (
+              <div className="gallery-item" key={src}>
+                <img src={src} alt={`${captions[i] ?? ""} — FECG Dresden`} loading="lazy" />
+                <div className="gallery-caption">{captions[i]}</div>
               </div>
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 28 }}>
             <a href="https://propovednik.my1.ru/photo" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-              Все фотографии →
+              {t("pages.gallery.btnAll")}
             </a>
           </div>
         </div>

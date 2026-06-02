@@ -145,5 +145,169 @@
         "p": "Ci riserviamo il diritto di adeguare questa informativa ai requisiti di legge vigenti."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Confessione di fede",
+      "eyebrow": "Confessione di fede",
+      "h1": "La nostra confessione di fede",
+      "intro": "Siamo cristiani evangelici battisti e crediamo che la Bibbia sia l'unica autorità in materia di fede e di vita.",
+      "h2": "Principi fondamentali della nostra fede",
+      "items": [
+        [
+          "Sacra Scrittura",
+          "La Bibbia è la Parola di Dio, ispirata, infallibile e autorevole."
+        ],
+        [
+          "Dio trinitario",
+          "Crediamo in un solo Dio che esiste eternamente in tre Persone: Padre, Figlio e Spirito Santo."
+        ],
+        [
+          "Salvezza per grazia",
+          "La salvezza si ottiene solo per fede in Gesù Cristo, morto e risorto per la nostra redenzione."
+        ],
+        [
+          "Battesimo dei credenti",
+          "Il battesimo avviene per immersione per coloro che hanno accettato consapevolmente Cristo."
+        ],
+        [
+          "Cena del Signore",
+          "Celebrata regolarmente in memoria del sacrificio di Cristo."
+        ],
+        [
+          "Ritorno di Cristo",
+          "Attendiamo il ritorno letterale e personale di Gesù Cristo."
+        ]
+      ],
+      "quote": "«Dio ha tanto amato il mondo, che ha dato il suo unigenito Figlio, affinché chiunque crede in lui non perisca, ma abbia vita eterna.»",
+      "quoteRef": "Giovanni 3:16"
+    },
+    "services": {
+      "crumb": "Funzioni",
+      "eyebrow": "Programma",
+      "h1": "Funzioni ed eventi",
+      "intro": "La funzione domenicale è l'incontro principale della settimana. Durante la settimana si tengono incontri di preghiera, studio biblico e incontri giovanili.",
+      "events": [
+        [
+          "07",
+          "Dic",
+          "Funzione domenicale",
+          "Dom · 10:00 · assemblea generale"
+        ],
+        [
+          "10",
+          "Dic",
+          "Incontro di preghiera",
+          "Mer · 18:00"
+        ],
+        [
+          "12",
+          "Dic",
+          "Studio biblico",
+          "Ven · 18:00"
+        ],
+        [
+          "14",
+          "Dic",
+          "Funzione domenicale",
+          "Dom · 10:00 · con comunione"
+        ],
+        [
+          "20",
+          "Dic",
+          "Incontro giovani",
+          "Sab · 13:30 · su appuntamento"
+        ],
+        [
+          "24",
+          "Dic",
+          "Vigilia di Natale — funzione festiva",
+          "Mer · 18:00"
+        ]
+      ],
+      "quote": "«Quanto sono belli i piedi di quelli che annunciano buone notizie!»",
+      "quoteRef": "Romani 10:15"
+    },
+    "contact": {
+      "crumb": "Contatti",
+      "eyebrow": "Scrivici",
+      "h1": "Mettiti in contatto",
+      "intro": "Puoi inviarci feedback e domande su temi cristiani.",
+      "email": "E-mail",
+      "phone": "Telefono",
+      "address": "Indirizzo",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Inviaci un messaggio",
+      "cardSub": "Risponderemo a breve.",
+      "fName": "Nome",
+      "fNamePh": "Mario Rossi",
+      "fEmailPh": "mario@esempio.it",
+      "fMsg": "Messaggio",
+      "fMsgPh": "La tua domanda o commento...",
+      "captcha": "Protezione antispam: quanto fa {a} + {b}?",
+      "captchaPh": "Inserisci un numero",
+      "btn": "Invia messaggio →",
+      "privacy": "I dati vengono usati solo per risponderti.",
+      "sent": "Client email aperto — invia il messaggio per completare.",
+      "errSend": "Errore di invio.",
+      "errSlow": "Compila il modulo con attenzione.",
+      "errCaptcha": "Risposta errata alla domanda di verifica.",
+      "errName": "Inserisci il nome",
+      "errEmail": "Email non valida",
+      "errMsg": "Messaggio troppo corto",
+      "errCheck": "Controlla i dati.",
+      "subject": "Messaggio dal sito: {name}",
+      "from": "Da",
+      "hpLabel": "Non compilare questo campo"
+    },
+    "gallery": {
+      "crumb": "Foto",
+      "eyebrow": "Album fotografico",
+      "h1": "La nostra vita in immagini",
+      "captions": [
+        "Canto di inni",
+        "Parola di Dio",
+        "Scuola domenicale",
+        "Saluto fraterno",
+        "Tempo insieme",
+        "Festa del raccolto"
+      ],
+      "btnAll": "Tutte le foto →"
+    },
+    "sermons": {
+      "crumb": "Sermoni",
+      "eyebrow": "Audio",
+      "h1": "Sermoni",
+      "intro": "Ascolta le registrazioni delle nostre funzioni domenicali e studi biblici su propovednik.my1.ru",
+      "btn": "Ascolta i sermoni →",
+      "archive": "Archivio dei sermoni sul nostro sito"
+    },
+    "map": {
+      "crumb": "Come trovarci",
+      "eyebrow": "Indicazioni",
+      "h1": "Ci trovate a Dresda",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Autobus",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Tram",
+      "tramStop": "Marienberger Strasse",
+      "car": "In auto",
+      "carVal": "Parcheggio gratuito",
+      "carSub": "Vicino alla chiesa",
+      "phone": "Telefono",
+      "addressLabel": "Indirizzo",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Sassonia",
+      "phoneSub": "Chiamaci in qualsiasi momento",
+      "emailLabel": "E-mail",
+      "emailSub": "Scrivici direttamente"
+    },
+    "mapConsent": {
+      "aria": "Informativa sulla privacy OpenStreetMap",
+      "title": "Informativa sulla privacy",
+      "text": "Per visualizzare la mappa interattiva e pianificare il percorso, attivala con un clic. Verranno trasmessi dati (incl. il tuo indirizzo IP) a OpenStreetMap. Base giuridica: art. 6 par. 1 lett. a GDPR.",
+      "btn": "Attiva mappa"
+    }
   }
 }

@@ -145,5 +145,169 @@
         "p": "Ne rezervăm dreptul de a actualiza această declarație pentru a respecta cerințele legale în vigoare."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Mărturisirea de credință",
+      "eyebrow": "Mărturisirea de credință",
+      "h1": "Mărturisirea noastră de credință",
+      "intro": "Suntem creștini evanghelici baptiști și credem că Biblia este singura autoritate în chestiunile de credință și de viață.",
+      "h2": "Fundamentele credinței noastre",
+      "items": [
+        [
+          "Sfânta Scriptură",
+          "Biblia este Cuvântul lui Dumnezeu — inspirată, infailibilă și autoritară."
+        ],
+        [
+          "Dumnezeu treimic",
+          "Credem într-un singur Dumnezeu, care există veșnic în trei Persoane: Tatăl, Fiul și Duhul Sfânt."
+        ],
+        [
+          "Mântuirea prin har",
+          "Mântuirea se obține doar prin credința în Isus Hristos, care a murit și a înviat pentru răscumpărarea noastră."
+        ],
+        [
+          "Botezul credincioșilor",
+          "Botezul se face prin scufundare pentru cei care l-au primit conștient pe Hristos."
+        ],
+        [
+          "Cina Domnului",
+          "Sărbătorită regulat în amintirea jertfei lui Hristos."
+        ],
+        [
+          "Revenirea lui Hristos",
+          "Așteptăm revenirea literală și personală a lui Isus Hristos."
+        ]
+      ],
+      "quote": "„Atât de mult a iubit Dumnezeu lumea, încât L-a dat pe singurul Său Fiu, pentru ca oricine crede în El să nu piară, ci să aibă viața veșnică.\"",
+      "quoteRef": "Ioan 3:16"
+    },
+    "services": {
+      "crumb": "Slujbe",
+      "eyebrow": "Program",
+      "h1": "Slujbe și evenimente",
+      "intro": "Slujba de duminică este adunarea principală a săptămânii. În timpul săptămânii au loc întâlniri de rugăciune, studiu biblic și întâlniri pentru tineret.",
+      "events": [
+        [
+          "07",
+          "Dec",
+          "Slujbă duminicală",
+          "Dum · 10:00 · adunare generală"
+        ],
+        [
+          "10",
+          "Dec",
+          "Întâlnire de rugăciune",
+          "Mie · 18:00"
+        ],
+        [
+          "12",
+          "Dec",
+          "Studiu biblic",
+          "Vin · 18:00"
+        ],
+        [
+          "14",
+          "Dec",
+          "Slujbă duminicală",
+          "Dum · 10:00 · cu Cina Domnului"
+        ],
+        [
+          "20",
+          "Dec",
+          "Întâlnirea tinerilor",
+          "Sâm · 13:30 · cu programare"
+        ],
+        [
+          "24",
+          "Dec",
+          "Ajunul Crăciunului — slujbă festivă",
+          "Mie · 18:00"
+        ]
+      ],
+      "quote": "„Cât de frumoase sunt picioarele celor ce vestesc vești bune!\"",
+      "quoteRef": "Romani 10:15"
+    },
+    "contact": {
+      "crumb": "Contact",
+      "eyebrow": "Scrieți-ne",
+      "h1": "Contactați-ne",
+      "intro": "Ne puteți trimite feedback și întrebări pe teme creștine.",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "address": "Adresă",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Trimiteți-ne un mesaj",
+      "cardSub": "Vom răspunde în curând.",
+      "fName": "Nume",
+      "fNamePh": "Ion Popescu",
+      "fEmailPh": "ion@exemplu.ro",
+      "fMsg": "Mesaj",
+      "fMsgPh": "Întrebarea sau comentariul dvs...",
+      "captcha": "Protecție anti-spam: cât fac {a} + {b}?",
+      "captchaPh": "Introduceți un număr",
+      "btn": "Trimite mesaj →",
+      "privacy": "Datele sunt folosite doar pentru a răspunde la mesajul dvs.",
+      "sent": "Client de e-mail deschis — trimiteți mesajul pentru a finaliza.",
+      "errSend": "Eroare la trimitere.",
+      "errSlow": "Vă rugăm să completați formularul cu atenție.",
+      "errCaptcha": "Răspuns greșit la întrebarea de verificare.",
+      "errName": "Introduceți numele",
+      "errEmail": "E-mail invalid",
+      "errMsg": "Mesaj prea scurt",
+      "errCheck": "Verificați datele.",
+      "subject": "Mesaj de pe site: {name}",
+      "from": "De la",
+      "hpLabel": "Nu completați acest câmp"
+    },
+    "gallery": {
+      "crumb": "Fotografii",
+      "eyebrow": "Album foto",
+      "h1": "Viața noastră în imagini",
+      "captions": [
+        "Cântarea imnurilor",
+        "Cuvântul lui Dumnezeu",
+        "Școala duminicală",
+        "Salut frățesc",
+        "Timp împreună",
+        "Sărbătoarea Recoltei"
+      ],
+      "btnAll": "Toate fotografiile →"
+    },
+    "sermons": {
+      "crumb": "Predici",
+      "eyebrow": "Audio",
+      "h1": "Predici",
+      "intro": "Ascultați înregistrările slujbelor noastre duminicale și ale studiilor biblice pe propovednik.my1.ru",
+      "btn": "Ascultă predicile →",
+      "archive": "Arhiva de predici pe site-ul nostru"
+    },
+    "map": {
+      "crumb": "Cum ne găsiți",
+      "eyebrow": "Indicații",
+      "h1": "Suntem în Dresda",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Autobuz",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Tramvai",
+      "tramStop": "Marienberger Strasse",
+      "car": "Cu mașina",
+      "carVal": "Parcare gratuită",
+      "carSub": "Lângă biserică",
+      "phone": "Telefon",
+      "addressLabel": "Adresă",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Saxonia",
+      "phoneSub": "Sunați oricând",
+      "emailLabel": "E-mail",
+      "emailSub": "Scrieți-ne direct"
+    },
+    "mapConsent": {
+      "aria": "Notă de confidențialitate OpenStreetMap",
+      "title": "Notă de confidențialitate",
+      "text": "Pentru a vedea harta interactivă și pentru a planifica ruta, activați-o cu un clic. Datele (inclusiv adresa dvs. IP) vor fi transmise către OpenStreetMap. Temei juridic: art. 6 alin. (1) lit. a GDPR.",
+      "btn": "Activează harta"
+    }
   }
 }

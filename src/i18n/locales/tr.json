@@ -145,5 +145,169 @@
         "p": "Bu beyanı güncel yasal gereklilikleri karşılayacak şekilde değiştirme hakkımız saklıdır."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "İnanç Açıklaması",
+      "eyebrow": "İnanç Açıklaması",
+      "h1": "İnanç Açıklamamız",
+      "intro": "Biz Evanjelik Hristiyan Baptistleriz ve Kutsal Kitap'ın iman ve yaşam konularında tek otorite olduğuna inanırız.",
+      "h2": "İnancımızın temelleri",
+      "items": [
+        [
+          "Kutsal Yazılar",
+          "Kutsal Kitap Tanrı'nın Sözüdür — esinlenmiş, yanılmaz ve yetkilidir."
+        ],
+        [
+          "Üçlü Birlik Tanrısı",
+          "Sonsuza dek Baba, Oğul ve Kutsal Ruh olmak üzere üç kişide var olan tek Tanrı'ya inanırız."
+        ],
+        [
+          "Lütuf yoluyla kurtuluş",
+          "Kurtuluş yalnızca, kurtuluşumuz için ölen ve dirilen İsa Mesih'e iman aracılığıyla elde edilir."
+        ],
+        [
+          "İnananların vaftizi",
+          "Vaftiz, Mesih'i bilinçli olarak kabul edenler için suya daldırma yoluyla yapılır."
+        ],
+        [
+          "Rab'bin Sofrası",
+          "Mesih'in fedakârlığının anısına düzenli olarak kutlanır."
+        ],
+        [
+          "Mesih'in ikinci gelişi",
+          "İsa Mesih'in gerçek ve kişisel dönüşünü bekliyoruz."
+        ]
+      ],
+      "quote": "«Çünkü Tanrı dünyayı o kadar çok sevdi ki, biricik Oğlu'nu verdi. Öyle ki, O'na iman edenlerin hiçbiri mahvolmasın, hepsi sonsuz yaşama kavuşsun.»",
+      "quoteRef": "Yuhanna 3:16"
+    },
+    "services": {
+      "crumb": "İbadetler",
+      "eyebrow": "Program",
+      "h1": "İbadetler ve etkinlikler",
+      "intro": "Pazar ibadeti haftanın ana toplantısıdır. Hafta içi dua toplantıları, Kutsal Kitap çalışmaları ve gençlik buluşmaları yapılır.",
+      "events": [
+        [
+          "07",
+          "Ara",
+          "Pazar ibadeti",
+          "Paz · 10:00 · genel toplantı"
+        ],
+        [
+          "10",
+          "Ara",
+          "Dua toplantısı",
+          "Çar · 18:00"
+        ],
+        [
+          "12",
+          "Ara",
+          "Kutsal Kitap çalışması",
+          "Cum · 18:00"
+        ],
+        [
+          "14",
+          "Ara",
+          "Pazar ibadeti",
+          "Paz · 10:00 · şarapla"
+        ],
+        [
+          "20",
+          "Ara",
+          "Gençlik buluşması",
+          "Cmt · 13:30 · randevu ile"
+        ],
+        [
+          "24",
+          "Ara",
+          "Noel arifesi — bayram ibadeti",
+          "Çar · 18:00"
+        ]
+      ],
+      "quote": "«Müjde getirenlerin ayakları ne güzeldir!»",
+      "quoteRef": "Romalılar 10:15"
+    },
+    "contact": {
+      "crumb": "İletişim",
+      "eyebrow": "Bize yazın",
+      "h1": "Bizimle iletişime geçin",
+      "intro": "Hristiyan konularıyla ilgili geri bildirim ve sorularınızı gönderebilirsiniz.",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "address": "Adres",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Bize bir mesaj gönderin",
+      "cardSub": "Kısa süre içinde yanıtlayacağız.",
+      "fName": "Ad",
+      "fNamePh": "Ahmet Yılmaz",
+      "fEmailPh": "ahmet@ornek.com",
+      "fMsg": "Mesaj",
+      "fMsgPh": "Sorunuz veya yorumunuz...",
+      "captcha": "Spam koruması: {a} + {b} kaç eder?",
+      "captchaPh": "Sayı girin",
+      "btn": "Mesaj gönder →",
+      "privacy": "Verileriniz yalnızca mesajınızı yanıtlamak için kullanılır.",
+      "sent": "E-posta istemcisi açıldı — tamamlamak için mesajı gönderin.",
+      "errSend": "Gönderim hatası.",
+      "errSlow": "Lütfen formu dikkatlice doldurun.",
+      "errCaptcha": "Doğrulama sorusuna yanlış cevap.",
+      "errName": "Lütfen ad girin",
+      "errEmail": "Geçersiz e-posta",
+      "errMsg": "Mesaj çok kısa",
+      "errCheck": "Lütfen verileri kontrol edin.",
+      "subject": "Web sitesinden mesaj: {name}",
+      "from": "Kimden",
+      "hpLabel": "Bu alanı doldurmayın"
+    },
+    "gallery": {
+      "crumb": "Fotoğraflar",
+      "eyebrow": "Fotoğraf albümü",
+      "h1": "Resimlerle hayatımız",
+      "captions": [
+        "İlahi söylemek",
+        "Tanrı'nın Sözü",
+        "Pazar okulu",
+        "Kardeşçe selamlama",
+        "Birlikte zaman",
+        "Hasat Bayramı"
+      ],
+      "btnAll": "Tüm fotoğraflar →"
+    },
+    "sermons": {
+      "crumb": "Vaazlar",
+      "eyebrow": "Ses",
+      "h1": "Vaazlar",
+      "intro": "Pazar ibadetlerimizin ve Kutsal Kitap derslerimizin kayıtlarını propovednik.my1.ru adresinden dinleyin",
+      "btn": "Vaazları dinle →",
+      "archive": "Web sitemizdeki vaaz arşivi"
+    },
+    "map": {
+      "crumb": "Bize ulaşın",
+      "eyebrow": "Yol tarifi",
+      "h1": "Dresden'deyiz",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Otobüs",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Tramvay",
+      "tramStop": "Marienberger Strasse",
+      "car": "Arabayla",
+      "carVal": "Ücretsiz otopark",
+      "carSub": "Kilisenin yakınında",
+      "phone": "Telefon",
+      "addressLabel": "Adres",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Saksonya",
+      "phoneSub": "İstediğiniz zaman arayın",
+      "emailLabel": "E-posta",
+      "emailSub": "Bize doğrudan yazın"
+    },
+    "mapConsent": {
+      "aria": "OpenStreetMap gizlilik bildirimi",
+      "title": "Gizlilik bildirimi",
+      "text": "Etkileşimli haritayı görmek ve rotanızı planlamak için lütfen bir tıklamayla etkinleştirin. Veriler (IP adresiniz dahil) OpenStreetMap'e iletilecektir. Hukuki dayanak: GDPR md. 6/1-a.",
+      "btn": "Haritayı etkinleştir"
+    }
   }
 }

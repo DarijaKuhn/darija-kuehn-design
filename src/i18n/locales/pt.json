@@ -145,5 +145,169 @@
         "p": "Reservamo-nos o direito de adaptar esta declaração para refletir requisitos legais atuais."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Confissão de fé",
+      "eyebrow": "Confissão de fé",
+      "h1": "Nossa confissão de fé",
+      "intro": "Somos cristãos evangélicos batistas e cremos que a Bíblia é a única autoridade em questões de fé e vida.",
+      "h2": "Fundamentos da nossa fé",
+      "items": [
+        [
+          "Sagrada Escritura",
+          "A Bíblia é a Palavra de Deus, inspirada, infalível e com autoridade."
+        ],
+        [
+          "Deus trino",
+          "Cremos em um só Deus, que existe eternamente em três Pessoas: Pai, Filho e Espírito Santo."
+        ],
+        [
+          "Salvação pela graça",
+          "A salvação se obtém somente pela fé em Jesus Cristo, que morreu e ressuscitou para nossa redenção."
+        ],
+        [
+          "Batismo dos crentes",
+          "O batismo é por imersão para os que aceitaram conscientemente a Cristo."
+        ],
+        [
+          "Ceia do Senhor",
+          "Celebrada regularmente em memória do sacrifício de Cristo."
+        ],
+        [
+          "Volta de Cristo",
+          "Aguardamos o retorno literal e pessoal de Jesus Cristo."
+        ]
+      ],
+      "quote": "«Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.»",
+      "quoteRef": "João 3:16"
+    },
+    "services": {
+      "crumb": "Cultos",
+      "eyebrow": "Programação",
+      "h1": "Cultos e eventos",
+      "intro": "O culto dominical é o encontro principal da semana. Durante a semana acontecem reuniões de oração, estudo bíblico e encontros de jovens.",
+      "events": [
+        [
+          "07",
+          "Dez",
+          "Culto dominical",
+          "Dom · 10:00 · assembleia geral"
+        ],
+        [
+          "10",
+          "Dez",
+          "Reunião de oração",
+          "Qua · 18:00"
+        ],
+        [
+          "12",
+          "Dez",
+          "Estudo bíblico",
+          "Sex · 18:00"
+        ],
+        [
+          "14",
+          "Dez",
+          "Culto dominical",
+          "Dom · 10:00 · com ceia"
+        ],
+        [
+          "20",
+          "Dez",
+          "Encontro de jovens",
+          "Sáb · 13:30 · com agendamento"
+        ],
+        [
+          "24",
+          "Dez",
+          "Véspera de Natal — culto festivo",
+          "Qua · 18:00"
+        ]
+      ],
+      "quote": "«Quão formosos são os pés dos que anunciam boas novas!»",
+      "quoteRef": "Romanos 10:15"
+    },
+    "contact": {
+      "crumb": "Contato",
+      "eyebrow": "Escreva-nos",
+      "h1": "Entre em contato",
+      "intro": "Você pode nos enviar comentários e perguntas sobre temas cristãos.",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "address": "Endereço",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Envie-nos uma mensagem",
+      "cardSub": "Responderemos em breve.",
+      "fName": "Nome",
+      "fNamePh": "João Silva",
+      "fEmailPh": "joao@exemplo.com",
+      "fMsg": "Mensagem",
+      "fMsgPh": "Sua pergunta ou comentário...",
+      "captcha": "Proteção antispam: quanto é {a} + {b}?",
+      "captchaPh": "Digite um número",
+      "btn": "Enviar mensagem →",
+      "privacy": "Os dados são usados apenas para responder à sua mensagem.",
+      "sent": "Cliente de e-mail aberto — envie a mensagem para concluir.",
+      "errSend": "Erro ao enviar.",
+      "errSlow": "Por favor, preencha o formulário com atenção.",
+      "errCaptcha": "Resposta incorreta à pergunta de verificação.",
+      "errName": "Digite seu nome",
+      "errEmail": "E-mail inválido",
+      "errMsg": "Mensagem muito curta",
+      "errCheck": "Verifique os dados.",
+      "subject": "Mensagem do site: {name}",
+      "from": "De",
+      "hpLabel": "Não preencha este campo"
+    },
+    "gallery": {
+      "crumb": "Fotos",
+      "eyebrow": "Álbum de fotos",
+      "h1": "Nossa vida em imagens",
+      "captions": [
+        "Cânticos",
+        "Palavra de Deus",
+        "Escola dominical",
+        "Saudação fraterna",
+        "Convívio",
+        "Festa da Colheita"
+      ],
+      "btnAll": "Todas as fotos →"
+    },
+    "sermons": {
+      "crumb": "Pregações",
+      "eyebrow": "Áudio",
+      "h1": "Pregações",
+      "intro": "Ouça as gravações dos nossos cultos dominicais e estudos bíblicos em propovednik.my1.ru",
+      "btn": "Ouvir pregações →",
+      "archive": "Arquivo de pregações no nosso site"
+    },
+    "map": {
+      "crumb": "Como nos encontrar",
+      "eyebrow": "Como chegar",
+      "h1": "Estamos em Dresden",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Ônibus",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Bonde",
+      "tramStop": "Marienberger Strasse",
+      "car": "De carro",
+      "carVal": "Estacionamento gratuito",
+      "carSub": "Perto da igreja",
+      "phone": "Telefone",
+      "addressLabel": "Endereço",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Saxônia",
+      "phoneSub": "Ligue a qualquer hora",
+      "emailLabel": "E-mail",
+      "emailSub": "Escreva-nos diretamente"
+    },
+    "mapConsent": {
+      "aria": "Aviso de privacidade do OpenStreetMap",
+      "title": "Aviso de privacidade",
+      "text": "Para ver o mapa interativo e planejar sua rota, ative-o com um clique. Dados (incluindo seu endereço IP) serão transmitidos ao OpenStreetMap. Base jurídica: art. 6.º, n.º 1, al. a RGPD.",
+      "btn": "Ativar mapa"
+    }
   }
 }

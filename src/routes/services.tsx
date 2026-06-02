@@ -1,54 +1,49 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
+import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/services")({
   component: Services,
   head: () => ({
     meta: [
-      { title: "Богослужения — FECG Dresden" },
-      { name: "description", content: "Расписание богослужений и ближайшие события в церкви FECG Dresden. Воскресенье 10:00, среда 18:00, пятница 18:00." },
+      { title: "Gottesdienste — FECG Dresden" },
+      { name: "description", content: "Gottesdienstplan und Veranstaltungen der FECG Dresden. Sonntag 10:00, Mittwoch 18:00, Freitag 18:00." },
     ],
   }),
 });
 
-const events = [
-  { day: "07", mon: "Дек", title: "Воскресное богослужение", time: "Вс · 10:00 · общее собрание" },
-  { day: "10", mon: "Дек", title: "Молитвенное служение", time: "Ср · 18:00" },
-  { day: "12", mon: "Дек", title: "Изучение Библии", time: "Пт · 18:00" },
-  { day: "14", mon: "Дек", title: "Воскресное богослужение", time: "Вс · 10:00 · с причастием" },
-  { day: "20", mon: "Дек", title: "Молодёжное общение", time: "Сб · 13:30 · по договорённости" },
-  { day: "24", mon: "Дек", title: "Сочельник — праздничное служение", time: "Ср · 18:00" },
-];
-
 function Services() {
+  const { t } = useI18n();
+  const { i18n } = useTranslation();
+  const events = (i18n.t("pages.services.events", { returnObjects: true }) as [string, string, string, string][]) || [];
   return (
     <div className="page-panel">
       <div className="page-breadcrumb">
         <div className="page-breadcrumb-inner container">
-          <Link to="/">Главная</Link>
+          <Link to="/">{t("legal.breadcrumbHome")}</Link>
           <span>›</span>
-          <span className="crumb-here">Богослужения</span>
+          <span className="crumb-here">{t("pages.services.crumb")}</span>
         </div>
       </div>
 
       <section className="section section-bg">
         <div className="container">
-          <div className="label" style={{ marginBottom: 8 }}>Расписание</div>
-          <h1 className="section-h">Богослужения и события</h1>
+          <div className="label" style={{ marginBottom: 8 }}>{t("pages.services.eyebrow")}</div>
+          <h1 className="section-h">{t("pages.services.h1")}</h1>
           <p className="body-lg" style={{ marginTop: 12, maxWidth: 680 }}>
-            Воскресное богослужение — главное собрание недели. В будни проходят молитвенные служения,
-            изучение Библии и общение для молодёжи.
+            {t("pages.services.intro")}
           </p>
 
           <div className="events-grid">
-            {events.map((e, i) => (
+            {events.map(([day, mon, title, time], i) => (
               <div key={i} className="event-card">
                 <div className="event-badge">
-                  <div className="event-badge-day">{e.day}</div>
-                  <div className="event-badge-mon">{e.mon}</div>
+                  <div className="event-badge-day">{day}</div>
+                  <div className="event-badge-mon">{mon}</div>
                 </div>
                 <div>
-                  <div className="event-title">{e.title}</div>
-                  <div className="event-time">{e.time}</div>
+                  <div className="event-title">{title}</div>
+                  <div className="event-time">{time}</div>
                 </div>
               </div>
             ))}
@@ -57,8 +52,8 @@ function Services() {
       </section>
 
       <div className="quote-block">
-        <p className="quote-text">«Как прекрасны ноги благовествующих мир, <em>благовествующих благое!</em>»</p>
-        <p className="quote-ref">Послание к Римлянам 10:15</p>
+        <p className="quote-text">{t("pages.services.quote")}</p>
+        <p className="quote-ref">{t("pages.services.quoteRef")}</p>
       </div>
     </div>
   );

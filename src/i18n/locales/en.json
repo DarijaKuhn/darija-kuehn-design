@@ -145,5 +145,169 @@
         "p": "We reserve the right to amend this declaration to ensure it always meets current legal requirements."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Confession of Faith",
+      "eyebrow": "Confession of Faith",
+      "h1": "Our Confession of Faith",
+      "intro": "We are Evangelical Christian Baptists who believe the Bible is the sole authority in matters of faith and life.",
+      "h2": "Core tenets of our faith",
+      "items": [
+        [
+          "Holy Scripture",
+          "The Bible is the Word of God — inspired, infallible and authoritative."
+        ],
+        [
+          "Triune God",
+          "We believe in one God, eternally existing in three Persons: Father, Son and Holy Spirit."
+        ],
+        [
+          "Salvation by Grace",
+          "Salvation is by faith alone in Jesus Christ, who died and rose again for our redemption."
+        ],
+        [
+          "Believer's Baptism",
+          "Baptism is performed by immersion for those who have consciously accepted Christ."
+        ],
+        [
+          "The Lord's Supper",
+          "Celebrated regularly in remembrance of Christ's sacrifice."
+        ],
+        [
+          "The Second Coming",
+          "We await the literal, personal return of Jesus Christ."
+        ]
+      ],
+      "quote": "\"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\"",
+      "quoteRef": "John 3:16"
+    },
+    "services": {
+      "crumb": "Services",
+      "eyebrow": "Schedule",
+      "h1": "Services and Events",
+      "intro": "The Sunday service is the main gathering of the week. On weekdays we hold prayer meetings, Bible study and youth fellowship.",
+      "events": [
+        [
+          "07",
+          "Dec",
+          "Sunday Service",
+          "Sun · 10:00 · general gathering"
+        ],
+        [
+          "10",
+          "Dec",
+          "Prayer Meeting",
+          "Wed · 18:00"
+        ],
+        [
+          "12",
+          "Dec",
+          "Bible Study",
+          "Fri · 18:00"
+        ],
+        [
+          "14",
+          "Dec",
+          "Sunday Service",
+          "Sun · 10:00 · with communion"
+        ],
+        [
+          "20",
+          "Dec",
+          "Youth Fellowship",
+          "Sat · 13:30 · by arrangement"
+        ],
+        [
+          "24",
+          "Dec",
+          "Christmas Eve — Festive Service",
+          "Wed · 18:00"
+        ]
+      ],
+      "quote": "\"How beautiful are the feet of those who bring good news!\"",
+      "quoteRef": "Romans 10:15"
+    },
+    "contact": {
+      "crumb": "Contact",
+      "eyebrow": "Write to us",
+      "h1": "Get in touch",
+      "intro": "You can send us feedback and questions on Christian topics.",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Send us a message",
+      "cardSub": "We will reply soon.",
+      "fName": "Name",
+      "fNamePh": "John Doe",
+      "fEmailPh": "john@example.com",
+      "fMsg": "Message",
+      "fMsgPh": "Your question or comment...",
+      "captcha": "Spam protection: what is {a} + {b}?",
+      "captchaPh": "Enter a number",
+      "btn": "Send message →",
+      "privacy": "Your data is used only to reply to your message.",
+      "sent": "Mail client opened — send the message to complete.",
+      "errSend": "Sending error.",
+      "errSlow": "Please fill in the form carefully.",
+      "errCaptcha": "Wrong answer to the verification question.",
+      "errName": "Please enter a name",
+      "errEmail": "Invalid email",
+      "errMsg": "Message is too short",
+      "errCheck": "Please check your input.",
+      "subject": "Message from the website: {name}",
+      "from": "From",
+      "hpLabel": "Do not fill in this field"
+    },
+    "gallery": {
+      "crumb": "Photos",
+      "eyebrow": "Photo album",
+      "h1": "Our life in pictures",
+      "captions": [
+        "Singing hymns",
+        "The Word of God",
+        "Sunday school",
+        "Brotherly greeting",
+        "Time together",
+        "Harvest festival"
+      ],
+      "btnAll": "All photos →"
+    },
+    "sermons": {
+      "crumb": "Sermons",
+      "eyebrow": "Audio",
+      "h1": "Sermons",
+      "intro": "Listen to recordings of our Sunday services and Bible studies on propovednik.my1.ru",
+      "btn": "Listen to sermons →",
+      "archive": "Sermon archive on our website"
+    },
+    "map": {
+      "crumb": "How to find us",
+      "eyebrow": "Directions",
+      "h1": "Find us in Dresden",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Bus",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Tram",
+      "tramStop": "Marienberger Strasse",
+      "car": "By car",
+      "carVal": "Free parking",
+      "carSub": "Near the church",
+      "phone": "Phone",
+      "addressLabel": "Address",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Saxony",
+      "phoneSub": "Call any time",
+      "emailLabel": "Email",
+      "emailSub": "Write to us directly"
+    },
+    "mapConsent": {
+      "aria": "OpenStreetMap privacy notice",
+      "title": "Privacy notice",
+      "text": "To view the interactive map and plan your route, please activate it with a click. Data (including your IP address) will be transmitted to OpenStreetMap. Legal basis: Art. 6(1)(a) GDPR.",
+      "btn": "Activate map"
+    }
   }
 }
