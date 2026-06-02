@@ -1,6 +1,5 @@
-@import "tailwindcss";
-
 @import url('https://fonts.bunny.net/css?family=inter:400,500,600,700,800|cormorant-garamond:400i,500,600,700&display=swap');
+@import "tailwindcss";
 
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
