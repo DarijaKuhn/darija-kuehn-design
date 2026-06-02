@@ -165,7 +165,7 @@ function Header() {
 }
 
 function Footer() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const year = new Date().getFullYear();
   return (
     <footer>
@@ -187,33 +187,38 @@ function Footer() {
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
-              <span>Мы в инстаграм!!!</span>
+              <span>{t("footer.instaText")}</span>
             </a>
-            <p style={{ marginTop: 14 }}>Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.</p>
-            <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>DSGVO-konform · Hosted in der EU</p>
+            <p style={{ marginTop: 14 }}>{t("footer.about")}</p>
+            <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>{t("footer.dsgvo")}</p>
           </div>
           <div>
-            <h4>Navigation</h4>
+            <h4>{t("footer.navigation")}</h4>
             {NAV_LINKS.map((l) => <Link key={l.to} to={l.to as "/"}>{t(l.key)}</Link>)}
           </div>
           <div>
-            <h4>Kontakt</h4>
+            <h4>{t("footer.contact")}</h4>
             <p>Altenberger Strasse 87<br />01279 Dresden, Deutschland</p>
             <a href="tel:+493512530403">+49 351 253 04 03</a>
             <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a>
           </div>
           <div>
-            <h4>Rechtliches</h4>
-            <Link to="/impressum">Impressum</Link>
-            <Link to="/datenschutz">Datenschutzerklärung</Link>
+            <h4>{t("footer.legal")}</h4>
+            <Link to="/impressum">{t("legal.impressumTitle")}</Link>
+            <Link to="/datenschutz">{t("legal.datenschutzTitle")}</Link>
             <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>
               Vereinsregister: <em>AG Dresden, VR [Nr.]</em><br />
               Vertreten durch: <em>[Vorstand]</em>
             </p>
           </div>
         </div>
+        {lang !== "de" && (
+          <p style={{ marginTop: 20, padding: "12px 0", borderTop: "1px solid rgba(255,255,255,.12)", fontSize: 12, color: "rgba(255,255,255,.7)", fontStyle: "italic" }}>
+            {t("legalDisclaimer")} <span lang="en" style={{ opacity: .85 }}>The German version is the only legally binding version. Translations are provided for user convenience only.</span>
+          </p>
+        )}
         <div className="footer-bottom">
-          <div>© {year} FREIE EVANGELIUMS-CHRISTEN-GEMEINDE DRESDEN E.V. — Alle Rechte vorbehalten.</div>
+          <div>© {year} FREIE EVANGELIUMS-CHRISTEN-GEMEINDE DRESDEN E.V. — {t("footer.rights")}</div>
           <div style={{ display: "flex", gap: 14 }}>
             <Link to="/impressum">Impressum</Link>
             <Link to="/datenschutz">Datenschutz</Link>
