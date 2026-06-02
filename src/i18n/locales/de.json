@@ -61,7 +61,7 @@
     "translationNotice": "Diese Seite ist die rechtlich verbindliche deutsche Originalfassung."
   },
   "impressum": {
-    "intro": "Anbieterkennzeichnung gemäß § 5 TMG.",
+    "intro": "Anbieterkennzeichnung gemäß § 5 DDG.",
     "sections": [
       {
         "h": "Angaben gemäß § 5 DDG",
@@ -69,7 +69,7 @@
       },
       {
         "h": "Vertreten durch",
-        "p": "Vorstand: <em>[Vorname Nachname, Position]</em><br/><em>[Vorname Nachname, Position]</em>"
+        "p": "Der Verein wird gemäß Vereinsregisterauszug durch den Vorstand vertreten:<br/>1. Vorsitzender: <em>[Vorname Nachname]</em><br/>2. Vorsitzender / Stellvertreter: <em>[Vorname Nachname]</em><br/>Vertretungsberechtigung: <em>[gemäß Satzung – z. B. „Je zwei Vorstandsmitglieder gemeinsam\"]</em>"
       },
       {
         "h": "Kontakt",

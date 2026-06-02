@@ -61,7 +61,7 @@
     "translationNotice": "A versão alemã abaixo é o único texto juridicamente vinculativo."
   },
   "impressum": {
-    "intro": "Identificação do prestador nos termos do § 5 TMG (Lei alemã de Telemídia).",
+    "intro": "Identificação do prestador nos termos do § 5 DDG.",
     "sections": [
       {
         "h": "Informações conforme § 5 DDG",
@@ -69,7 +69,7 @@
       },
       {
         "h": "Representado por",
-        "p": "Diretoria: <em>[Nome Sobrenome, função]</em>"
+        "p": "A associação é representada pela diretoria conforme o extrato do registro de associações:<br/>1.º Presidente: <em>[Nome Sobrenome]</em><br/>2.º Presidente / Suplente: <em>[Nome Sobrenome]</em><br/>Poder de representação: <em>[conforme estatutos – ex. «dois membros conjuntamente»]</em>"
       },
       {
         "h": "Contato",
@@ -85,7 +85,7 @@
       },
       {
         "h": "Responsabilidade pelo conteúdo",
-        "p": "O conteúdo das páginas foi elaborado com o máximo cuidado. Contudo, não podemos garantir sua exatidão, integridade ou atualidade. Como prestadores de serviço, somos responsáveis pelo conteúdo próprio segundo o § 7 (1) TMG."
+        "p": "O conteúdo das páginas foi elaborado com o máximo cuidado. Contudo, não podemos garantir sua exatidão, integridade ou atualidade. Como prestadores de serviço, somos responsáveis pelo conteúdo próprio segundo o § 7 Abs. 1 DDG."
       },
       {
         "h": "Responsabilidade por links",

@@ -61,7 +61,7 @@
     "translationNotice": "Aşağıdaki Almanca sürüm, yasal olarak bağlayıcı tek metindir."
   },
   "impressum": {
-    "intro": "§ 5 TMG (Alman Telemedia Yasası) uyarınca sağlayıcı bilgileri.",
+    "intro": "§ 5 DDG.",
     "sections": [
       {
         "h": "§ 5 DDG uyarınca bilgiler",
@@ -69,7 +69,7 @@
       },
       {
         "h": "Temsilcisi",
-        "p": "Yönetim Kurulu: <em>[Ad Soyad, görev]</em>"
+        "p": "Dernek, dernek sicil kaydına göre yönetim kurulu tarafından temsil edilir:<br/>1. Başkan: <em>[Ad Soyad]</em><br/>2. Başkan / Vekil: <em>[Ad Soyad]</em><br/>Temsil yetkisi: <em>[tüzüğe göre – örn. „iki yönetim kurulu üyesi birlikte\"]</em>"
       },
       {
         "h": "İletişim",
@@ -85,7 +85,7 @@
       },
       {
         "h": "İçerik sorumluluğu",
-        "p": "Sayfalarımızın içeriği büyük bir özenle hazırlanmıştır. Ancak doğruluk, eksiksizlik ve güncellik için garanti veremeyiz. § 7 (1) TMG uyarınca kendi içeriklerimizden sorumluyuz."
+        "p": "Sayfalarımızın içeriği büyük bir özenle hazırlanmıştır. Ancak doğruluk, eksiksizlik ve güncellik için garanti veremeyiz. § 7 Abs. 1 DDG uyarınca kendi içeriklerimizden sorumluyuz."
       },
       {
         "h": "Bağlantı sorumluluğu",

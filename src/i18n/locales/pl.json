@@ -61,7 +61,7 @@
     "translationNotice": "Wersja niemiecka poniżej jest jedynym prawnie wiążącym tekstem."
   },
   "impressum": {
-    "intro": "Identyfikacja usługodawcy zgodnie z § 5 TMG (niemieckiej ustawy o mediach elektronicznych).",
+    "intro": "Identyfikacja usługodawcy zgodnie z § 5 DDG.",
     "sections": [
       {
         "h": "Dane zgodnie z § 5 DDG",
@@ -69,7 +69,7 @@
       },
       {
         "h": "Reprezentowana przez",
-        "p": "Zarząd: <em>[Imię Nazwisko, funkcja]</em>"
+        "p": "Stowarzyszenie jest reprezentowane przez zarząd zgodnie z wyciągiem z rejestru stowarzyszeń:<br/>1. Przewodniczący: <em>[Imię Nazwisko]</em><br/>2. Przewodniczący / Zastępca: <em>[Imię Nazwisko]</em><br/>Uprawnienia do reprezentacji: <em>[zgodnie ze statutem – np. „dwóch członków zarządu łącznie\"]</em>"
       },
       {
         "h": "Kontakt",
@@ -85,7 +85,7 @@
       },
       {
         "h": "Odpowiedzialność za treść",
-        "p": "Treści naszych stron zostały opracowane z najwyższą starannością. Nie możemy jednak zagwarantować ich poprawności, kompletności ani aktualności. Jako usługodawca odpowiadamy za własne treści zgodnie z § 7 ust. 1 TMG."
+        "p": "Treści naszych stron zostały opracowane z najwyższą starannością. Nie możemy jednak zagwarantować ich poprawności, kompletności ani aktualności. Jako usługodawca odpowiadamy za własne treści zgodnie z § 7 ust. 1 DDG."
       },
       {
         "h": "Odpowiedzialność za linki",

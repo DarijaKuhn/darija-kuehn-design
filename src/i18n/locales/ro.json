@@ -61,7 +61,7 @@
     "translationNotice": "Versiunea germană de mai jos este singurul text obligatoriu din punct de vedere juridic."
   },
   "impressum": {
-    "intro": "Identificarea furnizorului conform § 5 TMG (legea germană privind telemediile).",
+    "intro": "Identificarea furnizorului conform § 5 DDG.",
     "sections": [
       {
         "h": "Date conform § 5 DDG",
@@ -69,7 +69,7 @@
       },
       {
         "h": "Reprezentată prin",
-        "p": "Consiliu: <em>[Prenume Nume, funcție]</em>"
+        "p": "Asociația este reprezentată de consiliul de administrație conform extrasului din registrul asociațiilor:<br/>Președinte: <em>[Prenume Nume]</em><br/>Vicepreședinte: <em>[Prenume Nume]</em><br/>Drept de reprezentare: <em>[conform statutului – ex. „doi membri ai consiliului împreună\"]</em>"
       },
       {
         "h": "Contact",
@@ -85,7 +85,7 @@
       },
       {
         "h": "Răspunderea pentru conținut",
-        "p": "Conținutul paginilor a fost realizat cu cea mai mare grijă. Nu putem garanta însă acuratețea, integralitatea și actualitatea acestuia. În calitate de furnizor de servicii suntem responsabili pentru conținutul propriu conform § 7 (1) TMG."
+        "p": "Conținutul paginilor a fost realizat cu cea mai mare grijă. Nu putem garanta însă acuratețea, integralitatea și actualitatea acestuia. În calitate de furnizor de servicii suntem responsabili pentru conținutul propriu conform § 7 Abs. 1 DDG."
       },
       {
         "h": "Răspunderea pentru linkuri",
