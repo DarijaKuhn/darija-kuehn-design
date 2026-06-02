@@ -52,7 +52,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "FECG Dresden — Русскоязычная евангельская церковь" },
       { property: "og:description", content: "Богослужения каждое воскресенье в 10:00. Altenberger Str. 87, 01279 Dresden." },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: "https://fonts.bunny.net/css?family=inter:400,500,600,700,800|cormorant-garamond:400i,500,600,700&display=swap" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
