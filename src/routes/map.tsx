@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import churchBuilding from "@/assets/church-building.jpg.asset.json";
+import { MapEmbed } from "@/components/MapEmbed";
 
 
 export const Route = createFileRoute("/map")({
