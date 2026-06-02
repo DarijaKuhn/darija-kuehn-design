@@ -19,8 +19,8 @@ function Impressum() {
   const { t, lang } = useI18n();
   const { i18n } = useTranslation();
   const isGerman = lang === "de";
-  const sections = (i18n.getResource(lang, "translation", "impressum.sections") || []) as Section[];
-  const germanSections = (i18n.getResource("de", "translation", "impressum.sections") || []) as Section[];
+  const sections = (i18n.t("impressum.sections", { returnObjects: true, lng: lang }) as Section[]) || [];
+  const germanSections = (i18n.t("impressum.sections", { returnObjects: true, lng: "de" }) as Section[]) || [];
 
   return (
     <div className="page-panel">
