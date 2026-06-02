@@ -29,7 +29,12 @@ function MapPage() {
             <div className="label" style={{ color: "rgba(255,255,255,.7)", marginBottom: 12 }}>Как добраться</div>
             <h1 className="map-heading">Мы в Дрездене</h1>
             <p className="map-subhead">Altenberger Strasse 87 · 01279 Dresden</p>
+            <figure className="map-building">
+              <img src={churchBuilding.url} alt="Здание FECG Dresden — Altenberger Strasse 87" loading="lazy" />
+              <figcaption>Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87</figcaption>
+            </figure>
             <div className="map-grid">
+
               <div>
                 <iframe
                   className="map-iframe"
