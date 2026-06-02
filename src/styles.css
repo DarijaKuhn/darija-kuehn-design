@@ -169,7 +169,6 @@ a { color: inherit; text-decoration: none; }
     -ms-overflow-style: none;
   }
 
-  }
   .nav-links::-webkit-scrollbar { display: none; }
   .nav-scroll {
     position: absolute;
