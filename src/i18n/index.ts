@@ -54,21 +54,22 @@ const resources = {
 };
 
 if (!i18n.isInitialized) {
-  i18n
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-      resources,
-      fallbackLng: "de", // German is the master / legally binding language
-      supportedLngs: ["de", "en", "ru", "he", "ar", "syr", "pt", "pl", "fr", "it", "tr", "ro", "mn"],
-      interpolation: { escapeValue: false },
-      detection: {
-        order: ["localStorage", "navigator"],
-        lookupLocalStorage: "lang",
-        caches: ["localStorage"],
-      },
-      returnNull: false,
-    });
+  const chain = typeof window !== "undefined"
+    ? i18n.use(LanguageDetector).use(initReactI18next)
+    : i18n.use(initReactI18next);
+  chain.init({
+    resources,
+    lng: typeof window === "undefined" ? "de" : undefined,
+    fallbackLng: "de", // German is the master / legally binding language
+    supportedLngs: ["de", "en", "ru", "he", "ar", "syr", "pt", "pl", "fr", "it", "tr", "ro", "mn"],
+    interpolation: { escapeValue: false },
+    detection: {
+      order: ["localStorage", "navigator"],
+      lookupLocalStorage: "lang",
+      caches: ["localStorage"],
+    },
+    returnNull: false,
+  });
 }
 
 export default i18n;
