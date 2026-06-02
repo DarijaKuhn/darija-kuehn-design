@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "@/i18n";
 
 const CONSENT_KEY = "cookie-consent-v1";
 const MAP_CONSENT_KEY = "map-consent-osm-v1";
@@ -26,6 +27,7 @@ function hasMapConsent(): boolean {
 }
 
 export function MapEmbed() {
+  const { t } = useI18n();
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -54,17 +56,13 @@ export function MapEmbed() {
   }
 
   return (
-    <div className="map-consent" role="region" aria-label="Datenschutz-Hinweis OpenStreetMap">
+    <div className="map-consent" role="region" aria-label={t("pages.mapConsent.aria")}>
       <div className="map-consent-bg" aria-hidden="true" />
       <div className="map-consent-card">
-        <h3 className="map-consent-title">Datenschutz-Hinweis</h3>
-        <p className="map-consent-text">
-          Um die interaktive Karte zu sehen und Ihre Route zu planen, aktivieren Sie diese bitte mit einem Klick.
-          Dabei werden Daten (u.a. Ihre IP-Adresse) an OpenStreetMap übertragen.
-          Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.
-        </p>
+        <h3 className="map-consent-title">{t("pages.mapConsent.title")}</h3>
+        <p className="map-consent-text">{t("pages.mapConsent.text")}</p>
         <button type="button" className="map-consent-btn" onClick={activate}>
-          Karte aktivieren
+          {t("pages.mapConsent.btn")}
         </button>
       </div>
     </div>
