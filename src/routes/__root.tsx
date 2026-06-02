@@ -75,12 +75,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 const NAV_LINKS: ReadonlyArray<{ to: string; key: string; home?: boolean }> = [
   { to: "/", key: "nav.home", home: true },
+  { to: "/contact", key: "nav.contact" },
+  { to: "/gallery", key: "nav.gallery" },
+  { to: "/sermons", key: "nav.sermons" },
   { to: "/confession", key: "nav.confession" },
   { to: "/services", key: "nav.services" },
   { to: "/map", key: "nav.map" },
-  { to: "/gallery", key: "nav.gallery" },
-  { to: "/sermons", key: "nav.sermons" },
-  { to: "/contact", key: "nav.contact" },
 ];
 
 function LanguagePicker() {
@@ -143,18 +143,42 @@ function Header() {
         <Link to="/" className="nav-logo" aria-label="FECG Dresden">
           <img src={logoAsset.url} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
         </Link>
-        <div className="nav-links">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to as "/"}
-              className={`nav-btn ${l.home ? "nav-btn-home" : ""}`}
-              activeProps={{ className: `nav-btn ${l.home ? "nav-btn-home" : ""} active` }}
-              activeOptions={{ exact: l.to === "/" }}
-            >
-              {t(l.key)}
-            </Link>
-          ))}
+        <div className="nav-links-wrap">
+          <button
+            type="button"
+            className="nav-scroll nav-scroll-left"
+            aria-label="Scroll left"
+            onClick={(e) => {
+              const el = e.currentTarget.parentElement?.querySelector(".nav-links") as HTMLElement | null;
+              el?.scrollBy({ left: -120, behavior: "smooth" });
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div className="nav-links">
+            {NAV_LINKS.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to as "/"}
+                className={`nav-btn ${l.home ? "nav-btn-home" : ""}`}
+                activeProps={{ className: `nav-btn ${l.home ? "nav-btn-home" : ""} active` }}
+                activeOptions={{ exact: l.to === "/" }}
+              >
+                {t(l.key)}
+              </Link>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="nav-scroll nav-scroll-right"
+            aria-label="Scroll right"
+            onClick={(e) => {
+              const el = e.currentTarget.parentElement?.querySelector(".nav-links") as HTMLElement | null;
+              el?.scrollBy({ left: 120, behavior: "smooth" });
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
         </div>
         <div className="nav-right">
           <LanguagePicker />
