@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "confession": "الإيمان",
+    "services": "القداديس",
+    "map": "كيف تجدنا",
+    "gallery": "صور",
+    "sermons": "العظات",
+    "contact": "اتصل بنا"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "كنيسة المعمدانيين الإنجيليين في درسدن",
+    "h2": "يسعدنا الترحيب بكم في جماعتنا.",
+    "desc": "جماعة مسيحية ناطقة بالروسية.",
+    "schedule": "جدول القداديس",
+    "wed": "الأربعاء",
+    "fri": "الجمعة",
+    "sat": "السبت",
+    "sun": "الأحد",
+    "prayer": "خدمة الصلاة",
+    "bible": "دراسة الكتاب المقدس",
+    "youth": "لقاء الشباب",
+    "byArr": "بالاتفاق",
+    "sundaySvc": "قداس الأحد",
+    "mainSvc": "القداس الرئيسي",
+    "findUs": "كيف تجدنا →",
+    "ourFaith": "إيماننا"
+  },
+  "footer": {
+    "navigation": "التنقل",
+    "contact": "اتصل بنا",
+    "legal": "قانوني",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — كنيسة إنجيلية ناطقة بالروسية في ساكسونيا. قداس الأحد الساعة 10:00.",
+    "rights": "جميع الحقوق محفوظة.",
+    "instaText": "تابعونا على إنستغرام",
+    "dsgvo": "متوافق مع GDPR · مستضاف في الاتحاد الأوروبي"
+  },
+  "legalDisclaimer": "النسخة الألمانية وحدها ملزمة قانونيًا. الترجمات مقدمة لراحة المستخدم فقط.",
+  "consent": {
+    "title": "إعدادات الخصوصية",
+    "body": "نستخدم ملفات تعريف الارتباط وتقنيات مماثلة لتشغيل هذا الموقع. يمكنك اختيار الفئات التي تسمح بها.",
+    "linksIntro": "مزيد من المعلومات في",
+    "linkDatenschutz": "سياسة الخصوصية",
+    "and": "و",
+    "linkImpressum": "Impressum",
+    "essential": "ضرورية",
+    "essentialDesc": "هذه الملفات ضرورية لتشغيل الموقع ولا يمكن تعطيلها.",
+    "analytics": "تحليلات",
+    "analyticsDesc": "تساعدنا على فهم كيفية تفاعل الزوار مع الموقع.",
+    "functional": "وظيفية",
+    "functionalDesc": "تتيح ميزات إضافية مثل اختيار اللغة والتخصيص.",
+    "acceptAll": "قبول الكل",
+    "acceptEssential": "الضرورية فقط",
+    "saveSettings": "حفظ الاختيار"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "سياسة الخصوصية",
+    "breadcrumbHome": "الرئيسية",
+    "translationNotice": "النسخة الألمانية أدناه هي النص الملزم قانونيًا الوحيد."
+  }
+}

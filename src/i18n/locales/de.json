@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "confession": "Glaubensbekenntnis",
+    "services": "Gottesdienste",
+    "map": "Anfahrt",
+    "gallery": "Fotos",
+    "sermons": "Predigten",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Kirche der Evangeliums-Christen-Baptisten in Dresden",
+    "h2": "Wir freuen uns, Sie in unserer Gemeinde zu sehen.",
+    "desc": "Russischsprachige christliche Gemeinde.",
+    "schedule": "Gottesdienstplan",
+    "wed": "Mittwoch",
+    "fri": "Freitag",
+    "sat": "Samstag",
+    "sun": "Sonntag",
+    "prayer": "Gebetsstunde",
+    "bible": "Bibelstudium",
+    "youth": "Jugendtreffen",
+    "byArr": "nach Vereinbarung",
+    "sundaySvc": "Sonntagsgottesdienst",
+    "mainSvc": "Hauptgottesdienst",
+    "findUs": "So finden Sie uns →",
+    "ourFaith": "Unser Glaube"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — russischsprachige evangelische Kirche in Sachsen. Sonntagsgottesdienst um 10:00 Uhr.",
+    "rights": "Alle Rechte vorbehalten.",
+    "instaText": "Folgen Sie uns auf Instagram",
+    "dsgvo": "DSGVO-konform · Hosted in der EU"
+  },
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich.",
+  "consent": {
+    "title": "Datenschutz-Einstellungen",
+    "body": "Wir verwenden Cookies und ähnliche Technologien, um diese Website zu betreiben. Sie können selbst entscheiden, welche Kategorien Sie zulassen möchten. Bitte beachten Sie, dass aufgrund Ihrer Einstellungen möglicherweise nicht alle Funktionen verfügbar sind.",
+    "linksIntro": "Weitere Informationen in unserer",
+    "linkDatenschutz": "Datenschutzerklärung",
+    "and": "und im",
+    "linkImpressum": "Impressum",
+    "essential": "Notwendig",
+    "essentialDesc": "Diese Cookies sind für den Betrieb der Website erforderlich und können nicht deaktiviert werden.",
+    "analytics": "Analyse",
+    "analyticsDesc": "Helfen uns zu verstehen, wie Besucher mit der Website interagieren.",
+    "functional": "Funktionell",
+    "functionalDesc": "Ermöglichen erweiterte Funktionen wie Sprachauswahl und Personalisierung.",
+    "acceptAll": "Alle akzeptieren",
+    "acceptEssential": "Nur notwendige akzeptieren",
+    "saveSettings": "Auswahl speichern"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Datenschutzerklärung",
+    "breadcrumbHome": "Startseite",
+    "translationNotice": "Diese Seite ist die rechtlich verbindliche deutsche Originalfassung."
+  }
+}

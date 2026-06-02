@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Início",
+    "confession": "Fé",
+    "services": "Cultos",
+    "map": "Como chegar",
+    "gallery": "Fotos",
+    "sermons": "Sermões",
+    "contact": "Contato"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Igreja Evangélica Cristã Batista em Dresden",
+    "h2": "Temos prazer em recebê-lo em nossa comunidade.",
+    "desc": "Comunidade cristã de língua russa.",
+    "schedule": "Horário dos cultos",
+    "wed": "Quarta-feira",
+    "fri": "Sexta-feira",
+    "sat": "Sábado",
+    "sun": "Domingo",
+    "prayer": "Culto de oração",
+    "bible": "Estudo bíblico",
+    "youth": "Encontro de jovens",
+    "byArr": "mediante combinação",
+    "sundaySvc": "Culto de domingo",
+    "mainSvc": "Culto principal",
+    "findUs": "Como nos encontrar →",
+    "ourFaith": "Nossa fé"
+  },
+  "footer": {
+    "navigation": "Navegação",
+    "contact": "Contato",
+    "legal": "Jurídico",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — igreja evangélica de língua russa na Saxônia. Culto dominical às 10:00.",
+    "rights": "Todos os direitos reservados.",
+    "instaText": "Siga-nos no Instagram",
+    "dsgvo": "Conforme GDPR · Hospedado na UE"
+  },
+  "legalDisclaimer": "Apenas a versão alemã é juridicamente vinculativa. As traduções são fornecidas para conveniência do usuário.",
+  "consent": {
+    "title": "Preferências de privacidade",
+    "body": "Usamos cookies e tecnologias semelhantes para operar este site. Você pode decidir quais categorias permitir.",
+    "linksIntro": "Mais informações em nossa",
+    "linkDatenschutz": "Política de Privacidade",
+    "and": "e no",
+    "linkImpressum": "Impressum",
+    "essential": "Essenciais",
+    "essentialDesc": "Esses cookies são necessários para o funcionamento do site e não podem ser desativados.",
+    "analytics": "Análise",
+    "analyticsDesc": "Ajudam-nos a entender como os visitantes interagem com o site.",
+    "functional": "Funcionais",
+    "functionalDesc": "Permitem funcionalidades como seleção de idioma e personalização.",
+    "acceptAll": "Aceitar todos",
+    "acceptEssential": "Apenas essenciais",
+    "saveSettings": "Salvar seleção"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Política de Privacidade",
+    "breadcrumbHome": "Início",
+    "translationNotice": "A versão alemã abaixo é o único texto juridicamente vinculativo."
+  }
+}

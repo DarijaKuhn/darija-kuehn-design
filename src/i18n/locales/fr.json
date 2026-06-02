@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "confession": "Foi",
+    "services": "Cultes",
+    "map": "Nous trouver",
+    "gallery": "Photos",
+    "sermons": "Sermons",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Église évangélique baptiste chrétienne à Dresde",
+    "h2": "Nous sommes heureux de vous accueillir dans notre communauté.",
+    "desc": "Communauté chrétienne russophone.",
+    "schedule": "Horaire des cultes",
+    "wed": "Mercredi",
+    "fri": "Vendredi",
+    "sat": "Samedi",
+    "sun": "Dimanche",
+    "prayer": "Service de prière",
+    "bible": "Étude biblique",
+    "youth": "Rencontre des jeunes",
+    "byArr": "sur rendez-vous",
+    "sundaySvc": "Culte du dimanche",
+    "mainSvc": "Culte principal",
+    "findUs": "Comment nous trouver →",
+    "ourFaith": "Notre foi"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — église évangélique russophone en Saxe. Culte du dimanche à 10h00.",
+    "rights": "Tous droits réservés.",
+    "instaText": "Suivez-nous sur Instagram",
+    "dsgvo": "Conforme RGPD · Hébergé dans l'UE"
+  },
+  "legalDisclaimer": "Seule la version allemande fait foi juridiquement. Les traductions sont fournies à titre informatif uniquement.",
+  "consent": {
+    "title": "Préférences de confidentialité",
+    "body": "Nous utilisons des cookies et technologies similaires pour exploiter ce site. Vous pouvez décider quelles catégories autoriser.",
+    "linksIntro": "Plus d'informations dans notre",
+    "linkDatenschutz": "Politique de confidentialité",
+    "and": "et dans les",
+    "linkImpressum": "Mentions légales",
+    "essential": "Nécessaires",
+    "essentialDesc": "Ces cookies sont indispensables au fonctionnement du site et ne peuvent être désactivés.",
+    "analytics": "Analyse",
+    "analyticsDesc": "Nous aident à comprendre comment les visiteurs utilisent le site.",
+    "functional": "Fonctionnels",
+    "functionalDesc": "Permettent des fonctionnalités telles que la sélection de la langue et la personnalisation.",
+    "acceptAll": "Tout accepter",
+    "acceptEssential": "Seulement nécessaires",
+    "saveSettings": "Enregistrer la sélection"
+  },
+  "legal": {
+    "impressumTitle": "Mentions légales",
+    "datenschutzTitle": "Politique de confidentialité",
+    "breadcrumbHome": "Accueil",
+    "translationNotice": "La version allemande ci-dessous est le seul texte juridiquement contraignant."
+  }
+}

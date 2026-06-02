@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "confession": "İnanç",
+    "services": "İbadetler",
+    "map": "Bize Ulaşın",
+    "gallery": "Fotoğraflar",
+    "sermons": "Vaazlar",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
+    "h1": "Dresden'deki Evanjelik Hristiyan Baptist Kilisesi",
+    "h2": "Topluluğumuzda sizi görmekten mutluluk duyarız.",
+    "desc": "Rusça konuşan Hristiyan topluluğu.",
+    "schedule": "İbadet programı",
+    "wed": "Çarşamba",
+    "fri": "Cuma",
+    "sat": "Cumartesi",
+    "sun": "Pazar",
+    "prayer": "Dua ibadeti",
+    "bible": "İncil çalışması",
+    "youth": "Gençlik buluşması",
+    "byArr": "randevu ile",
+    "sundaySvc": "Pazar ibadeti",
+    "mainSvc": "Ana ibadet",
+    "findUs": "Bizi nasıl bulursunuz →",
+    "ourFaith": "İnancımız"
+  },
+  "footer": {
+    "navigation": "Navigasyon",
+    "contact": "İletişim",
+    "legal": "Yasal",
+    "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — Saksonya'da Rusça konuşan evanjelik kilise. Pazar ibadeti 10:00'da.",
+    "rights": "Tüm hakları saklıdır.",
+    "instaText": "Bizi Instagram'da takip edin",
+    "dsgvo": "GDPR uyumlu · AB'de barındırılıyor"
+  },
+  "legalDisclaimer": "Yalnızca Almanca sürüm yasal olarak bağlayıcıdır. Çeviriler yalnızca kullanıcı kolaylığı için sunulmaktadır.",
+  "consent": {
+    "title": "Gizlilik tercihleri",
+    "body": "Bu web sitesini çalıştırmak için çerezler ve benzeri teknolojiler kullanıyoruz. Hangi kategorilere izin vereceğinize karar verebilirsiniz.",
+    "linksIntro": "Daha fazla bilgi için",
+    "linkDatenschutz": "Gizlilik Politikası",
+    "and": "ve",
+    "linkImpressum": "Impressum",
+    "essential": "Gerekli",
+    "essentialDesc": "Bu çerezler sitenin çalışması için gereklidir ve devre dışı bırakılamaz.",
+    "analytics": "Analiz",
+    "analyticsDesc": "Ziyaretçilerin siteyi nasıl kullandığını anlamamıza yardımcı olur.",
+    "functional": "İşlevsel",
+    "functionalDesc": "Dil seçimi ve kişiselleştirme gibi gelişmiş özellikleri etkinleştirir.",
+    "acceptAll": "Tümünü kabul et",
+    "acceptEssential": "Yalnızca gereklileri",
+    "saveSettings": "Seçimi kaydet"
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Gizlilik Politikası",
+    "breadcrumbHome": "Ana Sayfa",
+    "translationNotice": "Aşağıdaki Almanca sürüm, yasal olarak bağlayıcı tek metindir."
+  }
+}
