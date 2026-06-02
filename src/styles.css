@@ -211,20 +211,6 @@ a { color: inherit; text-decoration: none; }
     text-decoration-color: var(--green);
     text-decoration-thickness: 2px;
   }
-  .nav-inner::before,
-  .nav-inner::after {
-    content: "";
-    position: absolute;
-    bottom: 14px;
-    width: 7px; height: 7px;
-    border-top: 2px solid var(--green);
-    border-right: 2px solid var(--green);
-    opacity: .6;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .nav-inner::before { left: 6px; transform: rotate(-135deg); }
-  .nav-inner::after { right: 6px; transform: rotate(45deg); }
 }
 
 /* ─────── HERO ─────── */
