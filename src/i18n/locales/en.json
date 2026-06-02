@@ -59,5 +59,87 @@
     "datenschutzTitle": "Privacy Policy",
     "breadcrumbHome": "Home",
     "translationNotice": "The German version below is the only legally binding text. This translation is provided for convenience."
+  },
+  "impressum": {
+    "intro": "Provider identification according to § 5 TMG (German Telemedia Act).",
+    "sections": [
+      {
+        "h": "Information pursuant to § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Represented by",
+        "p": "Board: <em>[First Last, role]</em><br/><em>[First Last, role]</em>"
+      },
+      {
+        "h": "Contact",
+        "p": "Phone: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Register entry",
+        "p": "Entered in the German register of associations (Vereinsregister).<br/>Registry court: <em>[Local Court Dresden]</em><br/>Registration number: <em>VR [number]</em>"
+      },
+      {
+        "h": "Responsible for content per § 18 (2) MStV",
+        "p": "<em>[First Last]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Liability for content",
+        "p": "The content of our pages has been created with the greatest care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider we are responsible for our own content on these pages in accordance with § 7 (1) TMG and the general laws."
+      },
+      {
+        "h": "Liability for links",
+        "p": "Our offer contains links to external third-party websites whose content we have no influence over. Therefore we cannot accept any liability for this external content."
+      },
+      {
+        "h": "Copyright",
+        "p": "Content and works created by the site operators on these pages are subject to German copyright law."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Privacy policy in accordance with GDPR and German BDSG.",
+    "sections": [
+      {
+        "h": "1. Controller",
+        "p": "The controller responsible for data processing on this website is:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a> · Phone: <a href=\"tel:+493512530403\">+49 351 253 04 03</a>"
+      },
+      {
+        "h": "2. General information on processing",
+        "p": "We process personal data only insofar as it is necessary to provide a functional website. The legal basis is regularly your consent (Art. 6 (1) (a) GDPR) or a statutory permission (Art. 6 (1) (b), (c), (f) GDPR)."
+      },
+      {
+        "h": "3. Server log files",
+        "p": "The hosting provider automatically collects information in server log files (browser type, OS, referrer, hostname, time, IP address). This data is not merged with other sources. Legal basis: Art. 6 (1) (f) GDPR."
+      },
+      {
+        "h": "4. Cookies and consent (TTDSG)",
+        "p": "Non-essential cookies are only set with your explicit consent through our consent banner (Art. 6 (1) (a) GDPR, § 25 (1) TTDSG). Technically necessary cookies (language, consent storage) are used pursuant to § 25 (2) no. 2 TTDSG. You can withdraw your consent at any time with effect for the future."
+      },
+      {
+        "h": "5. Contact form and email",
+        "p": "If you contact us, the data you provide will be stored to process your request. Legal basis: Art. 6 (1) (b) or (f) GDPR. No data is passed on to third parties."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "Our \"Find Us\" page embeds maps from OpenStreetMap (OSMF, Cambridge, UK). When you load the page, technical data (incl. IP address) is transmitted to OSMF. Legal basis: Art. 6 (1) (f) GDPR."
+      },
+      {
+        "h": "7. Fonts (Bunny Fonts)",
+        "p": "We use Bunny Fonts (EU provider) as a privacy-friendly alternative to Google Fonts. No user profiling takes place."
+      },
+      {
+        "h": "8. Your rights",
+        "p": "You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21), as well as the right to lodge a complaint with the supervisory authority (Saxon Data Protection Commissioner)."
+      },
+      {
+        "h": "9. SSL encryption",
+        "p": "For security reasons this site uses SSL/TLS encryption."
+      },
+      {
+        "h": "10. Changes",
+        "p": "We reserve the right to amend this declaration to ensure it always meets current legal requirements."
+      }
+    ]
   }
 }

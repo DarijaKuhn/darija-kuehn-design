@@ -59,5 +59,87 @@
     "datenschutzTitle": "Politica de confidențialitate",
     "breadcrumbHome": "Acasă",
     "translationNotice": "Versiunea germană de mai jos este singurul text obligatoriu din punct de vedere juridic."
+  },
+  "impressum": {
+    "intro": "Identificarea furnizorului conform § 5 TMG (legea germană privind telemediile).",
+    "sections": [
+      {
+        "h": "Date conform § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Reprezentată prin",
+        "p": "Consiliu: <em>[Prenume Nume, funcție]</em>"
+      },
+      {
+        "h": "Contact",
+        "p": "Telefon: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Înregistrare",
+        "p": "Înscrisă în registrul german al asociațiilor (Vereinsregister).<br/>Tribunal: <em>[Amtsgericht Dresden]</em><br/>Număr: <em>VR [număr]</em>"
+      },
+      {
+        "h": "Responsabil de conținut conform § 18 (2) MStV",
+        "p": "<em>[Prenume Nume]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Răspunderea pentru conținut",
+        "p": "Conținutul paginilor a fost realizat cu cea mai mare grijă. Nu putem garanta însă acuratețea, integralitatea și actualitatea acestuia. În calitate de furnizor de servicii suntem responsabili pentru conținutul propriu conform § 7 (1) TMG."
+      },
+      {
+        "h": "Răspunderea pentru linkuri",
+        "p": "Site-ul nostru conține linkuri către site-uri externe asupra cărora nu avem influență. De aceea nu putem asuma răspunderea pentru aceste conținuturi."
+      },
+      {
+        "h": "Drepturi de autor",
+        "p": "Conținutul și lucrările create de operatorii site-ului sunt protejate de legea germană a drepturilor de autor."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Politică de confidențialitate conform GDPR și BDSG din Germania.",
+    "sections": [
+      {
+        "h": "1. Operator",
+        "p": "Operator responsabil pentru prelucrarea datelor pe acest site:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "2. Informații generale",
+        "p": "Prelucrăm datele personale doar în măsura necesară furnizării unui site funcțional. Temeiul juridic este de obicei consimțământul (art. 6 alin. 1 lit. a GDPR) sau o autorizație legală."
+      },
+      {
+        "h": "3. Fișiere jurnal de server",
+        "p": "Furnizorul de găzduire colectează automat informații în jurnale (tip browser, sistem, referrer, gazdă, oră, adresă IP). Temei juridic: art. 6 alin. 1 lit. f GDPR."
+      },
+      {
+        "h": "4. Cookie-uri și consimțământ (TTDSG)",
+        "p": "Cookie-urile neesențiale sunt setate doar după consimțământ explicit prin banner. Consimțământul poate fi retras oricând."
+      },
+      {
+        "h": "5. Formular de contact și e-mail",
+        "p": "La contactare, datele transmise sunt stocate pentru procesarea cererii. Nu sunt transmise terților."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "Pagina \"Cum ne găsiți\" încorporează hărți OpenStreetMap (OSMF, Cambridge, UK). La încărcare se transmit date tehnice, inclusiv IP."
+      },
+      {
+        "h": "7. Fonturi (Bunny Fonts)",
+        "p": "Folosim Bunny Fonts (furnizor UE) ca alternativă prietenoasă cu confidențialitatea la Google Fonts."
+      },
+      {
+        "h": "8. Drepturile dumneavoastră",
+        "p": "Aveți drept de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune plângere la autoritatea de supraveghere."
+      },
+      {
+        "h": "9. Criptare SSL",
+        "p": "Din motive de securitate, acest site utilizează criptare SSL/TLS."
+      },
+      {
+        "h": "10. Modificări",
+        "p": "Ne rezervăm dreptul de a actualiza această declarație pentru a respecta cerințele legale în vigoare."
+      }
+    ]
   }
 }

@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
 import de from "./locales/de.json";
 import en from "./locales/en.json";
@@ -53,21 +52,16 @@ const resources = {
   mn: { translation: mn },
 };
 
+// IMPORTANT: always init with German on both server and first client render
+// to avoid SSR/hydration mismatches. We swap to the user-selected language
+// in a post-hydration effect (see I18nProvider).
 if (!i18n.isInitialized) {
-  const chain = typeof window !== "undefined"
-    ? i18n.use(LanguageDetector).use(initReactI18next)
-    : i18n.use(initReactI18next);
-  chain.init({
+  i18n.use(initReactI18next).init({
     resources,
-    lng: typeof window === "undefined" ? "de" : undefined,
-    fallbackLng: "de", // German is the master / legally binding language
+    lng: "de",
+    fallbackLng: "de",
     supportedLngs: ["de", "en", "ru", "he", "ar", "syr", "pt", "pl", "fr", "it", "tr", "ro", "mn"],
     interpolation: { escapeValue: false },
-    detection: {
-      order: ["localStorage", "navigator"],
-      lookupLocalStorage: "lang",
-      caches: ["localStorage"],
-    },
     returnNull: false,
   });
 }

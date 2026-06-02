@@ -59,5 +59,87 @@
     "datenschutzTitle": "Informativa sulla privacy",
     "breadcrumbHome": "Home",
     "translationNotice": "La versione tedesca qui sotto è l'unico testo giuridicamente vincolante."
+  },
+  "impressum": {
+    "intro": "Identificazione del prestatore ai sensi del § 5 TMG (legge tedesca sui telemedia).",
+    "sections": [
+      {
+        "h": "Informazioni secondo § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Rappresentata da",
+        "p": "Consiglio: <em>[Nome Cognome, ruolo]</em>"
+      },
+      {
+        "h": "Contatti",
+        "p": "Telefono: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Registrazione",
+        "p": "Iscritta nel registro tedesco delle associazioni (Vereinsregister).<br/>Tribunale: <em>[Amtsgericht Dresden]</em><br/>Numero: <em>VR [numero]</em>"
+      },
+      {
+        "h": "Responsabile dei contenuti ai sensi del § 18 (2) MStV",
+        "p": "<em>[Nome Cognome]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Responsabilità per i contenuti",
+        "p": "I contenuti delle nostre pagine sono stati realizzati con la massima cura. Non possiamo tuttavia garantirne l'esattezza, la completezza e l'attualità. In qualità di prestatore di servizi siamo responsabili dei contenuti propri ai sensi del § 7 (1) TMG."
+      },
+      {
+        "h": "Responsabilità per i link",
+        "p": "Il nostro sito contiene link a siti esterni i cui contenuti non possiamo controllare. Pertanto non possiamo assumerne la responsabilità."
+      },
+      {
+        "h": "Diritto d'autore",
+        "p": "I contenuti e le opere create dagli operatori del sito sono soggetti al diritto d'autore tedesco."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Informativa sulla privacy ai sensi del GDPR e della BDSG tedesca.",
+    "sections": [
+      {
+        "h": "1. Titolare del trattamento",
+        "p": "Titolare del trattamento dei dati su questo sito:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "2. Informazioni generali",
+        "p": "Trattiamo dati personali solo nella misura necessaria a fornire un sito funzionale. La base giuridica è di norma il consenso (art. 6 par. 1 lett. a GDPR) o un'autorizzazione di legge."
+      },
+      {
+        "h": "3. File di log del server",
+        "p": "Il provider raccoglie automaticamente informazioni nei file di log (tipo di browser, OS, referrer, hostname, ora, indirizzo IP). Base giuridica: art. 6 par. 1 lett. f GDPR."
+      },
+      {
+        "h": "4. Cookie e consenso (TTDSG)",
+        "p": "I cookie non essenziali vengono impostati solo previo consenso esplicito tramite il nostro banner. Il consenso può essere revocato in qualsiasi momento."
+      },
+      {
+        "h": "5. Modulo di contatto ed e-mail",
+        "p": "In caso di contatto i dati trasmessi vengono conservati per gestire la richiesta. Nessuna trasmissione a terzi."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "La pagina \"Come trovarci\" integra mappe OpenStreetMap (OSMF, Cambridge, UK). Al caricamento vengono trasmessi dati tecnici, compreso l'IP."
+      },
+      {
+        "h": "7. Caratteri (Bunny Fonts)",
+        "p": "Utilizziamo Bunny Fonts (provider UE) come alternativa rispettosa della privacy a Google Fonts."
+      },
+      {
+        "h": "8. I tuoi diritti",
+        "p": "Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, oltre al diritto di reclamo all'autorità di controllo."
+      },
+      {
+        "h": "9. Crittografia SSL",
+        "p": "Per motivi di sicurezza il sito utilizza crittografia SSL/TLS."
+      },
+      {
+        "h": "10. Modifiche",
+        "p": "Ci riserviamo il diritto di adeguare questa informativa ai requisiti di legge vigenti."
+      }
+    ]
   }
 }

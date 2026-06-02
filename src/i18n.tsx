@@ -24,7 +24,16 @@ const I18nContext = createContext<Ctx>({
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const { t, i18n: i18nInstance } = useTranslation();
-  const [lang, setLangState] = useState<Lang>((i18nInstance.language as Lang) || "de");
+  // Always start at "de" so SSR and first client render agree.
+  const [lang, setLangState] = useState<Lang>("de");
+
+  // After hydration, read saved language and switch.
+  useEffect(() => {
+    const saved = (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang | null)) || null;
+    if (saved && saved !== i18nInstance.language) {
+      i18n.changeLanguage(saved);
+    }
+  }, [i18nInstance]);
 
   useEffect(() => {
     const onChange = (lng: string) => setLangState(lng as Lang);

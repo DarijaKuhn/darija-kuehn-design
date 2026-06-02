@@ -59,5 +59,87 @@
     "datenschutzTitle": "Gizlilik Politikası",
     "breadcrumbHome": "Ana Sayfa",
     "translationNotice": "Aşağıdaki Almanca sürüm, yasal olarak bağlayıcı tek metindir."
+  },
+  "impressum": {
+    "intro": "§ 5 TMG (Alman Telemedia Yasası) uyarınca sağlayıcı bilgileri.",
+    "sections": [
+      {
+        "h": "§ 5 TMG uyarınca bilgiler",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Temsilcisi",
+        "p": "Yönetim Kurulu: <em>[Ad Soyad, görev]</em>"
+      },
+      {
+        "h": "İletişim",
+        "p": "Telefon: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-posta: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Sicil kaydı",
+        "p": "Alman dernekler siciline (Vereinsregister) kayıtlıdır.<br/>Sicil mahkemesi: <em>[Amtsgericht Dresden]</em><br/>Sicil no: <em>VR [numara]</em>"
+      },
+      {
+        "h": "§ 18 (2) MStV uyarınca içerik sorumlusu",
+        "p": "<em>[Ad Soyad]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "İçerik sorumluluğu",
+        "p": "Sayfalarımızın içeriği büyük bir özenle hazırlanmıştır. Ancak doğruluk, eksiksizlik ve güncellik için garanti veremeyiz. § 7 (1) TMG uyarınca kendi içeriklerimizden sorumluyuz."
+      },
+      {
+        "h": "Bağlantı sorumluluğu",
+        "p": "Sitemiz, içeriğine etki edemediğimiz üçüncü taraf bağlantıları içerir. Bu nedenle yabancı içerikler için sorumluluk kabul edemeyiz."
+      },
+      {
+        "h": "Telif hakkı",
+        "p": "Site işletmecileri tarafından oluşturulan içerik ve eserler Alman telif hakkı yasalarına tabidir."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "GDPR ve Alman BDSG'ye uygun gizlilik politikası.",
+    "sections": [
+      {
+        "h": "1. Veri sorumlusu",
+        "p": "Bu sitedeki veri işlemeden sorumlu:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-posta: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "2. Genel bilgiler",
+        "p": "Kişisel verileri yalnızca işlevsel bir web sitesi sunmak için gereken ölçüde işleriz. Hukuki dayanak genellikle açık rıza (GDPR 6/1-a) veya yasal izindir."
+      },
+      {
+        "h": "3. Sunucu günlük dosyaları",
+        "p": "Barındırma sağlayıcısı günlüklerde otomatik olarak bilgi toplar (tarayıcı türü, işletim sistemi, yönlendiren, sunucu adı, saat, IP). Hukuki dayanak: GDPR 6/1-f."
+      },
+      {
+        "h": "4. Çerezler ve rıza (TTDSG)",
+        "p": "Zorunlu olmayan çerezler yalnızca rıza banner'ı üzerinden açık rıza alındıktan sonra yerleştirilir. Rıza istenildiği zaman geri çekilebilir."
+      },
+      {
+        "h": "5. İletişim formu ve e-posta",
+        "p": "İletişime geçtiğinizde iletilen veriler talebinizin işlenmesi için saklanır. Üçüncü taraflarla paylaşılmaz."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "\"Bize Ulaşın\" sayfasında OpenStreetMap (OSMF, Cambridge, BK) haritaları kullanılır. Yükleme sırasında IP dahil teknik veriler aktarılır."
+      },
+      {
+        "h": "7. Yazı tipleri (Bunny Fonts)",
+        "p": "Google Fonts'a gizlilik dostu alternatif olarak AB tedarikçisi Bunny Fonts'u kullanırız."
+      },
+      {
+        "h": "8. Haklarınız",
+        "p": "Erişim, düzeltme, silme, kısıtlama, taşınabilirlik ve itiraz hakkınızın yanı sıra denetim makamına şikayet hakkına sahipsiniz."
+      },
+      {
+        "h": "9. SSL şifrelemesi",
+        "p": "Bu site güvenlik nedeniyle SSL/TLS şifrelemesi kullanır."
+      },
+      {
+        "h": "10. Değişiklikler",
+        "p": "Bu beyanı güncel yasal gereklilikleri karşılayacak şekilde değiştirme hakkımız saklıdır."
+      }
+    ]
   }
 }

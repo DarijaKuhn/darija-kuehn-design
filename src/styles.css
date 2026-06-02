@@ -574,3 +574,16 @@ footer a:hover { color: #fff; }
 [dir="rtl"] .nav-inner,
 [dir="rtl"] .footer-grid { direction: rtl; }
 [dir="rtl"] .cc-cat { flex-direction: row-reverse; text-align: right; }
+
+.legal-original {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+.legal-original > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--green-dark);
+}
