@@ -59,5 +59,87 @@
     "datenschutzTitle": "Polityka prywatności",
     "breadcrumbHome": "Strona główna",
     "translationNotice": "Wersja niemiecka poniżej jest jedynym prawnie wiążącym tekstem."
+  },
+  "impressum": {
+    "intro": "Identyfikacja usługodawcy zgodnie z § 5 TMG (niemieckiej ustawy o mediach elektronicznych).",
+    "sections": [
+      {
+        "h": "Dane zgodnie z § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Reprezentowana przez",
+        "p": "Zarząd: <em>[Imię Nazwisko, funkcja]</em>"
+      },
+      {
+        "h": "Kontakt",
+        "p": "Telefon: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Rejestracja",
+        "p": "Wpisane do niemieckiego rejestru stowarzyszeń (Vereinsregister).<br/>Sąd rejestrowy: <em>[Amtsgericht Dresden]</em><br/>Numer: <em>VR [numer]</em>"
+      },
+      {
+        "h": "Odpowiedzialny za treść (§ 18 ust. 2 MStV)",
+        "p": "<em>[Imię Nazwisko]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Odpowiedzialność za treść",
+        "p": "Treści naszych stron zostały opracowane z najwyższą starannością. Nie możemy jednak zagwarantować ich poprawności, kompletności ani aktualności. Jako usługodawca odpowiadamy za własne treści zgodnie z § 7 ust. 1 TMG."
+      },
+      {
+        "h": "Odpowiedzialność za linki",
+        "p": "Strona zawiera linki do witryn zewnętrznych, na których treść nie mamy wpływu. Z tego względu nie ponosimy za nie odpowiedzialności."
+      },
+      {
+        "h": "Prawa autorskie",
+        "p": "Treści i dzieła stworzone przez operatorów strony podlegają niemieckiemu prawu autorskiemu."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Polityka prywatności zgodnie z RODO i niemiecką BDSG.",
+    "sections": [
+      {
+        "h": "1. Administrator danych",
+        "p": "Administrator danych na tej stronie:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "2. Informacje ogólne",
+        "p": "Przetwarzamy dane osobowe tylko w zakresie niezbędnym do prawidłowego działania strony. Podstawa prawna to zwykle zgoda (art. 6 ust. 1 lit. a RODO) lub przepis prawa."
+      },
+      {
+        "h": "3. Pliki dziennika serwera",
+        "p": "Dostawca hostingu automatycznie zbiera informacje w logach (typ przeglądarki, system, referrer, host, czas, adres IP). Podstawa prawna: art. 6 ust. 1 lit. f RODO."
+      },
+      {
+        "h": "4. Cookies i zgoda (TTDSG)",
+        "p": "Cookies inne niż niezbędne są ustawiane wyłącznie po wyraźnej zgodzie poprzez nasz baner. Zgodę można w każdej chwili wycofać."
+      },
+      {
+        "h": "5. Formularz kontaktowy i e-mail",
+        "p": "W razie kontaktu przesłane dane są przechowywane w celu obsługi zapytania. Nie są przekazywane osobom trzecim."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "Strona „Jak nas znaleźć” osadza mapy OpenStreetMap (OSMF, Cambridge, UK). Przy ładowaniu przesyłane są dane techniczne, w tym adres IP."
+      },
+      {
+        "h": "7. Czcionki (Bunny Fonts)",
+        "p": "Używamy Bunny Fonts (dostawca z UE) jako przyjaznej dla prywatności alternatywy dla Google Fonts."
+      },
+      {
+        "h": "8. Twoje prawa",
+        "p": "Masz prawo dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia i sprzeciwu oraz prawo wniesienia skargi do organu nadzorczego."
+      },
+      {
+        "h": "9. Szyfrowanie SSL",
+        "p": "Ze względów bezpieczeństwa strona korzysta z szyfrowania SSL/TLS."
+      },
+      {
+        "h": "10. Zmiany",
+        "p": "Zastrzegamy sobie prawo do aktualizacji tej polityki zgodnie z aktualnymi wymogami prawnymi."
+      }
+    ]
   }
 }

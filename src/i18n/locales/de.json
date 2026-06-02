@@ -59,5 +59,87 @@
     "datenschutzTitle": "Datenschutzerklärung",
     "breadcrumbHome": "Startseite",
     "translationNotice": "Diese Seite ist die rechtlich verbindliche deutsche Originalfassung."
+  },
+  "impressum": {
+    "intro": "Anbieterkennzeichnung gemäß § 5 TMG.",
+    "sections": [
+      {
+        "h": "Angaben gemäß § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Vertreten durch",
+        "p": "Vorstand: <em>[Vorname Nachname, Position]</em><br/><em>[Vorname Nachname, Position]</em>"
+      },
+      {
+        "h": "Kontakt",
+        "p": "Telefon: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-Mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Registereintrag",
+        "p": "Eintragung im Vereinsregister.<br/>Registergericht: <em>[Amtsgericht Dresden]</em><br/>Registernummer: <em>VR [Nummer eintragen]</em>"
+      },
+      {
+        "h": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+        "p": "<em>[Vorname Nachname]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Haftung für Inhalte",
+        "p": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."
+      },
+      {
+        "h": "Haftung für Links",
+        "p": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen."
+      },
+      {
+        "h": "Urheberrecht",
+        "p": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Datenschutzerklärung gemäß DSGVO und BDSG.",
+    "sections": [
+      {
+        "h": "1. Verantwortlicher",
+        "p": "Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-Mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a> · Tel.: <a href=\"tel:+493512530403\">+49 351 253 04 03</a>"
+      },
+      {
+        "h": "2. Allgemeines zur Datenverarbeitung",
+        "p": "Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website erforderlich ist. Rechtsgrundlage ist regelmäßig die Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) oder eine gesetzliche Erlaubnis (Art. 6 Abs. 1 lit. b, c, f DSGVO)."
+      },
+      {
+        "h": "3. Server-Log-Dateien",
+        "p": "Der Provider erhebt automatisch Informationen in Server-Log-Dateien (Browsertyp, Betriebssystem, Referrer-URL, Hostname, Uhrzeit, IP-Adresse). Eine Zusammenführung mit anderen Datenquellen erfolgt nicht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO."
+      },
+      {
+        "h": "4. Cookies und Einwilligung (TTDSG)",
+        "p": "Nicht-notwendige Cookies werden nur nach ausdrücklicher Einwilligung über unseren Consent-Banner gesetzt (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Technisch notwendige Cookies (Sprache, Einwilligungsspeicher) nutzen wir auf Grundlage von § 25 Abs. 2 Nr. 2 TTDSG. Die Einwilligung kann jederzeit widerrufen werden."
+      },
+      {
+        "h": "5. Kontaktformular und E-Mail-Kontakt",
+        "p": "Bei Kontaktaufnahme werden die übermittelten Daten zur Bearbeitung gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b bzw. f DSGVO. Keine Weitergabe an Dritte."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "Auf der Seite „Anfahrt“ binden wir Karten von OpenStreetMap (OSMF, Cambridge, UK) ein. Beim Aufruf werden technische Daten (u. a. IP-Adresse) an OSMF übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO."
+      },
+      {
+        "h": "7. Schriftarten (Bunny Fonts)",
+        "p": "Wir setzen Bunny Fonts (EU-Anbieter) als datenschutzfreundliche Alternative zu Google Fonts ein. Eine Profilbildung findet nicht statt."
+      },
+      {
+        "h": "8. Ihre Rechte",
+        "p": "Sie haben jederzeit Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21) sowie Beschwerderecht bei der zuständigen Aufsichtsbehörde (Sächsischer Datenschutzbeauftragter)."
+      },
+      {
+        "h": "9. SSL-Verschlüsselung",
+        "p": "Diese Seite nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung."
+      },
+      {
+        "h": "10. Änderungen",
+        "p": "Wir behalten uns vor, diese Erklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht."
+      }
+    ]
   }
 }

@@ -59,5 +59,87 @@
     "datenschutzTitle": "Política de Privacidade",
     "breadcrumbHome": "Início",
     "translationNotice": "A versão alemã abaixo é o único texto juridicamente vinculativo."
+  },
+  "impressum": {
+    "intro": "Identificação do prestador nos termos do § 5 TMG (Lei alemã de Telemídia).",
+    "sections": [
+      {
+        "h": "Informações conforme § 5 TMG",
+        "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Representado por",
+        "p": "Diretoria: <em>[Nome Sobrenome, função]</em>"
+      },
+      {
+        "h": "Contato",
+        "p": "Telefone: <a href=\"tel:+493512530403\">+49 351 253 04 03</a><br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "Registro",
+        "p": "Inscrito no registro alemão de associações (Vereinsregister).<br/>Tribunal: <em>[Amtsgericht Dresden]</em><br/>Número: <em>VR [número]</em>"
+      },
+      {
+        "h": "Responsável pelo conteúdo (§ 18 (2) MStV)",
+        "p": "<em>[Nome Sobrenome]</em><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
+      },
+      {
+        "h": "Responsabilidade pelo conteúdo",
+        "p": "O conteúdo das páginas foi elaborado com o máximo cuidado. Contudo, não podemos garantir sua exatidão, integridade ou atualidade. Como prestadores de serviço, somos responsáveis pelo conteúdo próprio segundo o § 7 (1) TMG."
+      },
+      {
+        "h": "Responsabilidade por links",
+        "p": "Nosso site contém links para sites externos cujos conteúdos não controlamos; portanto não podemos assumir responsabilidade por eles."
+      },
+      {
+        "h": "Direitos autorais",
+        "p": "Os conteúdos e obras criados pelos operadores deste site estão sujeitos à lei alemã de direitos autorais."
+      }
+    ]
+  },
+  "datenschutz": {
+    "intro": "Política de privacidade nos termos do GDPR e da BDSG alemã.",
+    "sections": [
+      {
+        "h": "1. Responsável pelos dados",
+        "p": "Responsável pelo tratamento de dados neste site:<br/><strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong>, Altenberger Strasse 87, 01279 Dresden, Deutschland.<br/>E-mail: <a href=\"mailto:info@fecg-dresden.de\">info@fecg-dresden.de</a>"
+      },
+      {
+        "h": "2. Geral",
+        "p": "Tratamos dados pessoais apenas na medida necessária para fornecer um site funcional. A base legal é, em regra, o consentimento (art. 6.º, n.º 1, alínea a, GDPR) ou uma permissão legal."
+      },
+      {
+        "h": "3. Arquivos de log do servidor",
+        "p": "O provedor de hospedagem coleta automaticamente informações em logs (tipo de navegador, SO, referenciador, hostname, hora, endereço IP). Base legal: art. 6.º, n.º 1, alínea f, GDPR."
+      },
+      {
+        "h": "4. Cookies e consentimento (TTDSG)",
+        "p": "Cookies não essenciais são definidos somente após consentimento explícito pelo banner. O consentimento pode ser retirado a qualquer momento."
+      },
+      {
+        "h": "5. Formulário de contato e e-mail",
+        "p": "Ao entrar em contato, os dados enviados são armazenados para tratar a solicitação. Não há transferência a terceiros."
+      },
+      {
+        "h": "6. OpenStreetMap",
+        "p": "A página \"Como chegar\" incorpora mapas do OpenStreetMap (OSMF, Cambridge, UK). Ao carregar, são transmitidos dados técnicos, incluindo IP."
+      },
+      {
+        "h": "7. Fontes (Bunny Fonts)",
+        "p": "Utilizamos Bunny Fonts (provedor da UE) como alternativa favorável à privacidade ao Google Fonts."
+      },
+      {
+        "h": "8. Seus direitos",
+        "p": "Você tem direito de acesso, retificação, eliminação, limitação, portabilidade e oposição, bem como o direito de reclamação à autoridade de controle."
+      },
+      {
+        "h": "9. Criptografia SSL",
+        "p": "Por motivos de segurança, este site utiliza criptografia SSL/TLS."
+      },
+      {
+        "h": "10. Alterações",
+        "p": "Reservamo-nos o direito de adaptar esta declaração para refletir requisitos legais atuais."
+      }
+    ]
   }
 }
