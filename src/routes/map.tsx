@@ -37,13 +37,7 @@ function MapPage() {
             <div className="map-grid">
 
               <div>
-                <iframe
-                  className="map-iframe"
-                  title="Карта: Altenberger Str. 87, Dresden"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=13.825%2C50.998%2C13.855%2C51.018&layer=mapnik&marker=51.008%2C13.840"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                <MapEmbed />
               </div>
               <div className="transport-list">
                 <div className="transport-item">
