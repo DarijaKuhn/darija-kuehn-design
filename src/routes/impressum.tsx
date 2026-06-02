@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/impressum")({
   component: Impressum,
@@ -12,19 +13,31 @@ export const Route = createFileRoute("/impressum")({
 });
 
 function Impressum() {
+  const { t, lang } = useI18n();
+  const isGerman = lang === "de";
   return (
     <div className="page-panel">
       <div className="page-breadcrumb">
         <div className="page-breadcrumb-inner">
-          <Link to="/">Startseite</Link> <span>/</span> <span className="crumb-here">Impressum</span>
+          <Link to="/">{t("legal.breadcrumbHome")}</Link> <span>/</span>{" "}
+          <span className="crumb-here">{t("legal.impressumTitle")}</span>
         </div>
       </div>
       <section className="section section-white">
         <div className="container">
           <p className="label">§ 5 TMG</p>
-          <h1 className="section-h" style={{ marginTop: 8, marginBottom: 24 }}>Impressum</h1>
+          <h1 className="section-h" style={{ marginTop: 8, marginBottom: 24 }}>
+            {t("legal.impressumTitle")}
+          </h1>
 
-          <div className="confession-body">
+          {!isGerman && (
+            <div className="legal-translation-notice">
+              {t("legal.translationNotice")}
+            </div>
+          )}
+
+          {/* Legally binding text — must remain in German per § 5 TMG */}
+          <div className="confession-body" lang="de">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
               <strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br />
@@ -42,8 +55,7 @@ function Impressum() {
             <h2>Kontakt</h2>
             <p>
               Telefon: <a href="tel:+493512530403">+49 351 253 04 03</a><br />
-              E-Mail: <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a><br />
-              Web: <a href="https://propovednik.my1.ru" target="_blank" rel="noreferrer">propovednik.my1.ru</a>
+              E-Mail: <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a>
             </p>
 
             <h2>Registereintrag</h2>
@@ -51,12 +63,6 @@ function Impressum() {
               Eintragung im Vereinsregister.<br />
               Registergericht: <em>[Amtsgericht Dresden]</em><br />
               Registernummer: <em>VR [Nummer eintragen]</em>
-            </p>
-
-            <h2>Umsatzsteuer-ID</h2>
-            <p>
-              Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-              <em>[falls vorhanden — sonst entfernen]</em>
             </p>
 
             <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
@@ -76,6 +82,10 @@ function Impressum() {
               <strong>Urheberrecht:</strong> Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
             </p>
           </div>
+
+          {!isGerman && (
+            <p className="legal-binding-footer">{t("legalDisclaimer")}</p>
+          )}
         </div>
       </section>
     </div>

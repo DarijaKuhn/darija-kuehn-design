@@ -485,3 +485,92 @@ footer a:hover { color: #fff; }
 }
 .footer-insta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(220,39,67,.4); color: #fff !important; }
 .footer-insta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ─────── Cookie consent banner ─────── */
+.cc-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(10, 16, 12, .72);
+  display: grid; place-items: center;
+  padding: 20px;
+  animation: cc-fade .2s ease-out;
+}
+@keyframes cc-fade { from { opacity: 0; } to { opacity: 1; } }
+.cc-modal {
+  background: var(--white);
+  color: var(--ink);
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  font-family: var(--font-sans);
+}
+.cc-title { font-size: 20px; font-weight: 700; color: var(--green-dark); margin-bottom: 10px; }
+.cc-body { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-bottom: 18px; }
+.cc-link { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+.cc-categories { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.cc-cat {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px; border: 1px solid var(--line-2); border-radius: 10px;
+  cursor: pointer; transition: background .15s;
+}
+.cc-cat:hover { background: var(--green-soft); }
+.cc-cat-locked { background: var(--green-soft); cursor: not-allowed; opacity: .9; }
+.cc-cat input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--green); flex-shrink: 0; }
+.cc-cat span { display: flex; flex-direction: column; gap: 2px; }
+.cc-cat strong { font-size: 14px; font-weight: 600; color: var(--ink); }
+.cc-cat em { font-size: 12px; color: var(--muted); font-style: normal; line-height: 1.4; }
+.cc-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+/* DSGVO parity: both buttons identical visual weight */
+.cc-btn {
+  appearance: none; border: none; cursor: pointer;
+  background: var(--green); color: var(--white);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+  padding: 12px 16px; border-radius: 10px;
+  transition: background .15s, transform .1s;
+  width: 100%;
+}
+.cc-btn:hover { background: var(--green-dark); }
+.cc-btn:active { transform: translateY(1px); }
+.cc-btn-secondary {
+  background: transparent; color: var(--green-dark);
+  border: 1px solid var(--line-2);
+  margin-top: 6px;
+}
+.cc-btn-secondary:hover { background: var(--green-soft); }
+@media (max-width: 480px) {
+  .cc-modal { padding: 22px; }
+  .cc-actions { grid-template-columns: 1fr; }
+}
+
+/* ─────── Legal page translation notice ─────── */
+.legal-translation-notice {
+  padding: 14px 16px;
+  background: #fff8e6;
+  border: 1px solid #f3d97a;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #5a4a10;
+  margin-bottom: 24px;
+}
+.legal-binding-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ─────── RTL support ─────── */
+[dir="rtl"] body { text-align: right; }
+[dir="rtl"] .nav-inner,
+[dir="rtl"] .footer-grid { direction: rtl; }
+[dir="rtl"] .cc-cat { flex-direction: row-reverse; text-align: right; }
