@@ -36,7 +36,7 @@
     "instaText": "Seguici su Instagram",
     "dsgvo": "Conforme GDPR · Ospitato nell'UE"
   },
-  "legalDisclaimer": "Solo la versione tedesca è giuridicamente vincolante. Le traduzioni sono fornite per comodità degli utenti.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Preferenze sulla privacy",
     "body": "Utilizziamo cookie e tecnologie simili per gestire questo sito. Puoi decidere quali categorie consentire.",
@@ -61,15 +61,15 @@
     "translationNotice": "La versione tedesca qui sotto è l'unico testo giuridicamente vincolante."
   },
   "impressum": {
-    "intro": "Identificazione del prestatore ai sensi del § 5 TMG (legge tedesca sui telemedia).",
+    "intro": "Identificazione del prestatore ai sensi del § 5 DDG.",
     "sections": [
       {
-        "h": "Informazioni secondo § 5 TMG",
+        "h": "Informazioni secondo § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
         "h": "Rappresentata da",
-        "p": "Consiglio: <em>[Nome Cognome, ruolo]</em>"
+        "p": "L'associazione è rappresentata dal consiglio direttivo secondo l'estratto del registro delle associazioni:<br/>1° Presidente: <em>[Nome Cognome]</em><br/>2° Presidente / Vice: <em>[Nome Cognome]</em><br/>Potere di rappresentanza: <em>[secondo lo statuto – es. «due membri congiuntamente»]</em>"
       },
       {
         "h": "Contatti",
@@ -85,7 +85,7 @@
       },
       {
         "h": "Responsabilità per i contenuti",
-        "p": "I contenuti delle nostre pagine sono stati realizzati con la massima cura. Non possiamo tuttavia garantirne l'esattezza, la completezza e l'attualità. In qualità di prestatore di servizi siamo responsabili dei contenuti propri ai sensi del § 7 (1) TMG."
+        "p": "I contenuti delle nostre pagine sono stati realizzati con la massima cura. Non possiamo tuttavia garantirne l'esattezza, la completezza e l'attualità. In qualità di prestatore di servizi siamo responsabili dei contenuti propri ai sensi del § 7 Abs. 1 DDG."
       },
       {
         "h": "Responsabilità per i link",
@@ -113,7 +113,7 @@
         "p": "Il provider raccoglie automaticamente informazioni nei file di log (tipo di browser, OS, referrer, hostname, ora, indirizzo IP). Base giuridica: art. 6 par. 1 lett. f GDPR."
       },
       {
-        "h": "4. Cookie e consenso (TTDSG)",
+        "h": "4. Cookie e consenso (TDDDG)",
         "p": "I cookie non essenziali vengono impostati solo previo consenso esplicito tramite il nostro banner. Il consenso può essere revocato in qualsiasi momento."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. I tuoi diritti",
         "p": "Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, oltre al diritto di reclamo all'autorità di controllo."
+      },
+      {
+        "h": "DIRITTO PARTICOLARE DI OPPOSIZIONE (art. 21 GDPR)",
+        "p": "<div class=\"widerspruch-block\"><strong>Lei ha il diritto, per motivi connessi alla Sua situazione particolare, di opporsi in qualsiasi momento al trattamento dei dati personali che La riguardano.</strong></div>"
       },
       {
         "h": "9. Crittografia SSL",

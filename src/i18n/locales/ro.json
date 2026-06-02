@@ -36,7 +36,7 @@
     "instaText": "Urmărește-ne pe Instagram",
     "dsgvo": "Conform GDPR · Găzduit în UE"
   },
-  "legalDisclaimer": "Doar versiunea germană este obligatorie din punct de vedere juridic. Traducerile sunt furnizate doar pentru comoditatea utilizatorilor.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Preferințe de confidențialitate",
     "body": "Folosim cookie-uri și tehnologii similare pentru a opera acest site. Puteți decide ce categorii doriți să permiteți.",
@@ -61,15 +61,15 @@
     "translationNotice": "Versiunea germană de mai jos este singurul text obligatoriu din punct de vedere juridic."
   },
   "impressum": {
-    "intro": "Identificarea furnizorului conform § 5 TMG (legea germană privind telemediile).",
+    "intro": "Identificarea furnizorului conform § 5 DDG.",
     "sections": [
       {
-        "h": "Date conform § 5 TMG",
+        "h": "Date conform § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
         "h": "Reprezentată prin",
-        "p": "Consiliu: <em>[Prenume Nume, funcție]</em>"
+        "p": "Asociația este reprezentată de consiliul de administrație conform extrasului din registrul asociațiilor:<br/>Președinte: <em>[Prenume Nume]</em><br/>Vicepreședinte: <em>[Prenume Nume]</em><br/>Drept de reprezentare: <em>[conform statutului – ex. „doi membri ai consiliului împreună\"]</em>"
       },
       {
         "h": "Contact",
@@ -85,7 +85,7 @@
       },
       {
         "h": "Răspunderea pentru conținut",
-        "p": "Conținutul paginilor a fost realizat cu cea mai mare grijă. Nu putem garanta însă acuratețea, integralitatea și actualitatea acestuia. În calitate de furnizor de servicii suntem responsabili pentru conținutul propriu conform § 7 (1) TMG."
+        "p": "Conținutul paginilor a fost realizat cu cea mai mare grijă. Nu putem garanta însă acuratețea, integralitatea și actualitatea acestuia. În calitate de furnizor de servicii suntem responsabili pentru conținutul propriu conform § 7 Abs. 1 DDG."
       },
       {
         "h": "Răspunderea pentru linkuri",
@@ -113,7 +113,7 @@
         "p": "Furnizorul de găzduire colectează automat informații în jurnale (tip browser, sistem, referrer, gazdă, oră, adresă IP). Temei juridic: art. 6 alin. 1 lit. f GDPR."
       },
       {
-        "h": "4. Cookie-uri și consimțământ (TTDSG)",
+        "h": "4. Cookie-uri și consimțământ (TDDDG)",
         "p": "Cookie-urile neesențiale sunt setate doar după consimțământ explicit prin banner. Consimțământul poate fi retras oricând."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. Drepturile dumneavoastră",
         "p": "Aveți drept de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune plângere la autoritatea de supraveghere."
+      },
+      {
+        "h": "DREPT SPECIAL DE OPOZIȚIE (art. 21 GDPR)",
+        "p": "<div class=\"widerspruch-block\"><strong>Aveți dreptul ca, din motive legate de situația dvs. particulară, să vă opuneți în orice moment prelucrării datelor cu caracter personal care vă privesc.</strong></div>"
       },
       {
         "h": "9. Criptare SSL",

@@ -36,7 +36,7 @@
     "instaText": "Bizi Instagram'da takip edin",
     "dsgvo": "GDPR uyumlu · AB'de barındırılıyor"
   },
-  "legalDisclaimer": "Yalnızca Almanca sürüm yasal olarak bağlayıcıdır. Çeviriler yalnızca kullanıcı kolaylığı için sunulmaktadır.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Gizlilik tercihleri",
     "body": "Bu web sitesini çalıştırmak için çerezler ve benzeri teknolojiler kullanıyoruz. Hangi kategorilere izin vereceğinize karar verebilirsiniz.",
@@ -61,15 +61,15 @@
     "translationNotice": "Aşağıdaki Almanca sürüm, yasal olarak bağlayıcı tek metindir."
   },
   "impressum": {
-    "intro": "§ 5 TMG (Alman Telemedia Yasası) uyarınca sağlayıcı bilgileri.",
+    "intro": "§ 5 DDG.",
     "sections": [
       {
-        "h": "§ 5 TMG uyarınca bilgiler",
+        "h": "§ 5 DDG uyarınca bilgiler",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
         "h": "Temsilcisi",
-        "p": "Yönetim Kurulu: <em>[Ad Soyad, görev]</em>"
+        "p": "Dernek, dernek sicil kaydına göre yönetim kurulu tarafından temsil edilir:<br/>1. Başkan: <em>[Ad Soyad]</em><br/>2. Başkan / Vekil: <em>[Ad Soyad]</em><br/>Temsil yetkisi: <em>[tüzüğe göre – örn. „iki yönetim kurulu üyesi birlikte\"]</em>"
       },
       {
         "h": "İletişim",
@@ -85,7 +85,7 @@
       },
       {
         "h": "İçerik sorumluluğu",
-        "p": "Sayfalarımızın içeriği büyük bir özenle hazırlanmıştır. Ancak doğruluk, eksiksizlik ve güncellik için garanti veremeyiz. § 7 (1) TMG uyarınca kendi içeriklerimizden sorumluyuz."
+        "p": "Sayfalarımızın içeriği büyük bir özenle hazırlanmıştır. Ancak doğruluk, eksiksizlik ve güncellik için garanti veremeyiz. § 7 Abs. 1 DDG uyarınca kendi içeriklerimizden sorumluyuz."
       },
       {
         "h": "Bağlantı sorumluluğu",
@@ -113,7 +113,7 @@
         "p": "Barındırma sağlayıcısı günlüklerde otomatik olarak bilgi toplar (tarayıcı türü, işletim sistemi, yönlendiren, sunucu adı, saat, IP). Hukuki dayanak: GDPR 6/1-f."
       },
       {
-        "h": "4. Çerezler ve rıza (TTDSG)",
+        "h": "4. Çerezler ve rıza (TDDDG)",
         "p": "Zorunlu olmayan çerezler yalnızca rıza banner'ı üzerinden açık rıza alındıktan sonra yerleştirilir. Rıza istenildiği zaman geri çekilebilir."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. Haklarınız",
         "p": "Erişim, düzeltme, silme, kısıtlama, taşınabilirlik ve itiraz hakkınızın yanı sıra denetim makamına şikayet hakkına sahipsiniz."
+      },
+      {
+        "h": "ÖZEL İTİRAZ HAKKI (GDPR md. 21)",
+        "p": "<div class=\"widerspruch-block\"><strong>Özel durumunuzdan kaynaklanan nedenlerle, sizinle ilgili kişisel verilerin işlenmesine her zaman itiraz etme hakkına sahipsiniz.</strong></div>"
       },
       {
         "h": "9. SSL şifrelemesi",
