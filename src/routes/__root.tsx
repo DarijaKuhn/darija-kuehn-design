@@ -75,12 +75,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 const NAV_LINKS: ReadonlyArray<{ to: string; key: string; home?: boolean }> = [
   { to: "/", key: "nav.home", home: true },
+  { to: "/contact", key: "nav.contact" },
+  { to: "/gallery", key: "nav.gallery" },
+  { to: "/sermons", key: "nav.sermons" },
   { to: "/confession", key: "nav.confession" },
   { to: "/services", key: "nav.services" },
   { to: "/map", key: "nav.map" },
-  { to: "/gallery", key: "nav.gallery" },
-  { to: "/sermons", key: "nav.sermons" },
-  { to: "/contact", key: "nav.contact" },
 ];
 
 function LanguagePicker() {
