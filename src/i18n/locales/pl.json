@@ -145,5 +145,169 @@
         "p": "Zastrzegamy sobie prawo do aktualizacji tej polityki zgodnie z aktualnymi wymogami prawnymi."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Wyznanie wiary",
+      "eyebrow": "Wyznanie wiary",
+      "h1": "Nasze wyznanie wiary",
+      "intro": "Jesteśmy ewangelicznymi chrześcijanami baptystami i wierzymy, że Biblia jest jedynym autorytetem w sprawach wiary i życia.",
+      "h2": "Podstawy naszej wiary",
+      "items": [
+        [
+          "Pismo Święte",
+          "Biblia jest Słowem Bożym — natchnionym, nieomylnym i autorytatywnym."
+        ],
+        [
+          "Bóg w Trójcy",
+          "Wierzymy w jednego Boga istniejącego wiecznie w trzech Osobach: Ojca, Syna i Ducha Świętego."
+        ],
+        [
+          "Zbawienie z łaski",
+          "Zbawienie jest osiągane wyłącznie przez wiarę w Jezusa Chrystusa, który umarł i zmartwychwstał dla naszego odkupienia."
+        ],
+        [
+          "Chrzest wierzących",
+          "Chrzest odbywa się przez zanurzenie tych, którzy świadomie przyjęli Chrystusa."
+        ],
+        [
+          "Wieczerza Pańska",
+          "Sprawowana regularnie na pamiątkę ofiary Chrystusa."
+        ],
+        [
+          "Powtórne przyjście Chrystusa",
+          "Oczekujemy dosłownego, osobistego powrotu Jezusa Chrystusa."
+        ]
+      ],
+      "quote": "„Tak bowiem Bóg umiłował świat, że Syna swego Jednorodzonego dał, aby każdy, kto w Niego wierzy, nie zginął, ale miał życie wieczne.\"",
+      "quoteRef": "Jan 3:16"
+    },
+    "services": {
+      "crumb": "Nabożeństwa",
+      "eyebrow": "Plan",
+      "h1": "Nabożeństwa i wydarzenia",
+      "intro": "Nabożeństwo niedzielne jest głównym spotkaniem tygodnia. W tygodniu odbywają się modlitwy, studium Biblii i spotkania młodzieży.",
+      "events": [
+        [
+          "07",
+          "Gru",
+          "Nabożeństwo niedzielne",
+          "Nd · 10:00 · spotkanie ogólne"
+        ],
+        [
+          "10",
+          "Gru",
+          "Spotkanie modlitewne",
+          "Śr · 18:00"
+        ],
+        [
+          "12",
+          "Gru",
+          "Studium Biblii",
+          "Pt · 18:00"
+        ],
+        [
+          "14",
+          "Gru",
+          "Nabożeństwo niedzielne",
+          "Nd · 10:00 · z Wieczerzą Pańską"
+        ],
+        [
+          "20",
+          "Gru",
+          "Spotkanie młodzieży",
+          "Sb · 13:30 · po uzgodnieniu"
+        ],
+        [
+          "24",
+          "Gru",
+          "Wigilia — nabożeństwo świąteczne",
+          "Śr · 18:00"
+        ]
+      ],
+      "quote": "„Jak piękne są nogi tych, którzy zwiastują dobre nowiny!\"",
+      "quoteRef": "Rzymian 10:15"
+    },
+    "contact": {
+      "crumb": "Kontakt",
+      "eyebrow": "Napisz do nas",
+      "h1": "Skontaktuj się z nami",
+      "intro": "Możesz wysyłać nam opinie i pytania na tematy chrześcijańskie.",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "address": "Adres",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Napisz do nas",
+      "cardSub": "Odpowiemy wkrótce.",
+      "fName": "Imię",
+      "fNamePh": "Jan Kowalski",
+      "fEmailPh": "jan@przyklad.pl",
+      "fMsg": "Wiadomość",
+      "fMsgPh": "Twoje pytanie lub komentarz...",
+      "captcha": "Ochrona przed spamem: ile to {a} + {b}?",
+      "captchaPh": "Wpisz liczbę",
+      "btn": "Wyślij wiadomość →",
+      "privacy": "Dane są używane wyłącznie do odpowiedzi na Twoją wiadomość.",
+      "sent": "Klient pocztowy otwarty — wyślij wiadomość, aby zakończyć.",
+      "errSend": "Błąd wysyłania.",
+      "errSlow": "Proszę wypełnić formularz starannie.",
+      "errCaptcha": "Błędna odpowiedź na pytanie weryfikacyjne.",
+      "errName": "Wpisz imię",
+      "errEmail": "Nieprawidłowy e-mail",
+      "errMsg": "Wiadomość jest za krótka",
+      "errCheck": "Sprawdź dane.",
+      "subject": "Wiadomość ze strony: {name}",
+      "from": "Od",
+      "hpLabel": "Nie wypełniaj tego pola"
+    },
+    "gallery": {
+      "crumb": "Zdjęcia",
+      "eyebrow": "Album zdjęć",
+      "h1": "Nasze życie w obrazach",
+      "captions": [
+        "Śpiew pieśni",
+        "Słowo Boże",
+        "Szkoła niedzielna",
+        "Braterskie powitanie",
+        "Wspólny czas",
+        "Święto Żniw"
+      ],
+      "btnAll": "Wszystkie zdjęcia →"
+    },
+    "sermons": {
+      "crumb": "Kazania",
+      "eyebrow": "Audio",
+      "h1": "Kazania",
+      "intro": "Słuchaj nagrań naszych nabożeństw niedzielnych i studiów biblijnych na propovednik.my1.ru",
+      "btn": "Słuchaj kazań →",
+      "archive": "Archiwum kazań na naszej stronie"
+    },
+    "map": {
+      "crumb": "Jak nas znaleźć",
+      "eyebrow": "Dojazd",
+      "h1": "Jesteśmy w Dreźnie",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Autobus",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Tramwaj",
+      "tramStop": "Marienberger Strasse",
+      "car": "Samochodem",
+      "carVal": "Bezpłatny parking",
+      "carSub": "Obok kościoła",
+      "phone": "Telefon",
+      "addressLabel": "Adres",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Saksonia",
+      "phoneSub": "Dzwoń o dowolnej porze",
+      "emailLabel": "E-mail",
+      "emailSub": "Napisz do nas bezpośrednio"
+    },
+    "mapConsent": {
+      "aria": "Informacja o prywatności OpenStreetMap",
+      "title": "Informacja o prywatności",
+      "text": "Aby zobaczyć interaktywną mapę i zaplanować trasę, aktywuj ją jednym kliknięciem. Dane (w tym Twój adres IP) zostaną przesłane do OpenStreetMap. Podstawa prawna: art. 6 ust. 1 lit. a RODO.",
+      "btn": "Aktywuj mapę"
+    }
   }
 }

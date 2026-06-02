@@ -145,5 +145,169 @@
         "p": "Wir behalten uns vor, diese Erklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht."
       }
     ]
+  },
+  "pages": {
+    "confession": {
+      "crumb": "Glaubensbekenntnis",
+      "eyebrow": "Glaubensbekenntnis",
+      "h1": "Unser Glaubensbekenntnis",
+      "intro": "Wir sind evangelische Christen-Baptisten und glauben an die Bibel als einzige Autorität in Glaubens- und Lebensfragen.",
+      "h2": "Grundlagen unseres Glaubens",
+      "items": [
+        [
+          "Heilige Schrift",
+          "Die Bibel ist Gottes Wort, von Gott eingegeben, unfehlbar und maßgebend."
+        ],
+        [
+          "Dreieiniger Gott",
+          "Wir glauben an einen Gott, der ewig in drei Personen existiert: Vater, Sohn und Heiliger Geist."
+        ],
+        [
+          "Erlösung aus Gnade",
+          "Die Erlösung wird allein durch den Glauben an Jesus Christus erlangt, der für unsere Erlösung gestorben und auferstanden ist."
+        ],
+        [
+          "Gläubigentaufe",
+          "Die Taufe erfolgt durch Untertauchen für jene, die Christus bewusst angenommen haben."
+        ],
+        [
+          "Abendmahl des Herrn",
+          "Wird regelmäßig zum Gedenken an das Opfer Christi gefeiert."
+        ],
+        [
+          "Wiederkunft Christi",
+          "Wir erwarten die wörtliche, persönliche Wiederkunft Jesu Christi."
+        ]
+      ],
+      "quote": "„Denn also hat Gott die Welt geliebt, dass er seinen eingeborenen Sohn gab, damit alle, die an ihn glauben, nicht verloren werden, sondern das ewige Leben haben.\"",
+      "quoteRef": "Johannes 3,16"
+    },
+    "services": {
+      "crumb": "Gottesdienste",
+      "eyebrow": "Programm",
+      "h1": "Gottesdienste und Veranstaltungen",
+      "intro": "Der Sonntagsgottesdienst ist die Hauptversammlung der Woche. Werktags finden Gebetsstunden, Bibelstudium und Jugendtreffen statt.",
+      "events": [
+        [
+          "07",
+          "Dez",
+          "Sonntagsgottesdienst",
+          "So · 10:00 · Gesamtversammlung"
+        ],
+        [
+          "10",
+          "Dez",
+          "Gebetsstunde",
+          "Mi · 18:00"
+        ],
+        [
+          "12",
+          "Dez",
+          "Bibelstudium",
+          "Fr · 18:00"
+        ],
+        [
+          "14",
+          "Dez",
+          "Sonntagsgottesdienst",
+          "So · 10:00 · mit Abendmahl"
+        ],
+        [
+          "20",
+          "Dez",
+          "Jugendtreffen",
+          "Sa · 13:30 · nach Vereinbarung"
+        ],
+        [
+          "24",
+          "Dez",
+          "Heiligabend — Festgottesdienst",
+          "Mi · 18:00"
+        ]
+      ],
+      "quote": "„Wie lieblich sind die Füße derer, die das Evangelium des Friedens verkündigen, die das Gute verkündigen!\"",
+      "quoteRef": "Römer 10,15"
+    },
+    "contact": {
+      "crumb": "Kontakt",
+      "eyebrow": "Schreiben Sie uns",
+      "h1": "Kontaktieren Sie uns",
+      "intro": "Sie können uns Rückmeldungen und Fragen zu christlichen Themen senden.",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse",
+      "addressVal": "Altenberger Str. 87, Dresden",
+      "cardTitle": "Schreiben Sie uns einen Brief",
+      "cardSub": "Wir antworten zeitnah.",
+      "fName": "Name",
+      "fNamePh": "Max Mustermann",
+      "fEmailPh": "max@beispiel.de",
+      "fMsg": "Nachricht",
+      "fMsgPh": "Ihre Frage oder Ihr Kommentar...",
+      "captcha": "Spamschutz: wie viel ist {a} + {b}?",
+      "captchaPh": "Zahl eingeben",
+      "btn": "Nachricht senden →",
+      "privacy": "Daten werden nur zur Beantwortung Ihrer Nachricht verwendet.",
+      "sent": "E-Mail-Programm geöffnet — bitte senden Sie zum Abschluss die Nachricht.",
+      "errSend": "Fehler beim Senden.",
+      "errSlow": "Bitte füllen Sie das Formular sorgfältig aus.",
+      "errCaptcha": "Falsche Antwort auf die Sicherheitsfrage.",
+      "errName": "Bitte Namen eingeben",
+      "errEmail": "Ungültige E-Mail",
+      "errMsg": "Nachricht ist zu kurz",
+      "errCheck": "Bitte Eingaben prüfen.",
+      "subject": "Nachricht von der Website: {name}",
+      "from": "Von",
+      "hpLabel": "Dieses Feld nicht ausfüllen"
+    },
+    "gallery": {
+      "crumb": "Fotos",
+      "eyebrow": "Fotoalbum",
+      "h1": "Unser Leben in Bildern",
+      "captions": [
+        "Lieder singen",
+        "Wort Gottes",
+        "Sonntagsschule",
+        "Brüderlicher Gruß",
+        "Gemeinsame Erholung",
+        "Erntedankfest"
+      ],
+      "btnAll": "Alle Fotos →"
+    },
+    "sermons": {
+      "crumb": "Predigten",
+      "eyebrow": "Audio",
+      "h1": "Predigten",
+      "intro": "Hören Sie Aufzeichnungen von Sonntagsgottesdiensten und Bibelstunden unserer Gemeinde auf propovednik.my1.ru.",
+      "btn": "Predigten anhören →",
+      "archive": "Predigtarchiv auf unserer Website"
+    },
+    "map": {
+      "crumb": "Anfahrt",
+      "eyebrow": "Wegbeschreibung",
+      "h1": "Wir in Dresden",
+      "subhead": "Altenberger Strasse 87 · 01279 Dresden",
+      "figcaption": "Freie Evangeliums-Christen-Gemeinde · Altenberger Str. 87",
+      "bus": "Bus",
+      "busStop": "Liebenauer Strasse",
+      "tram": "Straßenbahn",
+      "tramStop": "Marienberger Strasse",
+      "car": "Mit dem Auto",
+      "carVal": "Kostenlose Parkplätze",
+      "carSub": "In der Nähe der Kirche",
+      "phone": "Telefon",
+      "addressLabel": "Adresse",
+      "addressVal1": "Altenberger Strasse 87",
+      "addressVal2": "01279 Dresden, Sachsen",
+      "phoneSub": "Rufen Sie jederzeit an",
+      "emailLabel": "E-Mail",
+      "emailSub": "Schreiben Sie uns direkt"
+    },
+    "mapConsent": {
+      "aria": "Datenschutz-Hinweis OpenStreetMap",
+      "title": "Datenschutz-Hinweis",
+      "text": "Um die interaktive Karte zu sehen und Ihre Route zu planen, aktivieren Sie diese bitte mit einem Klick. Dabei werden Daten (u.a. Ihre IP-Adresse) an OpenStreetMap übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.",
+      "btn": "Karte aktivieren"
+    }
   }
 }
