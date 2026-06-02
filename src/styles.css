@@ -678,3 +678,16 @@ footer a:hover { color: #fff; }
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(42,92,39,.4);
 }
+
+/* DSGVO Art. 21 — legally mandated visual prominence for right to object */
+.confession-body .widerspruch-block {
+  margin: 28px 0;
+  padding: 20px 22px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: color-mix(in oklab, var(--accent, #c9a84c) 8%, transparent);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.confession-body .widerspruch-block strong { font-weight: 700; }
