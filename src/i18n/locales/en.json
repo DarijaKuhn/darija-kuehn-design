@@ -36,7 +36,7 @@
     "instaText": "Follow us on Instagram",
     "dsgvo": "GDPR-compliant · Hosted in the EU"
   },
-  "legalDisclaimer": "The German version is the only legally binding version. Translations are provided for user convenience only.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Privacy preferences",
     "body": "We use cookies and similar technologies to operate this website. You can decide which categories you want to allow. Please note that based on your settings not all features may be available.",
@@ -64,7 +64,7 @@
     "intro": "Provider identification according to § 5 TMG (German Telemedia Act).",
     "sections": [
       {
-        "h": "Information pursuant to § 5 TMG",
+        "h": "Information pursuant to § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
@@ -113,8 +113,8 @@
         "p": "The hosting provider automatically collects information in server log files (browser type, OS, referrer, hostname, time, IP address). This data is not merged with other sources. Legal basis: Art. 6 (1) (f) GDPR."
       },
       {
-        "h": "4. Cookies and consent (TTDSG)",
-        "p": "Non-essential cookies are only set with your explicit consent through our consent banner (Art. 6 (1) (a) GDPR, § 25 (1) TTDSG). Technically necessary cookies (language, consent storage) are used pursuant to § 25 (2) no. 2 TTDSG. You can withdraw your consent at any time with effect for the future."
+        "h": "4. Cookies and consent (TDDDG)",
+        "p": "Non-essential cookies are only set with your explicit consent through our consent banner (Art. 6 (1) (a) GDPR, § 25 (1) TDDDG). Technically necessary cookies (language, consent storage) are used pursuant to § 25 (2) no. 2 TDDDG. You can withdraw your consent at any time with effect for the future."
       },
       {
         "h": "5. Contact form and email",
@@ -130,7 +130,11 @@
       },
       {
         "h": "8. Your rights",
-        "p": "You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21), as well as the right to lodge a complaint with the supervisory authority (Saxon Data Protection Commissioner)."
+        "p": "You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21), as well as the right to lodge a complaint with the supervisory authority (Saxon Data Protection Commissioner), Devrientstraße 1, 01067 Dresden."
+      },
+      {
+        "h": "SPECIAL RIGHT TO OBJECT (Art. 21 GDPR)",
+        "p": "<div class=\"widerspruch-block\"><strong>You have the right, on grounds relating to your particular situation, to object at any time to the processing of personal data concerning you.</strong></div>"
       },
       {
         "h": "9. SSL encryption",

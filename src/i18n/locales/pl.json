@@ -36,7 +36,7 @@
     "instaText": "Obserwuj nas na Instagramie",
     "dsgvo": "Zgodny z RODO · Hostowany w UE"
   },
-  "legalDisclaimer": "Tylko wersja niemiecka jest prawnie wiążąca. Tłumaczenia są udostępniane wyłącznie dla wygody użytkowników.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Ustawienia prywatności",
     "body": "Używamy plików cookie i podobnych technologii do obsługi tej strony. Możesz zdecydować, które kategorie chcesz zezwolić.",
@@ -64,7 +64,7 @@
     "intro": "Identyfikacja usługodawcy zgodnie z § 5 TMG (niemieckiej ustawy o mediach elektronicznych).",
     "sections": [
       {
-        "h": "Dane zgodnie z § 5 TMG",
+        "h": "Dane zgodnie z § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
@@ -113,7 +113,7 @@
         "p": "Dostawca hostingu automatycznie zbiera informacje w logach (typ przeglądarki, system, referrer, host, czas, adres IP). Podstawa prawna: art. 6 ust. 1 lit. f RODO."
       },
       {
-        "h": "4. Cookies i zgoda (TTDSG)",
+        "h": "4. Cookies i zgoda (TDDDG)",
         "p": "Cookies inne niż niezbędne są ustawiane wyłącznie po wyraźnej zgodzie poprzez nasz baner. Zgodę można w każdej chwili wycofać."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. Twoje prawa",
         "p": "Masz prawo dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia i sprzeciwu oraz prawo wniesienia skargi do organu nadzorczego."
+      },
+      {
+        "h": "SZCZEGÓLNE PRAWO SPRZECIWU (art. 21 RODO)",
+        "p": "<div class=\"widerspruch-block\"><strong>Mają Państwo prawo w dowolnym momencie wnieść sprzeciw wobec przetwarzania dotyczących Państwa danych osobowych z przyczyn związanych ze szczególną sytuacją.</strong></div>"
       },
       {
         "h": "9. Szyfrowanie SSL",

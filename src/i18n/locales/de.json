@@ -64,7 +64,7 @@
     "intro": "Anbieterkennzeichnung gemäß § 5 TMG.",
     "sections": [
       {
-        "h": "Angaben gemäß § 5 TMG",
+        "h": "Angaben gemäß § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
@@ -85,7 +85,7 @@
       },
       {
         "h": "Haftung für Inhalte",
-        "p": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."
+        "p": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."
       },
       {
         "h": "Haftung für Links",
@@ -113,14 +113,13 @@
         "p": "Beim Besuch dieser Website erhebt und speichert der Provider automatisch Informationen in sogenannten <strong>Server-Logfiles</strong>, die Ihr Browser an uns übermittelt. Erfasst werden insbesondere:<br/>• Browsertyp und Browserversion<br/>• verwendetes Betriebssystem<br/>• Referrer-URL (zuvor besuchte Seite)<br/>• Hostname des zugreifenden Rechners<br/>• Uhrzeit der Serveranfrage<br/>• IP-Adresse<br/>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Verarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse) zur Gewährleistung der Sicherheit, Stabilität und ordnungsgemäßen Funktion unserer Website. Die Logfiles werden nach spätestens sieben Tagen gelöscht, sofern keine sicherheitsrelevanten Ereignisse eine längere Aufbewahrung erfordern."
       },
       {
-        "h": "4. Cookies und Einwilligung (TTDSG)",
-        "p": "Nicht-notwendige Cookies werden nur nach ausdrücklicher Einwilligung über unseren Consent-Banner gesetzt (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Technisch notwendige Cookies (Sprache, Einwilligungsspeicher) nutzen wir auf Grundlage von § 25 Abs. 2 Nr. 2 TTDSG. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden."
+        "h": "4. Cookies und Einwilligung (TDDDG)",
+        "p": "Nicht-notwendige Cookies werden nur nach ausdrücklicher Einwilligung über unseren Consent-Banner gesetzt (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Technisch notwendige Cookies (Sprache, Einwilligungsspeicher) nutzen wir auf Grundlage von § 25 Abs. 2 Nr. 2 TDDDG. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden."
       },
       {
         "h": "5. Kontaktformular und E-Mail-Kontakt",
         "p": "Sofern Sie uns über ein Kontaktformular oder per E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Die Übertragung sämtlicher in einem Kontaktformular eingegebener Daten erfolgt ausschließlich über eine <strong>gesicherte, SSL-/TLS-verschlüsselte Verbindung</strong>. Ihre Daten werden ausschließlich zur Bearbeitung Ihres Anliegens verarbeitet und nach vollständiger Erledigung der Anfrage <strong>vollständig gelöscht</strong>, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Eine Weitergabe an Dritte erfolgt nicht. Rechtsgrundlage: Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO."
       },
-
       {
         "h": "6. OpenStreetMap",
         "p": "Auf der Seite „Anfahrt“ binden wir Karten von OpenStreetMap (OSMF, Cambridge, UK) ein. Beim Aufruf werden technische Daten (u. a. IP-Adresse) an OSMF übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO."
@@ -131,9 +130,12 @@
       },
       {
         "h": "8. Rechte der betroffenen Personen (Betroffenenrechte)",
-        "p": "Ihnen stehen nach der Datenschutz-Grundverordnung folgende Rechte zu:<br/>• <strong>Recht auf Auskunft</strong> über die zu Ihrer Person gespeicherten Daten (<strong>Art. 15 DSGVO</strong>)<br/>• <strong>Recht auf Berichtigung</strong> unrichtiger oder unvollständiger Daten (<strong>Art. 16 DSGVO</strong>)<br/>• <strong>Recht auf Löschung</strong> Ihrer bei uns gespeicherten Daten (<strong>Art. 17 DSGVO</strong>)<br/>• <strong>Recht auf Einschränkung der Verarbeitung</strong> (<strong>Art. 18 DSGVO</strong>)<br/>• <strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)<br/>• <strong>Recht auf Widerspruch</strong> gegen die Verarbeitung sowie das jederzeitige <strong>Recht auf Widerruf einer erteilten Einwilligung</strong> mit Wirkung für die Zukunft (<strong>Art. 21 DSGVO</strong>)<br/>Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die unter Ziffer 1 genannten Kontaktdaten. Unabhängig davon steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu (Sächsischer Datenschutzbeauftragter)."
+        "p": "Ihnen stehen nach der Datenschutz-Grundverordnung folgende Rechte zu:<br/>• <strong>Recht auf Auskunft</strong> über die zu Ihrer Person gespeicherten Daten (<strong>Art. 15 DSGVO</strong>)<br/>• <strong>Recht auf Berichtigung</strong> unrichtiger oder unvollständiger Daten (<strong>Art. 16 DSGVO</strong>)<br/>• <strong>Recht auf Löschung</strong> Ihrer bei uns gespeicherten Daten (<strong>Art. 17 DSGVO</strong>)<br/>• <strong>Recht auf Einschränkung der Verarbeitung</strong> (<strong>Art. 18 DSGVO</strong>)<br/>• <strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)<br/>• <strong>Recht auf Widerspruch</strong> gegen die Verarbeitung sowie das jederzeitige <strong>Recht auf Widerruf einer erteilten Einwilligung</strong> mit Wirkung für die Zukunft (<strong>Art. 21 DSGVO</strong>)<br/>Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die unter Ziffer 1 genannten Kontaktdaten. Unabhängig davon steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu (Sächsischer Datenschutzbeauftragter, Devrientstraße 1, 01067 Dresden)."
       },
-
+      {
+        "h": "BESONDERES HINWEISRECHT AUF WIDERSPRUCH (Art. 21 DSGVO)",
+        "p": "<div class=\"widerspruch-block\"><strong>Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch einzulegen.</strong></div>"
+      },
       {
         "h": "9. SSL-Verschlüsselung",
         "p": "Diese Seite nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung."

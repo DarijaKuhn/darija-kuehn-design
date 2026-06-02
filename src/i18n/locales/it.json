@@ -36,7 +36,7 @@
     "instaText": "Seguici su Instagram",
     "dsgvo": "Conforme GDPR · Ospitato nell'UE"
   },
-  "legalDisclaimer": "Solo la versione tedesca è giuridicamente vincolante. Le traduzioni sono fornite per comodità degli utenti.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Preferenze sulla privacy",
     "body": "Utilizziamo cookie e tecnologie simili per gestire questo sito. Puoi decidere quali categorie consentire.",
@@ -64,7 +64,7 @@
     "intro": "Identificazione del prestatore ai sensi del § 5 TMG (legge tedesca sui telemedia).",
     "sections": [
       {
-        "h": "Informazioni secondo § 5 TMG",
+        "h": "Informazioni secondo § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
@@ -113,7 +113,7 @@
         "p": "Il provider raccoglie automaticamente informazioni nei file di log (tipo di browser, OS, referrer, hostname, ora, indirizzo IP). Base giuridica: art. 6 par. 1 lett. f GDPR."
       },
       {
-        "h": "4. Cookie e consenso (TTDSG)",
+        "h": "4. Cookie e consenso (TDDDG)",
         "p": "I cookie non essenziali vengono impostati solo previo consenso esplicito tramite il nostro banner. Il consenso può essere revocato in qualsiasi momento."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. I tuoi diritti",
         "p": "Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, oltre al diritto di reclamo all'autorità di controllo."
+      },
+      {
+        "h": "DIRITTO PARTICOLARE DI OPPOSIZIONE (art. 21 GDPR)",
+        "p": "<div class=\"widerspruch-block\"><strong>Lei ha il diritto, per motivi connessi alla Sua situazione particolare, di opporsi in qualsiasi momento al trattamento dei dati personali che La riguardano.</strong></div>"
       },
       {
         "h": "9. Crittografia SSL",

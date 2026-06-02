@@ -36,7 +36,7 @@
     "instaText": "Suivez-nous sur Instagram",
     "dsgvo": "Conforme RGPD · Hébergé dans l'UE"
   },
-  "legalDisclaimer": "Seule la version allemande fait foi juridiquement. Les traductions sont fournies à titre informatif uniquement.",
+  "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich. Translations are provided for user convenience only.",
   "consent": {
     "title": "Préférences de confidentialité",
     "body": "Nous utilisons des cookies et technologies similaires pour exploiter ce site. Vous pouvez décider quelles catégories autoriser.",
@@ -64,7 +64,7 @@
     "intro": "Identification du fournisseur selon § 5 TMG (loi allemande sur les télémédias).",
     "sections": [
       {
-        "h": "Informations selon § 5 TMG",
+        "h": "Informations selon § 5 DDG",
         "p": "<strong>Freie Evangeliums-Christen-Gemeinde Dresden e.V.</strong><br/>Altenberger Strasse 87, 01279 Dresden, Deutschland"
       },
       {
@@ -113,7 +113,7 @@
         "p": "L'hébergeur collecte automatiquement des informations dans les journaux (type de navigateur, OS, referrer, hôte, heure, adresse IP). Base légale : art. 6 §1 f) RGPD."
       },
       {
-        "h": "4. Cookies et consentement (TTDSG)",
+        "h": "4. Cookies et consentement (TDDDG)",
         "p": "Les cookies non essentiels ne sont déposés qu'après consentement explicite via notre bandeau. Le consentement peut être retiré à tout moment."
       },
       {
@@ -131,6 +131,10 @@
       {
         "h": "8. Vos droits",
         "p": "Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition, ainsi que du droit de plainte auprès de l'autorité de contrôle."
+      },
+      {
+        "h": "DROIT D'OPPOSITION PARTICULIER (art. 21 RGPD)",
+        "p": "<div class=\"widerspruch-block\"><strong>Vous avez le droit, pour des raisons tenant à votre situation particulière, de vous opposer à tout moment au traitement de données à caractère personnel vous concernant.</strong></div>"
       },
       {
         "h": "9. Chiffrement SSL",
