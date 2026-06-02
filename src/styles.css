@@ -167,9 +167,8 @@ a { color: inherit; text-decoration: none; }
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
+
   .nav-links::-webkit-scrollbar { display: none; }
   .nav-scroll {
     position: absolute;
