@@ -237,6 +237,7 @@ function RootComponent() {
         <Header />
         <Outlet />
         <Footer />
+        <CookieConsent />
       </I18nProvider>
     </QueryClientProvider>
   );
