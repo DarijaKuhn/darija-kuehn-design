@@ -5,7 +5,7 @@ const CONSENT_KEY = "cookie-consent-v1";
 const MAP_CONSENT_KEY = "map-consent-osm-v1";
 
 const MAP_SRC =
-  "https://www.openstreetmap.org/export/embed.html?bbox=13.825%2C50.998%2C13.855%2C51.018&layer=mapnik&marker=51.008%2C13.840";
+  "https://www.openstreetmap.org/export/embed.html?bbox=13.7991%2C51.0250%2C13.8191%2C51.0350&layer=mapnik&marker=51.029953%2C13.809026";
 
 function hasAnalyticsConsent(): boolean {
   try {
