@@ -25,7 +25,8 @@
     "sundaySvc": "Slujbă de duminică",
     "mainSvc": "Slujba principală",
     "findUs": "Cum ne găsiți →",
-    "ourFaith": "Credința noastră"
+    "ourFaith": "Credința noastră",
+    "imgAlt": "Clădirea bisericii Freie Evangeliums-Christen-Gemeinde Dresden e.V. înconjurată de copaci și câmpuri"
   },
   "footer": {
     "navigation": "Navigare",
@@ -94,6 +95,10 @@
       {
         "h": "Drepturi de autor",
         "p": "Conținutul și lucrările create de operatorii site-ului sunt protejate de legea germană a drepturilor de autor."
+      },
+      {
+        "h": "Credite foto",
+        "p": "Drepturile de autor asupra fotografiilor proprii folosite pe acest site (inclusiv imaginea de fundal Hero a comunității și fotografiile exterioare) aparțin exclusiv Freie Evangeliums-Christen-Gemeinde Dresden e.V. și membrilor comunității cunoscuți nominal care le-au pus la dispoziție. Utilizarea de către terți nu este permisă fără autorizație expresă."
       }
     ]
   },

@@ -25,7 +25,8 @@
     "sundaySvc": "Sonntagsgottesdienst",
     "mainSvc": "Hauptgottesdienst",
     "findUs": "So finden Sie uns →",
-    "ourFaith": "Unser Glaube"
+    "ourFaith": "Unser Glaube",
+    "imgAlt": "Das Kirchengebäude der Freien Evangeliums-Christen-Gemeinde Dresden e.V. umgeben von Bäumen und Feldern"
   },
   "footer": {
     "navigation": "Navigation",
@@ -94,6 +95,10 @@
       {
         "h": "Urheberrecht",
         "p": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht."
+      },
+      {
+        "h": "Bildnachweise",
+        "p": "Die Urheberrechte für die auf dieser Website verwendeten eigenen Fotografien (darunter das Hero-Hintergrundbild der Gemeinde und Außenaufnahmen) liegen ausschließlich bei der Freien Evangeliums-Christen-Gemeinde Dresden e.V. sowie den namentlich bekannten Gemeindemitgliedern, die diese zur Verfügung gestellt haben. Eine Nutzung durch Dritte ist ohne ausdrückliche Genehmigung nicht gestattet."
       }
     ]
   },
