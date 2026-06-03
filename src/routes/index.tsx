@@ -19,6 +19,7 @@ function Index() {
       className="hero"
       id="start"
       role="banner"
+      aria-label={t("hero.imgAlt")}
       style={{ backgroundImage: `url(${heroBgAsset.url})` }}
     >
       <div className="hero-card">
