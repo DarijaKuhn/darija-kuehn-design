@@ -25,7 +25,8 @@
     "sundaySvc": "Pazar ibadeti",
     "mainSvc": "Ana ibadet",
     "findUs": "Bizi nasıl bulursunuz →",
-    "ourFaith": "İnancımız"
+    "ourFaith": "İnancımız",
+    "imgAlt": "Ağaçlar ve tarlalarla çevrili Freie Evangeliums-Christen-Gemeinde Dresden e.V. kilise binası"
   },
   "footer": {
     "navigation": "Navigasyon",
@@ -94,6 +95,10 @@
       {
         "h": "Telif hakkı",
         "p": "Site işletmecileri tarafından oluşturulan içerik ve eserler Alman telif hakkı yasalarına tabidir."
+      },
+      {
+        "h": "Fotoğraf Telif Hakları",
+        "p": "Bu web sitesinde kullanılan kendi fotoğrafların (cemaatin Hero arka plan resmi ve dış çekimler dahil) telif hakları yalnızca Freie Evangeliums-Christen-Gemeinde Dresden e.V. ile bu fotoğrafları sağlayan adı bilinen cemaat üyelerine aittir. Üçüncü şahıslar tarafından açık izin alınmadan kullanımı yasaktır."
       }
     ]
   },

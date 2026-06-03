@@ -25,7 +25,8 @@
     "sundaySvc": "Nabożeństwo niedzielne",
     "mainSvc": "Nabożeństwo główne",
     "findUs": "Jak nas znaleźć →",
-    "ourFaith": "Nasza wiara"
+    "ourFaith": "Nasza wiara",
+    "imgAlt": "Budynek kościoła Freie Evangeliums-Christen-Gemeinde Dresden e.V. otoczony drzewami i polami"
   },
   "footer": {
     "navigation": "Nawigacja",
@@ -94,6 +95,10 @@
       {
         "h": "Prawa autorskie",
         "p": "Treści i dzieła stworzone przez operatorów strony podlegają niemieckiemu prawu autorskiemu."
+      },
+      {
+        "h": "Źródła zdjęć",
+        "p": "Prawa autorskie do oryginalnych fotografii wykorzystanych na tej stronie (w tym zdjęcia tła Hero zboru oraz ujęć zewnętrznych) należą wyłącznie do Freie Evangeliums-Christen-Gemeinde Dresden e.V. oraz do imiennie znanych członków zboru, którzy je udostępnili. Korzystanie przez osoby trzecie bez wyraźnej zgody jest niedozwolone."
       }
     ]
   },

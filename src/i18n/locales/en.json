@@ -25,7 +25,8 @@
     "sundaySvc": "Sunday service",
     "mainSvc": "Main service",
     "findUs": "How to find us →",
-    "ourFaith": "Our faith"
+    "ourFaith": "Our faith",
+    "imgAlt": "The church building of Freie Evangeliums-Christen-Gemeinde Dresden e.V. surrounded by trees and fields"
   },
   "footer": {
     "navigation": "Navigation",
@@ -94,6 +95,10 @@
       {
         "h": "Copyright",
         "p": "Content and works created by the site operators on these pages are subject to German copyright law."
+      },
+      {
+        "h": "Photo Credits",
+        "p": "The copyrights to the original photographs used on this website (including the hero background image of the church and exterior shots) belong exclusively to Freie Evangeliums-Christen-Gemeinde Dresden e.V. and to the named community members who provided them. Use by third parties is not permitted without express authorization."
       }
     ]
   },

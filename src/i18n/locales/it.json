@@ -25,7 +25,8 @@
     "sundaySvc": "Funzione domenicale",
     "mainSvc": "Funzione principale",
     "findUs": "Come trovarci →",
-    "ourFaith": "La nostra fede"
+    "ourFaith": "La nostra fede",
+    "imgAlt": "L'edificio della chiesa Freie Evangeliums-Christen-Gemeinde Dresden e.V. circondato da alberi e campi"
   },
   "footer": {
     "navigation": "Navigazione",
@@ -94,6 +95,10 @@
       {
         "h": "Diritto d'autore",
         "p": "I contenuti e le opere create dagli operatori del sito sono soggetti al diritto d'autore tedesco."
+      },
+      {
+        "h": "Crediti fotografici",
+        "p": "I diritti d'autore delle fotografie originali utilizzate su questo sito (compresa l'immagine di sfondo Hero della comunità e le riprese esterne) appartengono esclusivamente alla Freie Evangeliums-Christen-Gemeinde Dresden e.V. e ai membri della comunità nominati che le hanno messe a disposizione. L'uso da parte di terzi non è consentito senza espressa autorizzazione."
       }
     ]
   },
