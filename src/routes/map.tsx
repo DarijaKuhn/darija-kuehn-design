@@ -32,7 +32,7 @@ function MapPage() {
             <h1 className="map-heading">{t("pages.map.h1")}</h1>
             <p className="map-subhead">{t("pages.map.subhead")}</p>
             <figure className="map-building">
-              <img src={churchBuilding.url} alt="FECG Dresden — Altenberger Strasse 87" loading="lazy" />
+              <img src={churchBuilding.url} alt={t("hero.imgAlt")} loading="lazy" />
               <figcaption>{t("pages.map.figcaption")}</figcaption>
             </figure>
             <div className="map-grid">
