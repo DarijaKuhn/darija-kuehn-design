@@ -27,6 +27,16 @@ import ausflug2 from "@/assets/gallery/763711679.jpg.asset.json";
 import gemeinde1 from "@/assets/gallery/844894809.jpg.asset.json";
 import gemeinde2 from "@/assets/gallery/860500204.jpg.asset.json";
 import gemeinde3 from "@/assets/gallery/964078192.jpg.asset.json";
+import parkplatz from "@/assets/gallery/parkplatz.jpg.asset.json";
+import zatva from "@/assets/gallery/Zatva.jpg.asset.json";
+import altenberg2013 from "@/assets/gallery/Altenberg2013.jpg.asset.json";
+import pfaffenstein2016 from "@/assets/gallery/Pfaffenstein-2016.jpg.asset.json";
+import sestri2016 from "@/assets/gallery/sestri_2016.jpg.asset.json";
+import kids2018 from "@/assets/gallery/kids.jpg.asset.json";
+import singen from "@/assets/gallery/Singen.jpg.asset.json";
+import stepanAndreas from "@/assets/gallery/Stepan_und_Andreas.jpg.asset.json";
+import sergejPiotr from "@/assets/gallery/Sergej_und_Piotr_Iks.jpg.asset.json";
+import moniuki from "@/assets/gallery/Moniuki.jpg.asset.json";
 
 // Weddings
 import alinaArtur1 from "@/assets/gallery/Alina_und_Artur.jpg.asset.json";
@@ -65,6 +75,7 @@ const timeline: Group[] = [
     subtitle: "Anfänge des Kirchengrundstücks",
     photos: [
       { src: y2005.url, caption: "Baustelle, Frühjahr 2005", alt: "Baustelle auf dem Grundstück der FECG Dresden, 2005" },
+      { src: parkplatz.url, caption: "Vorbereitung des Parkplatzes", alt: "Vorbereitung der Parkplatzfläche neben dem Gemeindegelände" },
       { src: bau1.url, caption: "Vorbereitung des Geländes", alt: "Erdarbeiten auf dem Grundstück der FECG Dresden" },
       { src: bau6.url, caption: "Gemeinsame Arbeit auf dem Grundstück", alt: "Schwestern helfen bei den Arbeiten auf dem Gemeindegelände" },
       { src: bau9.url, caption: "Подготовка щебня", alt: "Gemeindemitglieder bereiten Material für die Bauarbeiten vor" },
@@ -117,6 +128,25 @@ const timeline: Group[] = [
     title: "2013 — Erntedankfest",
     photos: [
       { src: y2013ernte.url, caption: "Schwestern am Erntedankaltar, 2013", alt: "Schwestern der Gemeinde am Erntedankaltar in der FECG Dresden, 2013" },
+      { src: zatva.url, caption: "Erntedankaltar – Psalm 118,24", alt: "Familien der Gemeinde am festlich geschmückten Erntedankaltar mit Bibelvers Psalm 118,24" },
+    ],
+  },
+  {
+    title: "2013 — Skiausflug nach Altenberg",
+    photos: [
+      { src: altenberg2013.url, caption: "Langlauf in Altenberg, 2013", alt: "Brüder der Gemeinde beim Skilanglauf in Altenberg im Erzgebirge, 2013" },
+    ],
+  },
+  {
+    title: "2016 — Schwestern in der Gemeinde",
+    photos: [
+      { src: sestri2016.url, caption: "Schwestern beim Frühlingsfest, 2016", alt: "Schwestern der FECG Dresden beim Frühlingsfest im Garten, 2016" },
+    ],
+  },
+  {
+    title: "2016 — Ausflug in die Sächsische Schweiz",
+    photos: [
+      { src: pfaffenstein2016.url, caption: "Wanderung am Pfaffenstein, 2016", alt: "Drei Mitglieder der Gemeinde beim Wandern am Pfaffenstein in der Sächsischen Schweiz, 2016" },
     ],
   },
   {
@@ -124,6 +154,27 @@ const timeline: Group[] = [
     photos: [
       { src: y2016jungs.url, caption: "Jungen mit dem Prediger am Erntedankaltar", alt: "Prediger mit Jungen der Gemeinde am Erntedankaltar in der FECG Dresden, 2016" },
       { src: y2016frauen.url, caption: "Schwestern der Gemeinde am Erntedankaltar", alt: "Schwestern der Gemeinde am Erntedankaltar in der FECG Dresden, 2016" },
+    ],
+  },
+  {
+    title: "2018 — Воскресная школа для самых маленьких",
+    subtitle: "Sonntagsschule für die Jüngsten",
+    photos: [
+      { src: kids2018.url, caption: "Sonntagsschule, 2018", alt: "Kinder bei der Sonntagsschule der FECG Dresden, 2018" },
+    ],
+  },
+  {
+    title: "Singen und Gemeinschaft",
+    photos: [
+      { src: singen.url, caption: "Gemeinsames Singen mit Gitarre", alt: "Bruder spielt Gitarre beim gemeinsamen Singen in der Gemeinde" },
+    ],
+  },
+  {
+    title: "Im Wort Gottes",
+    photos: [
+      { src: stepanAndreas.url, caption: "Bibelgespräch — Stepan und Andreas", alt: "Stepan und Andreas lesen gemeinsam in der Bibel vor dem Bibelvers 1. Joh. 4,16" },
+      { src: sergejPiotr.url, caption: "Brüderliche Umarmung", alt: "Sergej und Piotr umarmen sich in der Gemeinde" },
+      { src: moniuki.url, caption: "Brüderliche Gemeinschaft", alt: "Zwei Brüder im Gespräch im Gemeindesaal" },
     ],
   },
 ];
