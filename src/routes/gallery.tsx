@@ -7,6 +7,16 @@ import y2005 from "@/assets/gallery/2005.jpg.asset.json";
 import y2011bratja from "@/assets/gallery/2011_bratja.jpg.asset.json";
 import y2011god from "@/assets/gallery/2011god.jpg.asset.json";
 import y2012 from "@/assets/gallery/2012_poeydka.jpg.asset.json";
+import y2012cerkov from "@/assets/gallery/2012god_cerkov.jpg.asset.json";
+import y2012ostern from "@/assets/gallery/2012god.jpg.asset.json";
+import y2013ernte from "@/assets/gallery/2013_god.jpg.asset.json";
+import y2016jungs from "@/assets/gallery/2016_Jungs.jpg.asset.json";
+import y2016frauen from "@/assets/gallery/2016.jpg.asset.json";
+import bau1 from "@/assets/gallery/153690537.jpg.asset.json";
+import bau2 from "@/assets/gallery/348388832.jpg.asset.json";
+import bau3 from "@/assets/gallery/344038905.jpg.asset.json";
+import bau4 from "@/assets/gallery/158234614.jpg.asset.json";
+import saechsSchweiz from "@/assets/gallery/284503246.jpg.asset.json";
 
 // Weddings
 import alinaArtur1 from "@/assets/gallery/Alina_und_Artur.jpg.asset.json";
@@ -45,6 +55,16 @@ const timeline: Group[] = [
     subtitle: "Anfänge des Kirchengrundstücks",
     photos: [
       { src: y2005.url, caption: "Baustelle, Frühjahr 2005", alt: "Baustelle auf dem Grundstück der FECG Dresden, 2005" },
+      { src: bau1.url, caption: "Vorbereitung des Geländes", alt: "Erdarbeiten auf dem Grundstück der FECG Dresden" },
+      { src: bau2.url, caption: "Junge Helfer beim Bau", alt: "Kinder und Jugendliche helfen beim Bau auf dem Grundstück der Gemeinde" },
+    ],
+  },
+  {
+    title: "Verlegung der Rasengittersteine",
+    subtitle: "Gemeinsame Arbeit auf dem Gemeindegelände",
+    photos: [
+      { src: bau3.url, caption: "Vorbereitung der Fläche", alt: "Mitglieder der Gemeinde bereiten die Fläche für Rasengittersteine vor" },
+      { src: bau4.url, caption: "Verlegen der Rasengittersteine", alt: "Bruder beim Verlegen der Rasengittersteine auf dem Gemeindegelände" },
     ],
   },
   {
@@ -55,9 +75,30 @@ const timeline: Group[] = [
     ],
   },
   {
+    title: "2012 — Ostern und Gemeindeleben",
+    photos: [
+      { src: y2012cerkov.url, caption: "Gemeindefoto im Gottesdienstsaal, 2012", alt: "Gemeindemitglieder der FECG Dresden im Gottesdienstsaal, 2012" },
+      { src: y2012ostern.url, caption: "Osterfeier – Christus ist auferstanden", alt: "Gemeinsames Osteressen in der FECG Dresden, 2012" },
+    ],
+  },
+  {
     title: "2012 — Gemeindeausflug",
     photos: [
       { src: y2012.url, caption: "Ausflug in die Sächsische Schweiz", alt: "Gemeindeausflug der FECG Dresden in die Sächsische Schweiz, 2012" },
+      { src: saechsSchweiz.url, caption: "Blick auf die Basteifelsen", alt: "Aussicht auf die Felsen der Sächsischen Schweiz" },
+    ],
+  },
+  {
+    title: "2013 — Erntedankfest",
+    photos: [
+      { src: y2013ernte.url, caption: "Schwestern am Erntedankaltar, 2013", alt: "Schwestern der Gemeinde am Erntedankaltar in der FECG Dresden, 2013" },
+    ],
+  },
+  {
+    title: "2016 — Erntedankfest",
+    photos: [
+      { src: y2016jungs.url, caption: "Jungen mit dem Prediger am Erntedankaltar", alt: "Prediger mit Jungen der Gemeinde am Erntedankaltar in der FECG Dresden, 2016" },
+      { src: y2016frauen.url, caption: "Schwestern der Gemeinde am Erntedankaltar", alt: "Schwestern der Gemeinde am Erntedankaltar in der FECG Dresden, 2016" },
     ],
   },
 ];
