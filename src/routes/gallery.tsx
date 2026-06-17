@@ -17,6 +17,16 @@ import bau2 from "@/assets/gallery/348388832.jpg.asset.json";
 import bau3 from "@/assets/gallery/344038905.jpg.asset.json";
 import bau4 from "@/assets/gallery/158234614.jpg.asset.json";
 import saechsSchweiz from "@/assets/gallery/284503246.jpg.asset.json";
+import bau5 from "@/assets/gallery/378726301.jpg.asset.json";
+import bau6 from "@/assets/gallery/518386920.jpg.asset.json";
+import bau7 from "@/assets/gallery/754727280.jpg.asset.json";
+import bau8 from "@/assets/gallery/876534121.jpg.asset.json";
+import bau9 from "@/assets/gallery/952761995.jpg.asset.json";
+import ausflug1 from "@/assets/gallery/389301007.jpg.asset.json";
+import ausflug2 from "@/assets/gallery/763711679.jpg.asset.json";
+import gemeinde1 from "@/assets/gallery/844894809.jpg.asset.json";
+import gemeinde2 from "@/assets/gallery/860500204.jpg.asset.json";
+import gemeinde3 from "@/assets/gallery/964078192.jpg.asset.json";
 
 // Weddings
 import alinaArtur1 from "@/assets/gallery/Alina_und_Artur.jpg.asset.json";
@@ -56,7 +66,10 @@ const timeline: Group[] = [
     photos: [
       { src: y2005.url, caption: "Baustelle, Frühjahr 2005", alt: "Baustelle auf dem Grundstück der FECG Dresden, 2005" },
       { src: bau1.url, caption: "Vorbereitung des Geländes", alt: "Erdarbeiten auf dem Grundstück der FECG Dresden" },
+      { src: bau6.url, caption: "Gemeinsame Arbeit auf dem Grundstück", alt: "Schwestern helfen bei den Arbeiten auf dem Gemeindegelände" },
+      { src: bau9.url, caption: "Подготовка щебня", alt: "Gemeindemitglieder bereiten Material für die Bauarbeiten vor" },
       { src: bau2.url, caption: "Junge Helfer beim Bau", alt: "Kinder und Jugendliche helfen beim Bau auf dem Grundstück der Gemeinde" },
+      { src: bau8.url, caption: "Работа всей семьёй", alt: "Jugendliche helfen beim Verteilen der Erde auf dem Grundstück" },
     ],
   },
   {
@@ -65,6 +78,8 @@ const timeline: Group[] = [
     photos: [
       { src: bau3.url, caption: "Vorbereitung der Fläche", alt: "Mitglieder der Gemeinde bereiten die Fläche für Rasengittersteine vor" },
       { src: bau4.url, caption: "Verlegen der Rasengittersteine", alt: "Bruder beim Verlegen der Rasengittersteine auf dem Gemeindegelände" },
+      { src: bau5.url, caption: "Начало укладки", alt: "Die ersten Reihen der Rasengittersteine werden verlegt" },
+      { src: bau7.url, caption: "Почти готовая площадка", alt: "Fast fertig verlegte Fläche mit Rasengittersteinen" },
     ],
   },
   {
@@ -79,6 +94,7 @@ const timeline: Group[] = [
     photos: [
       { src: y2012cerkov.url, caption: "Gemeindefoto im Gottesdienstsaal, 2012", alt: "Gemeindemitglieder der FECG Dresden im Gottesdienstsaal, 2012" },
       { src: y2012ostern.url, caption: "Osterfeier – Christus ist auferstanden", alt: "Gemeinsames Osteressen in der FECG Dresden, 2012" },
+      { src: gemeinde3.url, caption: "Праздничная трапеза", alt: "Festliche gemeinsame Mahlzeit der Gemeinde im Gottesdienstsaal" },
     ],
   },
   {
@@ -86,6 +102,15 @@ const timeline: Group[] = [
     photos: [
       { src: y2012.url, caption: "Ausflug in die Sächsische Schweiz", alt: "Gemeindeausflug der FECG Dresden in die Sächsische Schweiz, 2012" },
       { src: saechsSchweiz.url, caption: "Blick auf die Basteifelsen", alt: "Aussicht auf die Felsen der Sächsischen Schweiz" },
+      { src: ausflug1.url, caption: "В пещере среди скал", alt: "Teilnehmer des Gemeindeausflugs in einer Felsenhöhle der Sächsischen Schweiz" },
+      { src: ausflug2.url, caption: "Вид на Эльбу", alt: "Panoramablick auf die Elbe während des Gemeindeausflugs" },
+      { src: gemeinde2.url, caption: "Дорога после поездки", alt: "Gemeindemitglieder spazieren gemeinsam während des Ausflugs" },
+    ],
+  },
+  {
+    title: "Gemeinschaft im Hof",
+    photos: [
+      { src: gemeinde1.url, caption: "Общение после служения", alt: "Gemeindemitglieder sitzen zusammen im Hof der Gemeinde" },
     ],
   },
   {
