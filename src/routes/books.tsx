@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/books")({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/books")({
       {
         name: "description",
         content:
-          "Empfohlene Bücher zu Theologie, Bibelauslegung, Kirchengeschichte, Apologetik und Reformation aus dem Bücher-Verzeichnis von propovednik.my1.ru.",
+          "Empfohlene Bücher zu Theologie, Bibelauslegung, Kirchengeschichte, Apologetik und Reformation — mit ausführlichen Beschreibungen.",
       },
     ],
   }),
@@ -29,182 +30,148 @@ type Book = {
   img: string;
   author: string;
   cat: Cat;
-  link: string;
 };
 
 const BOOKS: Book[] = [
-  {
-    id: "history2",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Istorija_Hristianstva-2.jpg",
-    author: "Justo L. González",
-    cat: "early",
-    link: "https://propovednik.my1.ru/dir/rannjaja_cerkov_i_srednevekovje/istorija_khristianstva_tom_2_istorija_khristianstva_tom_2_ot_ehpokhi_reformacii_do_nashego_vremeni/6-1-0-25",
-  },
-  {
-    id: "history1",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Istorija_Hristianstva-1.jpg",
-    author: "Justo L. González",
-    cat: "early",
-    link: "https://propovednik.my1.ru/dir/rannjaja_cerkov_i_srednevekovje/istorija_khristianstva_tom_1_ot_osnovanija_cerkvi_do_ehpokhi_reformacii/6-1-0-10",
-  },
-  {
-    id: "answers",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kniga_otwetow.jpg",
-    author: "Ken Ham, Andrew Snelling, Carl Wieland",
-    cat: "apologetics",
-    link: "https://propovednik.my1.ru/dir/apologetika/kniga_otvetov/11-1-0-24",
-  },
-  {
-    id: "cults",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kulti_i_mirovie_religii.jpg",
-    author: "Nikolai Porublev",
-    cat: "apologetics",
-    link: "https://propovednik.my1.ru/dir/apologetika/kulty_i_mirovye_religii/11-1-0-23",
-  },
-  {
-    id: "twobabylons",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Dva_Vavilona.jpg",
-    author: "Alexander Hislop",
-    cat: "apologetics",
-    link: "https://propovednik.my1.ru/dir/apologetika/dva_vavilona_ili_papskoe_poklonenie/11-1-0-22",
-  },
-  {
-    id: "antiquities",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Iudejskie_drevnosti-tom_1.jpg",
-    author: "Flavius Josephus",
-    cat: "early",
-    link: "https://propovednik.my1.ru/dir/rannjaja_cerkov_i_srednevekovje/iudejskie_drevnosti/6-1-0-19",
-  },
-  {
-    id: "jewishwar",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Iudejskaya_vojna-1.jpg",
-    author: "Flavius Josephus",
-    cat: "early",
-    link: "https://propovednik.my1.ru/dir/rannjaja_cerkov_i_srednevekovje/iudejskaja_vojna/6-1-0-18",
-  },
-  {
-    id: "homiletics",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Gomiletika_1.jpg",
-    author: "",
-    cat: "homiletics",
-    link: "https://propovednik.my1.ru/dir/gomiletika/gomiletika/10-1-0-16",
-  },
-  {
-    id: "prophets",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Ostorozhno_proroki.jpg",
-    author: "Wolfgang Bühne",
-    cat: "apologetics",
-    link: "https://propovednik.my1.ru/dir/apologetika/ostorozhno_proroki/11-1-0-13",
-  },
-  {
-    id: "fire",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Igra_s_ognjom-1.jpg",
-    author: "Wolfgang Bühne",
-    cat: "apologetics",
-    link: "https://propovednik.my1.ru/dir/apologetika/igra_s_ognjom/11-1-0-12",
-  },
-  {
-    id: "luther",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Na_sem_stoju.jpg",
-    author: "Roland Bainton",
-    cat: "reformation",
-    link: "https://propovednik.my1.ru/dir/reformacija/na_sjom_stoju_zhizn_martina_ljutera/9-1-0-11",
-  },
-  {
-    id: "otspeaks",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Vethij_Savet_govorit.jpg",
-    author: "Samuel J. Schultz",
-    cat: "ot",
-    link: "https://propovednik.my1.ru/dir/isuchenie_vetkhogo_zaveta/vetkhij_zavet_govorit/4-1-0-9",
-  },
-  {
-    id: "ntsurvey",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Obsor_Novogo-Zaveta.jpg",
-    author: "Merrill C. Tenney",
-    cat: "nt",
-    link: "https://propovednik.my1.ru/dir/isuchenie_novogo_zaveta/obzor_novogo_zaveta/2-1-0-8",
-  },
-  {
-    id: "hermeneutics",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Germenewtika.jpg",
-    author: "Henry A. Virkler",
-    cat: "hermeneutics",
-    link: "https://propovednik.my1.ru/dir/germenevtika_i_ekzegetika/germenevtika/1-1-0-7",
-  },
-  {
-    id: "howtoread",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kak_zitaty_Bibliju.png",
-    author: "Gordon D. Fee, Douglas Stuart",
-    cat: "hermeneutics",
-    link: "https://propovednik.my1.ru/dir/germenevtika_i_ekzegetika/kak_chitat_bibliju_i_videt_vsju_ejo_cennost/1-1-0-6",
-  },
-  {
-    id: "ntexegesis",
-    img: "https://propovednik.my1.ru/Buch-Titel/Buch_Ekzegetika_Novogo_Zaveta.jpg",
-    author: "Gordon D. Fee",
-    cat: "hermeneutics",
-    link: "https://propovednik.my1.ru/dir/germenevtika_i_ekzegetika/ekzegetika_novogo_zaveta/1-1-0-4",
-  },
+  { id: "history2", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Istorija_Hristianstva-2.jpg", author: "Justo L. González", cat: "early" },
+  { id: "history1", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Istorija_Hristianstva-1.jpg", author: "Justo L. González", cat: "early" },
+  { id: "answers", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kniga_otwetow.jpg", author: "Ken Ham, Andrew Snelling, Carl Wieland", cat: "apologetics" },
+  { id: "cults", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kulti_i_mirovie_religii.jpg", author: "Nikolai Porublev", cat: "apologetics" },
+  { id: "twobabylons", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Dva_Vavilona.jpg", author: "Alexander Hislop", cat: "apologetics" },
+  { id: "antiquities", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Iudejskie_drevnosti-tom_1.jpg", author: "Flavius Josephus", cat: "early" },
+  { id: "jewishwar", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Iudejskaya_vojna-1.jpg", author: "Flavius Josephus", cat: "early" },
+  { id: "homiletics", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Gomiletika_1.jpg", author: "", cat: "homiletics" },
+  { id: "prophets", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Ostorozhno_proroki.jpg", author: "Wolfgang Bühne", cat: "apologetics" },
+  { id: "fire", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Igra_s_ognjom-1.jpg", author: "Wolfgang Bühne", cat: "apologetics" },
+  { id: "luther", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Na_sem_stoju.jpg", author: "Roland Bainton", cat: "reformation" },
+  { id: "otspeaks", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Vethij_Savet_govorit.jpg", author: "Samuel J. Schultz", cat: "ot" },
+  { id: "ntsurvey", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Obsor_Novogo-Zaveta.jpg", author: "Merrill C. Tenney", cat: "nt" },
+  { id: "hermeneutics", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Germenewtika.jpg", author: "Henry A. Virkler", cat: "hermeneutics" },
+  { id: "howtoread", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Kak_zitaty_Bibliju.png", author: "Gordon D. Fee, Douglas Stuart", cat: "hermeneutics" },
+  { id: "ntexegesis", img: "https://propovednik.my1.ru/Buch-Titel/Buch_Ekzegetika_Novogo_Zaveta.jpg", author: "Gordon D. Fee", cat: "hermeneutics" },
 ];
 
-type TxtByLang = Record<string, Record<string, { title: string; desc: string }>>;
+type Info = { title: string; desc: string; long: string };
+type TxtByLang = Record<string, Record<string, Info>>;
 
-// Titles + short descriptions localized for DE / EN / RU.
-// Other languages fall back to DE (German is the master language of the site).
 const TXT: TxtByLang = {
   de: {
-    history2: { title: "Geschichte des Christentums, Bd. 2 — Von der Reformation bis zur Gegenwart", desc: "Der zweite Band beschreibt das kirchliche Leben vom 16. Jahrhundert bis heute — Persönlichkeiten, Konfessionen und theologische Entwicklungen." },
-    history1: { title: "Geschichte des Christentums, Bd. 1 — Von der Urgemeinde bis zur Reformation", desc: "Die Ausbreitung des christlichen Glaubens in der Welt und die Entstehung nationaler kirchlicher Traditionen." },
-    answers: { title: "Das Antwort-Buch", desc: "Verständliche Antworten auf 12 häufig gestellte Fragen zum Buch Genesis, zur Schöpfung und zur Evolution." },
-    cults: { title: "Sekten und Weltreligionen im Licht der Bibel", desc: "Kurzer Überblick der bekanntesten Sekten und Religionen mit einer biblischen Beurteilung." },
-    twobabylons: { title: "Die zwei Babylons", desc: "1853 erschienenes Werk über die heidnischen Wurzeln zahlreicher religiöser Bräuche — historisch reich belegt." },
-    antiquities: { title: "Jüdische Altertümer", desc: "Die Geschichte des jüdischen Volkes von der Schöpfung bis Herodes dem Großen — von Flavius Josephus." },
-    jewishwar: { title: "Der Jüdische Krieg", desc: "Belagerung und Zerstörung Jerusalems und die dramatischen Ereignisse des Jüdischen Krieges." },
-    homiletics: { title: "Homiletik — Lehrbuch", desc: "Einführung in Vorbereitung und Halten biblischer Predigten, damit das Wort in den Herzen der Hörer Frucht bringt." },
-    prophets: { title: "Vorsicht: Propheten!", desc: "Kritische Betrachtung endzeitlicher Verführungen (Fortsetzung von „Spiel mit dem Feuer“)." },
-    fire: { title: "Spiel mit dem Feuer", desc: "Entstehung und Entwicklung der Pfingst- und charismatischen Bewegung sowie des „Power-Evangelism“." },
-    luther: { title: "Hier stehe ich — Das Leben Martin Luthers", desc: "Klassische Biographie über Martin Luther und die Reformation." },
-    otspeaks: { title: "Das Alte Testament spricht", desc: "Warum das Alte Testament weit mehr ist als ein historisches oder literarisches Denkmal." },
-    ntsurvey: { title: "Überblick über das Neue Testament", desc: "Politischer, sozialer, kultureller und religiöser Hintergrund der Zeit des Neuen Testaments." },
-    hermeneutics: { title: "Hermeneutik", desc: "Grundsätze und Prozess der Auslegung der Bibel." },
-    howtoread: { title: "Die Bibel lesen und ihren ganzen Reichtum entdecken", desc: "Ein tiefes Verständnis der Bibel ist keinem Elitezirkel vorbehalten — sie ist für jeden zugänglich." },
-    ntexegesis: { title: "Exegese des Neuen Testaments", desc: "Der Prozess der Auslegung: historische Erforschung dessen, was der biblische Autor sagen wollte." },
+    history2: {
+      title: "Geschichte des Christentums, Bd. 2 — Von der Reformation bis zur Gegenwart",
+      desc: "Der zweite Band beschreibt das kirchliche Leben vom 16. Jahrhundert bis heute.",
+      long: "Der zweite Band von Justo L. González' klassischer Kirchengeschichte umfasst die Zeit von der Reformation bis in die Gegenwart. González schildert das Wirken Martin Luthers, Zwinglis, Calvins und der radikalen Reformation, die katholische Gegenreformation, die Ausbreitung des Christentums in die Neue Welt, die Erweckungsbewegungen des 18. und 19. Jahrhunderts, das Zeitalter der Mission, die theologischen Herausforderungen der Moderne sowie das Wachstum der Kirche in Asien, Afrika und Lateinamerika im 20. Jahrhundert. Ein besonderer Wert des Werkes liegt darin, dass es nicht nur Ereignisse und Persönlichkeiten schildert, sondern auch die geistlichen und gesellschaftlichen Bewegungen verständlich einordnet — ein hervorragendes Lehr- und Nachschlagewerk für Prediger, Studenten und alle, die die Kirche in ihrem globalen Kontext verstehen wollen.",
+    },
+    history1: {
+      title: "Geschichte des Christentums, Bd. 1 — Von der Urgemeinde bis zur Reformation",
+      desc: "Die Ausbreitung des christlichen Glaubens und die Entstehung nationaler kirchlicher Traditionen.",
+      long: "Der erste Band führt vom Neuen Testament über die Urgemeinde, die Verfolgungen der ersten Jahrhunderte, die Konzilien der Alten Kirche, das Mönchtum, die Bildung der lateinischen und griechischen Traditionen, das mittelalterliche Papsttum, die Scholastik und die Vorreformatoren bis an die Schwelle der Reformation. González verbindet gründliche Quellenkenntnis mit einer allgemeinverständlichen Sprache und ordnet die Geschichte der Kirche stets in ihren politischen und kulturellen Rahmen ein. Das Buch eignet sich hervorragend als erste umfassende Einführung in die Kirchengeschichte für Gemeindeleiter, Prediger und interessierte Gemeindeglieder.",
+    },
+    answers: {
+      title: "Das Antwort-Buch",
+      desc: "Antworten auf 12 häufig gestellte Fragen zu Schöpfung, Genesis und Evolution.",
+      long: "„Das Antwort-Buch\" von Ken Ham, Andrew Snelling und Carl Wieland gibt verständliche, wissenschaftlich fundierte und biblisch begründete Antworten auf zwölf der am häufigsten gestellten Fragen zur Genesis, zur Schöpfung und zur Evolution: Woher kam die Frau Kains? Was ist mit den Dinosauriern? Wie passen Millionen Jahre mit der Bibel zusammen? Ist die Sintflut historisch? Wie erklärt man die Vielfalt der Rassen? Die Autoren zeigen, dass der biblische Bericht in Genesis 1–11 wissenschaftlich glaubwürdig und theologisch grundlegend ist. Das Buch ist ein wertvoller Ratgeber für Eltern, Lehrer, Jugendliche und für jeden, der Fragen von Skeptikern beantworten möchte.",
+    },
+    cults: {
+      title: "Sekten und Weltreligionen im Licht der Bibel",
+      desc: "Überblick der bekanntesten Sekten und Religionen mit biblischer Beurteilung.",
+      long: "Nikolai Porublev bietet einen sachlichen und übersichtlichen Vergleich der großen Weltreligionen (Islam, Hinduismus, Buddhismus, Judentum) sowie der bekanntesten Sekten und pseudochristlichen Gruppen (Zeugen Jehovas, Mormonen, Christliche Wissenschaft, New Age u. a.). Für jede Bewegung werden Geschichte, Lehren, heilige Schriften und Praxis dargestellt und anschließend im Licht der Heiligen Schrift geprüft. Das Buch hilft Gemeindegliedern, Ähnlichkeiten und entscheidende Unterschiede zum biblischen Evangelium klar zu erkennen und einen freundlichen, aber standhaften Zeugendienst gegenüber Anhängern anderer Religionen zu führen.",
+    },
+    twobabylons: {
+      title: "Die zwei Babylons",
+      desc: "Historisch reich belegtes Werk (1853) über die heidnischen Wurzeln religiöser Bräuche.",
+      long: "Das 1853 erstmals erschienene Werk von Alexander Hislop untersucht mit einer Fülle historischer Belege den Ursprung vieler religiöser Bräuche und zeigt Parallelen zwischen den altbabylonischen Kulten und späteren religiösen Traditionen auf. Hislop diskutiert Feste, Symbole, Ämter und Zeremonien und stellt sie den Aussagen der Bibel gegenüber. Das Buch war lange Zeit eine der einflussreichsten protestantischen Untersuchungen zu dieser Thematik und wird bis heute als Diskussionsgrundlage gelesen — mit gebotener kritischer Prüfung im Licht der Schrift.",
+    },
+    antiquities: {
+      title: "Jüdische Altertümer",
+      desc: "Geschichte des jüdischen Volkes von der Schöpfung bis Herodes dem Großen.",
+      long: "Flavius Josephus (37 – ca. 100 n. Chr.), jüdischer Historiker und Priester, verfasste dieses monumentale Werk in 20 Büchern für ein griechisch-römisches Publikum. Er beschreibt die Geschichte des jüdischen Volkes von der Erschaffung der Welt über die Patriarchen, den Auszug aus Ägypten, die Zeit der Richter und Könige, das Exil, die Rückkehr, die Makkabäerzeit bis in die Regierungszeit Herodes' des Großen. Für Bibelleser und Prediger sind die „Jüdischen Altertümer\" eine unschätzbare Quelle für das Verständnis des historischen und kulturellen Hintergrunds beider Testamente.",
+    },
+    jewishwar: {
+      title: "Der Jüdische Krieg",
+      desc: "Belagerung Jerusalems und die dramatischen Ereignisse des Jüdischen Krieges.",
+      long: "Josephus schildert als Augenzeuge den Aufstand der Juden gegen Rom (66–73 n. Chr.), die verheerende Belagerung Jerusalems durch Titus, die Zerstörung des zweiten Tempels und den heldenhaften Widerstand auf Masada. Das Werk ist eine der wichtigsten außerbiblischen Quellen zur Situation Palästinas im 1. Jahrhundert und hilft, die Aussagen Jesu über den Untergang Jerusalems (Matthäus 24; Lukas 21) und die Umstände der frühen Christenheit besser zu verstehen.",
+    },
+    homiletics: {
+      title: "Homiletik — Lehrbuch",
+      desc: "Vorbereitung und Halten biblischer Predigten.",
+      long: "Dieses Lehrbuch der Homiletik führt Schritt für Schritt in die Kunst und Wissenschaft der christlichen Predigt ein: Auslegung des Bibeltextes, Aufbau der Predigt, verschiedene Predigtformen (thematisch, textbezogen, expositorisch), Sprache, Illustration, Anwendung, geistliche Vorbereitung des Predigers und praktische Fragen des Vortrags. Ein grundlegendes Werk für Prediger, Bibelschullehrer und alle, die das Wort Gottes klar, treu und lebensnah verkündigen möchten.",
+    },
+    prophets: {
+      title: "Vorsicht: Propheten!",
+      desc: "Kritische Betrachtung endzeitlicher Verführungen — Fortsetzung von „Spiel mit dem Feuer\".",
+      long: "Wolfgang Bühne setzt in „Vorsicht: Propheten!\" seine Auseinandersetzung mit den charismatischen Strömungen fort und zeigt an konkreten Beispielen, wie moderne „Propheten\", „Apostel\" und Wunderheiler unter biblischen Vorzeichen falsche Erwartungen wecken und die Gemeinden verunsichern. Das Buch ruft zu einer nüchternen, biblisch geprüften Haltung im Blick auf Prophetie und außergewöhnliche Erlebnisse auf und ist eine wertvolle Hilfe zur geistlichen Unterscheidung in der Endzeit.",
+    },
+    fire: {
+      title: "Spiel mit dem Feuer",
+      desc: "Entstehung und Entwicklung der Pfingst- und charismatischen Bewegung.",
+      long: "Wolfgang Bühne zeichnet in „Spiel mit dem Feuer\" die Geschichte der pfingstlichen und charismatischen Bewegungen vom Anfang des 20. Jahrhunderts bis zur „Dritten Welle\" nach. Er beleuchtet Personen, Lehren, prophetische Ansprüche, Zeichen und Wunder und stellt sie dem Zeugnis der Heiligen Schrift gegenüber. Das Buch ist keine polemische Abrechnung, sondern eine sorgfältig belegte, seelsorgerlich verantwortete Warnung vor unbiblischer Erfahrungssuche und ein Aufruf zur nüchternen Nachfolge Jesu.",
+    },
+    luther: {
+      title: "Hier stehe ich — Das Leben Martin Luthers",
+      desc: "Klassische Biographie über Martin Luther und die Reformation.",
+      long: "Roland Baintons „Hier stehe ich\" ist die weltweit bekannteste Biographie Martin Luthers. Lebendig und quellennah erzählt Bainton Luthers Weg vom Augustinermönch zum Reformator: die Anfechtungen im Kloster, den Thesenanschlag 1517, den Reichstag zu Worms, die Übersetzung der Bibel auf der Wartburg, die Bauernkriege, die Ordnung der neuen Kirche und die letzten Jahre in Wittenberg. Zugleich vermittelt das Buch die theologischen Grundeinsichten der Reformation — Rechtfertigung allein aus Glauben, allein durch die Gnade, allein aus der Schrift.",
+    },
+    otspeaks: {
+      title: "Das Alte Testament spricht",
+      desc: "Warum das Alte Testament weit mehr ist als ein historisches Denkmal.",
+      long: "Samuel J. Schultz führt durch das Alte Testament in seinem historischen, geographischen und theologischen Zusammenhang: vom Anfang in Genesis über die Erzväter, den Bund am Sinai, die Zeit der Landnahme, die Königszeit, die Propheten bis zum Ende der Perserzeit. Das Buch zeigt, wie das Alte Testament das Werk und Wort des lebendigen Gottes bezeugt und auf Christus hinweist. Ein hervorragendes Studien- und Lehrbuch für Bibelkurse, Hauskreise und die persönliche Vertiefung.",
+    },
+    ntsurvey: {
+      title: "Überblick über das Neue Testament",
+      desc: "Politischer, sozialer, kultureller und religiöser Hintergrund des Neuen Testaments.",
+      long: "Merrill C. Tenney bietet einen umfassenden Überblick über alle 27 Schriften des Neuen Testaments: Zeitgeschichte des Judentums und des Römischen Reiches, das Leben Jesu, die Apostelgeschichte, die Paulusbriefe, die katholischen Briefe und die Offenbarung. Für jedes Buch werden Verfasser, Empfänger, Aufbau, theologische Schwerpunkte und Anwendung dargestellt. Das Standardwerk eignet sich für Bibelschulen, Prediger, Hauskreisleiter und alle, die das Neue Testament in seinem Zusammenhang studieren wollen.",
+    },
+    hermeneutics: {
+      title: "Hermeneutik",
+      desc: "Grundsätze und Prozess der Auslegung der Bibel.",
+      long: "Henry A. Virklers Lehrbuch führt systematisch in die Grundsätze der Bibelauslegung ein: Geschichte der Hermeneutik, historisch-grammatische Methode, Kontext, literarische Gattungen (Erzählung, Poesie, Weisheit, Prophetie, Gleichnisse, Briefe), Typologie, Vorbild und Anwendung. Virkler verbindet wissenschaftliche Gründlichkeit mit einer klaren Struktur und vielen praktischen Übungen. Ein empfehlenswertes Standardwerk für Prediger, Bibelschüler und ernsthafte Bibelleser.",
+    },
+    howtoread: {
+      title: "Die Bibel lesen und ihren ganzen Reichtum entdecken",
+      desc: "Ein tiefes Verständnis der Bibel ist keinem Elitezirkel vorbehalten.",
+      long: "Gordon D. Fee und Douglas Stuart zeigen in diesem weltweit verbreiteten Klassiker, wie man die verschiedenen Gattungen der Bibel richtig liest — Erzählung, Gesetz, Psalmen, Weisheit, Prophetie, Evangelien, Gleichnisse, Briefe, Offenbarung. Jedes Kapitel ist reich an Beispielen und praktischen Anwendungen und zeigt, wie ein sorgfältiges Lesen zu einer treuen Auslegung und einer relevanten Anwendung in Gemeinde und Leben führt. Ein ideales Buch für den Einstieg in die verantwortete Bibellese.",
+    },
+    ntexegesis: {
+      title: "Exegese des Neuen Testaments",
+      desc: "Der Prozess der Auslegung: was der biblische Autor sagen wollte.",
+      long: "Gordon D. Fee beschreibt Schritt für Schritt den Weg von der Textbeobachtung zur fertigen Auslegung eines neutestamentlichen Textes: Textkritik, Übersetzungsvergleich, historisch-kultureller Kontext, literarischer Kontext, Grammatik, Wortstudien, biblisch-theologischer Zusammenhang, Sekundärliteratur und Anwendung. Das Buch richtet sich an Prediger, Studenten und alle, die eine solide Grundlage für die Predigt und Lehre aus dem Neuen Testament suchen.",
+    },
   },
   en: {
-    history2: { title: "The Story of Christianity, Vol. 2 — The Reformation to the Present Day", desc: "The second volume covers church life from the 16th century to our time — key figures, confessions, theological developments." },
-    history1: { title: "The Story of Christianity, Vol. 1 — The Early Church to the Reformation", desc: "How the Christian faith spread across the world and how national church traditions took shape." },
-    answers: { title: "The Answers Book", desc: "Clear and detailed answers to 12 of the most frequently asked questions about Genesis, creation and evolution." },
-    cults: { title: "Cults and World Religions in the Light of the Bible", desc: "A brief overview of the most widespread cults and religious movements with a biblical assessment." },
-    twobabylons: { title: "The Two Babylons", desc: "First published in 1853, this work presents extensive historical evidence for the pagan roots of many religious rites." },
-    antiquities: { title: "Antiquities of the Jews", desc: "The history of the Jewish people from creation to Herod the Great, by Flavius Josephus." },
-    jewishwar: { title: "The Jewish War", desc: "The siege and destruction of Jerusalem and the dramatic events of the Jewish War of AD 66–71." },
-    homiletics: { title: "Homiletics — A Textbook", desc: "A branch of theology on preparing and delivering sermons so that preaching bears fruit in listeners' hearts." },
-    prophets: { title: "Beware: Prophets!", desc: "A critical look at end-time deceptions — a sequel to “Playing with Fire.”" },
-    fire: { title: "Playing with Fire", desc: "The origin and development of the Pentecostal and charismatic movements and so-called “power evangelism.”" },
-    luther: { title: "Here I Stand — A Life of Martin Luther", desc: "A classic biography of Martin Luther and the history of the Reformation." },
-    otspeaks: { title: "The Old Testament Speaks", desc: "Why the Old Testament is far more than a historical or national literary monument." },
-    ntsurvey: { title: "New Testament Survey", desc: "The political, social, cultural and religious background against which the New Testament emerged." },
-    hermeneutics: { title: "Hermeneutics", desc: "Principles and process of interpreting the Bible." },
-    howtoread: { title: "How to Read the Bible for All Its Worth", desc: "A deep understanding of the Bible is not reserved for scholars — it is accessible to every reader." },
-    ntexegesis: { title: "New Testament Exegesis", desc: "The interpretive process: historical study of what the biblical author intended to convey." },
+    history2: { title: "The Story of Christianity, Vol. 2 — Reformation to the Present Day", desc: "Church life from the 16th century to our time.", long: "The second volume of Justo L. González's classic covers the Reformation, the Catholic response, the spread of Christianity to the New World, the great revivals, the age of mission, the theological challenges of modernity, and the growth of the church in Asia, Africa and Latin America. A superb overview for pastors, students and lay readers." },
+    history1: { title: "The Story of Christianity, Vol. 1 — Early Church to the Reformation", desc: "How the Christian faith spread across the world.", long: "The first volume moves from the New Testament through the early church, the persecutions, the councils, monasticism, the medieval papacy, scholasticism and the forerunners of the Reformation. González combines careful scholarship with accessible language and always sets church history in its political and cultural context." },
+    answers: { title: "The Answers Book", desc: "Answers to 12 common questions about Genesis and origins.", long: "Ken Ham, Andrew Snelling and Carl Wieland answer twelve of the most frequently asked questions about Genesis, creation and evolution: where did Cain's wife come from, what about the dinosaurs, how do millions of years fit with the Bible, is the Flood historical, how do we explain the diversity of races. A valuable resource for parents, teachers and young people." },
+    cults: { title: "Cults and World Religions in the Light of the Bible", desc: "Overview of major cults and religions with a biblical assessment.", long: "Nikolai Porublev gives a balanced overview of the major world religions (Islam, Hinduism, Buddhism, Judaism) and of well-known cults and pseudo-Christian movements (Jehovah's Witnesses, Mormons, Christian Science, New Age). For each movement he presents history, teachings, scriptures and practices, then evaluates them by Scripture — a helpful guide for lay witness." },
+    twobabylons: { title: "The Two Babylons", desc: "1853 study of the pagan roots of many religious rites.", long: "First published in 1853, Alexander Hislop's work uses extensive historical evidence to trace parallels between ancient Babylonian cults and later religious traditions — festivals, symbols, offices and ceremonies. Long one of the most influential Protestant treatments of the subject, still read today with due critical reflection in the light of Scripture." },
+    antiquities: { title: "Antiquities of the Jews", desc: "History of the Jewish people from creation to Herod the Great.", long: "Flavius Josephus (AD 37 – c. 100), Jewish historian and priest, wrote this twenty-book history for a Greco-Roman audience: from creation through the patriarchs, the exodus, the judges and kings, the exile and return, the Maccabees, and Herod the Great. An invaluable resource for the historical background of both Testaments." },
+    jewishwar: { title: "The Jewish War", desc: "The siege of Jerusalem and the events of the Jewish War.", long: "As an eyewitness Josephus recounts the Jewish revolt against Rome (AD 66–73), the devastating siege of Jerusalem by Titus, the destruction of the Second Temple, and the resistance at Masada. One of the most important non-biblical sources for first-century Palestine and for understanding Jesus' words about the fall of Jerusalem." },
+    homiletics: { title: "Homiletics — Textbook", desc: "Preparing and delivering biblical sermons.", long: "This homiletics textbook introduces the art and science of Christian preaching step by step: interpreting the text, structuring the sermon, sermon forms, language, illustration, application, the preacher's spiritual preparation, and practical questions of delivery. A foundational work for preachers and Bible school students." },
+    prophets: { title: "Beware: Prophets!", desc: "A critical look at end-time deceptions.", long: "Wolfgang Bühne continues his examination of the charismatic movement, showing with concrete examples how modern 'prophets', 'apostles' and miracle workers create false expectations and unsettle churches. A call to a sober, biblically tested attitude toward prophecy and extraordinary experiences." },
+    fire: { title: "Playing with Fire", desc: "Origin and development of the Pentecostal and charismatic movements.", long: "Wolfgang Bühne traces the history of the Pentecostal and charismatic movements from the beginning of the 20th century to the 'Third Wave', examining leaders, teachings, prophetic claims, signs and wonders in the light of Scripture. Not a polemical broadside but a carefully documented, pastorally responsible warning." },
+    luther: { title: "Here I Stand — A Life of Martin Luther", desc: "Classic biography of Martin Luther.", long: "Roland Bainton's 'Here I Stand' is the world's best-known biography of Martin Luther, telling his story from Augustinian monk to Reformer: the struggles in the monastery, the 95 Theses, the Diet of Worms, the translation of the Bible at the Wartburg, the peasant wars, the ordering of the new church, and the last years in Wittenberg — while also communicating the theological insights of the Reformation." },
+    otspeaks: { title: "The Old Testament Speaks", desc: "Why the Old Testament is far more than a historical monument.", long: "Samuel J. Schultz surveys the Old Testament in its historical, geographical and theological context: from Genesis through the patriarchs, the Sinai covenant, the conquest, the kings, the prophets, to the end of the Persian period, showing how the Old Testament witnesses to the living God and points to Christ." },
+    ntsurvey: { title: "New Testament Survey", desc: "Background and books of the New Testament.", long: "Merrill C. Tenney provides a comprehensive overview of the 27 books of the New Testament: the historical setting of Judaism and Rome, the life of Jesus, Acts, the Pauline Epistles, the General Epistles, and Revelation. For each book: author, recipients, structure, theological emphases and application. A standard work for Bible schools and preachers." },
+    hermeneutics: { title: "Hermeneutics", desc: "Principles and process of interpreting the Bible.", long: "Henry A. Virkler's textbook is a systematic introduction to biblical interpretation: history of hermeneutics, the historical-grammatical method, context, literary genres (narrative, poetry, wisdom, prophecy, parables, epistles), typology, and application. Scholarly, clearly structured, with many practical exercises." },
+    howtoread: { title: "How to Read the Bible for All Its Worth", desc: "A deep understanding of the Bible is accessible to every reader.", long: "Fee and Stuart's international classic shows how to read the different genres of the Bible correctly — narrative, law, psalms, wisdom, prophecy, gospels, parables, epistles, revelation. Each chapter is rich in examples and practical application, showing how careful reading leads to faithful interpretation and relevant application." },
+    ntexegesis: { title: "New Testament Exegesis", desc: "Historical study of what the biblical author intended.", long: "Gordon D. Fee describes step by step the path from observation to a finished exegesis of a New Testament text: textual criticism, comparison of translations, historical-cultural context, literary context, grammar, word studies, biblical-theological context, secondary literature and application. For preachers, students and serious Bible readers." },
   },
   ru: {
-    history2: { title: "История христианства. Том 2. От эпохи Реформации до нашего времени", desc: "Второй том охватывает события церковной жизни с XVI века по наше время — служители Церкви, конфессии, богословские изменения." },
-    history1: { title: "История христианства. Том 1. От основания Церкви до эпохи Реформации", desc: "Как распространялось христианское учение по всему миру и как складывались национальные особенности церковных традиций." },
-    answers: { title: "Книга ответов", desc: "Доходчивые и подробные ответы на 12 наиболее часто задаваемых вопросов о книге Бытия, творении и эволюции." },
-    cults: { title: "Культы и мировые религии в свете Библии", desc: "Краткий обзор самых распространённых культов и религиозных течений с оценкой в свете Священного Писания." },
-    twobabylons: { title: "Два Вавилона", desc: "Книга 1853 года с обширным историческим материалом о языческих корнях многих религиозных обрядов." },
-    antiquities: { title: "Иудейские древности", desc: "История еврейского народа от сотворения мира до правления Ирода Великого — труд Иосифа Флавия." },
-    jewishwar: { title: "Иудейская война", desc: "Осада и разрушение Иерусалима и ключевые события Иудейской войны 66–71 гг." },
-    homiletics: { title: "Гомилетика. Учебное пособие", desc: "Раздел богословия, посвящённый подготовке и произнесению проповедей — чтобы слово приносило плод в сердцах слушателей." },
-    prophets: { title: "Осторожно: пророки!", desc: "Размышления об обольщениях последнего времени; продолжение книги «Игра с огнём»." },
-    fire: { title: "Игра с огнём", desc: "История возникновения и развития пятидесятнического и харизматического движений и так называемого «пауэр-ивэнжелизма»." },
-    luther: { title: "На сём стою. Жизнь Мартина Лютера", desc: "Классическая биография Мартина Лютера и история Реформации." },
-    otspeaks: { title: "Ветхий Завет говорит", desc: "Почему Ветхий Завет — нечто большее, чем историческое повествование или памятник национальной литературы." },
-    ntsurvey: { title: "Обзор Нового Завета", desc: "Политический, социальный, культурный и религиозный фон, на котором появился Новый Завет." },
-    hermeneutics: { title: "Герменевтика", desc: "Принципы и процесс толкования Библии." },
-    howtoread: { title: "Как читать Библию и видеть всю её ценность", desc: "Глубокое понимание Библии доступно любому читателю — от домохозяйки до преподавателя семинарии." },
-    ntexegesis: { title: "Экзегетика Нового Завета", desc: "Процесс толкования: историческое исследование того, что хотел выразить библейский автор." },
+    history2: { title: "История христианства. Том 2. От Реформации до наших дней", desc: "Церковная жизнь с XVI века до нашего времени.", long: "Второй том классического труда Хусто Л. Гонсалеса охватывает Реформацию, католический ответ, распространение христианства в Новом Свете, великие пробуждения, эпоху миссий, богословские вызовы модерна и рост Церкви в Азии, Африке и Латинской Америке в XX веке. Прекрасный обзор для пасторов, студентов и всех читателей." },
+    history1: { title: "История христианства. Том 1. От основания Церкви до Реформации", desc: "Как христианство распространялось по миру.", long: "Первый том ведёт читателя от Нового Завета через раннюю Церковь, гонения, вселенские соборы, монашество, средневековое папство, схоластику и предреформаторов до порога Реформации. Гонсалес соединяет тщательное знание источников с доступным языком и всегда помещает историю Церкви в её политический и культурный контекст." },
+    answers: { title: "Книга ответов", desc: "Ответы на 12 частых вопросов о книге Бытия и творении.", long: "Кен Хэм, Эндрю Снеллинг и Карл Виланд отвечают на двенадцать самых частых вопросов о книге Бытия, творении и эволюции: откуда взялась жена Каина, что с динозаврами, как соотнести миллионы лет с Библией, историчен ли потоп, как объяснить разнообразие рас. Ценное пособие для родителей, учителей и молодёжи." },
+    cults: { title: "Культы и мировые религии в свете Библии", desc: "Обзор основных культов и религий с оценкой Писания.", long: "Николай Порублев даёт сбалансированный обзор основных мировых религий (ислам, индуизм, буддизм, иудаизм) и известных культов и псевдохристианских движений (Свидетели Иеговы, мормоны, «Христианская наука», Нью Эйдж): их история, учения, священные книги, практика — и их оценка в свете Писания." },
+    twobabylons: { title: "Два Вавилона", desc: "Труд 1853 года о языческих корнях религиозных обрядов.", long: "Впервые изданная в 1853 году работа Александра Хислопа приводит обширный исторический материал и прослеживает параллели между древневавилонскими культами и позднейшими религиозными традициями — праздниками, символами, служениями и обрядами. Один из наиболее влиятельных протестантских трудов на эту тему, читаемый и сегодня с должной критической проверкой в свете Писания." },
+    antiquities: { title: "Иудейские древности", desc: "История еврейского народа от сотворения мира до Ирода Великого.", long: "Иосиф Флавий (37 — ок. 100 г.), иудейский историк и священник, написал этот монументальный труд в 20 книгах для греко-римского читателя: от сотворения мира через патриархов, исход, эпоху судей и царей, изгнание и возвращение, Маккавеев до правления Ирода Великого. Незаменимый источник для понимания исторического фона обоих Заветов." },
+    jewishwar: { title: "Иудейская война", desc: "Осада Иерусалима и события Иудейской войны.", long: "Как очевидец Иосиф Флавий описывает восстание иудеев против Рима (66–73 гг.), опустошительную осаду Иерусалима Титом, разрушение Второго Храма и сопротивление в Масаде. Один из важнейших внебиблейских источников по Палестине I века и по контексту слов Иисуса о падении Иерусалима." },
+    homiletics: { title: "Гомилетика. Учебное пособие", desc: "Подготовка и произнесение библейских проповедей.", long: "Учебник гомилетики шаг за шагом вводит в искусство и науку христианской проповеди: истолкование текста, построение проповеди, её виды, язык, иллюстрации, применение, духовная подготовка проповедника и практические вопросы произнесения. Фундаментальный труд для проповедников и студентов библейских школ." },
+    prophets: { title: "Осторожно: пророки!", desc: "Критический взгляд на обольщения последнего времени.", long: "Вольфганг Бюне продолжает разбор харизматических течений и на конкретных примерах показывает, как современные «пророки», «апостолы» и чудотворцы порождают ложные ожидания и вносят смуту в общины. Призыв к трезвому, библейски проверенному отношению к пророчеству и необычным переживаниям." },
+    fire: { title: "Игра с огнём", desc: "Возникновение и развитие пятидесятнического и харизматического движения.", long: "Вольфганг Бюне прослеживает историю пятидесятнического и харизматического движений с начала XX века до «Третьей волны», рассматривает деятелей, учения, пророческие притязания, знамения и чудеса в свете Писания. Не полемика, а тщательно задокументированное, пастырски ответственное предостережение." },
+    luther: { title: "На сём стою. Жизнь Мартина Лютера", desc: "Классическая биография Мартина Лютера.", long: "«На сём стою» Роланда Бейнтона — самая известная в мире биография Мартина Лютера: путь от августинского монаха до реформатора, борения в монастыре, 95 тезисов, Вормсский рейхстаг, перевод Библии на Вартбурге, крестьянские войны, устроение новой Церкви и последние годы в Виттенберге — вместе с богословскими открытиями Реформации." },
+    otspeaks: { title: "Ветхий Завет говорит", desc: "Почему Ветхий Завет — больше, чем историческое повествование.", long: "Сэмюэль Дж. Шульц проводит читателя по Ветхому Завету в его историческом, географическом и богословском контексте: от Бытия через патриархов, Синайский завет, завоевание, царей, пророков до конца персидского периода — показывая, как Ветхий Завет свидетельствует о живом Боге и указывает на Христа." },
+    ntsurvey: { title: "Обзор Нового Завета", desc: "Фон и книги Нового Завета.", long: "Меррилл Тенни даёт полный обзор 27 книг Нового Завета: исторический фон иудаизма и Рима, жизнь Иисуса, Деяния, Послания Павла, соборные Послания и Откровение. Для каждой книги — автор, адресаты, структура, богословские акценты и применение. Стандартный труд для библейских школ и проповедников." },
+    hermeneutics: { title: "Герменевтика", desc: "Принципы и процесс толкования Библии.", long: "Учебник Генри Виркеля — систематическое введение в толкование Библии: история герменевтики, историко-грамматический метод, контекст, литературные жанры (повествование, поэзия, мудрость, пророчество, притчи, послания), типология и применение. Научно основательно, ясно структурировано, с множеством практических упражнений." },
+    howtoread: { title: "Как читать Библию и видеть всю её ценность", desc: "Глубокое понимание Библии доступно каждому читателю.", long: "Международный классический труд Гордона Фи и Дугласа Стюарта показывает, как правильно читать разные жанры Библии — повествование, закон, псалмы, мудрость, пророчество, Евангелия, притчи, послания, Откровение. Каждая глава богата примерами и практическим применением." },
+    ntexegesis: { title: "Экзегетика Нового Завета", desc: "Историческое исследование замысла библейского автора.", long: "Гордон Фи шаг за шагом описывает путь от наблюдения над текстом до завершённой экзегетики новозаветного отрывка: текстология, сравнение переводов, историко-культурный и литературный контекст, грамматика, изучение слов, библейско-богословский контекст, вторичная литература и применение. Для проповедников и студентов." },
   },
 };
 
@@ -212,6 +179,7 @@ function Books() {
   const { t, lang } = useI18n();
   const items = TXT[lang] ?? TXT.de;
   const fallbackNotice = lang !== "de" && lang !== "en" && lang !== "ru";
+  const [open, setOpen] = useState<Record<string, boolean>>({});
 
   return (
     <div className="page-panel">
@@ -243,14 +211,9 @@ function Books() {
           <div className="books-grid">
             {BOOKS.map((b) => {
               const info = items[b.id] ?? TXT.de[b.id];
+              const isOpen = !!open[b.id];
               return (
-                <a
-                  key={b.id}
-                  href={b.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="book-card"
-                >
+                <div key={b.id} className="book-card">
                   <div className="book-cover">
                     <img src={b.img} alt={info.title} loading="lazy" />
                   </div>
@@ -263,25 +226,21 @@ function Books() {
                         <em>{b.author}</em>
                       </div>
                     )}
-                    <p className="book-desc">{info.desc}</p>
-                    <span className="book-more">{t("pages.books.readMore")} →</span>
+                    <p className="book-desc">{isOpen ? info.long : info.desc}</p>
+                    <button
+                      type="button"
+                      className="book-more"
+                      onClick={() => setOpen((s) => ({ ...s, [b.id]: !s[b.id] }))}
+                      aria-expanded={isOpen}
+                      style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit", color: "inherit" }}
+                    >
+                      {isOpen ? t("pages.books.readLess") : t("pages.books.readMore")} {isOpen ? "↑" : "↓"}
+                    </button>
                   </div>
-                </a>
+                </div>
               );
             })}
           </div>
-
-          <p style={{ marginTop: 32, fontSize: 13, color: "var(--muted)" }}>
-            {t("pages.books.source")}{" "}
-            <a
-              href="https://propovednik.my1.ru/dir/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#2a5c27", textDecoration: "underline" }}
-            >
-              propovednik.my1.ru/dir
-            </a>
-          </p>
         </div>
       </section>
     </div>

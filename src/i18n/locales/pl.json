@@ -370,7 +370,8 @@
         "nt": "Nowy Testament",
         "reformation": "Reformacja",
         "ot": "Stary Testament"
-      }
+      },
+      "readLess": "Pokaż mniej"
     }
   }
 }
