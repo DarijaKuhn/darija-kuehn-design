@@ -88,7 +88,7 @@ const weddings: Group[] = [
     title: "Andreas und Marina",
     photos: [
       { src: andreasMarina3.url, caption: "Studio-Aufnahme", alt: "Andreas und Marina – Hochzeit, Studio-Porträt" },
-      { src: andreasMarina4.url, caption: "Mit Trauzeugen", alt: "Andreas und Marina mit Trauzeugen in der Gemeinde" },
+      { src: andreasMarina4.url, caption: "Mit Freunden", alt: "Andreas und Marina mit Freunden in der Gemeinde" },
       { src: andrejMarina.url, caption: "Mit einer Rose", alt: "Andreas und Marina – Hochzeit, fröhlicher Moment mit Rose" },
       { src: andreasMarina1.url, caption: "Hochzeitsfeier", alt: "Andreas und Marina an der Hochzeitstafel" },
       { src: andreasMarina2.url, caption: "Brautpaar an der Tafel", alt: "Andreas und Marina an der Hochzeitstafel, Porträt" },
@@ -98,7 +98,7 @@ const weddings: Group[] = [
     title: "Alina und Artur",
     photos: [
       { src: alinaArtur1.url, caption: "Vor der Trauung", alt: "Alina und Artur vor dem Hochzeitsauto" },
-      { src: arturAlina.url, caption: "Mit Familie", alt: "Alina und Artur mit Familienangehörigen" },
+      { src: arturAlina.url, caption: "Mit Freunden", alt: "Alina und Artur mit Freunden" },
       { src: alinaArtur2.url, caption: "Über den Elbwiesen", alt: "Alina und Artur mit Blick über Dresden" },
     ],
   },
