@@ -693,3 +693,82 @@ footer a:hover { color: #fff; }
   color: var(--ink);
 }
 .confession-body .widerspruch-block strong { font-weight: 700; }
+
+/* Books gallery */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(42, 92, 39, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(42, 92, 39, 0.12);
+  border-color: rgba(42, 92, 39, 0.28);
+}
+.book-cover {
+  aspect-ratio: 3 / 4;
+  background: #f4f2ec;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.book-cover img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+.book-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.book-cat {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2a5c27;
+  font-weight: 600;
+}
+.book-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 2px 0 4px;
+  color: #1f3a1e;
+}
+.book-author {
+  font-size: 13px;
+  color: var(--muted);
+}
+.book-author-label { opacity: 0.7; }
+.book-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 6px 0 10px;
+  flex: 1;
+}
+.book-more {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a5c27;
+  margin-top: auto;
+}
+@media (max-width: 600px) {
+  .books-grid { grid-template-columns: 1fr; gap: 18px; }
+  .book-title { font-size: 18px; }
+}

@@ -6,7 +6,8 @@
     "map": "Bize Ulaşın",
     "gallery": "Fotoğraflar",
     "sermons": "Vaazlar",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "books": "Kitaplar"
   },
   "hero": {
     "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
@@ -351,6 +352,25 @@
       "title": "Gizlilik bildirimi",
       "text": "Etkileşimli haritayı görmek ve rotanızı planlamak için lütfen bir tıklamayla etkinleştirin. Veriler (IP adresiniz dahil) OpenStreetMap'e iletilecektir. Hukuki dayanak: GDPR md. 6/1-a.",
       "btn": "Haritayı etkinleştir"
+    },
+    "books": {
+      "crumb": "Kitaplar",
+      "eyebrow": "Önerilen okumalar",
+      "h1": "Hristiyan Kitapları",
+      "intro": "Kutsal Kitap yorumu, kilise tarihi, apolojetik, Reform ve vaaz bilimi üzerine önerilen kitaplardan bir seçki — propovednik.my1.ru sitemizin kitap bölümünden.",
+      "note": "Not: kitaplar orijinal olarak Rusçadır. Başlıklar ve kısa açıklamalar burada Almanca gösterilmektedir.",
+      "by": "yazar:",
+      "readMore": "Devamını oku",
+      "source": "Kaynak:",
+      "categories": {
+        "hermeneutics": "Hermenötik / Tefsir",
+        "apologetics": "Apolojetik",
+        "homiletics": "Vaaz bilimi",
+        "early": "Erken Kilise / Orta Çağ",
+        "nt": "Yeni Ahit",
+        "reformation": "Reform",
+        "ot": "Eski Ahit"
+      }
     }
   }
 }

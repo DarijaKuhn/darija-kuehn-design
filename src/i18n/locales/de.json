@@ -6,7 +6,8 @@
     "map": "Anfahrt",
     "gallery": "Fotos",
     "sermons": "Predigten",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "books": "Bücher"
   },
   "hero": {
     "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
@@ -351,6 +352,25 @@
       "title": "Datenschutz-Hinweis",
       "text": "Um die interaktive Karte zu sehen und Ihre Route zu planen, aktivieren Sie diese bitte mit einem Klick. Dabei werden Daten (u.a. Ihre IP-Adresse) an OpenStreetMap übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.",
       "btn": "Karte aktivieren"
+    },
+    "books": {
+      "crumb": "Bücher",
+      "eyebrow": "Empfohlene Literatur",
+      "h1": "Christliche Bücher",
+      "intro": "Eine Auswahl empfohlener Bücher zu Bibelauslegung, Kirchengeschichte, Apologetik, Reformation und Predigtlehre — aus dem Bücher-Verzeichnis unserer Website propovednik.my1.ru.",
+      "note": "Hinweis: Die Bücher sind ursprünglich in russischer Sprache. Titel und Kurzbeschreibungen werden hier in deutscher Sprache angezeigt.",
+      "by": "von",
+      "readMore": "Mehr lesen",
+      "source": "Quelle:",
+      "categories": {
+        "hermeneutics": "Hermeneutik / Exegese",
+        "apologetics": "Apologetik",
+        "homiletics": "Homiletik",
+        "early": "Frühe Kirche / Mittelalter",
+        "nt": "Neues Testament",
+        "reformation": "Reformation",
+        "ot": "Altes Testament"
+      }
     }
   }
 }
