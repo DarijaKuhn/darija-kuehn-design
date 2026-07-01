@@ -78,6 +78,7 @@ const NAV_LINKS: ReadonlyArray<{ to: string; key: string; home?: boolean }> = [
   { to: "/contact", key: "nav.contact" },
   { to: "/gallery", key: "nav.gallery" },
   { to: "/sermons", key: "nav.sermons" },
+  { to: "/books", key: "nav.books" },
   { to: "/confession", key: "nav.confession" },
   { to: "/services", key: "nav.services" },
   { to: "/map", key: "nav.map" },
