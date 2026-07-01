@@ -51,18 +51,6 @@ function Confession() {
               </>
             )}
 
-            <h2>{t("pages.confession.rechenschaftTitle")}</h2>
-            <p>{t("pages.confession.rechenschaftBody")}</p>
-            <p>
-              <a
-                href="https://www.befg.de/fileadmin/content/BEFG/Rechenschaft_vom_Glauben_-_Stand_31.05.2019.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "underline" }}
-              >
-                {t("pages.confession.rechenschaftLinkLabel")} ↗
-              </a>
-            </p>
 
             {Array.isArray(baptistenItems) && baptistenItems.length > 0 && (
               <>
