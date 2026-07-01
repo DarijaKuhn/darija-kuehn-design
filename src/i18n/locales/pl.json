@@ -114,6 +114,10 @@
         "p": "Przetwarzamy dane osobowe tylko w zakresie niezbędnym do prawidłowego działania strony. Podstawa prawna to zwykle zgoda (art. 6 ust. 1 lit. a RODO) lub przepis prawa."
       },
       {
+        "h": "Hosting",
+        "p": "Ta strona jest hostowana przez <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Niemcy. Serwery w Niemczech. Podstawa prawna: art. 6 ust. 1 lit. f RODO."
+      },
+      {
         "h": "3. Pliki dziennika serwera",
         "p": "Dostawca hostingu automatycznie zbiera informacje w logach (typ przeglądarki, system, referrer, host, czas, adres IP). Podstawa prawna: art. 6 ust. 1 lit. f RODO."
       },

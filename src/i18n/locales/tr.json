@@ -114,6 +114,10 @@
         "p": "Kişisel verileri yalnızca işlevsel bir web sitesi sunmak için gereken ölçüde işleriz. Hukuki dayanak genellikle açık rıza (GDPR 6/1-a) veya yasal izindir."
       },
       {
+        "h": "Barındırma",
+        "p": "Bu site <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Almanya tarafından barındırılmaktadır. Sunucular Almanya'dadır. Yasal dayanak: GDPR md. 6(1)(f)."
+      },
+      {
         "h": "3. Sunucu günlük dosyaları",
         "p": "Barındırma sağlayıcısı günlüklerde otomatik olarak bilgi toplar (tarayıcı türü, işletim sistemi, yönlendiren, sunucu adı, saat, IP). Hukuki dayanak: GDPR 6/1-f."
       },

@@ -114,6 +114,10 @@
         "p": "Prelucrăm datele personale doar în măsura necesară furnizării unui site funcțional. Temeiul juridic este de obicei consimțământul (art. 6 alin. 1 lit. a GDPR) sau o autorizație legală."
       },
       {
+        "h": "Găzduire",
+        "p": "Acest site este găzduit de <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Germania. Serverele sunt în Germania. Baza legală: art. 6 alin. (1) lit. f RGPD."
+      },
+      {
         "h": "3. Fișiere jurnal de server",
         "p": "Furnizorul de găzduire colectează automat informații în jurnale (tip browser, sistem, referrer, gazdă, oră, adresă IP). Temei juridic: art. 6 alin. 1 lit. f GDPR."
       },
