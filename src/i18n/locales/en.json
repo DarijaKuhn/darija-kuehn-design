@@ -114,6 +114,10 @@
         "p": "We process personal data only insofar as it is necessary to provide a functional website. The legal basis is regularly your consent (Art. 6 (1) (a) GDPR) or a statutory permission (Art. 6 (1) (b), (c), (f) GDPR)."
       },
       {
+        "h": "Hosting",
+        "p": "This website is hosted by <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Germany. Servers are located in Germany. Legal basis: Art. 6(1)(f) GDPR. A data processing agreement (DPA) under Art. 28 GDPR is in place with Hetzner."
+      },
+      {
         "h": "3. Server log files",
         "p": "The hosting provider automatically collects information in server log files (browser type, OS, referrer, hostname, time, IP address). This data is not merged with other sources. Legal basis: Art. 6 (1) (f) GDPR."
       },

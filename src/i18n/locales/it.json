@@ -114,6 +114,10 @@
         "p": "Trattiamo dati personali solo nella misura necessaria a fornire un sito funzionale. La base giuridica è di norma il consenso (art. 6 par. 1 lett. a GDPR) o un'autorizzazione di legge."
       },
       {
+        "h": "Hosting",
+        "p": "Questo sito è ospitato da <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Germania. Server in Germania. Base giuridica: art. 6(1)(f) GDPR."
+      },
+      {
         "h": "3. File di log del server",
         "p": "Il provider raccoglie automaticamente informazioni nei file di log (tipo di browser, OS, referrer, hostname, ora, indirizzo IP). Base giuridica: art. 6 par. 1 lett. f GDPR."
       },

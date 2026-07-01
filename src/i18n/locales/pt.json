@@ -114,6 +114,10 @@
         "p": "Tratamos dados pessoais apenas na medida necessária para fornecer um site funcional. A base legal é, em regra, o consentimento (art. 6.º, n.º 1, alínea a, GDPR) ou uma permissão legal."
       },
       {
+        "h": "Hospedagem",
+        "p": "Este site é hospedado pela <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Alemanha. Servidores na Alemanha. Base legal: Art. 6.º(1)(f) RGPD."
+      },
+      {
         "h": "3. Arquivos de log do servidor",
         "p": "O provedor de hospedagem coleta automaticamente informações em logs (tipo de navegador, SO, referenciador, hostname, hora, endereço IP). Base legal: art. 6.º, n.º 1, alínea f, GDPR."
       },
