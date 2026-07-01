@@ -277,7 +277,9 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(14px, 1.4vw, 18px); font-weight: 500; font-style: italic;
   color: var(--green); margin-bottom: 8px; line-height: 1.35;
 }
-.hero-desc { font-size: 13.5px; color: #374151; margin-bottom: 20px; }
+.hero-desc { font-size: 13.5px; color: #374151; margin-bottom: 6px; }
+.hero-address { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 20px; text-align: center; }
+.hero-address::before { content: "📍"; margin-right: 4px; }
 
 .hero-schedule {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
