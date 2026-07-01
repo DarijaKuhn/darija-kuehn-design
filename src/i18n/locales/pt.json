@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "«Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.»",
-      "quoteRef": "João 3:16"
+      "quoteRef": "João 3:16",
+      "solaTitle": "Princípios da Reforma",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "O crente é salvo somente pela graça de Deus, não por obras."
+        ],
+        [
+          "Sola fide",
+          "A justificação vem somente pela fé – pela confiança em Deus."
+        ],
+        [
+          "Sola scriptura",
+          "Somente a Bíblia, como Palavra de Deus, é o fundamento da fé cristã."
+        ],
+        [
+          "Solus Christus",
+          "Somente a pessoa, a obra e o ensino de Jesus Cristo podem ser o fundamento da fé e da salvação."
+        ]
+      ],
+      "rechenschaftTitle": "Confissão de fé (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "Como Freie Evangeliums-Christen-Gemeinde Dresden e.V., partilhamos a «Rechenschaft vom Glauben» – a confissão de fé comum dos baptistas de língua alemã. Foi elaborada entre 1974 e 1977 por teólogos do BEFG (Oeste e Leste), da Áustria e da Suíça e exprime as convicções comuns do nosso movimento. Para nós a Bíblia é o único fundamento da fé; esta confissão não pretende impor conteúdos doutrinais vinculativos, mas tornar visíveis as convicções comuns.",
+      "baptistenTitle": "Os baptistas são pessoas que…",
+      "baptistenItems": [
+        "…são chamadas por Deus à liberdade e seguem Jesus com responsabilidade diante de Deus e da própria consciência.",
+        "…como crentes em Jesus Cristo estão directamente unidas a Deus e são iguais entre si. Na sua comunidade todos os ministérios e funções têm o mesmo valor e estão abertos a todos.",
+        "…defendem a liberdade de fé, de consciência e de prática religiosa e a separação entre Igreja e Estado.",
+        "…celebram o amor de Deus pelo ser humano e a reconciliação com Deus e baptizam quem confessa livremente a sua fé em Jesus Cristo.",
+        "…como comunidade dos crentes participam na obra de Deus no mundo, testemunhando pela sua vida a bondade de Deus e comprometendo-se com a justiça.",
+        "…entendem a Bíblia como Palavra de Deus em palavra humana e orientam a sua fé e vida unicamente por ela.",
+        "…organizam-se localmente em comunidades autónomas e ligam-se a nível regional e mundial."
+      ],
+      "principlesNote": "(segundo os «Baptist Principles» e a formulação do grupo de trabalho Kirche 21 do GJW)"
     },
     "services": {
       "crumb": "Cultos",

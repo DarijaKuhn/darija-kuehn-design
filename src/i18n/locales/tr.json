@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "«Çünkü Tanrı dünyayı o kadar çok sevdi ki, biricik Oğlu'nu verdi. Öyle ki, O'na iman edenlerin hiçbiri mahvolmasın, hepsi sonsuz yaşama kavuşsun.»",
-      "quoteRef": "Yuhanna 3:16"
+      "quoteRef": "Yuhanna 3:16",
+      "solaTitle": "Reform ilkeleri",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "İnanan kişi yalnızca Tanrı'nın lütfuyla kurtulur, işlerle değil."
+        ],
+        [
+          "Sola fide",
+          "Aklanma yalnızca iman yoluyla – Tanrı'ya güvenerek gerçekleşir."
+        ],
+        [
+          "Sola scriptura",
+          "Yalnızca Tanrı'nın Sözü olan Kutsal Kitap Hristiyan inancının temelidir."
+        ],
+        [
+          "Solus Christus",
+          "Yalnızca İsa Mesih'in kişiliği, işi ve öğretisi iman ve kurtuluşun temeli olabilir."
+        ]
+      ],
+      "rechenschaftTitle": "İman İkrarı (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. olarak Almanca konuşan Baptistlerin ortak iman ikrarı olan „Rechenschaft vom Glauben\"ı paylaşıyoruz. Bu ikrar 1974–1977 yılları arasında BEFG (Batı ve Doğu), Avusturya ve İsviçre'den ilahiyatçılar tarafından hazırlandı ve hareketimizin ortak inançlarını dile getirir. Bizim için Kutsal Kitap imanın tek temelidir; bu ikrar bağlayıcı doktrin dayatmak değil, ortak inançları görünür kılmak amacındadır.",
+      "baptistenTitle": "Baptistler şu insanlardır…",
+      "baptistenItems": [
+        "…Tanrı tarafından özgürlüğe çağrılmış ve Tanrı ile kendi vicdanları önünde sorumlulukla İsa'yı izleyen.",
+        "…İsa Mesih'e inananlar olarak doğrudan Tanrı'ya bağlı ve birbirleriyle eşit olan. Topluluklarında tüm hizmet ve görevler eşdeğerdir ve herkese açıktır.",
+        "…iman, vicdan ve din özgürlüğünü savunan ve kilise ile devletin ayrılığını destekleyen.",
+        "…Tanrı'nın insana olan sevgisini ve Tanrı ile barışmayı kutlayan ve İsa Mesih'e olan imanını özgür iradesiyle ikrar edenleri vaftiz eden.",
+        "…inananların topluluğu olarak, hayatlarıyla Tanrı'nın iyiliğine tanıklık ederek ve adalet için çalışarak Tanrı'nın dünyadaki işine katılan.",
+        "…Kutsal Kitap'ı insan sözü içinde Tanrı Sözü olarak anlayan ve iman ile yaşamlarını yalnızca ona göre yönlendiren.",
+        "…yerel olarak bağımsız topluluklar halinde örgütlenen ve bölgesel ve dünya çapında ağ oluşturan."
+      ],
+      "principlesNote": "(„Baptist Principles\" ve GJW Kirche 21 çalışma grubunun formülasyonuna göre)"
     },
     "services": {
       "crumb": "İbadetler",

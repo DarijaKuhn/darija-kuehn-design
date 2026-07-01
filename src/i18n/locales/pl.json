@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "„Tak bowiem Bóg umiłował świat, że Syna swego Jednorodzonego dał, aby każdy, kto w Niego wierzy, nie zginął, ale miał życie wieczne.\"",
-      "quoteRef": "Jan 3:16"
+      "quoteRef": "Jan 3:16",
+      "solaTitle": "Zasady Reformacji",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "Wierzący jest zbawiony jedynie z łaski Bożej, nie z uczynków."
+        ],
+        [
+          "Sola fide",
+          "Usprawiedliwienie następuje jedynie przez wiarę – przez zaufanie Bogu."
+        ],
+        [
+          "Sola scriptura",
+          "Jedynie Biblia jako Słowo Boże jest podstawą wiary chrześcijańskiej."
+        ],
+        [
+          "Solus Christus",
+          "Jedynie osoba, dzieło i nauka Jezusa Chrystusa mogą być podstawą wiary i zbawienia."
+        ]
+      ],
+      "rechenschaftTitle": "Wyznanie wiary (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "Jako Freie Evangeliums-Christen-Gemeinde Dresden e.V. podzielamy „Rechenschaft vom Glauben” – wspólne wyznanie wiary niemieckojęzycznych baptystów. Zostało ono opracowane w latach 1974–1977 przez teologów BEFG (Zachód i Wschód), Austrii i Szwajcarii i wyraża wspólne przekonania naszej wspólnoty. Dla nas Biblia jest jedynym fundamentem wiary; wyznanie nie chce narzucać wiążących treści doktrynalnych, lecz wyrażać wspólne przekonania.",
+      "baptistenTitle": "Baptyści to ludzie, którzy…",
+      "baptistenItems": [
+        "…są powołani przez Boga do wolności i idą za Jezusem w odpowiedzialności przed Bogiem i własnym sumieniem.",
+        "…jako wierzący w Jezusa Chrystusa są bezpośrednio połączeni z Bogiem i równi sobie nawzajem. We wspólnocie wszystkie służby i urzędy są równorzędne i otwarte dla wszystkich.",
+        "…opowiadają się za wolnością wiary, sumienia i praktyk religijnych oraz za rozdziałem Kościoła od państwa.",
+        "…świętują miłość Boga do człowieka i pojednanie z Bogiem oraz chrzczą tych, którzy z własnej woli wyznają wiarę w Jezusa Chrystusa.",
+        "…jako wspólnota wierzących uczestniczą w dziele Bożym w świecie, ukazując swoim życiem dobroć Boga i angażując się na rzecz sprawiedliwości.",
+        "…rozumieją Biblię jako Słowo Boże w słowie ludzkim i opierają na niej całą swoją wiarę i życie.",
+        "…organizują się lokalnie w samodzielne wspólnoty i łączą się regionalnie oraz na całym świecie."
+      ],
+      "principlesNote": "(według „Baptist Principles” i sformułowania grupy roboczej Kirche 21 przy GJW)"
     },
     "services": {
       "crumb": "Nabożeństwa",

@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "« Car Dieu a tant aimé le monde qu'il a donné son Fils unique, afin que quiconque croit en lui ne périsse point, mais qu'il ait la vie éternelle. »",
-      "quoteRef": "Jean 3:16"
+      "quoteRef": "Jean 3:16",
+      "solaTitle": "Principes de la Réforme",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "Le croyant est sauvé uniquement par la grâce de Dieu, non par ses œuvres."
+        ],
+        [
+          "Sola fide",
+          "La justification vient uniquement par la foi – par la confiance en Dieu."
+        ],
+        [
+          "Sola scriptura",
+          "Seule la Bible, Parole de Dieu, est le fondement de la foi chrétienne."
+        ],
+        [
+          "Solus Christus",
+          "Seuls la personne, l'œuvre et l'enseignement de Jésus-Christ peuvent fonder la foi et le salut."
+        ]
+      ],
+      "rechenschaftTitle": "Confession de foi (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "En tant que Freie Evangeliums-Christen-Gemeinde Dresden e.V., nous partageons la « Rechenschaft vom Glauben » – la confession de foi commune des baptistes germanophones. Elle a été élaborée entre 1974 et 1977 par des théologiens de la BEFG (Ouest et Est), d'Autriche et de Suisse et exprime les convictions communes de notre mouvement. Pour nous la Bible est le seul fondement de la foi ; cette confession ne veut pas imposer un contenu doctrinal contraignant, mais rendre visibles nos convictions communes.",
+      "baptistenTitle": "Les baptistes sont des personnes qui…",
+      "baptistenItems": [
+        "…sont appelées par Dieu à la liberté et suivent Jésus dans la responsabilité devant Dieu et leur propre conscience.",
+        "…en tant que croyantes en Jésus-Christ sont directement reliées à Dieu et égales entre elles. Dans leur communauté, tous les ministères et fonctions sont d'égale valeur et ouverts à tous.",
+        "…s'engagent pour la liberté de foi, de conscience et de pratique religieuse et pour la séparation de l'Église et de l'État.",
+        "…célèbrent l'amour de Dieu pour l'humanité et la réconciliation avec Dieu, et baptisent celles et ceux qui confessent librement leur foi en Jésus-Christ.",
+        "…comme communauté des croyants participent à l'œuvre de Dieu dans le monde en témoignant par leur vie de la bonté de Dieu et en s'engageant pour la justice.",
+        "…comprennent la Bible comme Parole de Dieu en parole humaine et orientent leur foi et leur vie uniquement sur elle.",
+        "…s'organisent localement en communautés autonomes et se relient au niveau régional et mondial."
+      ],
+      "principlesNote": "(d'après les « Baptist Principles » et la formulation du groupe de travail Kirche 21 du GJW)"
     },
     "services": {
       "crumb": "Cultes",

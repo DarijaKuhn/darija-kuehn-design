@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "„Atât de mult a iubit Dumnezeu lumea, încât L-a dat pe singurul Său Fiu, pentru ca oricine crede în El să nu piară, ci să aibă viața veșnică.\"",
-      "quoteRef": "Ioan 3:16"
+      "quoteRef": "Ioan 3:16",
+      "solaTitle": "Principiile Reformei",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "Credinciosul este mântuit doar prin harul lui Dumnezeu, nu prin fapte."
+        ],
+        [
+          "Sola fide",
+          "Îndreptățirea vine doar prin credință – prin încrederea în Dumnezeu."
+        ],
+        [
+          "Sola scriptura",
+          "Doar Biblia, ca Cuvânt al lui Dumnezeu, este temelia credinței creștine."
+        ],
+        [
+          "Solus Christus",
+          "Doar persoana, lucrarea și învățătura lui Isus Hristos pot fi temelia credinței și a mântuirii."
+        ]
+      ],
+      "rechenschaftTitle": "Mărturisirea credinței (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "Ca Freie Evangeliums-Christen-Gemeinde Dresden e.V. împărtășim „Rechenschaft vom Glauben” – mărturisirea comună de credință a baptiștilor de limbă germană. A fost elaborată între 1974 și 1977 de teologi din BEFG (Vest și Est), Austria și Elveția și exprimă convingerile comune ale mișcării noastre. Pentru noi Biblia este singurul temei al credinței; această mărturisire nu vrea să impună învățături obligatorii, ci să facă vizibile convingerile comune.",
+      "baptistenTitle": "Baptiștii sunt oameni care…",
+      "baptistenItems": [
+        "…sunt chemați de Dumnezeu la libertate și Îl urmează pe Isus în responsabilitate față de Dumnezeu și propria conștiință.",
+        "…ca credincioși în Isus Hristos sunt legați direct de Dumnezeu și sunt egali între ei. În comunitatea lor toate slujirile și funcțiile sunt egale și deschise tuturor.",
+        "…apără libertatea credinței, a conștiinței și a practicii religioase și susțin separarea Bisericii de stat.",
+        "…sărbătoresc dragostea lui Dumnezeu pentru om și împăcarea cu Dumnezeu și botează pe cei care își mărturisesc de bunăvoie credința în Isus Hristos.",
+        "…ca comunitate a credincioșilor participă la lucrarea lui Dumnezeu în lume, mărturisind prin viața lor bunătatea lui Dumnezeu și implicându-se pentru dreptate.",
+        "…înțeleg Biblia ca Cuvânt al lui Dumnezeu în cuvânt omenesc și își orientează credința și viața doar după ea.",
+        "…se organizează local în comunități independente și se conectează la nivel regional și mondial."
+      ],
+      "principlesNote": "(după „Baptist Principles” și formularea grupului de lucru Kirche 21 al GJW)"
     },
     "services": {
       "crumb": "Slujbe",

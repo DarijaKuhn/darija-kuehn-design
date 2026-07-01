@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "„Denn also hat Gott die Welt geliebt, dass er seinen eingeborenen Sohn gab, damit alle, die an ihn glauben, nicht verloren werden, sondern das ewige Leben haben.\"",
-      "quoteRef": "Johannes 3,16"
+      "quoteRef": "Johannes 3,16",
+      "solaTitle": "Grundsätze der Reformation",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "Der glaubende Mensch wird allein durch Gottes Gnade errettet, nicht durch seine Werke."
+        ],
+        [
+          "Sola fide",
+          "Allein durch den Glauben, durch das Vertrauen auf Gott, wird der Mensch gerechtfertigt."
+        ],
+        [
+          "Sola scriptura",
+          "Allein die Bibel ist als Wort Gottes die Grundlage des christlichen Glaubens."
+        ],
+        [
+          "Solus Christus",
+          "Allein die Person, das Wirken und die Lehre Jesu Christi können Grundlage für den Glauben und die Errettung des Menschen sein."
+        ]
+      ],
+      "rechenschaftTitle": "Rechenschaft vom Glauben",
+      "rechenschaftBody": "Als Freie Evangeliums-Christen-Gemeinde Dresden e.V. teilen wir die „Rechenschaft vom Glauben“ – das gemeinsame Glaubensbekenntnis der deutschsprachigen Baptisten. Sie wurde in den Jahren 1974 bis 1977 von Theologen aus dem BEFG (West und Ost), aus Österreich und der Schweiz erarbeitet und bringt gemeinsame Überzeugungen unserer Gemeindebewegung zum Ausdruck. Für uns ist die Bibel die alleinige Grundlage des Glaubens; das Bekenntnis will keine verbindlichen Glaubensinhalte vorgeben, sondern gemeinsame Überzeugungen sichtbar machen.",
+      "baptistenTitle": "Baptist:innen sind Menschen, die …",
+      "baptistenItems": [
+        "… von Gott zur Freiheit berufen sind und in Verantwortung vor Gott und ihrem eigenen Gewissen Jesus nachfolgen.",
+        "… als an Jesus Christus Gläubige unmittelbar mit Gott verbunden und untereinander gleichwertig sind. In ihrer Gemeinschaft sind alle Dienste, Ämter und Funktionen gleichwertig und stehen allen offen.",
+        "… sich für die Freiheit des Glaubens, des Gewissens und der Religionsausübung einsetzen und für die Trennung von Kirche und Staat eintreten.",
+        "… die Liebe Gottes zum Menschen und die Versöhnung mit Gott feiern und Menschen taufen, die ihren Glauben an Jesus Christus aus freiem Willen bekennen.",
+        "… als Gemeinschaft der Glaubenden am Wirken Gottes in der Welt teilhaben, indem sie durch ihr Leben die Güte Gottes vermitteln und sich für Gerechtigkeit einsetzen.",
+        "… die Bibel als Gottes Wort in Menschenwort verstehen und ihren Glauben und ihr Leben allein an ihr orientieren.",
+        "… sich in selbstständigen Gemeinschaften lokal organisieren und sich regional und weltweit vernetzen."
+      ],
+      "principlesNote": "(nach den „Baptist Principles“ und der Formulierung des Fachkreises Kirche 21 des GJW)"
     },
     "services": {
       "crumb": "Gottesdienste",

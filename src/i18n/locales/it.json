@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "«Dio ha tanto amato il mondo, che ha dato il suo unigenito Figlio, affinché chiunque crede in lui non perisca, ma abbia vita eterna.»",
-      "quoteRef": "Giovanni 3:16"
+      "quoteRef": "Giovanni 3:16",
+      "solaTitle": "Principi della Riforma",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "Il credente è salvato solo per grazia di Dio, non per le opere."
+        ],
+        [
+          "Sola fide",
+          "La giustificazione avviene solo per fede – per la fiducia in Dio."
+        ],
+        [
+          "Sola scriptura",
+          "Solo la Bibbia, come Parola di Dio, è il fondamento della fede cristiana."
+        ],
+        [
+          "Solus Christus",
+          "Solo la persona, l'opera e l'insegnamento di Gesù Cristo possono essere il fondamento della fede e della salvezza."
+        ]
+      ],
+      "rechenschaftTitle": "Confessione di fede (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "Come Freie Evangeliums-Christen-Gemeinde Dresden e.V. condividiamo la «Rechenschaft vom Glauben» – la confessione di fede comune dei battisti di lingua tedesca. È stata elaborata tra il 1974 e il 1977 da teologi del BEFG (Ovest ed Est), dall'Austria e dalla Svizzera ed esprime le convinzioni comuni del nostro movimento. Per noi la Bibbia è l'unico fondamento della fede; questa confessione non intende imporre contenuti dottrinali vincolanti, ma rendere visibili le convinzioni comuni.",
+      "baptistenTitle": "I battisti sono persone che…",
+      "baptistenItems": [
+        "…sono chiamate da Dio alla libertà e seguono Gesù nella responsabilità davanti a Dio e alla propria coscienza.",
+        "…come credenti in Gesù Cristo sono direttamente unite a Dio e uguali tra loro. Nella loro comunità tutti i ministeri e le funzioni sono di pari valore e aperti a tutti.",
+        "…si impegnano per la libertà di fede, di coscienza e di pratica religiosa e per la separazione fra Chiesa e Stato.",
+        "…celebrano l'amore di Dio per l'uomo e la riconciliazione con Dio e battezzano coloro che confessano liberamente la loro fede in Gesù Cristo.",
+        "…come comunità dei credenti partecipano all'opera di Dio nel mondo, testimoniando con la loro vita la bontà di Dio e impegnandosi per la giustizia.",
+        "…intendono la Bibbia come Parola di Dio in parola umana e orientano la loro fede e la loro vita unicamente ad essa.",
+        "…si organizzano localmente in comunità autonome e si collegano a livello regionale e mondiale."
+      ],
+      "principlesNote": "(secondo i «Baptist Principles» e la formulazione del gruppo di lavoro Kirche 21 del GJW)"
     },
     "services": {
       "crumb": "Funzioni",
