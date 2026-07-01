@@ -6,7 +6,8 @@
     "map": "Cum ne găsiți",
     "gallery": "Foto",
     "sermons": "Predici",
-    "contact": "Contact"
+    "contact": "Contact",
+    "books": "Cărți"
   },
   "hero": {
     "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
@@ -351,6 +352,25 @@
       "title": "Notă de confidențialitate",
       "text": "Pentru a vedea harta interactivă și pentru a planifica ruta, activați-o cu un clic. Datele (inclusiv adresa dvs. IP) vor fi transmise către OpenStreetMap. Temei juridic: art. 6 alin. (1) lit. a GDPR.",
       "btn": "Activează harta"
+    },
+    "books": {
+      "crumb": "Cărți",
+      "eyebrow": "Lecturi recomandate",
+      "h1": "Cărți creștine",
+      "intro": "O selecție de cărți recomandate despre interpretarea Bibliei, istoria Bisericii, apologetică, Reformă și omiletică — din directorul de cărți al site-ului nostru propovednik.my1.ru.",
+      "note": "Notă: cărțile sunt în original în limba rusă. Titlurile și descrierile scurte sunt afișate aici în germană.",
+      "by": "de",
+      "readMore": "Citește mai mult",
+      "source": "Sursa:",
+      "categories": {
+        "hermeneutics": "Hermeneutică / Exegeză",
+        "apologetics": "Apologetică",
+        "homiletics": "Omiletică",
+        "early": "Biserica timpurie / Evul Mediu",
+        "nt": "Noul Testament",
+        "reformation": "Reforma",
+        "ot": "Vechiul Testament"
+      }
     }
   }
 }

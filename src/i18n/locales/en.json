@@ -6,7 +6,8 @@
     "map": "Find Us",
     "gallery": "Photos",
     "sermons": "Sermons",
-    "contact": "Contact"
+    "contact": "Contact",
+    "books": "Books"
   },
   "hero": {
     "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
@@ -351,6 +352,25 @@
       "title": "Privacy notice",
       "text": "To view the interactive map and plan your route, please activate it with a click. Data (including your IP address) will be transmitted to OpenStreetMap. Legal basis: Art. 6(1)(a) GDPR.",
       "btn": "Activate map"
+    },
+    "books": {
+      "crumb": "Books",
+      "eyebrow": "Recommended reading",
+      "h1": "Christian Books",
+      "intro": "A selection of recommended books on Bible interpretation, church history, apologetics, the Reformation and homiletics — from the book directory of our website propovednik.my1.ru.",
+      "note": "Note: the books are originally in Russian. Titles and short descriptions are shown here in English.",
+      "by": "by",
+      "readMore": "Read more",
+      "source": "Source:",
+      "categories": {
+        "hermeneutics": "Hermeneutics / Exegesis",
+        "apologetics": "Apologetics",
+        "homiletics": "Homiletics",
+        "early": "Early Church / Middle Ages",
+        "nt": "New Testament",
+        "reformation": "Reformation",
+        "ot": "Old Testament"
+      }
     }
   }
 }

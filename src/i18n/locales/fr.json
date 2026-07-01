@@ -6,7 +6,8 @@
     "map": "Nous trouver",
     "gallery": "Photos",
     "sermons": "Sermons",
-    "contact": "Contact"
+    "contact": "Contact",
+    "books": "Livres"
   },
   "hero": {
     "eyebrow": "Freie Evangeliums-Christen-Gemeinde Dresden e.V.",
@@ -351,6 +352,25 @@
       "title": "Avis de confidentialité",
       "text": "Pour voir la carte interactive et planifier votre itinéraire, activez-la d'un clic. Des données (dont votre adresse IP) seront transmises à OpenStreetMap. Base juridique : art. 6 §1 a RGPD.",
       "btn": "Activer la carte"
+    },
+    "books": {
+      "crumb": "Livres",
+      "eyebrow": "Lectures recommandées",
+      "h1": "Livres chrétiens",
+      "intro": "Une sélection de livres recommandés sur l'interprétation biblique, l'histoire de l'Église, l'apologétique, la Réforme et l'homilétique — issus du répertoire de livres de notre site propovednik.my1.ru.",
+      "note": "Remarque : les livres sont à l'origine en russe. Les titres et descriptions sont présentés ici en allemand.",
+      "by": "par",
+      "readMore": "Lire la suite",
+      "source": "Source :",
+      "categories": {
+        "hermeneutics": "Herméneutique / Exégèse",
+        "apologetics": "Apologétique",
+        "homiletics": "Homilétique",
+        "early": "Église primitive / Moyen Âge",
+        "nt": "Nouveau Testament",
+        "reformation": "Réforme",
+        "ot": "Ancien Testament"
+      }
     }
   }
 }
