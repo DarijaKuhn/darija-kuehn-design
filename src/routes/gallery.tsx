@@ -98,7 +98,7 @@ const weddings: Group[] = [
     title: "Alina und Artur",
     photos: [
       { src: alinaArtur1.url, caption: "Vor der Trauung", alt: "Alina und Artur vor dem Hochzeitsauto" },
-      { src: arturAlina.url, caption: "Mit Familie", alt: "Alina und Artur mit Familienangehörigen" },
+      { src: arturAlina.url, caption: "Mit Freunden", alt: "Alina und Artur mit Freunden" },
       { src: alinaArtur2.url, caption: "Über den Elbwiesen", alt: "Alina und Artur mit Blick über Dresden" },
     ],
   },
