@@ -185,7 +185,39 @@
         ]
       ],
       "quote": "\"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\"",
-      "quoteRef": "John 3:16"
+      "quoteRef": "John 3:16",
+      "solaTitle": "Principles of the Reformation",
+      "solaItems": [
+        [
+          "Sola gratia",
+          "The believer is saved by God's grace alone, not by works."
+        ],
+        [
+          "Sola fide",
+          "Justification comes through faith alone – through trust in God."
+        ],
+        [
+          "Sola scriptura",
+          "The Bible alone, as the Word of God, is the foundation of Christian faith."
+        ],
+        [
+          "Solus Christus",
+          "Only the person, work and teaching of Jesus Christ can be the ground of faith and salvation."
+        ]
+      ],
+      "rechenschaftTitle": "Accountability of Faith (Rechenschaft vom Glauben)",
+      "rechenschaftBody": "As Freie Evangeliums-Christen-Gemeinde Dresden e.V. we share the “Rechenschaft vom Glauben” – the joint confession of faith of German-speaking Baptists. It was drafted between 1974 and 1977 by theologians from the BEFG (West and East), Austria and Switzerland and expresses the common convictions of our movement. For us the Bible is the sole foundation of faith; the confession is not meant to impose binding doctrine but to make our shared convictions visible.",
+      "baptistenTitle": "Baptists are people who …",
+      "baptistenItems": [
+        "… are called by God to freedom and follow Jesus in responsibility before God and their own conscience.",
+        "… as believers in Jesus Christ are directly connected to God and equal to one another. In their community all ministries, offices and functions are of equal value and open to all.",
+        "… stand up for freedom of faith, conscience and religious practice and for the separation of church and state.",
+        "… celebrate God's love for humanity and reconciliation with God and baptise people who confess their faith in Jesus Christ of their own free will.",
+        "… as a community of believers take part in God's work in the world by bearing witness to His goodness and standing up for justice.",
+        "… understand the Bible as God's Word in human words and orient their faith and life solely by it.",
+        "… organise locally in independent congregations and connect regionally and worldwide."
+      ],
+      "principlesNote": "(based on the “Baptist Principles” and the formulation of the working group Kirche 21 of the GJW)"
     },
     "services": {
       "crumb": "Services",
