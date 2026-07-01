@@ -26,7 +26,8 @@
     "mainSvc": "Main service",
     "findUs": "How to find us →",
     "ourFaith": "Our faith",
-    "imgAlt": "The church building of Freie Evangeliums-Christen-Gemeinde Dresden e.V. surrounded by trees and fields"
+    "imgAlt": "The church building of Freie Evangeliums-Christen-Gemeinde Dresden e.V. surrounded by trees and fields",
+    "address": "Altenberger Str. 87, 01279 Dresden, Germany"
   },
   "footer": {
     "navigation": "Navigation",

@@ -27,6 +27,7 @@ function Index() {
         <h1 className="hero-title">{t("hero.h1")}</h1>
         <h2 className="hero-subtitle">{t("hero.h2")}</h2>
         <p className="hero-desc">{t("hero.desc")}</p>
+        <p className="hero-address">{t("hero.address")}</p>
 
         <div className="hero-schedule" aria-label={t("hero.schedule")}>
           <div className="hs-card">
