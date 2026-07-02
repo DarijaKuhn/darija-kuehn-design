@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
+import { loadContent, type Sermon } from "@/lib/site-content";
 
 export const Route = createFileRoute("/sermons")({
   component: Sermons,
@@ -46,6 +48,31 @@ function Sermons() {
           </div>
         </div>
       </section>
+      <LocalSermons />
     </div>
+  );
+}
+
+function LocalSermons() {
+  const [items, setItems] = useState<Sermon[]>([]);
+  useEffect(() => { loadContent().then((c) => setItems(c.sermons)); }, []);
+  if (items.length === 0) return null;
+  return (
+    <section className="section section-white" style={{ borderTop: "1px solid #eee" }}>
+      <div className="container">
+        <h2 className="section-h" style={{ marginBottom: 20 }}>Predigten-Archiv</h2>
+        <div style={{ display: "grid", gap: 16 }}>
+          {items.map((s) => (
+            <article key={s.id} style={{ padding: 16, border: "1px solid #e2e2dc", borderRadius: 8, background: "#fff" }}>
+              <h3 style={{ margin: "0 0 4px", fontSize: 18 }}>{s.title}</h3>
+              <div style={{ fontSize: 13, color: "#666", marginBottom: 8 }}>
+                {s.preacher} · {s.date}{s.scripture ? ` · ${s.scripture}` : ""}
+              </div>
+              <audio controls preload="none" src={s.fileUrl} style={{ width: "100%" }} />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

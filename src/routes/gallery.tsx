@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
+import { loadContent, type Photo as LocalPhoto } from "@/lib/site-content";
 
 // Reconstruction / community life by year
 import y2005 from "@/assets/gallery/2005.jpg.asset.json";
@@ -198,6 +199,31 @@ function Gallery() {
           >×</button>
         </div>
       )}
+      <LocalPhotos onOpen={(src, alt) => setLightbox({ src, alt, caption: alt })} />
     </div>
+  );
+}
+
+function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void }) {
+  const [items, setItems] = useState<LocalPhoto[]>([]);
+  useEffect(() => { loadContent().then((c) => setItems(c.photos)); }, []);
+  if (items.length === 0) return null;
+  return (
+    <section className="section section-white" style={{ borderTop: "1px solid #eee" }}>
+      <div className="container">
+        <h2 className="section-h" style={{ marginBottom: 20 }}>Neue Fotos</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 12 }}>
+          {items.map((p) => (
+            <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
+              <img src={p.fileUrl} alt={p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
+              <div style={{ padding: "8px 10px", textAlign: "left" }}>
+                <div style={{ fontSize: 14, fontWeight: 600 }}>{p.album}</div>
+                {p.date && <div style={{ fontSize: 12, color: "#666" }}>{p.date}</div>}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
