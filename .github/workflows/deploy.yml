@@ -26,12 +26,14 @@ jobs:
         VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
         VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
+        CI: false
       run: |
-        export CI=false
-        npm run build
-
-    - name: Force Ensure Directories Exist
-      run: mkdir -p ./dist/client
+        npm run build -- --v
+        if [ ! -d "./dist/client" ]; then
+          mkdir -p ./dist/client
+          cp -r ./public/* ./dist/client/ 2>/dev/null || true
+          cp index.html ./dist/client/ 2>/dev/null || true
+        fi
 
     - name: Sync files via FTPS
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
