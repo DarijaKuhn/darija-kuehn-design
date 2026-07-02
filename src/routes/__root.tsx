@@ -222,8 +222,8 @@ function Footer() {
           <div>
             <h4>{t("footer.contact")}</h4>
             <p>Altenberger Strasse 87<br />01279 Dresden, Deutschland</p>
-            <a href="tel:+493512530403">+49 351 253 04 03</a>
-            <a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a>
+            <a href="tel:+4915905316414">+49 159 05316414</a>
+            <a href="mailto:kontakt@freieevangeliums-dresden.de">kontakt@freieevangeliums-dresden.de</a>
           </div>
           <div>
             <h4>{t("footer.legal")}</h4>
