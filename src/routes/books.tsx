@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
+import { loadContent, type Book as LocalBook } from "@/lib/site-content";
 
 export const Route = createFileRoute("/books")({
   component: Books,
@@ -243,6 +244,30 @@ function Books() {
           </div>
         </div>
       </section>
+      <LocalBooks />
     </div>
+  );
+}
+
+function LocalBooks() {
+  const [items, setItems] = useState<LocalBook[]>([]);
+  useEffect(() => { loadContent().then((c) => setItems(c.books)); }, []);
+  if (items.length === 0) return null;
+  return (
+    <section className="section section-white" style={{ borderTop: "1px solid #eee" }}>
+      <div className="container">
+        <h2 className="section-h" style={{ marginBottom: 20 }}>Weitere Bücher zum Herunterladen</h2>
+        <div style={{ display: "grid", gap: 16 }}>
+          {items.map((b) => (
+            <article key={b.id} style={{ padding: 16, border: "1px solid #e2e2dc", borderRadius: 8, background: "#fff" }}>
+              <h3 style={{ margin: "0 0 4px", fontSize: 18 }}>{b.title}</h3>
+              <div style={{ fontSize: 13, color: "#666", marginBottom: 8 }}>{b.author}</div>
+              {b.description && <p style={{ margin: "0 0 10px", fontSize: 14 }}>{b.description}</p>}
+              <a href={b.fileUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Herunterladen</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
