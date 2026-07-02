@@ -39,7 +39,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-       local-dir: ./dist/client/
+        local-dir: ./dist/client/
         server-dir: /freieevangeliums-dresden.de/public_html/
         protocol: ftps
         force-pasv: true
