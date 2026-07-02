@@ -199,7 +199,7 @@ function Gallery() {
           >×</button>
         </div>
       )}
-      <LocalPhotos onOpen={(src, alt) => setLightbox({ src, alt })} />
+      <LocalPhotos onOpen={(src, alt) => setLightbox({ src, alt, caption: alt })} />
     </div>
   );
 }
