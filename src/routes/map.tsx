@@ -69,7 +69,7 @@ function MapPage() {
                   <div className="transport-num" style={{ fontSize: 16 }}>☎</div>
                   <div>
                     <div className="transport-detail-label">{t("pages.map.phone")}</div>
-                    <div className="transport-detail-val"><a href="tel:+493512530403" style={{ color: "var(--green)" }}>+49 351 253 04 03</a></div>
+                    <div className="transport-detail-val"><a href="tel:+4915905316414" style={{ color: "var(--green)" }}>+49 159 05316414</a></div>
                   </div>
                 </div>
               </div>
@@ -90,13 +90,13 @@ function MapPage() {
             <div className="info-card">
               <div className="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
               <div className="info-label">{t("pages.map.phone")}</div>
-              <div className="info-val"><a href="tel:+493512530403">+49 351 253 04 03</a></div>
+              <div className="info-val"><a href="tel:+4915905316414">+49 159 05316414</a></div>
               <div className="info-sub">{t("pages.map.phoneSub")}</div>
             </div>
             <div className="info-card">
               <div className="info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
               <div className="info-label">{t("pages.map.emailLabel")}</div>
-              <div className="info-val"><a href="mailto:info@fecg-dresden.de">info@fecg-dresden.de</a></div>
+              <div className="info-val"><a href="mailto:kontakt@freieevangeliums-dresden.de">kontakt@freieevangeliums-dresden.de</a></div>
               <div className="info-sub">{t("pages.map.emailSub")}</div>
             </div>
           </div>
