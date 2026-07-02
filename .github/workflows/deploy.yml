@@ -30,9 +30,6 @@ jobs:
         export CI=false
         npm run build
 
-    - name: Force Ensure Directories Exist
-      run: mkdir -p ./dist/client
-
     - name: Sync files via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
@@ -41,3 +38,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/client/
         server-dir: /
+        secure: true
