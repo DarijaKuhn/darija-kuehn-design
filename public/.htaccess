@@ -1,0 +1,29 @@
+# SPA fallback for TanStack Router client-side routes.
+# Existing files (assets, /api/*.php, /uploads/*, /data/*.json) are served as-is.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Do not rewrite existing files or directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Do not rewrite PHP endpoints or uploads
+  RewriteRule ^api/ - [L]
+  RewriteRule ^uploads/ - [L]
+  RewriteRule ^data/ - [L]
+
+  # Everything else → SPA entry
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Increase upload limits (Hetzner Webhosting honours these in most tariffs)
+<IfModule mod_php.c>
+  php_value upload_max_filesize 200M
+  php_value post_max_size 210M
+  php_value max_execution_time 300
+</IfModule>
