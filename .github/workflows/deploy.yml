@@ -1,10 +1,8 @@
 name: Deploy to Hetzner
-
 on:
   push:
     branches:
       - main
-
 jobs:
   web-deploy:
     name: Copy files to Hetzner
@@ -30,7 +28,10 @@ jobs:
         export CI=false
         npm run build
 
-    - name: Sync files via FTP
+    - name: Force Ensure Directories Exist
+      run: mkdir -p ./dist/client
+
+    - name: Sync files via FTPS
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
@@ -38,4 +39,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/client/
         server-dir: /
-        secure: true
+        protocol: ftps
