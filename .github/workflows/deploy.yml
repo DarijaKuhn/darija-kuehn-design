@@ -52,8 +52,36 @@ jobs:
           port: 21
           security: loose
 
-      - name: Verify deployment
+      - name: Verify files on Hetzner via LFTP
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y lftp
+          echo "=== Список файлов в /public_html/ на Hetzner ==="
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
+            -e "set ssl:verify-certificate no; set ftp:ssl-force true; set ftp:ssl-protect-data true; ls /public_html/; bye" \
+            "${{ secrets.FTP_SERVER }}" > remote_listing.txt
+          cat remote_listing.txt
+
+          if ! grep -q "index.html" remote_listing.txt; then
+            echo "❌ index.html НЕ найден на сервере!"
+            exit 1
+          fi
+          echo "✅ index.html найден на сервере"
+
+          if ! grep -q "assets" remote_listing.txt; then
+            echo "⚠️ Папка assets не найдена — проверьте вручную"
+          else
+            echo "✅ Папка assets найдена"
+          fi
+
+      - name: Verify site is live
         run: |
           echo "✅ Деплой завершён!"
           sleep 5
-          curl -I https://freieevangeliums-dresden.de/ || echo "⚠️ Сайт пока не отвечает"
+          HTTP_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://freieevangeliums-dresden.de/)
+          echo "HTTP код: $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "⚠️ Сайт вернул код $HTTP_CODE вместо 200"
+            exit 1
+          fi
+          echo "✅ Сайт работает: https://freieevangeliums-dresden.de/"
+
