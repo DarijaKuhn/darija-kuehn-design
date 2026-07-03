@@ -128,19 +128,27 @@
         "p": "Cookies inne niż niezbędne są ustawiane wyłącznie po wyraźnej zgodzie poprzez nasz baner. Zgodę można w każdej chwili wycofać."
       },
       {
+        "h": "6. Fotografie i nagrania wideo podczas wydarzeń wspólnoty",
+        "p": "W ramach naszej pracy wspólnotowej sporadycznie wykonujemy zdjęcia i nagrania wideo z nabożeństw i wydarzeń, aby informować o życiu wspólnoty na naszej stronie.<br/><br/>Podstawa prawna: Przetwarzanie nagrań, na których pojedyncze osoby znajdują się wyraźnie w centrum uwagi (np. portrety), odbywa się wyłącznie na podstawie Państwa wyraźnej zgody zgodnie z art. 6 ust. 1 lit. a RODO. Nagrania ujęć ogólnych, grup i ogólnych wydarzeń w ramach życia wspólnoty odbywają się na podstawie naszego uzasadnionego interesu w zakresie działalności informacyjnej zgodnie z art. 6 ust. 1 lit. f RODO.<br/><br/>Okres przechowywania: Zdjęcia pozostają opublikowane na stronie tak długo, jak jest to konieczne do celów informowania o życiu wspólnoty, lub do czasu wycofania zgody lub zgłoszenia uzasadnionego sprzeciwu.<br/><br/>Prawo do odwołania i sprzeciwu: Mają Państwo prawo w dowolnym momencie odwołać udzieloną zgodę na publikację zdjęcia z mocą na przyszłość. Ponadto mogą Państwo w dowolnym momencie wnieść sprzeciw wobec przetwarzania na podstawie uzasadnionego interesu z przyczyn związanych z Państwa szczególną sytuacją. W tym celu wystarczy skontaktować się z nami za pomocą danych kontaktowych podanych w punkcie 1. Dotknięte nagrania zostaną wówczas niezwłocznie usunięte."
+      },
+      {
+        "h": "7. Udostępnianie kazań w formacie MP3 (audio)",
+        "p": "Na naszej stronie udostępniamy nagrane kazania jako pliki audio w formacie MP3.<br/><br/>Hosting na własnych serwerach: Pliki MP3 są przechowywane lokalnie na naszych własnych strukturach serwerowych (hostowane przez Hetzner Online GmbH, Niemcy). Nie następuje przekazywanie adresów IP ani innych danych użytkowników dostawcom zewnętrznym (takim jak YouTube, Spotify czy SoundCloud).<br/><br/>Podstawa prawna: Przetwarzanie danych kaznodziejów (imię, głos, treść kazania) odbywa się wyłącznie na podstawie ich wyraźnej zgody zgodnie z art. 6 ust. 1 lit. a RODO. Jeśli w tle nagrań sporadycznie słychać głosy lub wypowiedzi uczestników nabożeństwa, przetwarzanie to odbywa się w zakresie naszego uzasadnionego interesu w dokumentowaniu i rozpowszechnianiu życia wspólnoty zgodnie z art. 6 ust. 1 lit. f RODO.<br/><br/>Prawo do odwołania: Kaznodzieje mają prawo w dowolnym momencie odwołać swoją zgodę na udostępnianie nagrań w Internecie z mocą na przyszłość. W takim przypadku pliki zostaną niezwłocznie usunięte z naszych serwerów."
+      },
+      {
         "h": "5. Formularz kontaktowy i e-mail",
         "p": "W razie kontaktu przesłane dane są przechowywane w celu obsługi zapytania. Nie są przekazywane osobom trzecim."
       },
       {
-        "h": "6. OpenStreetMap",
+        "h": "8. OpenStreetMap",
         "p": "Strona „Jak nas znaleźć” osadza mapy OpenStreetMap (OSMF, Cambridge, UK). Przy ładowaniu przesyłane są dane techniczne, w tym adres IP."
       },
       {
-        "h": "7. Czcionki (Bunny Fonts)",
+        "h": "9. Czcionki (Bunny Fonts)",
         "p": "Używamy Bunny Fonts (dostawca z UE) jako przyjaznej dla prywatności alternatywy dla Google Fonts."
       },
       {
-        "h": "8. Twoje prawa",
+        "h": "10. Twoje prawa",
         "p": "Masz prawo dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia i sprzeciwu oraz prawo wniesienia skargi do organu nadzorczego."
       },
       {
@@ -148,11 +156,11 @@
         "p": "<div class=\"widerspruch-block\"><strong>Mają Państwo prawo w dowolnym momencie wnieść sprzeciw wobec przetwarzania dotyczących Państwa danych osobowych z przyczyn związanych ze szczególną sytuacją.</strong></div>"
       },
       {
-        "h": "9. Szyfrowanie SSL",
+        "h": "12. Szyfrowanie SSL",
         "p": "Ze względów bezpieczeństwa strona korzysta z szyfrowania SSL/TLS."
       },
       {
-        "h": "10. Zmiany",
+        "h": "13. Zmiany",
         "p": "Zastrzegamy sobie prawo do aktualizacji tej polityki zgodnie z aktualnymi wymogami prawnymi."
       }
     ]

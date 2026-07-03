@@ -128,19 +128,27 @@
         "p": "Non-essential cookies are only set with your explicit consent through our consent banner (Art. 6 (1) (a) GDPR, § 25 (1) TDDDG). Technically necessary cookies (language, consent storage) are used pursuant to § 25 (2) no. 2 TDDDG. You can withdraw your consent at any time with effect for the future."
       },
       {
+        "h": "6. Photo and video recordings at church events",
+        "p": "As part of our church work, we occasionally take photos and videos of services and events in order to report on church life on our website.<br/><br/>Legal basis: The processing of recordings in which individual persons are clearly the focus (e.g. portraits) takes place exclusively on the basis of your express consent pursuant to Art. 6(1)(a) GDPR. Recordings of overviews, groups and general events in the context of church life are based on our legitimate interest in public relations pursuant to Art. 6(1)(f) GDPR.<br/><br/>Storage period: The photos remain published on the website for as long as is necessary for the purpose of informing about church life, or until consent is revoked or a legitimate objection is made.<br/><br/>Right of revocation and objection: You have the right to revoke consent to the publication of a photo at any time with effect for the future. You may also object to processing based on legitimate interest at any time for reasons arising from your particular situation. To do so, simply contact us using the contact details given in section 1. The affected recordings will then be removed without delay."
+      },
+      {
+        "h": "7. Provision of sermons in MP3 format (audio)",
+        "p": "On our website we make recorded sermons available as audio files in MP3 format.<br/><br/>Hosting on own servers: The MP3 files are stored locally on our own server structures (hosted by Hetzner Online GmbH, Germany). No IP addresses or other user data are passed on to third-party providers (such as YouTube, Spotify or SoundCloud).<br/><br/>Legal basis: The processing of the preachers' data (name, voice, content of the sermon) takes place exclusively on the basis of their express consent pursuant to Art. 6(1)(a) GDPR. If individual voices or spoken contributions of service participants can be heard in the background of recordings, this processing takes place within the scope of our legitimate interest in documenting and disseminating church life pursuant to Art. 6(1)(f) GDPR.<br/><br/>Right of revocation: The preachers have the right to revoke their consent to making the recordings available on the Internet at any time with effect for the future. In this case the files will be deleted from our servers without delay."
+      },
+      {
         "h": "5. Contact form and email",
         "p": "If you contact us, the data you provide will be stored to process your request. Legal basis: Art. 6 (1) (b) or (f) GDPR. No data is passed on to third parties."
       },
       {
-        "h": "6. OpenStreetMap",
+        "h": "8. OpenStreetMap",
         "p": "Our \"Find Us\" page embeds maps from OpenStreetMap (OSMF, Cambridge, UK). When you load the page, technical data (incl. IP address) is transmitted to OSMF. Legal basis: Art. 6 (1) (f) GDPR."
       },
       {
-        "h": "7. Fonts (Bunny Fonts)",
+        "h": "9. Fonts (Bunny Fonts)",
         "p": "We use Bunny Fonts (EU provider) as a privacy-friendly alternative to Google Fonts. No user profiling takes place."
       },
       {
-        "h": "8. Your rights",
+        "h": "10. Your rights",
         "p": "You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21), as well as the right to lodge a complaint with the supervisory authority (Saxon Data Protection Commissioner), Devrientstraße 1, 01067 Dresden."
       },
       {
@@ -148,11 +156,11 @@
         "p": "<div class=\"widerspruch-block\"><strong>You have the right, on grounds relating to your particular situation, to object at any time to the processing of personal data concerning you.</strong></div>"
       },
       {
-        "h": "9. SSL encryption",
+        "h": "12. SSL encryption",
         "p": "For security reasons this site uses SSL/TLS encryption."
       },
       {
-        "h": "10. Changes",
+        "h": "13. Changes",
         "p": "We reserve the right to amend this declaration to ensure it always meets current legal requirements."
       }
     ]

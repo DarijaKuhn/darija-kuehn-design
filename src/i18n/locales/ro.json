@@ -128,19 +128,27 @@
         "p": "Cookie-urile neesențiale sunt setate doar după consimțământ explicit prin banner. Consimțământul poate fi retras oricând."
       },
       {
+        "h": "6. Fotografii și înregistrări video la evenimentele comunității",
+        "p": "În cadrul activității noastre comunitare, realizăm ocazional fotografii și înregistrări video ale slujbelor și evenimentelor, pentru a raporta despre viața comunității pe site-ul nostru.<br/><br/>Temei juridic: Prelucrarea înregistrărilor în care persoane individuale se află clar în centrul atenției (de exemplu, portrete) se realizează exclusiv pe baza consimțământului dumneavoastră exprimat în mod expres, în conformitate cu art. 6 alin. (1) lit. a GDPR. Înregistrările de ansamblu, de grup și evenimentele generale în cadrul vieții comunității se realizează pe baza interesului nostru legitim în materie de relații publice, în conformitate cu art. 6 alin. (1) lit. f GDPR.<br/><br/>Durata de stocare: Fotografiile rămân publicate pe site atât timp cât este necesar în scopul informării despre viața comunității, sau până la revocarea consimțământului sau până la o obiecție legitimă.<br/><br/>Dreptul de revocare și de opoziție: Aveți dreptul de a revoca în orice moment, cu efect pentru viitor, consimțământul acordat pentru publicarea unei fotografii. De asemenea, vă puteți opune în orice moment prelucrării pe baza interesului legitim, din motive legate de situația dumneavoastră particulară. Pentru a face acest lucru, contactați-ne pur și simplu la datele de contact menționate la punctul 1. Înregistrările afectate vor fi apoi eliminate fără întârziere."
+      },
+      {
+        "h": "7. Punerea la dispoziție a predicilor în format MP3 (audio)",
+        "p": "Pe site-ul nostru punem la dispoziție predici înregistrate sub formă de fișiere audio în format MP3.<br/><br/>Găzduire pe servere proprii: Fișierele MP3 sunt stocate local pe structurile noastre de servere proprii (găzduite de Hetzner Online GmbH, Germania). Nu are loc transmiterea de adrese IP sau alte date ale utilizatorilor către furnizori terți (cum ar fi YouTube, Spotify sau SoundCloud).<br/><br/>Temei juridic: Prelucrarea datelor predicatorilor (nume, voce, conținutul predicii) se realizează exclusiv pe baza consimțământului lor exprimat în mod expres, în conformitate cu art. 6 alin. (1) lit. a GDPR. Dacă în fundalul înregistrărilor se aud ocazional voci sau contribuții verbale ale participanților la slujbă, această prelucrare se realizează în cadrul interesului nostru legitim de a documenta și disemina viața comunității, în conformitate cu art. 6 alin. (1) lit. f GDPR.<br/><br/>Dreptul de revocare: Predicatorii au dreptul de a revoca în orice moment, cu efect pentru viitor, consimțământul privind punerea la dispoziție a înregistrărilor pe Internet. În acest caz, fișierele vor fi șterse fără întârziere de pe serverele noastre."
+      },
+      {
         "h": "5. Formular de contact și e-mail",
         "p": "La contactare, datele transmise sunt stocate pentru procesarea cererii. Nu sunt transmise terților."
       },
       {
-        "h": "6. OpenStreetMap",
+        "h": "8. OpenStreetMap",
         "p": "Pagina \"Cum ne găsiți\" încorporează hărți OpenStreetMap (OSMF, Cambridge, UK). La încărcare se transmit date tehnice, inclusiv IP."
       },
       {
-        "h": "7. Fonturi (Bunny Fonts)",
+        "h": "9. Fonturi (Bunny Fonts)",
         "p": "Folosim Bunny Fonts (furnizor UE) ca alternativă prietenoasă cu confidențialitatea la Google Fonts."
       },
       {
-        "h": "8. Drepturile dumneavoastră",
+        "h": "10. Drepturile dumneavoastră",
         "p": "Aveți drept de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune plângere la autoritatea de supraveghere."
       },
       {
@@ -148,11 +156,11 @@
         "p": "<div class=\"widerspruch-block\"><strong>Aveți dreptul ca, din motive legate de situația dvs. particulară, să vă opuneți în orice moment prelucrării datelor cu caracter personal care vă privesc.</strong></div>"
       },
       {
-        "h": "9. Criptare SSL",
+        "h": "12. Criptare SSL",
         "p": "Din motive de securitate, acest site utilizează criptare SSL/TLS."
       },
       {
-        "h": "10. Modificări",
+        "h": "13. Modificări",
         "p": "Ne rezervăm dreptul de a actualiza această declarație pentru a respecta cerințele legale în vigoare."
       }
     ]
