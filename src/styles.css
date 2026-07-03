@@ -130,10 +130,10 @@ a { color: inherit; text-decoration: none; }
 .nav-btn-home:hover { background: rgba(42,92,39,.08); border-color: var(--green); box-shadow: none; color: var(--green-dark); }
 .nav-btn-home.active { background: rgba(42,92,39,.12); border-color: var(--green); color: var(--green-dark); animation: none; }
 
-@media (min-width: 768px) and (max-width: 880px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .nav-inner { padding: 0 14px; gap: 8px; }
-  .nav-links { gap: 4px; }
-  .nav-btn { font-size: 11px; padding: 6px 10px; }
+  .nav-links { gap: 3px; padding-left: 8px; }
+  .nav-btn { font-size: 11px; padding: 6px 9px; letter-spacing: 0; }
   .nav-logo-text { display: none; }
 }
 
