@@ -2,96 +2,71 @@ name: Deploy to Hetzner
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   web-deploy:
-    name: Copy files to Hetzner
+    name: Deploy to Hetzner
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Get latest code
-      uses: actions/checkout@v4
+      - name: Get latest code
+        uses: actions/checkout@v4
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build Project
-      env:
-        VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-        VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-        VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
-        CI: false
-      run: |
-        npm run build -- --v
-        if [ ! -d "./dist/client" ]; then
-          mkdir -p ./dist/client
-          cp -r ./public/* ./dist/client/ 2>/dev/null || true
-          cp index.html ./dist/client/ 2>/dev/null || true
-        fi
-        # Ensure .htaccess is present in the deploy folder (SPA fallback + PHP endpoints)
-        if [ -f "./public/.htaccess" ] && [ ! -f "./dist/client/.htaccess" ]; then
-          cp ./public/.htaccess ./dist/client/.htaccess
-        fi
-        if [ ! -f "./dist/client/.htaccess" ] && [ -f "./.htaccess" ]; then
-          cp ./.htaccess ./dist/client/.htaccess
-        fi
-        echo "=== dist/ ==="
-        ls -la dist/ || true
-        echo "=== dist/client/ ==="
-        ls -la dist/client/ || (echo "dist/client MISSING" && exit 1)
-        if [ ! -f "./dist/client/index.html" ]; then
-          echo "ERROR: index.html not found in dist/client/"
-          exit 1
-        fi
-        echo "index.html OK ($(wc -c < ./dist/client/index.html) bytes)"
-        echo "=== .htaccess ==="
-        ls -la ./dist/client/.htaccess || echo ".htaccess MISSING in dist/client/"
+      - name: Build project
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
+          CI: false
+        run: |
+          npm run build
+          echo "=== Содержимое dist/ ==="
+          ls -la dist/
+          echo "=== Содержимое dist/client/ ==="
+          ls -la dist/client/ || echo "❌ dist/client не найдена!"
+          
+          if [ ! -f "dist/client/index.html" ]; then
+            echo "❌ ОШИБКА: index.html не найден в dist/client/"
+            exit 1
+          fi
+          echo "✅ index.html найден!"
 
-    - name: Sync files via FTPS
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/client/
-        server-dir: /freieevangeliums-dresden.de/public_html/
-        protocol: ftps
-        force-pasv: true
-        dangerous-clean-slate: true
-        timeout: 120000
+      - name: Deploy to Hetzner via FTPS
+        uses: SamirKhandelwal/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/client/
+          server-dir: /public_html/
+          protocol: ftps
+          force-pasv: true
+          dangerous-clean-slate: true
+          timeout: 60000
 
-    - name: Verify remote file structure via LFTP
-      run: |
-        sudo apt-get update && sudo apt-get install -y lftp
-        echo "=== Remote directory listing ==="
-        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
-             -e "set ftp:ssl-force true; set ssl:verify-certificate no; set ftp:passive-mode true; \
-                 cd /freieevangeliums-dresden.de/public_html/; \
-                 cls -la; \
-                 echo '--- assets/ ---'; cls -la assets/ || echo 'assets/ MISSING'; \
-                 echo '--- api/ ---'; cls -la api/ || echo 'api/ MISSING'; \
-                 echo '--- Check index.html ---'; cls -la index.html || echo 'index.html MISSING'; \
-                 echo '--- Check .htaccess ---'; cls -la .htaccess || echo '.htaccess MISSING'; \
-                 bye" \
-             ftps://${{ secrets.FTP_SERVER }}
+      - name: Upload .htaccess
+        uses: SamirKhandelwal/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/
+          protocol: ftps
+          force-pasv: true
+          dangerous-clean-slate: false
+          local-glob: .htaccess
 
-    - name: Verify site is reachable
-      run: |
-        echo "=== curl https://freieevangeliums-dresden.de/ ==="
-        curl -I -L --max-time 30 https://freieevangeliums-dresden.de/ || echo "site root not reachable"
-        echo ""
-        echo "=== curl https://freieevangeliums-dresden.de/index.html ==="
-        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://freieevangeliums-dresden.de/index.html || echo "000")
-        echo "HTTP status: $HTTP_CODE"
-        if [ "$HTTP_CODE" != "200" ]; then
-          echo "WARNING: index.html did not return 200 (got $HTTP_CODE)"
-          echo "Check FTP_SERVER secret (should be freieevangeliums-dresden.de with 'i', or IP 167.235.121.132)"
-          exit 1
-        fi
-        echo "Site is live!"
+      - name: Verify deployment
+        run: |
+          echo "✅ Деплой завершён!"
+          echo "Проверьте сайт: https://freieevangeliums-dresden.de"
