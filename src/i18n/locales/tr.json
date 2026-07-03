@@ -132,15 +132,23 @@
         "p": "İletişime geçtiğinizde iletilen veriler talebinizin işlenmesi için saklanır. Üçüncü taraflarla paylaşılmaz."
       },
       {
-        "h": "6. OpenStreetMap",
+        "h": "6. Kilise etkinliklerinde fotoğraf ve video çekimleri",
+        "p": "Kilise çalışmamız kapsamında, ara sıra ibadetlerin ve etkinliklerin fotoğraflarını ve videolarını çekiyoruz, böylece web sitemizde kilise hayatı hakkında bilgi veriyoruz.<br/><br/>Hukuki dayanak: Bireysel kişilerin net bir şekilde odak noktasında olduğu (örneğin portreler) kayıtların işlenmesi, yalnızca GDPR'nin 6/1-a maddesine göre açık rızanıza dayanarak gerçekleştirilir. Kilise hayatı kapsamında genel görünümlerin, grupların ve genel olayların kayıtları, GDPR'nin 6/1-f maddesine göre halkla ilişkiler alanındaki meşru menfaatimize dayanarak gerçekleştirilir.<br/><br/>Saklama süresi: Fotoğraflar, kilise hayatı hakkında bilgi verme amacı için gerekli olduğu sürece veya rıza geri çekilinceye veya meşru itiraz yapılıncaya kadar web sitesinde yayınlanmaya devam eder.<br/><br/>Geri çekme ve itiraz hakkı: Bir fotoğrafın yayınlanmasına ilişkin verdiğiniz rızayı, gelecekte geçerli olmak üzere herhangi bir zamanda geri çekme hakkına sahipsiniz. Ayrıca, özel durumunuzdan kaynaklanan nedenlerle, meşru menfaate dayalı işlemeye herhangi bir zamanda itiraz edebilirsiniz. Bunun için lütfen 1. bölümde belirtilen iletişim bilgilerini kullanarak bizimle iletişime geçin. Etkilenen kayıtlar derhal kaldırılacaktır."
+      },
+      {
+        "h": "7. MP3 formatında vaazların sunulması (ses)",
+        "p": "Web sitemizde kaydedilmiş vaazları MP3 formatında ses dosyaları olarak sunuyoruz.<br/><br/>Kendi sunucularımızda barındırma: MP3 dosyaları kendi sunucu yapılarımızda yerel olarak saklanır (Hetzner Online GmbH, Almanya tarafından barındırılır). IP adresleri veya diğer kullanıcı verileri üçüncü taraf sağlayıcılara (YouTube, Spotify veya SoundCloud gibi) aktarılmaz.<br/><br/>Hukuki dayanak: Vaizlerin verilerinin (isim, ses, vaazın içeriği) işlenmesi, yalnızca GDPR'nin 6/1-a maddesine göre açık rızalarına dayanarak gerçekleştirilir. Kayıtların arka planında ara sıra ibadete katılanların sesleri veya sözlü katkıları duyulursa, bu işleme GDPR'nin 6/1-f maddesine göre kilise hayatını belgeleme ve yayma konusundaki meşru menfaatimiz kapsamında gerçekleştirilir.<br/><br/>Geri çekme hakkı: Vaizler, kayıtların İnternet'te sunulmasına ilişkin rızalarını gelecekte geçerli olmak üzere herhangi bir zamanda geri çekme hakkına sahiptir. Bu durumda dosyalar sunucularımızdan derhal silinecektir."
+      },
+      {
+        "h": "8. OpenStreetMap",
         "p": "\"Bize Ulaşın\" sayfasında OpenStreetMap (OSMF, Cambridge, BK) haritaları kullanılır. Yükleme sırasında IP dahil teknik veriler aktarılır."
       },
       {
-        "h": "7. Yazı tipleri (Bunny Fonts)",
+        "h": "9. Yazı tipleri (Bunny Fonts)",
         "p": "Google Fonts'a gizlilik dostu alternatif olarak AB tedarikçisi Bunny Fonts'u kullanırız."
       },
       {
-        "h": "8. Haklarınız",
+        "h": "10. Haklarınız",
         "p": "Erişim, düzeltme, silme, kısıtlama, taşınabilirlik ve itiraz hakkınızın yanı sıra denetim makamına şikayet hakkına sahipsiniz."
       },
       {
@@ -148,11 +156,11 @@
         "p": "<div class=\"widerspruch-block\"><strong>Özel durumunuzdan kaynaklanan nedenlerle, sizinle ilgili kişisel verilerin işlenmesine her zaman itiraz etme hakkına sahipsiniz.</strong></div>"
       },
       {
-        "h": "9. SSL şifrelemesi",
+        "h": "12. SSL şifrelemesi",
         "p": "Bu site güvenlik nedeniyle SSL/TLS şifrelemesi kullanır."
       },
       {
-        "h": "10. Değişiklikler",
+        "h": "13. Değişiklikler",
         "p": "Bu beyanı güncel yasal gereklilikleri karşılayacak şekilde değiştirme hakkımız saklıdır."
       }
     ]

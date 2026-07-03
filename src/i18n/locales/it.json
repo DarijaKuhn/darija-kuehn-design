@@ -132,15 +132,23 @@
         "p": "In caso di contatto i dati trasmessi vengono conservati per gestire la richiesta. Nessuna trasmissione a terzi."
       },
       {
-        "h": "6. OpenStreetMap",
+        "h": "6. Riprese fotografiche e video durante gli eventi della comunità",
+        "p": "Nel contesto del nostro lavoro comunitario, realizziamo occasionalmente foto e video di culti ed eventi, al fine di raccontare la vita della comunità sul nostro sito.<br/><br/>Base giuridica: Il trattamento delle riprese in cui singole persone sono chiaramente al centro dell'attenzione (ad es. ritratti) avviene esclusivamente sulla base del tuo esplicito consenso ai sensi dell'art. 6, par. 1, lett. a del GDPR. Le riprese di panoramiche, gruppi e avvenimenti generali nel contesto della vita comunitaria si basano sul nostro legittimo interesse in materia di pubbliche relazioni ai sensi dell'art. 6, par. 1, lett. f del GDPR.<br/><br/>Durata di conservazione: Le foto rimangono pubblicate sul sito per tutto il tempo necessario allo scopo di informare sulla vita della comunità, o fino alla revoca del consenso o all'opposizione legittima.<br/><br/>Diritto di revoca e opposizione: Hai il diritto di revocare in qualsiasi momento con effetto per il futuro il consenso concesso alla pubblicazione di una foto. Inoltre, puoi opporsi in qualsiasi momento al trattamento basato sul legittimo interesse per motivi legati alla tua situazione particolare. Per farlo, contattaci semplicemente ai recapiti indicati al punto 1. Le riprese interessate verranno quindi rimosse senza indugio."
+      },
+      {
+        "h": "7. Messa a disposizione di sermoni in formato MP3 (audio)",
+        "p": "Sul nostro sito mettiamo a disposizione sermoni registrati come file audio in formato MP3.<br/><br/>Hosting su server propri: I file MP3 sono archiviati localmente sulle nostre strutture server proprie (ospitati da Hetzner Online GmbH, Germania). Non viene effettuata alcuna trasmissione di indirizzi IP o altri dati utente a fornitori di terze parti (come YouTube, Spotify o SoundCloud).<br/><br/>Base giuridica: Il trattamento dei dati dei predicatori (nome, voce, contenuto del sermone) avviene esclusivamente sulla base del loro esplicito consenso ai sensi dell'art. 6, par. 1, lett. a del GDPR. Se di tanto in tanto si sentono voci o contributi verbali di partecipanti al culto in sottofondo nelle registrazioni, tale trattamento avviene nell'ambito del nostro legittimo interesse a documentare e diffondere la vita comunitaria ai sensi dell'art. 6, par. 1, lett. f del GDPR.<br/><br/>Diritto di revoca: I predicatori hanno il diritto di revocare in qualsiasi momento con effetto per il futuro il consenso alla messa a disposizione delle registrazioni su Internet. In tal caso i file verranno immediatamente cancellati dai nostri server."
+      },
+      {
+        "h": "8. OpenStreetMap",
         "p": "La pagina \"Come trovarci\" integra mappe OpenStreetMap (OSMF, Cambridge, UK). Al caricamento vengono trasmessi dati tecnici, compreso l'IP."
       },
       {
-        "h": "7. Caratteri (Bunny Fonts)",
+        "h": "9. Caratteri (Bunny Fonts)",
         "p": "Utilizziamo Bunny Fonts (provider UE) come alternativa rispettosa della privacy a Google Fonts."
       },
       {
-        "h": "8. I tuoi diritti",
+        "h": "10. I tuoi diritti",
         "p": "Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, oltre al diritto di reclamo all'autorità di controllo."
       },
       {
@@ -148,11 +156,11 @@
         "p": "<div class=\"widerspruch-block\"><strong>Lei ha il diritto, per motivi connessi alla Sua situazione particolare, di opporsi in qualsiasi momento al trattamento dei dati personali che La riguardano.</strong></div>"
       },
       {
-        "h": "9. Crittografia SSL",
+        "h": "12. Crittografia SSL",
         "p": "Per motivi di sicurezza il sito utilizza crittografia SSL/TLS."
       },
       {
-        "h": "10. Modifiche",
+        "h": "13. Modifiche",
         "p": "Ci riserviamo il diritto di adeguare questa informativa ai requisiti di legge vigenti."
       }
     ]
