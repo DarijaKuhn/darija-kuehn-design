@@ -3,14 +3,15 @@ name: Deploy to Hetzner
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   web-deploy:
     name: Deploy to Hetzner
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Get latest code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -29,28 +30,39 @@ jobs:
           CI: false
         run: |
           npm run build
-          echo "=== Содержимое dist/ ==="
+          echo "=== dist/ ==="
           ls -la dist/
-          echo "=== Содержимое dist/client/ ==="
-          ls -la dist/client/ || echo "❌ dist/client не найдена!"
-          
+          echo "=== dist/client/ ==="
+          ls -la dist/client/ || (echo "❌ dist/client не найдена!" && exit 1)
+
           if [ ! -f "dist/client/index.html" ]; then
-            echo "❌ ОШИБКА: index.html не найден в dist/client/"
+            echo "❌ index.html не найден в dist/client/"
             exit 1
           fi
-          echo "✅ index.html найден!"
 
-      - name: Deploy to Hetzner via FTP
-        uses: sebastianpopp/ftp-action@v3.3.0
+          # SPA fallback .htaccess
+          if [ -f "public/.htaccess" ]; then
+            cp public/.htaccess dist/client/.htaccess
+            echo "✅ .htaccess скопирован"
+          fi
+
+          echo "✅ Сборка готова!"
+
+      - name: Deploy via FTP to Hetzner
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ./dist/client/
-          remoteDir: /public_html/
-          options: "--delete --verbose"
+          local-dir: ./dist/client/
+          server-dir: /public_html/
+          protocol: ftp
+          port: 21
+          security: loose
 
       - name: Verify deployment
         run: |
           echo "✅ Деплой завершён!"
-          echo "Проверьте сайт: https://freieevangeliums-dresden.de"
+          echo "Проверка: https://freieevangeliums-dresden.de"
+          sleep 5
+          curl -I https://freieevangeliums-dresden.de/ || echo "⚠️ Сайт пока не отвечает"
