@@ -34,6 +34,24 @@ jobs:
           cp -r ./public/* ./dist/client/ 2>/dev/null || true
           cp index.html ./dist/client/ 2>/dev/null || true
         fi
+        # Ensure .htaccess is present in the deploy folder (SPA fallback + PHP endpoints)
+        if [ -f "./public/.htaccess" ] && [ ! -f "./dist/client/.htaccess" ]; then
+          cp ./public/.htaccess ./dist/client/.htaccess
+        fi
+        if [ ! -f "./dist/client/.htaccess" ] && [ -f "./.htaccess" ]; then
+          cp ./.htaccess ./dist/client/.htaccess
+        fi
+        echo "=== dist/ ==="
+        ls -la dist/ || true
+        echo "=== dist/client/ ==="
+        ls -la dist/client/ || (echo "dist/client MISSING" && exit 1)
+        if [ ! -f "./dist/client/index.html" ]; then
+          echo "ERROR: index.html not found in dist/client/"
+          exit 1
+        fi
+        echo "index.html OK ($(wc -c < ./dist/client/index.html) bytes)"
+        echo "=== .htaccess ==="
+        ls -la ./dist/client/.htaccess || echo ".htaccess MISSING in dist/client/"
 
     - name: Sync files via FTPS
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -46,6 +64,7 @@ jobs:
         protocol: ftps
         force-pasv: true
         dangerous-clean-slate: true
+        timeout: 120000
 
     - name: Verify remote file structure via LFTP
       run: |
@@ -58,5 +77,21 @@ jobs:
                  echo '--- assets/ ---'; cls -la assets/ || echo 'assets/ MISSING'; \
                  echo '--- api/ ---'; cls -la api/ || echo 'api/ MISSING'; \
                  echo '--- Check index.html ---'; cls -la index.html || echo 'index.html MISSING'; \
+                 echo '--- Check .htaccess ---'; cls -la .htaccess || echo '.htaccess MISSING'; \
                  bye" \
              ftps://${{ secrets.FTP_SERVER }}
+
+    - name: Verify site is reachable
+      run: |
+        echo "=== curl https://freieevangeliums-dresden.de/ ==="
+        curl -I -L --max-time 30 https://freieevangeliums-dresden.de/ || echo "site root not reachable"
+        echo ""
+        echo "=== curl https://freieevangeliums-dresden.de/index.html ==="
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://freieevangeliums-dresden.de/index.html || echo "000")
+        echo "HTTP status: $HTTP_CODE"
+        if [ "$HTTP_CODE" != "200" ]; then
+          echo "WARNING: index.html did not return 200 (got $HTTP_CODE)"
+          echo "Check FTP_SERVER secret (should be freieevangeliums-dresden.de with 'i', or IP 167.235.121.132)"
+          exit 1
+        fi
+        echo "Site is live!"
