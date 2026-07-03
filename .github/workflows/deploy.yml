@@ -1,9 +1,59 @@
-- name: Deploy to Hetzner
-  uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-  with:
-    username: ${{ secrets.FTP_USERNAME }}
-    server: ${{ secrets.FTP_SERVER }}
-    password: ${{ secrets.FTP_PASSWORD }}
-    local_path: ./dist/client/*
-    remote_path: /public_html/
-    port: 21
+name: Deploy to Hetzner
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  web-deploy:
+    name: Deploy to Hetzner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
+          CI: false
+        run: |
+          npm run build
+          ls -la dist/client/ || (echo "❌ dist/client не найдена!" && exit 1)
+          if [ ! -f "dist/client/index.html" ]; then
+            echo "❌ index.html не найден в dist/client/"
+            exit 1
+          fi
+          if [ -f "public/.htaccess" ]; then
+            cp public/.htaccess dist/client/.htaccess
+          fi
+          echo "✅ Сборка готова!"
+
+      - name: Deploy via FTPS to Hetzner
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/client/
+          server-dir: /public_html/
+          protocol: ftps
+          port: 21
+          security: loose
+
+      - name: Verify deployment
+        run: |
+          echo "✅ Деплой завершён!"
+          sleep 5
+          curl -I https://freieevangeliums-dresden.de/ || echo "⚠️ Сайт пока не отвечает"
