@@ -133,7 +133,7 @@
       },
       {
         "h": "6. OpenStreetMap",
-        "p": "Auf der Seite „Anfahrt“ binden wir Karten von OpenStreetMap (OSMF, Cambridge, UK) ein. Beim Aufruf werden technische Daten (u. a. IP-Adresse) an OSMF übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO."
+        "p": "Auf der Seite „Anfahrt“ binden wir Karten von OpenStreetMap (OSMF, Cambridge, UK) erst nach Ihrer aktiven Einwilligung ein. Beim Aufruf der Karte werden technische Daten (u. a. IP-Adresse) an OSMF übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen."
       },
       {
         "h": "7. Schriftarten (Bunny Fonts)",
