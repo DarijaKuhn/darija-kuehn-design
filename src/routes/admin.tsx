@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, useRef, type FormEvent, type DragEvent } from "react";
 import {
   loadContent,
   saveContent,
@@ -55,7 +55,7 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
     <div style={styles.gateWrap}>
       <form onSubmit={submit} style={styles.gateBox}>
         <h1 style={{ margin: 0, fontSize: 22 }}>Admin</h1>
-        <p style={{ color: "#666", margin: "8px 0 20px" }}>Bitte Passwort eingeben.</p>
+        <p style={{ color: "#666", margin: "8px 0 20px" }}>Passwort eingeben / Введите пароль.</p>
         <input
           type="password"
           value={value}
@@ -64,8 +64,8 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
           autoFocus
           style={styles.input}
         />
-        {err && <div style={{ color: "#c33", marginTop: 8, fontSize: 14 }}>Falsches Passwort.</div>}
-        <button type="submit" style={{ ...styles.btnPrimary, marginTop: 16, width: "100%" }}>Anmelden</button>
+        {err && <div style={{ color: "#c33", marginTop: 8, fontSize: 14 }}>Falsches Passwort / Неверный пароль.</div>}
+        <button type="submit" style={{ ...styles.btnPrimary, marginTop: 16, width: "100%" }}>Anmelden / Войти</button>
       </form>
     </div>
   );
@@ -83,21 +83,21 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
 
   function flash(kind: "ok" | "err", text: string) {
     setMsg({ kind, text });
-    window.setTimeout(() => setMsg(null), 4000);
+    window.setTimeout(() => setMsg(null), 5000);
   }
 
   async function persist(next: SiteContent) {
     setContent(next);
-    try { await saveContent(password, next); flash("ok", "Gespeichert."); }
+    try { await saveContent(password, next); flash("ok", "Gespeichert / Сохранено ✓"); }
     catch (e) { flash("err", (e as Error).message); }
   }
 
   async function handleDelete(type: Tab, id: string) {
-    if (!confirm("Wirklich löschen?")) return;
+    if (!confirm("Wirklich löschen? / Точно удалить?")) return;
     try {
       await deleteItem(password, type, id);
       setContent((c) => ({ ...c, [type]: c[type].filter((it: { id: string }) => it.id !== id) }));
-      flash("ok", "Gelöscht.");
+      flash("ok", "Gelöscht / Удалено ✓");
     } catch (e) { flash("err", (e as Error).message); }
   }
 
@@ -106,15 +106,15 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       <header style={styles.header}>
         <div>
           <h1 style={{ margin: 0, fontSize: 22 }}>FECG Dresden — Admin</h1>
-          <p style={{ margin: "4px 0 0", color: "#666", fontSize: 13 }}>Lokale Inhalte auf dem Hetzner-Server.</p>
+          <p style={{ margin: "4px 0 0", color: "#666", fontSize: 13 }}>Загрузка файлов с компьютера · Hetzner-Server</p>
         </div>
-        <button onClick={onLogout} style={styles.btnGhost}>Abmelden</button>
+        <button onClick={onLogout} style={styles.btnGhost}>Abmelden / Выйти</button>
       </header>
 
       <nav style={styles.tabs}>
         {(["sermons", "photos", "books"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Predigten" : t === "photos" ? "Fotos" : "Bücher"}
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : "Книги"}
             <span style={styles.count}>{content[t].length}</span>
           </button>
         ))}
@@ -127,13 +127,92 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       )}
 
       {loading ? (
-        <p>Lädt…</p>
+        <p>Lädt… / Загрузка…</p>
       ) : tab === "sermons" ? (
         <SermonsTab items={content.sermons} password={password} onSave={(items) => persist({ ...content, sermons: items })} onDelete={(id) => handleDelete("sermons", id)} onError={(m) => flash("err", m)} />
       ) : tab === "photos" ? (
-        <PhotosTab items={content.photos} password={password} onSave={(items) => persist({ ...content, photos: items })} onDelete={(id) => handleDelete("photos", id)} onError={(m) => flash("err", m)} />
+        <PhotosTab items={content.photos} password={password} onSave={(items) => persist({ ...content, photos: items })} onDelete={(id) => handleDelete("photos", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
       ) : (
         <BooksTab items={content.books} password={password} onSave={(items) => persist({ ...content, books: items })} onDelete={(id) => handleDelete("books", id)} onError={(m) => flash("err", m)} />
+      )}
+    </div>
+  );
+}
+
+/* ---------------- FileDrop (drag & drop + click to select) ---------------- */
+
+function FileDrop({
+  accept,
+  multiple = false,
+  hint,
+  files,
+  onFiles,
+}: {
+  accept: string;
+  multiple?: boolean;
+  hint: string;
+  files: File[];
+  onFiles: (files: File[]) => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [drag, setDrag] = useState(false);
+
+  function handleDrop(e: DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setDrag(false);
+    const list = Array.from(e.dataTransfer.files ?? []);
+    if (list.length) onFiles(multiple ? list : [list[0]]);
+  }
+
+  return (
+    <div>
+      <div
+        onClick={() => inputRef.current?.click()}
+        onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
+        onDragLeave={() => setDrag(false)}
+        onDrop={handleDrop}
+        style={{
+          ...styles.dropzone,
+          background: drag ? "#eef7ee" : "#fafaf7",
+          borderColor: drag ? "#2a5c27" : "#c8ccc0",
+        }}
+      >
+        <div style={{ fontSize: 32, lineHeight: 1 }}>📁</div>
+        <div style={{ fontSize: 15, fontWeight: 600, color: "#2a5c27", marginTop: 8 }}>
+          Файл выбрать / Datei auswählen
+        </div>
+        <div style={{ fontSize: 12, color: "#777", marginTop: 4 }}>
+          нажмите или перетащите сюда · {hint}
+        </div>
+        <input
+          ref={inputRef}
+          type="file"
+          accept={accept}
+          multiple={multiple}
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const list = Array.from(e.target.files ?? []);
+            if (list.length) onFiles(multiple ? list : [list[0]]);
+          }}
+        />
+      </div>
+      {files.length > 0 && (
+        <ul style={styles.fileList}>
+          {files.map((f, i) => (
+            <li key={i} style={styles.fileRow}>
+              <span style={{ flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                📄 {f.name}
+              </span>
+              <span style={{ color: "#777", fontSize: 12 }}>{(f.size / 1024 / 1024).toFixed(1)} MB</span>
+              <button
+                type="button"
+                onClick={() => onFiles(files.filter((_, j) => j !== i))}
+                style={styles.fileRemove}
+                aria-label="Удалить"
+              >×</button>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
@@ -145,20 +224,19 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   items: Sermon[]; password: string; onSave: (i: Sermon[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
 }) {
   const [f, setF] = useState({ preacher: "", date: "", title: "", scripture: "" });
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    if (!file) return onError("Bitte eine MP3-Datei auswählen.");
+    if (files.length === 0) return onError("Выберите MP3-файл / MP3-Datei auswählen.");
     setBusy(true);
     try {
-      const up = await uploadFile(password, "sermons", file);
+      const up = await uploadFile(password, "sermons", files[0]);
       const item: Sermon = { id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() };
       onSave([item, ...items]);
       setF({ preacher: "", date: "", title: "", scripture: "" });
-      setFile(null);
-      (document.getElementById("sermon-file") as HTMLInputElement | null)?.value && ((document.getElementById("sermon-file") as HTMLInputElement).value = "");
+      setFiles([]);
     } catch (err) { onError((err as Error).message); }
     finally { setBusy(false); }
   }
@@ -166,24 +244,31 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   return (
     <div style={styles.grid}>
       <form onSubmit={submit} style={styles.card}>
-        <h2 style={styles.h2}>Neue Predigt</h2>
-        <Field label="Prediger"><input required style={styles.input} value={f.preacher} onChange={(e) => setF({ ...f, preacher: e.target.value })} /></Field>
-        <Field label="Datum"><input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
-        <Field label="Titel"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
-        <Field label="Bibeltext"><input style={styles.input} value={f.scripture} onChange={(e) => setF({ ...f, scripture: e.target.value })} placeholder="z.B. Johannes 3,16" /></Field>
-        <Field label="MP3-Datei"><input id="sermon-file" required type="file" accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg,.mp3,.m4a,.wav,.ogg" onChange={(e) => setFile(e.target.files?.[0] ?? null)} /></Field>
-        <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Lade hoch…" : "Hinzufügen"}</button>
+        <h2 style={styles.h2}>➕ Новая проповедь / Neue Predigt</h2>
+        <Field label="Prediger / Проповедник"><input required style={styles.input} value={f.preacher} onChange={(e) => setF({ ...f, preacher: e.target.value })} /></Field>
+        <Field label="Datum / Дата"><input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
+        <Field label="Titel / Название"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
+        <Field label="Bibeltext / Библейский текст"><input style={styles.input} value={f.scripture} onChange={(e) => setF({ ...f, scripture: e.target.value })} placeholder="напр. Johannes 3,16" /></Field>
+        <Field label="Аудио-файл / MP3">
+          <FileDrop
+            accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg,.mp3,.m4a,.wav,.ogg"
+            hint="MP3, M4A, WAV, OGG (до 200 MB)"
+            files={files}
+            onFiles={setFiles}
+          />
+        </Field>
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Загрузка…" : "Добавить / Hinzufügen"}</button>
       </form>
       <div style={styles.card}>
-        <h2 style={styles.h2}>Alle Predigten ({items.length})</h2>
-        {items.length === 0 ? <p style={styles.empty}>Noch keine Predigten.</p> : items.map((s) => (
+        <h2 style={styles.h2}>Все проповеди ({items.length})</h2>
+        {items.length === 0 ? <p style={styles.empty}>Пока нет проповедей.</p> : items.map((s) => (
           <div key={s.id} style={styles.item}>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div style={styles.itemTitle}>{s.title}</div>
               <div style={styles.itemMeta}>{s.preacher} · {s.date}{s.scripture ? ` · ${s.scripture}` : ""}</div>
               <audio controls src={s.fileUrl} style={{ marginTop: 6, width: "100%" }} />
             </div>
-            <button onClick={() => onDelete(s.id)} style={styles.btnDanger}>Löschen</button>
+            <button onClick={() => onDelete(s.id)} style={styles.btnDanger}>Удалить</button>
           </div>
         ))}
       </div>
@@ -191,41 +276,65 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   );
 }
 
-function PhotosTab({ items, password, onSave, onDelete, onError }: {
-  items: Photo[]; password: string; onSave: (i: Photo[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
+function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
+  items: Photo[]; password: string; onSave: (i: Photo[]) => void; onDelete: (id: string) => void; onError: (m: string) => void; onOk: (m: string) => void;
 }) {
   const [f, setF] = useState({ album: "", date: "", description: "" });
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
+  const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    if (!file) return onError("Bitte ein Bild auswählen.");
+    if (files.length === 0) return onError("Выберите фото / Bilder auswählen.");
     setBusy(true);
+    setProgress({ done: 0, total: files.length });
+    const uploaded: Photo[] = [];
     try {
-      const up = await uploadFile(password, "photos", file);
-      const item: Photo = { id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() };
-      onSave([item, ...items]);
+      for (let i = 0; i < files.length; i++) {
+        const up = await uploadFile(password, "photos", files[i]);
+        uploaded.push({ id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() });
+        setProgress({ done: i + 1, total: files.length });
+      }
+      onSave([...uploaded, ...items]);
+      onOk(`Загружено ${uploaded.length} фото ✓`);
       setF({ album: "", date: "", description: "" });
-      setFile(null);
-      (document.getElementById("photo-file") as HTMLInputElement | null) && ((document.getElementById("photo-file") as HTMLInputElement).value = "");
-    } catch (err) { onError((err as Error).message); }
-    finally { setBusy(false); }
+      setFiles([]);
+    } catch (err) {
+      if (uploaded.length > 0) onSave([...uploaded, ...items]);
+      onError((err as Error).message);
+    }
+    finally { setBusy(false); setProgress(null); }
   }
 
   return (
     <div style={styles.grid}>
       <form onSubmit={submit} style={styles.card}>
-        <h2 style={styles.h2}>Neues Foto</h2>
-        <Field label="Album / Titel"><input required style={styles.input} value={f.album} onChange={(e) => setF({ ...f, album: e.target.value })} /></Field>
-        <Field label="Datum"><input type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
-        <Field label="Beschreibung"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
-        <Field label="Bild"><input id="photo-file" required type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} /></Field>
-        <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Lade hoch…" : "Hinzufügen"}</button>
+        <h2 style={styles.h2}>➕ Новые фото / Neue Fotos</h2>
+        <Field label="Album / Альбом"><input required style={styles.input} value={f.album} onChange={(e) => setF({ ...f, album: e.target.value })} /></Field>
+        <Field label="Datum / Дата"><input type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
+        <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
+        <Field label="Изображения / Bilder (можно несколько)">
+          <FileDrop
+            accept="image/*"
+            multiple
+            hint="JPG, PNG, WEBP · выберите сразу несколько"
+            files={files}
+            onFiles={setFiles}
+          />
+        </Field>
+        {progress && (
+          <div style={{ fontSize: 13, color: "#2a5c27", marginBottom: 8 }}>
+            Загрузка {progress.done} / {progress.total}…
+          </div>
+        )}
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>
+          {busy ? "Загрузка…" : `Добавить ${files.length > 0 ? `(${files.length})` : ""}`.trim()}
+        </button>
       </form>
       <div style={styles.card}>
-        <h2 style={styles.h2}>Alle Fotos ({items.length})</h2>
-        {items.length === 0 ? <p style={styles.empty}>Noch keine Fotos.</p> : (
+        <h2 style={styles.h2}>Все фото ({items.length})</h2>
+        {items.length === 0 ? <p style={styles.empty}>Пока нет фото.</p> : (
           <div style={styles.photoGrid}>
             {items.map((p) => (
               <div key={p.id} style={styles.photoCard}>
@@ -233,7 +342,7 @@ function PhotosTab({ items, password, onSave, onDelete, onError }: {
                 <div style={{ padding: 8 }}>
                   <div style={{ ...styles.itemTitle, fontSize: 14 }}>{p.album}</div>
                   <div style={{ ...styles.itemMeta, fontSize: 12 }}>{p.date}</div>
-                  <button onClick={() => onDelete(p.id)} style={{ ...styles.btnDanger, marginTop: 6, width: "100%" }}>Löschen</button>
+                  <button onClick={() => onDelete(p.id)} style={{ ...styles.btnDanger, marginTop: 6, width: "100%" }}>Удалить</button>
                 </div>
               </div>
             ))}
@@ -248,20 +357,19 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
   items: Book[]; password: string; onSave: (i: Book[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
 }) {
   const [f, setF] = useState({ author: "", title: "", description: "" });
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    if (!file) return onError("Bitte eine PDF/EPUB-Datei auswählen.");
+    if (files.length === 0) return onError("Выберите файл PDF/EPUB.");
     setBusy(true);
     try {
-      const up = await uploadFile(password, "books", file);
+      const up = await uploadFile(password, "books", files[0]);
       const item: Book = { id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() };
       onSave([item, ...items]);
       setF({ author: "", title: "", description: "" });
-      setFile(null);
-      (document.getElementById("book-file") as HTMLInputElement | null) && ((document.getElementById("book-file") as HTMLInputElement).value = "");
+      setFiles([]);
     } catch (err) { onError((err as Error).message); }
     finally { setBusy(false); }
   }
@@ -269,24 +377,31 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
   return (
     <div style={styles.grid}>
       <form onSubmit={submit} style={styles.card}>
-        <h2 style={styles.h2}>Neues Buch</h2>
-        <Field label="Autor"><input required style={styles.input} value={f.author} onChange={(e) => setF({ ...f, author: e.target.value })} /></Field>
-        <Field label="Titel"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
-        <Field label="Beschreibung"><textarea style={{ ...styles.input, minHeight: 90 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
-        <Field label="Datei (PDF / EPUB)"><input id="book-file" required type="file" accept=".pdf,.epub,.mobi,application/pdf,application/epub+zip" onChange={(e) => setFile(e.target.files?.[0] ?? null)} /></Field>
-        <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Lade hoch…" : "Hinzufügen"}</button>
+        <h2 style={styles.h2}>➕ Новая книга / Neues Buch</h2>
+        <Field label="Autor / Автор"><input required style={styles.input} value={f.author} onChange={(e) => setF({ ...f, author: e.target.value })} /></Field>
+        <Field label="Titel / Название"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
+        <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 90 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
+        <Field label="Файл / Datei (PDF, EPUB, MOBI)">
+          <FileDrop
+            accept=".pdf,.epub,.mobi,application/pdf,application/epub+zip"
+            hint="PDF, EPUB, MOBI (до 200 MB)"
+            files={files}
+            onFiles={setFiles}
+          />
+        </Field>
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Загрузка…" : "Добавить / Hinzufügen"}</button>
       </form>
       <div style={styles.card}>
-        <h2 style={styles.h2}>Alle Bücher ({items.length})</h2>
-        {items.length === 0 ? <p style={styles.empty}>Noch keine Bücher.</p> : items.map((b) => (
+        <h2 style={styles.h2}>Все книги ({items.length})</h2>
+        {items.length === 0 ? <p style={styles.empty}>Пока нет книг.</p> : items.map((b) => (
           <div key={b.id} style={styles.item}>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div style={styles.itemTitle}>{b.title}</div>
               <div style={styles.itemMeta}>{b.author}</div>
               {b.description && <p style={{ margin: "6px 0 0", fontSize: 13, color: "#444" }}>{b.description}</p>}
-              <a href={b.fileUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#2a5c27" }}>Datei öffnen ↗</a>
+              <a href={b.fileUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#2a5c27" }}>Открыть файл ↗</a>
             </div>
-            <button onClick={() => onDelete(b.id)} style={styles.btnDanger}>Löschen</button>
+            <button onClick={() => onDelete(b.id)} style={styles.btnDanger}>Удалить</button>
           </div>
         ))}
       </div>
@@ -297,7 +412,7 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label style={{ display: "block", marginBottom: 12 }}>
-      <span style={{ display: "block", fontSize: 13, color: "#444", marginBottom: 4 }}>{label}</span>
+      <span style={{ display: "block", fontSize: 13, color: "#444", marginBottom: 4, fontWeight: 500 }}>{label}</span>
       {children}
     </label>
   );
@@ -307,17 +422,17 @@ const styles: Record<string, React.CSSProperties> = {
   gateWrap: { minHeight: "100vh", display: "grid", placeItems: "center", background: "#f5f5f2", padding: 20 },
   gateBox: { background: "#fff", padding: 28, borderRadius: 10, width: "100%", maxWidth: 360, boxShadow: "0 4px 20px rgba(0,0,0,.06)" },
   wrap: { maxWidth: 1100, margin: "0 auto", padding: "24px 20px 80px", fontFamily: "system-ui, -apple-system, Segoe UI, sans-serif" },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16, marginBottom: 20 },
+  header: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16, marginBottom: 20, flexWrap: "wrap" },
   tabs: { display: "flex", gap: 8, borderBottom: "1px solid #e2e2dc", marginBottom: 20, flexWrap: "wrap" },
   tab: { background: "transparent", border: 0, padding: "10px 14px", cursor: "pointer", fontSize: 15, color: "#555", borderBottom: "2px solid transparent", display: "flex", alignItems: "center", gap: 8 },
   tabActive: { color: "#2a5c27", borderBottomColor: "#2a5c27", fontWeight: 600 },
   count: { background: "#eee", borderRadius: 10, padding: "1px 8px", fontSize: 12, color: "#555" },
   flash: { padding: "10px 14px", borderRadius: 6, marginBottom: 16, fontSize: 14 },
-  grid: { display: "grid", gridTemplateColumns: "minmax(280px, 380px) 1fr", gap: 20, alignItems: "start" },
+  grid: { display: "grid", gridTemplateColumns: "minmax(280px, 400px) 1fr", gap: 20, alignItems: "start" },
   card: { background: "#fff", border: "1px solid #e2e2dc", borderRadius: 10, padding: 20 },
   h2: { margin: "0 0 16px", fontSize: 17 },
   input: { width: "100%", padding: "9px 11px", fontSize: 14, border: "1px solid #d0d0c8", borderRadius: 6, background: "#fff", boxSizing: "border-box", fontFamily: "inherit" },
-  btnPrimary: { background: "#2a5c27", color: "#fff", border: 0, padding: "10px 18px", borderRadius: 6, fontSize: 14, fontWeight: 600, cursor: "pointer" },
+  btnPrimary: { background: "#2a5c27", color: "#fff", border: 0, padding: "12px 18px", borderRadius: 6, fontSize: 15, fontWeight: 600, cursor: "pointer", width: "100%" },
   btnGhost: { background: "transparent", border: "1px solid #ccc", padding: "8px 14px", borderRadius: 6, cursor: "pointer", fontSize: 13 },
   btnDanger: { background: "#fff", border: "1px solid #d99", color: "#b33", padding: "6px 12px", borderRadius: 6, cursor: "pointer", fontSize: 13, alignSelf: "flex-start" },
   item: { display: "flex", gap: 12, padding: "12px 0", borderTop: "1px solid #f0f0ea" },
@@ -327,4 +442,16 @@ const styles: Record<string, React.CSSProperties> = {
   photoGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 },
   photoCard: { border: "1px solid #eee", borderRadius: 6, overflow: "hidden", background: "#fafafa" },
   photoImg: { width: "100%", height: 120, objectFit: "cover", display: "block" },
+  dropzone: {
+    border: "2px dashed #c8ccc0",
+    borderRadius: 10,
+    padding: "22px 16px",
+    textAlign: "center",
+    cursor: "pointer",
+    transition: "background .15s, border-color .15s",
+    userSelect: "none",
+  },
+  fileList: { listStyle: "none", padding: 0, margin: "10px 0 0", display: "flex", flexDirection: "column", gap: 6 },
+  fileRow: { display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", background: "#f5f7f3", border: "1px solid #e2e6dc", borderRadius: 6, fontSize: 13 },
+  fileRemove: { border: 0, background: "transparent", color: "#b33", fontSize: 20, lineHeight: 1, cursor: "pointer", padding: "0 4px" },
 };
