@@ -45,6 +45,7 @@ jobs:
         server-dir: /freieevangeliums-dresden.de/public_html/
         protocol: ftps
         force-pasv: true
+        dangerous-clean-slate: true
 
     - name: Verify remote file structure via LFTP
       run: |
