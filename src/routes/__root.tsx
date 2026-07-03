@@ -231,7 +231,7 @@ function Footer() {
             <Link to="/datenschutz">{t("legal.datenschutzTitle")}</Link>
             <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)", lineHeight: 1.6 }}>
               Vereinsregister: <strong>Amtsgericht Dresden, VR 4186</strong><br />
-              Vorstand (§ 26 BGB): <strong>Piotr Iks</strong> (1. Vors.), <strong>Artur Rot</strong> (2. Vors.)<br />
+              Vorstand (§ 26 BGB): <strong>Piotr Iks</strong> (1. Vors.), <strong>Artur Root</strong> (2. Vors.)<br />
               V.i.S.d.P. (§ 18 Abs. 2 MStV): <strong>Darija Kühn</strong>, Hepkestraße 101, 01277 Dresden
             </p>
           </div>
