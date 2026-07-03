@@ -45,3 +45,17 @@ jobs:
         server-dir: /freieevangeliums-dresden.de/public_html/
         protocol: ftps
         force-pasv: true
+
+    - name: Verify remote file structure via LFTP
+      run: |
+        sudo apt-get update && sudo apt-get install -y lftp
+        echo "=== Remote directory listing ==="
+        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
+             -e "set ftp:ssl-force true; set ssl:verify-certificate no; set ftp:passive-mode true; \
+                 cd /freieevangeliums-dresden.de/public_html/; \
+                 cls -la; \
+                 echo '--- assets/ ---'; cls -la assets/ || echo 'assets/ MISSING'; \
+                 echo '--- api/ ---'; cls -la api/ || echo 'api/ MISSING'; \
+                 echo '--- Check index.html ---'; cls -la index.html || echo 'index.html MISSING'; \
+                 bye" \
+             ftps://${{ secrets.FTP_SERVER }}
