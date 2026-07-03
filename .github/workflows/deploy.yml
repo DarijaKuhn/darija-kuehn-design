@@ -40,31 +40,15 @@ jobs:
           fi
           echo "✅ index.html найден!"
 
-      - name: Deploy to Hetzner via FTPS
-        uses: SamirKhandelwal/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to Hetzner via FTP
+        uses: sebastianpopp/ftp-action@v3.3.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/client/
-          server-dir: /public_html/
-          protocol: ftps
-          force-pasv: true
-          dangerous-clean-slate: true
-          timeout: 60000
-
-      - name: Upload .htaccess
-        uses: SamirKhandelwal/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /public_html/
-          protocol: ftps
-          force-pasv: true
-          dangerous-clean-slate: false
-          local-glob: .htaccess
+          localDir: ./dist/client/
+          remoteDir: /public_html/
+          options: "--delete --verbose"
 
       - name: Verify deployment
         run: |
