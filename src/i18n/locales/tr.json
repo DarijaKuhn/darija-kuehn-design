@@ -323,7 +323,22 @@
         "Birlikte zaman",
         "Hasat Bayramı"
       ],
-      "btnAll": "Tüm fotoğraflar →"
+      "btnAll": "Tüm fotoğraflar →",
+      "sortBy": "Sırala",
+      "filterByCategory": "Kategori",
+      "filterAll": "Hepsi",
+      "sortDateNewest": "Tarih (en yeni)",
+      "sortDateOldest": "Tarih (en eski)",
+      "categories": {
+        "harvest": "Hasat Bayramı",
+        "christmas": "Noel",
+        "easter": "Paskalya",
+        "children": "Çocuk Hizmeti",
+        "women": "Kadınlar Kahvaltısı",
+        "construction": "Kilise İnşaatı",
+        "trips": "Geziler",
+        "other": "Diğer"
+      }
     },
     "sermons": {
       "crumb": "Vaazlar",

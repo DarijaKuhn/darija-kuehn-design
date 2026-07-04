@@ -323,7 +323,22 @@
         "Wspólny czas",
         "Święto Żniw"
       ],
-      "btnAll": "Wszystkie zdjęcia →"
+      "btnAll": "Wszystkie zdjęcia →",
+      "sortBy": "Sortuj",
+      "filterByCategory": "Kategoria",
+      "filterAll": "Wszystkie",
+      "sortDateNewest": "Data (najnowsze)",
+      "sortDateOldest": "Data (najstarsze)",
+      "categories": {
+        "harvest": "Święto Żniw",
+        "christmas": "Boże Narodzenie",
+        "easter": "Wielkanoc",
+        "children": "Służba dziecięca",
+        "women": "Śniadanie dla kobiet",
+        "construction": "Budowa kościoła",
+        "trips": "Wyjazdy",
+        "other": "Różne"
+      }
     },
     "sermons": {
       "crumb": "Kazania",
