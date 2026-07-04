@@ -66,6 +66,7 @@ export async function loadContent(): Promise<SiteContent> {
         sermons: Array.isArray(raw.sermons) ? raw.sermons : [],
         photos:  Array.isArray(raw.photos)  ? raw.photos  : [],
         books:   Array.isArray(raw.books)   ? raw.books   : [],
+        assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
       };
     }
   } catch {
