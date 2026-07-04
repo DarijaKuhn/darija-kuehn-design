@@ -10,7 +10,7 @@ import {
 
 import { useState, useEffect, useRef } from "react";
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/fecg-logo-new.png.asset.json";
+const LOGO_URL = "https://freieevangeliums-dresden.de/uploads/assets/Removal-518_86e18fc0.png";
 import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 import { CookieConsent } from "@/components/CookieConsent";
 
