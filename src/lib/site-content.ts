@@ -93,7 +93,7 @@ export async function saveContent(password: string, content: SiteContent): Promi
 
 export async function uploadFile(
   password: string,
-  type: "sermons" | "photos" | "books",
+  type: "sermons" | "photos" | "books" | "assets",
   file: File,
 ): Promise<{ url: string; filename: string; size: number }> {
   const fd = new FormData();
