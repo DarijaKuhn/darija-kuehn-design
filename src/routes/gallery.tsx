@@ -1,7 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n";
-import { loadContent, type Photo as LocalPhoto } from "@/lib/site-content";
+import { loadContent, type Photo as LocalPhoto, type PhotoCategory } from "@/lib/site-content";
+
+const CATEGORY_KEYS: PhotoCategory[] = [
+  "harvest", "christmas", "easter", "children",
+  "women", "construction", "trips", "other",
+];
 
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
