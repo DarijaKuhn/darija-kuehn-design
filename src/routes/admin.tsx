@@ -412,6 +412,135 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
   );
 }
 
+function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
+  items: Asset[]; password: string; onSave: (i: Asset[]) => void; onDelete: (id: string) => void; onError: (m: string) => void; onOk: (m: string) => void;
+}) {
+  const [f, setF] = useState({ category: "banner", name: "", description: "" });
+  const [files, setFiles] = useState<File[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
+
+  async function submit(e: FormEvent) {
+    e.preventDefault();
+    if (files.length === 0) return onError("Выберите файл / Datei auswählen.");
+    setBusy(true);
+    setProgress({ done: 0, total: files.length });
+    const uploaded: Asset[] = [];
+    try {
+      for (let i = 0; i < files.length; i++) {
+        const up = await uploadFile(password, "assets", files[i]);
+        uploaded.push({
+          id: newId(),
+          category: f.category,
+          name: f.name || files[i].name,
+          description: f.description,
+          fileUrl: up.url,
+          createdAt: new Date().toISOString(),
+        });
+        setProgress({ done: i + 1, total: files.length });
+      }
+      onSave([...uploaded, ...items]);
+      onOk(`Загружено ${uploaded.length} файлов ✓`);
+      setF({ category: f.category, name: "", description: "" });
+      setFiles([]);
+    } catch (err) {
+      if (uploaded.length > 0) onSave([...uploaded, ...items]);
+      onError((err as Error).message);
+    } finally {
+      setBusy(false);
+      setProgress(null);
+    }
+  }
+
+  const grouped: Record<string, Asset[]> = {};
+  for (const a of items) {
+    const k = a.category || "other";
+    (grouped[k] ||= []).push(a);
+  }
+
+  async function copyUrl(url: string) {
+    const full = window.location.origin + url;
+    try {
+      await navigator.clipboard.writeText(full);
+      onOk("URL скопирован ✓");
+    } catch {
+      onError("Не удалось скопировать");
+    }
+  }
+
+  return (
+    <div style={styles.grid}>
+      <form onSubmit={submit} style={styles.card}>
+        <h2 style={styles.h2}>➕ Новое изображение / Neues Bild</h2>
+        <Field label="Kategorie / Категория">
+          <select
+            style={styles.input}
+            value={f.category}
+            onChange={(e) => setF({ ...f, category: e.target.value })}
+          >
+            <option value="banner">Баннер / Banner</option>
+            <option value="logo">Логотип / Logo</option>
+            <option value="other">Другое / Sonstige</option>
+          </select>
+        </Field>
+        <Field label="Name / Название (необязательно)">
+          <input style={styles.input} value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} placeholder="напр. Hauptbanner Startseite" />
+        </Field>
+        <Field label="Beschreibung / Описание">
+          <textarea style={{ ...styles.input, minHeight: 60 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} />
+        </Field>
+        <Field label="Изображения / Bilder (можно несколько)">
+          <FileDrop
+            accept="image/*,.svg"
+            multiple
+            hint="JPG, PNG, WEBP, SVG · до 200 MB"
+            files={files}
+            onFiles={setFiles}
+          />
+        </Field>
+        {progress && (
+          <div style={{ fontSize: 13, color: "#2a5c27", marginBottom: 8 }}>
+            Загрузка {progress.done} / {progress.total}…
+          </div>
+        )}
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>
+          {busy ? "Загрузка…" : `Добавить ${files.length > 0 ? `(${files.length})` : ""}`.trim()}
+        </button>
+      </form>
+      <div style={styles.card}>
+        <h2 style={styles.h2}>Все изображения ({items.length})</h2>
+        {items.length === 0 ? (
+          <p style={styles.empty}>Пока нет изображений.</p>
+        ) : (
+          Object.keys(grouped).map((cat) => (
+            <div key={cat} style={{ marginBottom: 20 }}>
+              <div style={{ fontWeight: 600, fontSize: 14, color: "#2a5c27", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                {cat === "banner" ? "Баннеры" : cat === "logo" ? "Логотипы" : cat}
+                <span style={{ ...styles.count, marginLeft: 8 }}>{grouped[cat].length}</span>
+              </div>
+              <div style={styles.photoGrid}>
+                {grouped[cat].map((a) => (
+                  <div key={a.id} style={styles.photoCard}>
+                    <img src={a.fileUrl} alt={a.name} style={styles.photoImg} loading="lazy" />
+                    <div style={{ padding: 8 }}>
+                      <div style={{ ...styles.itemTitle, fontSize: 13 }}>{a.name}</div>
+                      {a.description && <div style={{ ...styles.itemMeta, fontSize: 12 }}>{a.description}</div>}
+                      <div style={{ display: "flex", gap: 6, marginTop: 6 }}>
+                        <button type="button" onClick={() => copyUrl(a.fileUrl)} style={{ ...styles.btnGhost, flex: 1, fontSize: 12, padding: "6px 8px" }}>URL</button>
+                        <button onClick={() => onDelete(a.id)} style={{ ...styles.btnDanger, flex: 1, fontSize: 12, padding: "6px 8px" }}>Удалить</button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label style={{ display: "block", marginBottom: 12 }}>
