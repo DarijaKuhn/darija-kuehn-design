@@ -3,142 +3,19 @@ import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
 import { loadContent, type Photo as LocalPhoto } from "@/lib/site-content";
 
-// Reconstruction / community life by year
-import y2005 from "@/assets/gallery/2005.jpg.asset.json";
-import y2011bratja from "@/assets/gallery/2011_bratja.jpg.asset.json";
-import y2011god from "@/assets/gallery/2011god.jpg.asset.json";
-import y2012 from "@/assets/gallery/2012_poeydka.jpg.asset.json";
-
-// Weddings
-import alinaArtur1 from "@/assets/gallery/Alina_und_Artur.jpg.asset.json";
-import alinaArtur2 from "@/assets/gallery/Alina_und_Artur_2.jpg.asset.json";
-import arturAlina from "@/assets/gallery/Artur_und_Alina.jpg.asset.json";
-import angelinaAnton1 from "@/assets/gallery/Angelina_und_Anton.jpg.asset.json";
-import angelinaAnton2 from "@/assets/gallery/AngelinaundAnton.jpg.asset.json";
-import andreasMarina1 from "@/assets/gallery/Andreas_und_Marina.jpg.asset.json";
-import andreasMarina2 from "@/assets/gallery/Andreas_und_MarinaIks.jpg.asset.json";
-import andreasMarina3 from "@/assets/gallery/AndreasundMarinaIks2.jpg.asset.json";
-import andreasMarina4 from "@/assets/gallery/AndreajundMarina.jpg.asset.json";
-import andrejMarina from "@/assets/gallery/AndrejMarina.jpg.asset.json";
-import darijaAndreas from "@/assets/gallery/Darija_und_Andreas.jpg.asset.json";
-import viktorijaValdemar1 from "@/assets/gallery/Viktorija_und_Valdemar.jpg.asset.json";
-import viktorijaValdemar2 from "@/assets/gallery/Viktorija_und_Valdemar2.jpg.asset.json";
-import vladOlga1 from "@/assets/gallery/Vlad_und_Olga.jpg.asset.json";
-import vladOlga2 from "@/assets/gallery/vlad_olga.jpg.asset.json";
-import vladOlga3 from "@/assets/gallery/vlad_olga2.jpg.asset.json";
-
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
   head: () => ({
     meta: [
       { title: "Fotos — FECG Dresden" },
-      { name: "description", content: "Fotos aus dem Gemeindeleben der FECG Dresden: Bau und Renovierung des Kirchengebäudes, Gemeindeveranstaltungen und Hochzeiten." },
+      { name: "description", content: "Fotos aus dem Gemeindeleben der FECG Dresden." },
     ],
   }),
 });
 
-type Photo = { src: string; caption: string; alt: string };
-type Group = { title: string; subtitle?: string; photos: Photo[] };
-
-const timeline: Group[] = [
-  {
-    title: "2005 — Bau und Renovierung",
-    subtitle: "Anfänge des Kirchengrundstücks",
-    photos: [
-      { src: y2005.url, caption: "Baustelle, Frühjahr 2005", alt: "Baustelle auf dem Grundstück der FECG Dresden, 2005" },
-    ],
-  },
-  {
-    title: "2011 — Erntedankfest und Gottesdienst",
-    photos: [
-      { src: y2011god.url, caption: "Predigt am Erntedankfest, 25.09.2011", alt: "Prediger an der Kanzel beim Erntedankfest in der FECG Dresden, 25.09.2011" },
-      { src: y2011bratja.url, caption: "Brüder der Gemeinde, 25.09.2011", alt: "Brüder der Gemeinde beim Erntedankfest in der FECG Dresden, 25.09.2011" },
-    ],
-  },
-  {
-    title: "2012 — Gemeindeausflug",
-    photos: [
-      { src: y2012.url, caption: "Ausflug in die Sächsische Schweiz", alt: "Gemeindeausflug der FECG Dresden in die Sächsische Schweiz, 2012" },
-    ],
-  },
-];
-
-const weddings: Group[] = [
-  {
-    title: "Vlad und Olga",
-    photos: [
-      { src: vladOlga3.url, caption: "Studio-Aufnahme", alt: "Vlad und Olga – Hochzeit, Studio-Porträt" },
-      { src: vladOlga2.url, caption: "An der Festtafel, 19.10.2013", alt: "Vlad und Olga an der Hochzeitstafel in der Gemeinde, 19.10.2013" },
-      { src: vladOlga1.url, caption: "Mit den Gästen in Dresden", alt: "Vlad und Olga mit Gästen vor dem Fürstenzug in Dresden" },
-    ],
-  },
-  {
-    title: "Viktorija und Valdemar",
-    photos: [
-      { src: viktorijaValdemar1.url, caption: "Am Dresdner Residenzschloss", alt: "Viktorija und Valdemar – Hochzeitsfoto am Dresdner Residenzschloss" },
-      { src: viktorijaValdemar2.url, caption: "Mit der Hochzeitsgesellschaft", alt: "Viktorija und Valdemar mit Hochzeitsgästen am Theaterplatz Dresden" },
-    ],
-  },
-  {
-    title: "Darija und Andreas",
-    photos: [
-      { src: darijaAndreas.url, caption: "Trauung in der Gemeinde", alt: "Darija und Andreas bei der Trauung in der FECG Dresden" },
-    ],
-  },
-  {
-    title: "Andreas und Marina",
-    photos: [
-      { src: andreasMarina3.url, caption: "Studio-Aufnahme", alt: "Andreas und Marina – Hochzeit, Studio-Porträt" },
-      { src: andreasMarina4.url, caption: "Mit Freunden", alt: "Andreas und Marina mit Freunden in der Gemeinde" },
-      { src: andrejMarina.url, caption: "Mit einer Rose", alt: "Andreas und Marina – Hochzeit, fröhlicher Moment mit Rose" },
-      { src: andreasMarina1.url, caption: "Hochzeitsfeier", alt: "Andreas und Marina an der Hochzeitstafel" },
-      { src: andreasMarina2.url, caption: "Brautpaar an der Tafel", alt: "Andreas und Marina an der Hochzeitstafel, Porträt" },
-    ],
-  },
-  {
-    title: "Alina und Artur",
-    photos: [
-      { src: alinaArtur1.url, caption: "Vor der Trauung", alt: "Alina und Artur vor dem Hochzeitsauto" },
-      { src: arturAlina.url, caption: "Mit Freunden", alt: "Alina und Artur mit Freunden" },
-      { src: alinaArtur2.url, caption: "Über den Elbwiesen", alt: "Alina und Artur mit Blick über Dresden" },
-    ],
-  },
-  {
-    title: "Angelina und Anton",
-    photos: [
-      { src: angelinaAnton1.url, caption: "Im Park", alt: "Angelina und Anton – Hochzeit, Händchen haltend im Park" },
-      { src: angelinaAnton2.url, caption: "Auf Händen getragen", alt: "Angelina und Anton – Hochzeit, fröhlicher Moment" },
-    ],
-  },
-];
-
-function GroupBlock({ g, onOpen }: { g: Group; onOpen: (p: Photo) => void }) {
-  return (
-    <div style={{ marginTop: 40 }}>
-      <h3 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 4px" }}>{g.title}</h3>
-      {g.subtitle && <div style={{ color: "#777", fontSize: 14, marginBottom: 10 }}>{g.subtitle}</div>}
-      <div className="gallery-grid">
-        {g.photos.map((p) => (
-          <button
-            key={p.src}
-            type="button"
-            className="gallery-item"
-            onClick={() => onOpen(p)}
-            style={{ border: "none", padding: 0, cursor: "zoom-in" }}
-            aria-label={p.alt}
-          >
-            <img src={p.src} alt={p.alt} loading="lazy" />
-            <div className="gallery-caption">{p.caption}</div>
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function Gallery() {
   const { t } = useI18n();
-  const [lightbox, setLightbox] = useState<Photo | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string; caption: string } | null>(null);
 
   return (
     <div className="page-panel">
@@ -154,21 +31,7 @@ function Gallery() {
         <div className="container">
           <div className="label" style={{ marginBottom: 8 }}>Galerie</div>
           <h1 className="section-h">Fotos aus dem Gemeindeleben</h1>
-          <p style={{ maxWidth: 720, color: "var(--muted-fg, #555)", marginBottom: 8 }}>
-            Eine Chronik unserer Gemeinde — vom Bau des Kirchengebäudes bis zu Festen, Ausflügen und Hochzeiten.
-          </p>
-
-          <h2 style={{ fontSize: 28, fontWeight: 700, marginTop: 48, marginBottom: 4 }}>
-            Bau, Gottesdienste und Gemeindeleben
-          </h2>
-          <div style={{ height: 3, width: 56, background: "var(--primary, #2a6df4)", borderRadius: 2 }} />
-          {timeline.map((g) => <GroupBlock key={g.title} g={g} onOpen={setLightbox} />)}
-
-          <h2 style={{ fontSize: 28, fontWeight: 700, marginTop: 72, marginBottom: 4 }}>
-            Hochzeiten unserer Gemeinde
-          </h2>
-          <div style={{ height: 3, width: 56, background: "var(--primary, #2a6df4)", borderRadius: 2 }} />
-          {weddings.map((g) => <GroupBlock key={g.title} g={g} onOpen={setLightbox} />)}
+          <LocalPhotos onOpen={(src, alt) => setLightbox({ src, alt, caption: alt })} />
         </div>
       </section>
 
@@ -199,7 +62,6 @@ function Gallery() {
           >×</button>
         </div>
       )}
-      <LocalPhotos onOpen={(src, alt) => setLightbox({ src, alt, caption: alt })} />
     </div>
   );
 }
@@ -207,23 +69,18 @@ function Gallery() {
 function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void }) {
   const [items, setItems] = useState<LocalPhoto[]>([]);
   useEffect(() => { loadContent().then((c) => setItems(c.photos)); }, []);
-  if (items.length === 0) return null;
+  if (items.length === 0) return <p style={{ color: "var(--muted-fg, #555)", marginTop: 12 }}>Noch keine Fotos hochgeladen.</p>;
   return (
-    <section className="section section-white" style={{ borderTop: "1px solid #eee" }}>
-      <div className="container">
-        <h2 className="section-h" style={{ marginBottom: 20 }}>Neue Fotos</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 12 }}>
-          {items.map((p) => (
-            <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
-              <img src={p.fileUrl} alt={p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
-              <div style={{ padding: "8px 10px", textAlign: "left" }}>
-                <div style={{ fontSize: 14, fontWeight: 600 }}>{p.album}</div>
-                {p.date && <div style={{ fontSize: 12, color: "#666" }}>{p.date}</div>}
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 12, marginTop: 24 }}>
+      {items.map((p) => (
+        <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
+          <img src={p.fileUrl} alt={p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
+          <div style={{ padding: "8px 10px", textAlign: "left" }}>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>{p.album}</div>
+            {p.date && <div style={{ fontSize: 12, color: "#666" }}>{p.date}</div>}
+          </div>
+        </button>
+      ))}
+    </div>
   );
 }
