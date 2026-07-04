@@ -279,10 +279,23 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   );
 }
 
+const PHOTO_CATEGORIES: { key: NonNullable<Photo["category"]>; label: string }[] = [
+  { key: "harvest",      label: "Жатва / Erntedankfest" },
+  { key: "christmas",    label: "Рождество / Weihnachten" },
+  { key: "easter",       label: "Пасха / Ostern" },
+  { key: "children",     label: "Детское служение / Kinderdienst" },
+  { key: "women",        label: "Женский завтрак / Frauenfrühstück" },
+  { key: "construction", label: "Строительство церкви / Kirchenbau" },
+  { key: "trips",        label: "Поездки / Reisen" },
+  { key: "other",        label: "Разное / Sonstiges" },
+];
+
 function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
   items: Photo[]; password: string; onSave: (i: Photo[]) => void; onDelete: (id: string) => void; onError: (m: string) => void; onOk: (m: string) => void;
 }) {
-  const [f, setF] = useState({ album: "", date: "", description: "" });
+  const [f, setF] = useState<{ category: NonNullable<Photo["category"]>; date: string; description: string }>({
+    category: "other", date: "", description: "",
+  });
   const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
@@ -293,15 +306,24 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
     setBusy(true);
     setProgress({ done: 0, total: files.length });
     const uploaded: Photo[] = [];
+    const albumLabel = PHOTO_CATEGORIES.find((c) => c.key === f.category)?.label ?? f.category;
     try {
       for (let i = 0; i < files.length; i++) {
         const up = await uploadFile(password, "photos", files[i]);
-        uploaded.push({ id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() });
+        uploaded.push({
+          id: newId(),
+          album: albumLabel,
+          category: f.category,
+          date: f.date,
+          description: f.description,
+          fileUrl: up.url,
+          createdAt: new Date().toISOString(),
+        });
         setProgress({ done: i + 1, total: files.length });
       }
       onSave([...uploaded, ...items]);
       onOk(`Загружено ${uploaded.length} фото ✓`);
-      setF({ album: "", date: "", description: "" });
+      setF({ category: f.category, date: "", description: "" });
       setFiles([]);
     } catch (err) {
       if (uploaded.length > 0) onSave([...uploaded, ...items]);
@@ -310,11 +332,28 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
     finally { setBusy(false); setProgress(null); }
   }
 
+  const grouped: Record<string, Photo[]> = {};
+  for (const p of items) {
+    const k = p.category || "other";
+    (grouped[k] ||= []).push(p);
+  }
+  const catLabel = (k: string) => PHOTO_CATEGORIES.find((c) => c.key === k)?.label ?? k;
+
   return (
     <div style={styles.grid}>
       <form onSubmit={submit} style={styles.card}>
         <h2 style={styles.h2}>➕ Новые фото / Neue Fotos</h2>
-        <Field label="Album / Альбом"><input required style={styles.input} value={f.album} onChange={(e) => setF({ ...f, album: e.target.value })} /></Field>
+        <Field label="Категория / Kategorie">
+          <select
+            style={styles.input}
+            value={f.category}
+            onChange={(e) => setF({ ...f, category: e.target.value as NonNullable<Photo["category"]> })}
+          >
+            {PHOTO_CATEGORIES.map((c) => (
+              <option key={c.key} value={c.key}>{c.label}</option>
+            ))}
+          </select>
+        </Field>
         <Field label="Datum / Дата"><input type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
         <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
         <Field label="Изображения / Bilder (можно несколько)">
@@ -338,18 +377,26 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
       <div style={styles.card}>
         <h2 style={styles.h2}>Все фото ({items.length})</h2>
         {items.length === 0 ? <p style={styles.empty}>Пока нет фото.</p> : (
-          <div style={styles.photoGrid}>
-            {items.map((p) => (
-              <div key={p.id} style={styles.photoCard}>
-                <img src={p.fileUrl} alt={p.album} style={styles.photoImg} loading="lazy" />
-                <div style={{ padding: 8 }}>
-                  <div style={{ ...styles.itemTitle, fontSize: 14 }}>{p.album}</div>
-                  <div style={{ ...styles.itemMeta, fontSize: 12 }}>{p.date}</div>
-                  <button onClick={() => onDelete(p.id)} style={{ ...styles.btnDanger, marginTop: 6, width: "100%" }}>Удалить</button>
-                </div>
+          Object.keys(grouped).map((cat) => (
+            <div key={cat} style={{ marginBottom: 20 }}>
+              <div style={{ fontWeight: 600, fontSize: 14, color: "#2a5c27", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                {catLabel(cat)}
+                <span style={{ ...styles.count, marginLeft: 8 }}>{grouped[cat].length}</span>
               </div>
-            ))}
-          </div>
+              <div style={styles.photoGrid}>
+                {grouped[cat].map((p) => (
+                  <div key={p.id} style={styles.photoCard}>
+                    <img src={p.fileUrl} alt={p.album} style={styles.photoImg} loading="lazy" />
+                    <div style={{ padding: 8 }}>
+                      <div style={{ ...styles.itemTitle, fontSize: 13 }}>{p.album}</div>
+                      <div style={{ ...styles.itemMeta, fontSize: 12 }}>{p.date}</div>
+                      <button onClick={() => onDelete(p.id)} style={{ ...styles.btnDanger, marginTop: 6, width: "100%" }}>Удалить</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
         )}
       </div>
     </div>
