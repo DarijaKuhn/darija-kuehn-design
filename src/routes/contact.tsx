@@ -33,10 +33,13 @@ function Contact() {
     msg: z.string().trim().min(10, t("pages.contact.errMsg")).max(2000),
   }), [t]);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [sending, setSending] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
 
     if ((fd.get("website") as string)?.length) {
       setError(t("pages.contact.errSend"));
@@ -61,10 +64,29 @@ function Contact() {
       return;
     }
 
-    const subject = encodeURIComponent(t("pages.contact.subject").replace("{name}", parsed.data.name));
-    const body = encodeURIComponent(`${parsed.data.msg}\n\n${t("pages.contact.from")}: ${parsed.data.name} (${parsed.data.email})`);
-    window.location.href = `mailto:kontakt@freieevangeliums-dresden.de?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSending(true);
+    try {
+      const res = await fetch("https://freieevangeliums-dresden.de/api/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          message: parsed.data.msg,
+          website: "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        throw new Error("send_failed");
+      }
+      setSent(true);
+      form.reset();
+    } catch {
+      setError(t("pages.contact.errSend"));
+    } finally {
+      setSending(false);
+    }
   };
 
   const captchaQ = t("pages.contact.captcha")
@@ -142,7 +164,7 @@ function Contact() {
                 </div>
 
                 <div className="form-footer-row">
-                  <button type="submit" className="btn btn-primary">{t("pages.contact.btn")}</button>
+                  <button type="submit" className="btn btn-primary" disabled={sending}>{sending ? "…" : t("pages.contact.btn")}</button>
                   <p className="form-privacy">{t("pages.contact.privacy")}</p>
                 </div>
                 {error && <p style={{ marginTop: 12, fontSize: 13, color: "#c4392a" }}>{error}</p>}
