@@ -9,11 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail('Method not allowed', 405);
 
 check_auth();
 
+@set_time_limit(1800);
+@ini_set('max_execution_time', '1800');
+@ini_set('max_input_time', '1800');
+@ini_set('memory_limit', '768M');
+
+function format_bytes(int $bytes): string {
+  if ($bytes >= 1024 * 1024 * 1024) return round($bytes / 1024 / 1024 / 1024, 1) . ' ГБ';
+  return round($bytes / 1024 / 1024) . ' МБ';
+}
+
 // Detect the "file bigger than post_max_size" case — in that case $_POST/$_FILES are empty.
 if ($_SERVER['REQUEST_METHOD'] === 'POST'
     && empty($_POST) && empty($_FILES)
     && (int)($_SERVER['CONTENT_LENGTH'] ?? 0) > 0) {
-  fail('Файл слишком большой для сервера (превышен post_max_size). Разбейте на части или обратитесь к хостингу.', 413);
+  fail('Файл слишком большой для серверной настройки post_max_size. Для проповедей 1–2 часа разрешено до 2 ГБ; подождите 5 минут после деплоя и попробуйте снова.', 413);
 }
 
 $type = $_POST['type'] ?? '';
@@ -36,8 +46,8 @@ if ($err !== UPLOAD_ERR_OK) {
   fail($map[$err] ?? ('Ошибка загрузки (код ' . $err . ')'), 413);
 }
 
-$max = 500 * 1024 * 1024; // 500 MB
-if ($file['size'] > $max) fail('Файл слишком большой (максимум 500 МБ)', 413);
+$max = 2 * 1024 * 1024 * 1024; // 2 GB for long 1–2 hour sermons
+if ($file['size'] > $max) fail('Файл слишком большой (максимум ' . format_bytes($max) . ')', 413);
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],

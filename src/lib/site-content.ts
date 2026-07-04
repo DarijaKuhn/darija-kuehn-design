@@ -100,18 +100,43 @@ export async function uploadFile(
   password: string,
   type: "sermons" | "photos" | "books" | "assets",
   file: File,
+  onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
 ): Promise<{ url: string; filename: string; size: number }> {
-  const fd = new FormData();
-  fd.append("type", type);
-  fd.append("file", file);
-  const res = await fetch(API_UPLOAD, {
-    method: "POST",
-    headers: { "X-Admin-Password": password },
-    body: fd,
+  return new Promise((resolve, reject) => {
+    const fd = new FormData();
+    fd.append("type", type);
+    fd.append("file", file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", API_UPLOAD);
+    xhr.setRequestHeader("X-Admin-Password", password);
+
+    xhr.upload.onprogress = (event) => {
+      if (!event.lengthComputable || !onProgress) return;
+      onProgress({
+        loaded: event.loaded,
+        total: event.total,
+        percent: Math.round((event.loaded / event.total) * 100),
+      });
+    };
+
+    xhr.onload = () => {
+      const json = (() => {
+        try { return JSON.parse(xhr.responseText); }
+        catch { return {}; }
+      })();
+      if (xhr.status < 200 || xhr.status >= 300 || !json.ok) {
+        reject(new Error(json.error || `Upload failed (${xhr.status})`));
+        return;
+      }
+      resolve({ url: json.url, filename: json.filename, size: json.size });
+    };
+
+    xhr.onerror = () => reject(new Error("Соединение прервано во время загрузки. Попробуйте ещё раз или проверьте интернет."));
+    xhr.ontimeout = () => reject(new Error("Загрузка заняла слишком много времени. Попробуйте ещё раз."));
+    xhr.timeout = 30 * 60 * 1000;
+    xhr.send(fd);
   });
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok || !json.ok) throw new Error(json.error || `Upload failed (${res.status})`);
-  return { url: json.url, filename: json.filename, size: json.size };
 }
 
 export async function deleteItem(

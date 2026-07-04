@@ -229,19 +229,21 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   const [f, setF] = useState({ preacher: "", date: "", title: "", scripture: "" });
   const [files, setFiles] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
     if (files.length === 0) return onError("Выберите MP3-файл / MP3-Datei auswählen.");
     setBusy(true);
+    setUploadProgress(0);
     try {
-      const up = await uploadFile(password, "sermons", files[0]);
+      const up = await uploadFile(password, "sermons", files[0], ({ percent }) => setUploadProgress(percent));
       const item: Sermon = { id: newId(), ...f, fileUrl: up.url, createdAt: new Date().toISOString() };
       onSave([item, ...items]);
       setF({ preacher: "", date: "", title: "", scripture: "" });
       setFiles([]);
     } catch (err) { onError((err as Error).message); }
-    finally { setBusy(false); }
+    finally { setBusy(false); setUploadProgress(null); }
   }
 
   return (
@@ -255,11 +257,16 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
         <Field label="Аудио-файл / MP3">
           <FileDrop
             accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg,.mp3,.m4a,.wav,.ogg"
-            hint="MP3, M4A, WAV, OGG (до 200 MB)"
+            hint="MP3, M4A, WAV, OGG · проповеди 1–2 часа · до 2 GB"
             files={files}
             onFiles={setFiles}
           />
         </Field>
+        {uploadProgress !== null && (
+          <div style={{ fontSize: 13, color: "#2a5c27", marginBottom: 8 }}>
+            Загрузка проповеди: {uploadProgress}% — не закрывайте страницу
+          </div>
+        )}
         <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Загрузка…" : "Добавить / Hinzufügen"}</button>
       </form>
       <div style={styles.card}>
