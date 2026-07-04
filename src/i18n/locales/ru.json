@@ -36,7 +36,6 @@
     "legal": "Правовая информация",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь в Саксонии. Воскресные богослужения в 10:00.",
     "rights": "Все права защищены.",
-    
     "dsgvo": "Соответствует GDPR · Хостинг в ЕС"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Проповеди",
       "intro": "Слушайте записи воскресных богослужений и библейских занятий нашей общины на сайте propovednik.my1.ru",
       "btn": "Слушать проповеди →",
-      "archive": "Архив проповедей на нашем сайте"
+      "archive": "Архив проповедей на нашем сайте",
+      "sortBy": "Сортировать по",
+      "sortTitle": "Названию",
+      "sortPreacher": "Имени проповедника",
+      "sortDate": "Дате"
     },
     "map": {
       "crumb": "Как нас найти",

@@ -36,7 +36,6 @@
     "legal": "Legal",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — a Russian-speaking evangelical church in Saxony. Sunday service at 10:00.",
     "rights": "All rights reserved.",
-    
     "dsgvo": "GDPR-compliant · Hosted in the EU"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Sermons",
       "intro": "Listen to recordings of our Sunday services and Bible studies on propovednik.my1.ru",
       "btn": "Listen to sermons →",
-      "archive": "Sermon archive on our website"
+      "archive": "Sermon archive on our website",
+      "sortBy": "Sort by",
+      "sortTitle": "Title",
+      "sortPreacher": "Preacher",
+      "sortDate": "Date"
     },
     "map": {
       "crumb": "How to find us",

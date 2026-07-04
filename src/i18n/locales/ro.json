@@ -36,7 +36,6 @@
     "legal": "Juridic",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — biserică evanghelică vorbitoare de rusă în Saxonia. Slujba de duminică la 10:00.",
     "rights": "Toate drepturile rezervate.",
-    
     "dsgvo": "Conform GDPR · Găzduit în UE"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Predici",
       "intro": "Ascultați înregistrările slujbelor noastre duminicale și ale studiilor biblice pe propovednik.my1.ru",
       "btn": "Ascultă predicile →",
-      "archive": "Arhiva de predici pe site-ul nostru"
+      "archive": "Arhiva de predici pe site-ul nostru",
+      "sortBy": "Sortează după",
+      "sortTitle": "Titlu",
+      "sortPreacher": "Predicator",
+      "sortDate": "Dată"
     },
     "map": {
       "crumb": "Cum ne găsiți",

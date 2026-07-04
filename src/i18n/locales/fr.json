@@ -36,7 +36,6 @@
     "legal": "Mentions légales",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — église évangélique russophone en Saxe. Culte du dimanche à 10h00.",
     "rights": "Tous droits réservés.",
-    
     "dsgvo": "Conforme RGPD · Hébergé dans l'UE"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Prédications",
       "intro": "Écoutez les enregistrements de nos cultes dominicaux et études bibliques sur propovednik.my1.ru",
       "btn": "Écouter les prédications →",
-      "archive": "Archives des prédications sur notre site"
+      "archive": "Archives des prédications sur notre site",
+      "sortBy": "Trier par",
+      "sortTitle": "Titre",
+      "sortPreacher": "Prédicateur",
+      "sortDate": "Date"
     },
     "map": {
       "crumb": "Comment nous trouver",

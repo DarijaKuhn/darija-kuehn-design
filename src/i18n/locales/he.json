@@ -36,7 +36,6 @@
     "legal": "משפטי",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — כנסייה אוונגליסטית דוברת רוסית בסקסוניה. תפילת יום ראשון בשעה 10:00.",
     "rights": "כל הזכויות שמורות.",
-    
     "dsgvo": "תואם GDPR · מאוחסן באיחוד האירופי"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "דרשות",
       "intro": "האזינו להקלטות של תפילות יום ראשון ושיעורי כתבי הקודש שלנו ב-propovednik.my1.ru",
       "btn": "להאזין לדרשות →",
-      "archive": "ארכיון הדרשות באתר שלנו"
+      "archive": "ארכיון הדרשות באתר שלנו",
+      "sortBy": "מיין לפי",
+      "sortTitle": "כותרת",
+      "sortPreacher": "מטיף",
+      "sortDate": "תאריך"
     },
     "map": {
       "crumb": "איך להגיע",

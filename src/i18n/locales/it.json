@@ -36,7 +36,6 @@
     "legal": "Note legali",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — chiesa evangelica di lingua russa in Sassonia. Funzione domenicale alle 10:00.",
     "rights": "Tutti i diritti riservati.",
-    
     "dsgvo": "Conforme GDPR · Ospitato nell'UE"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Sermoni",
       "intro": "Ascolta le registrazioni delle nostre funzioni domenicali e studi biblici su propovednik.my1.ru",
       "btn": "Ascolta i sermoni →",
-      "archive": "Archivio dei sermoni sul nostro sito"
+      "archive": "Archivio dei sermoni sul nostro sito",
+      "sortBy": "Ordina per",
+      "sortTitle": "Titolo",
+      "sortPreacher": "Predicatore",
+      "sortDate": "Data"
     },
     "map": {
       "crumb": "Come trovarci",
