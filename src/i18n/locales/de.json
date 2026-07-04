@@ -36,7 +36,6 @@
     "legal": "Rechtliches",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — russischsprachige evangelische Kirche in Sachsen. Sonntagsgottesdienst um 10:00 Uhr.",
     "rights": "Alle Rechte vorbehalten.",
-    
     "dsgvo": "DSGVO-konform · Hosted in der EU"
   },
   "legalDisclaimer": "Die deutsche Fassung ist rechtlich allein verbindlich.",
@@ -332,7 +331,11 @@
       "h1": "Predigten",
       "intro": "Hören Sie Aufzeichnungen von Sonntagsgottesdiensten und Bibelstunden unserer Gemeinde auf propovednik.my1.ru.",
       "btn": "Predigten anhören →",
-      "archive": "Predigtarchiv auf unserer Website"
+      "archive": "Predigtarchiv auf unserer Website",
+      "sortBy": "Sortieren nach",
+      "sortTitle": "Titel",
+      "sortPreacher": "Prediger",
+      "sortDate": "Datum"
     },
     "map": {
       "crumb": "Anfahrt",

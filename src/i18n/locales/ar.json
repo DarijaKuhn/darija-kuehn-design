@@ -36,7 +36,6 @@
     "legal": "قانوني",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — كنيسة إنجيلية ناطقة بالروسية في ساكسونيا. قداس الأحد الساعة 10:00.",
     "rights": "جميع الحقوق محفوظة.",
-    
     "dsgvo": "متوافق مع GDPR · مستضاف في الاتحاد الأوروبي"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "العظات",
       "intro": "استمع إلى تسجيلات خدمات يوم الأحد ودراسات الكتاب المقدس على propovednik.my1.ru",
       "btn": "الاستماع إلى العظات →",
-      "archive": "أرشيف العظات على موقعنا"
+      "archive": "أرشيف العظات على موقعنا",
+      "sortBy": "ترتيب حسب",
+      "sortTitle": "العنوان",
+      "sortPreacher": "الواعظ",
+      "sortDate": "التاريخ"
     },
     "map": {
       "crumb": "كيف تجدنا",

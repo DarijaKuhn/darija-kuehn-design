@@ -36,7 +36,6 @@
     "legal": "Yasal",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — Saksonya'da Rusça konuşan evanjelik kilise. Pazar ibadeti 10:00'da.",
     "rights": "Tüm hakları saklıdır.",
-    
     "dsgvo": "GDPR uyumlu · AB'de barındırılıyor"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Vaazlar",
       "intro": "Pazar ibadetlerimizin ve Kutsal Kitap derslerimizin kayıtlarını propovednik.my1.ru adresinden dinleyin",
       "btn": "Vaazları dinle →",
-      "archive": "Web sitemizdeki vaaz arşivi"
+      "archive": "Web sitemizdeki vaaz arşivi",
+      "sortBy": "Sırala",
+      "sortTitle": "Başlık",
+      "sortPreacher": "Vaiz",
+      "sortDate": "Tarih"
     },
     "map": {
       "crumb": "Bize ulaşın",

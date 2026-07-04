@@ -36,7 +36,6 @@
     "legal": "Informacje prawne",
     "about": "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — rosyjskojęzyczny kościół ewangeliczny w Saksonii. Nabożeństwo niedzielne o 10:00.",
     "rights": "Wszelkie prawa zastrzeżone.",
-    
     "dsgvo": "Zgodny z RODO · Hostowany w UE"
   },
   "legalDisclaimer": "Die deutsche Fassung dieser Dokumente (Impressum und Datenschutzerklärung) ist rechtlich allein verbindlich. Übersetzungen dienen nur der Information.",
@@ -332,7 +331,11 @@
       "h1": "Kazania",
       "intro": "Słuchaj nagrań naszych nabożeństw niedzielnych i studiów biblijnych na propovednik.my1.ru",
       "btn": "Słuchaj kazań →",
-      "archive": "Archiwum kazań na naszej stronie"
+      "archive": "Archiwum kazań na naszej stronie",
+      "sortBy": "Sortuj według",
+      "sortTitle": "Tytułu",
+      "sortPreacher": "Kaznodziei",
+      "sortDate": "Daty"
     },
     "map": {
       "crumb": "Jak nas znaleźć",
