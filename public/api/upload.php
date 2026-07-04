@@ -24,6 +24,7 @@ $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
   'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif'],
   'books'   => ['pdf', 'epub', 'mobi'],
+  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg'],
 ];
 $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 if (!in_array($ext, $allowedExt[$type], true)) {
