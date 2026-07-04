@@ -164,7 +164,7 @@ function Contact() {
                 </div>
 
                 <div className="form-footer-row">
-                  <button type="submit" className="btn btn-primary">{t("pages.contact.btn")}</button>
+                  <button type="submit" className="btn btn-primary" disabled={sending}>{sending ? "…" : t("pages.contact.btn")}</button>
                   <p className="form-privacy">{t("pages.contact.privacy")}</p>
                 </div>
                 {error && <p style={{ marginTop: 12, fontSize: 13, color: "#c4392a" }}>{error}</p>}
