@@ -323,7 +323,22 @@
         "Temps en commun",
         "Fête de la moisson"
       ],
-      "btnAll": "Toutes les photos →"
+      "btnAll": "Toutes les photos →",
+      "sortBy": "Trier",
+      "filterByCategory": "Catégorie",
+      "filterAll": "Tous",
+      "sortDateNewest": "Date (plus récents)",
+      "sortDateOldest": "Date (plus anciens)",
+      "categories": {
+        "harvest": "Fête des moissons",
+        "christmas": "Noël",
+        "easter": "Pâques",
+        "children": "Ministère des enfants",
+        "women": "Petit-déjeuner des femmes",
+        "construction": "Construction de l'église",
+        "trips": "Voyages",
+        "other": "Divers"
+      }
     },
     "sermons": {
       "crumb": "Prédications",

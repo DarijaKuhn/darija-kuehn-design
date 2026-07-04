@@ -323,7 +323,22 @@
         "זמן יחד",
         "חג האסיף"
       ],
-      "btnAll": "כל התמונות →"
+      "btnAll": "כל התמונות →",
+      "sortBy": "מיין",
+      "filterByCategory": "קטגוריה",
+      "filterAll": "הכול",
+      "sortDateNewest": "תאריך (חדשים תחילה)",
+      "sortDateOldest": "תאריך (ישנים תחילה)",
+      "categories": {
+        "harvest": "חג האסיף",
+        "christmas": "חג המולד",
+        "easter": "פסחא",
+        "children": "שירות ילדים",
+        "women": "ארוחת בוקר לנשים",
+        "construction": "בניית הכנסייה",
+        "trips": "טיולים",
+        "other": "שונות"
+      }
     },
     "sermons": {
       "crumb": "דרשות",

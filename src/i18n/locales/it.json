@@ -323,7 +323,22 @@
         "Tempo insieme",
         "Festa del raccolto"
       ],
-      "btnAll": "Tutte le foto →"
+      "btnAll": "Tutte le foto →",
+      "sortBy": "Ordina",
+      "filterByCategory": "Categoria",
+      "filterAll": "Tutti",
+      "sortDateNewest": "Data (più recenti)",
+      "sortDateOldest": "Data (più vecchi)",
+      "categories": {
+        "harvest": "Festa del Raccolto",
+        "christmas": "Natale",
+        "easter": "Pasqua",
+        "children": "Ministero dei bambini",
+        "women": "Colazione delle donne",
+        "construction": "Costruzione della chiesa",
+        "trips": "Viaggi",
+        "other": "Vari"
+      }
     },
     "sermons": {
       "crumb": "Sermoni",

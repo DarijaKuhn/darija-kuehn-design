@@ -323,7 +323,22 @@
         "Time together",
         "Harvest festival"
       ],
-      "btnAll": "All photos →"
+      "btnAll": "All photos →",
+      "sortBy": "Sort",
+      "filterByCategory": "Category",
+      "filterAll": "All",
+      "sortDateNewest": "Date (newest first)",
+      "sortDateOldest": "Date (oldest first)",
+      "categories": {
+        "harvest": "Harvest Festival",
+        "christmas": "Christmas",
+        "easter": "Easter",
+        "children": "Children's Ministry",
+        "women": "Women's Breakfast",
+        "construction": "Church Construction",
+        "trips": "Trips",
+        "other": "Miscellaneous"
+      }
     },
     "sermons": {
       "crumb": "Sermons",

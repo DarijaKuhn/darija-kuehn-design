@@ -323,7 +323,22 @@
         "وقت معاً",
         "عيد الحصاد"
       ],
-      "btnAll": "جميع الصور →"
+      "btnAll": "جميع الصور →",
+      "sortBy": "ترتيب",
+      "filterByCategory": "الفئة",
+      "filterAll": "الكل",
+      "sortDateNewest": "التاريخ (الأحدث أولاً)",
+      "sortDateOldest": "التاريخ (الأقدم أولاً)",
+      "categories": {
+        "harvest": "عيد الحصاد",
+        "christmas": "عيد الميلاد",
+        "easter": "عيد الفصح",
+        "children": "خدمة الأطفال",
+        "women": "فطور النساء",
+        "construction": "بناء الكنيسة",
+        "trips": "الرحلات",
+        "other": "متنوعات"
+      }
     },
     "sermons": {
       "crumb": "العظات",

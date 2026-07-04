@@ -323,7 +323,22 @@
         "Timp împreună",
         "Sărbătoarea Recoltei"
       ],
-      "btnAll": "Toate fotografiile →"
+      "btnAll": "Toate fotografiile →",
+      "sortBy": "Sortare",
+      "filterByCategory": "Categorie",
+      "filterAll": "Toate",
+      "sortDateNewest": "Data (cele mai noi)",
+      "sortDateOldest": "Data (cele mai vechi)",
+      "categories": {
+        "harvest": "Sărbătoarea Recoltei",
+        "christmas": "Crăciun",
+        "easter": "Paște",
+        "children": "Slujire pentru copii",
+        "women": "Micul dejun al femeilor",
+        "construction": "Construcția bisericii",
+        "trips": "Călătorii",
+        "other": "Diverse"
+      }
     },
     "sermons": {
       "crumb": "Predici",

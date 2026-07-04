@@ -323,7 +323,22 @@
         "Gemeinsame Erholung",
         "Erntedankfest"
       ],
-      "btnAll": "Alle Fotos →"
+      "btnAll": "Alle Fotos →",
+      "sortBy": "Sortieren",
+      "filterByCategory": "Kategorie",
+      "filterAll": "Alle",
+      "sortDateNewest": "Datum (neueste zuerst)",
+      "sortDateOldest": "Datum (älteste zuerst)",
+      "categories": {
+        "harvest": "Erntedankfest",
+        "christmas": "Weihnachten",
+        "easter": "Ostern",
+        "children": "Kinderdienst",
+        "women": "Frauenfrühstück",
+        "construction": "Kirchenbau",
+        "trips": "Reisen",
+        "other": "Sonstiges"
+      }
     },
     "sermons": {
       "crumb": "Predigten",

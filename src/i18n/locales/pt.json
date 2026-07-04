@@ -323,7 +323,22 @@
         "Convívio",
         "Festa da Colheita"
       ],
-      "btnAll": "Todas as fotos →"
+      "btnAll": "Todas as fotos →",
+      "sortBy": "Ordenar",
+      "filterByCategory": "Categoria",
+      "filterAll": "Todos",
+      "sortDateNewest": "Data (mais recentes)",
+      "sortDateOldest": "Data (mais antigos)",
+      "categories": {
+        "harvest": "Festa da Colheita",
+        "christmas": "Natal",
+        "easter": "Páscoa",
+        "children": "Ministério Infantil",
+        "women": "Café das Mulheres",
+        "construction": "Construção da Igreja",
+        "trips": "Viagens",
+        "other": "Diversos"
+      }
     },
     "sermons": {
       "crumb": "Pregações",
