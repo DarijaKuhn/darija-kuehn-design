@@ -498,18 +498,6 @@ footer a:hover { color: #fff; }
   line-height: 1.5;
 }
 
-/* Footer instagram */
-.footer-insta {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 6px; padding: 8px 14px;
-  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  border-radius: 100px; color: #fff !important;
-  font-size: 13px !important; font-weight: 700 !important;
-  transition: transform .2s, box-shadow .2s;
-  text-decoration: none;
-}
-.footer-insta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(220,39,67,.4); color: #fff !important; }
-.footer-insta svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ─────── Cookie consent banner ─────── */
 .cc-overlay {
