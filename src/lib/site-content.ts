@@ -14,9 +14,14 @@ export type Sermon = {
   createdAt: string;
 };
 
+export type PhotoCategory =
+  | "harvest" | "christmas" | "easter" | "children"
+  | "women" | "construction" | "trips" | "other";
+
 export type Photo = {
   id: string;
   album: string;
+  category?: PhotoCategory;
   date: string;
   description: string;
   fileUrl: string;   // /uploads/photos/xxx.jpg
