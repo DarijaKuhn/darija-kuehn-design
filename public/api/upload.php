@@ -9,16 +9,35 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail('Method not allowed', 405);
 
 check_auth();
 
+// Detect the "file bigger than post_max_size" case — in that case $_POST/$_FILES are empty.
+if ($_SERVER['REQUEST_METHOD'] === 'POST'
+    && empty($_POST) && empty($_FILES)
+    && (int)($_SERVER['CONTENT_LENGTH'] ?? 0) > 0) {
+  fail('Файл слишком большой для сервера (превышен post_max_size). Разбейте на части или обратитесь к хостингу.', 413);
+}
+
 $type = $_POST['type'] ?? '';
 if (!in_array($type, ALLOWED_TYPES, true)) fail('Invalid type');
 
-if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-  fail('No file uploaded or upload error');
-}
+if (!isset($_FILES['file'])) fail('No file uploaded');
 
 $file = $_FILES['file'];
-$max = 200 * 1024 * 1024; // 200 MB
-if ($file['size'] > $max) fail('File too large (max 200 MB)', 413);
+$err = (int)($file['error'] ?? UPLOAD_ERR_NO_FILE);
+if ($err !== UPLOAD_ERR_OK) {
+  $map = [
+    UPLOAD_ERR_INI_SIZE   => 'Файл превышает upload_max_filesize на сервере',
+    UPLOAD_ERR_FORM_SIZE  => 'Файл превышает лимит формы',
+    UPLOAD_ERR_PARTIAL    => 'Файл загружен не полностью',
+    UPLOAD_ERR_NO_FILE    => 'Файл не выбран',
+    UPLOAD_ERR_NO_TMP_DIR => 'Нет временной папки на сервере',
+    UPLOAD_ERR_CANT_WRITE => 'Не удалось записать файл на диск',
+    UPLOAD_ERR_EXTENSION  => 'Загрузка остановлена PHP-расширением',
+  ];
+  fail($map[$err] ?? ('Ошибка загрузки (код ' . $err . ')'), 413);
+}
+
+$max = 500 * 1024 * 1024; // 500 MB
+if ($file['size'] > $max) fail('Файл слишком большой (максимум 500 МБ)', 413);
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
