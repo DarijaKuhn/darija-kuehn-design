@@ -32,13 +32,23 @@ export type Book = {
   createdAt: string;
 };
 
+export type Asset = {
+  id: string;
+  category: string;   // "banner" | "logo" | "other" | свободный текст
+  name: string;
+  description: string;
+  fileUrl: string;    // /uploads/assets/xxx.png
+  createdAt: string;
+};
+
 export type SiteContent = {
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
+  assets: Asset[];
 };
 
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [] };
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
