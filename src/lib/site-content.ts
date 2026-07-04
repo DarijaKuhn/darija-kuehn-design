@@ -32,13 +32,23 @@ export type Book = {
   createdAt: string;
 };
 
+export type Asset = {
+  id: string;
+  category: string;   // "banner" | "logo" | "other" | свободный текст
+  name: string;
+  description: string;
+  fileUrl: string;    // /uploads/assets/xxx.png
+  createdAt: string;
+};
+
 export type SiteContent = {
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
+  assets: Asset[];
 };
 
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [] };
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
@@ -56,6 +66,7 @@ export async function loadContent(): Promise<SiteContent> {
         sermons: Array.isArray(raw.sermons) ? raw.sermons : [],
         photos:  Array.isArray(raw.photos)  ? raw.photos  : [],
         books:   Array.isArray(raw.books)   ? raw.books   : [],
+        assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
       };
     }
   } catch {
@@ -82,7 +93,7 @@ export async function saveContent(password: string, content: SiteContent): Promi
 
 export async function uploadFile(
   password: string,
-  type: "sermons" | "photos" | "books",
+  type: "sermons" | "photos" | "books" | "assets",
   file: File,
 ): Promise<{ url: string; filename: string; size: number }> {
   const fd = new FormData();
@@ -100,7 +111,7 @@ export async function uploadFile(
 
 export async function deleteItem(
   password: string,
-  type: "sermons" | "photos" | "books",
+  type: "sermons" | "photos" | "books" | "assets",
   id: string,
 ): Promise<void> {
   const res = await fetch(API_DELETE, {

@@ -5,7 +5,7 @@ const ADMIN_PASSWORD = 'Dresden2026';
 
 const DATA_FILE     = __DIR__ . '/../data/site-content.json';
 const UPLOADS_DIR   = __DIR__ . '/../uploads';
-const ALLOWED_TYPES = ['sermons', 'photos', 'books'];
+const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets'];
 
 function json_response($data, int $status = 200): void {
   http_response_code($status);
@@ -35,7 +35,7 @@ function ensure_dirs(): void {
   }
   if (!file_exists(DATA_FILE)) {
     file_put_contents(DATA_FILE, json_encode([
-      'sermons' => [], 'photos' => [], 'books' => []
+      'sermons' => [], 'photos' => [], 'books' => [], 'assets' => []
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 }
