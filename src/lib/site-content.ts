@@ -110,7 +110,6 @@ export async function uploadFile(
     const xhr = new XMLHttpRequest();
     xhr.open("POST", API_UPLOAD);
     xhr.setRequestHeader("X-Admin-Password", password);
-    xhr.responseType = "json";
 
     xhr.upload.onprogress = (event) => {
       if (!event.lengthComputable || !onProgress) return;
@@ -122,7 +121,7 @@ export async function uploadFile(
     };
 
     xhr.onload = () => {
-      const json = xhr.response || (() => {
+      const json = (() => {
         try { return JSON.parse(xhr.responseText); }
         catch { return {}; }
       })();
