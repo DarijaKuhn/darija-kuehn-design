@@ -10,7 +10,7 @@ import {
 
 import { useState, useEffect, useRef } from "react";
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/fecg-logo-new.png.asset.json";
+const LOGO_URL = "https://freieevangeliums-dresden.de/uploads/assets/Removal-518_86e18fc0.png";
 import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -140,7 +140,7 @@ function Header() {
     <nav className="nav">
       <div className="nav-inner">
         <Link to="/" className="nav-logo" aria-label="FECG Dresden">
-          <img src={logoAsset.url} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
+          <img src={LOGO_URL} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
         </Link>
         <div className="nav-links-wrap">
           <button
@@ -196,7 +196,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <img src={logoAsset.url} alt="FECG Dresden" style={{ height: 32, width: "auto" }} />
+              <img src={LOGO_URL} alt="FECG Dresden" style={{ height: 32, width: "auto" }} />
             </div>
             <a
               href="https://www.instagram.com/youth_dresden?igsh=MTB5Z29tb3duNW05MA=="
