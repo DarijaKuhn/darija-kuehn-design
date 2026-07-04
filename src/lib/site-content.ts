@@ -111,7 +111,7 @@ export async function uploadFile(
 
 export async function deleteItem(
   password: string,
-  type: "sermons" | "photos" | "books",
+  type: "sermons" | "photos" | "books" | "assets",
   id: string,
 ): Promise<void> {
   const res = await fetch(API_DELETE, {
