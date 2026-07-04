@@ -45,13 +45,16 @@ export function MapEmbed() {
 
   if (active) {
     return (
-      <iframe
-        className="map-iframe"
-        title="Karte: Altenberger Str. 87, Dresden"
-        src={MAP_SRC}
-        loading="lazy"
-        referrerPolicy="no-referrer"
-      />
+      <div className="map-iframe-wrap" style={{ position: "relative", overflow: "hidden", width: "100%", height: "100%", minHeight: 320, borderRadius: 12 }}>
+        <iframe
+          className="map-iframe"
+          title="Karte: Altenberger Str. 87, Dresden"
+          src={MAP_SRC}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "calc(100% + 40px)", border: 0 }}
+        />
+      </div>
     );
   }
 

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import churchBuilding from "@/assets/church-building.jpg.asset.json";
+const churchBuilding = { url: "https://freieevangeliums-dresden.de/uploads/assets/___________f306492b.jpg" };
 import { MapEmbed } from "@/components/MapEmbed";
 import { useI18n } from "@/i18n";
 
