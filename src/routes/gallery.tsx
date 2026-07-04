@@ -72,20 +72,58 @@ function Gallery() {
 }
 
 function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void }) {
+  const { t } = useI18n();
   const [items, setItems] = useState<LocalPhoto[]>([]);
+  const [category, setCategory] = useState<"all" | PhotoCategory>("all");
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
   useEffect(() => { loadContent().then((c) => setItems(c.photos)); }, []);
+
+  const filtered = useMemo(() => {
+    const list = category === "all" ? items : items.filter((p) => (p.category ?? "other") === category);
+    return [...list].sort((a, b) => {
+      const cmp = (a.date || "").localeCompare(b.date || "");
+      return sortOrder === "newest" ? -cmp : cmp;
+    });
+  }, [items, category, sortOrder]);
+
   if (items.length === 0) return <p style={{ color: "var(--muted-fg, #555)", marginTop: 12 }}>Noch keine Fotos hochgeladen.</p>;
+
+  const selectStyle: React.CSSProperties = { padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 };
+
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 12, marginTop: 24 }}>
-      {items.map((p) => (
-        <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
-          <img src={p.fileUrl} alt={p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
-          <div style={{ padding: "8px 10px", textAlign: "left" }}>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>{p.album}</div>
-            {p.date && <div style={{ fontSize: 12, color: "#666" }}>{p.date}</div>}
-          </div>
-        </button>
-      ))}
-    </div>
+    <>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", marginTop: 20 }}>
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14 }}>
+          <span>{t("pages.gallery.filterByCategory")}:</span>
+          <select value={category} onChange={(e) => setCategory(e.target.value as typeof category)} style={selectStyle}>
+            <option value="all">{t("pages.gallery.filterAll")}</option>
+            {CATEGORY_KEYS.map((k) => (
+              <option key={k} value={k}>{t(`pages.gallery.categories.${k}`)}</option>
+            ))}
+          </select>
+        </label>
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14 }}>
+          <span>{t("pages.gallery.sortBy")}:</span>
+          <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as typeof sortOrder)} style={selectStyle}>
+            <option value="newest">{t("pages.gallery.sortDateNewest")}</option>
+            <option value="oldest">{t("pages.gallery.sortDateOldest")}</option>
+          </select>
+        </label>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 12, marginTop: 20 }}>
+        {filtered.map((p) => {
+          const catLabel = p.category ? t(`pages.gallery.categories.${p.category}`) : p.album;
+          return (
+            <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, catLabel || p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
+              <img src={p.fileUrl} alt={catLabel || p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
+              <div style={{ padding: "8px 10px", textAlign: "left" }}>
+                <div style={{ fontSize: 14, fontWeight: 600 }}>{catLabel || p.album}</div>
+                {p.date && <div style={{ fontSize: 12, color: "#666" }}>{p.date}</div>}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </>
   );
 }
