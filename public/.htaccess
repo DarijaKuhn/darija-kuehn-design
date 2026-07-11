@@ -23,7 +23,9 @@ Options -Indexes
 
 # Increase upload limits (Hetzner Webhosting honours these in most tariffs)
 <IfModule mod_php.c>
-  php_value upload_max_filesize 200M
-  php_value post_max_size 210M
-  php_value max_execution_time 300
+  php_value upload_max_filesize 2048M
+  php_value post_max_size 2100M
+  php_value max_execution_time 1800
+  php_value max_input_time 1800
+  php_value memory_limit 768M
 </IfModule>

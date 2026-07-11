@@ -38,6 +38,17 @@ jobs:
           if [ -f "public/.htaccess" ]; then
             cp public/.htaccess dist/client/.htaccess
           fi
+          if [ -f "public/.user.ini" ]; then
+            cp public/.user.ini dist/client/.user.ini
+          fi
+          if [ -f "public/api/.user.ini" ]; then
+            mkdir -p dist/client/api
+            cp public/api/.user.ini dist/client/api/.user.ini
+          fi
+          if [ ! -f "dist/client/api/upload-chunk.php" ]; then
+            echo "❌ upload-chunk.php не попал в сборку!"
+            exit 1
+          fi
           echo "✅ Сборка готова!"
 
       - name: Deploy via FTPS to Hetzner
@@ -66,6 +77,22 @@ jobs:
             exit 1
           fi
           echo "✅ index.html найден на сервере"
+
+          echo "=== Проверка PHP-файлов и лимитов загрузки ==="
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" \
+            -e "set ssl:verify-certificate no; set ftp:ssl-force true; set ftp:ssl-protect-data true; cls -a /public_html/; cls -a /public_html/api/; bye" \
+            "${{ secrets.FTP_SERVER }}" > remote_hidden_listing.txt
+          cat remote_hidden_listing.txt
+
+          if ! grep -q ".user.ini" remote_hidden_listing.txt; then
+            echo "❌ .user.ini НЕ найден на сервере — большие загрузки не будут работать!"
+            exit 1
+          fi
+          if ! grep -q "upload-chunk.php" remote_hidden_listing.txt; then
+            echo "❌ upload-chunk.php НЕ найден на сервере!"
+            exit 1
+          fi
+          echo "✅ PHP-настройки и chunk-загрузка найдены"
 
           if ! grep -q "assets" remote_listing.txt; then
             echo "⚠️ Папка assets не найдена — проверьте вручную"

@@ -59,7 +59,10 @@ const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
 const API_SAVE = "/api/save.php";
 const API_UPLOAD = "/api/upload.php";
+const API_UPLOAD_CHUNK = "/api/upload-chunk.php";
 const API_DELETE = "/api/delete.php";
+const LARGE_UPLOAD_THRESHOLD = 20 * 1024 * 1024;
+const CHUNK_SIZE = 5 * 1024 * 1024;
 
 export async function loadContent(): Promise<SiteContent> {
   // Prefer the static JSON (cache-busted) — fast, no PHP needed for public pages.
@@ -102,6 +105,10 @@ export async function uploadFile(
   file: File,
   onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
 ): Promise<{ url: string; filename: string; size: number }> {
+  if (file.size > LARGE_UPLOAD_THRESHOLD) {
+    return uploadFileChunked(password, type, file, onProgress);
+  }
+
   return new Promise((resolve, reject) => {
     const fd = new FormData();
     fd.append("type", type);
@@ -135,6 +142,102 @@ export async function uploadFile(
     xhr.onerror = () => reject(new Error("Соединение прервано во время загрузки. Попробуйте ещё раз или проверьте интернет."));
     xhr.ontimeout = () => reject(new Error("Загрузка заняла слишком много времени. Попробуйте ещё раз."));
     xhr.timeout = 30 * 60 * 1000;
+    xhr.send(fd);
+  });
+}
+
+async function uploadFileChunked(
+  password: string,
+  type: "sermons" | "photos" | "books" | "assets",
+  file: File,
+  onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
+): Promise<{ url: string; filename: string; size: number }> {
+  const uploadId = typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+  let uploadedBeforeChunk = 0;
+
+  for (let chunkIndex = 0; chunkIndex < totalChunks; chunkIndex += 1) {
+    const start = chunkIndex * CHUNK_SIZE;
+    const end = Math.min(start + CHUNK_SIZE, file.size);
+    const chunk = file.slice(start, end);
+    const result = await uploadChunk({
+      password,
+      type,
+      fileName: file.name,
+      uploadId,
+      chunk,
+      chunkIndex,
+      totalChunks,
+      totalSize: file.size,
+      uploadedBeforeChunk,
+      onProgress,
+    });
+    uploadedBeforeChunk += chunk.size;
+
+    if (result?.done) {
+      onProgress?.({ loaded: file.size, total: file.size, percent: 100 });
+      return { url: result.url, filename: result.filename, size: result.size };
+    }
+  }
+
+  throw new Error("Загрузка не завершилась. Попробуйте ещё раз.");
+}
+
+function uploadChunk(args: {
+  password: string;
+  type: "sermons" | "photos" | "books" | "assets";
+  fileName: string;
+  uploadId: string;
+  chunk: Blob;
+  chunkIndex: number;
+  totalChunks: number;
+  totalSize: number;
+  uploadedBeforeChunk: number;
+  onProgress?: (progress: { loaded: number; total: number; percent: number }) => void;
+}): Promise<{ done: false } | { done: true; url: string; filename: string; size: number }> {
+  return new Promise((resolve, reject) => {
+    const fd = new FormData();
+    fd.append("type", args.type);
+    fd.append("uploadId", args.uploadId);
+    fd.append("filename", args.fileName);
+    fd.append("chunkIndex", String(args.chunkIndex));
+    fd.append("totalChunks", String(args.totalChunks));
+    fd.append("totalSize", String(args.totalSize));
+    fd.append("file", args.chunk, args.fileName);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", API_UPLOAD_CHUNK);
+    xhr.setRequestHeader("X-Admin-Password", args.password);
+
+    xhr.upload.onprogress = (event) => {
+      if (!event.lengthComputable || !args.onProgress) return;
+      const loaded = Math.min(args.totalSize, args.uploadedBeforeChunk + event.loaded);
+      args.onProgress({
+        loaded,
+        total: args.totalSize,
+        percent: Math.min(99, Math.round((loaded / args.totalSize) * 100)),
+      });
+    };
+
+    xhr.onload = () => {
+      const json = (() => {
+        try { return JSON.parse(xhr.responseText); }
+        catch { return {}; }
+      })();
+      if (xhr.status < 200 || xhr.status >= 300 || !json.ok) {
+        reject(new Error(json.error || `Upload failed (${xhr.status})`));
+        return;
+      }
+      resolve(json.done
+        ? { done: true, url: json.url, filename: json.filename, size: json.size }
+        : { done: false });
+    };
+
+    xhr.onerror = () => reject(new Error("Соединение прервано во время загрузки. Попробуйте ещё раз или проверьте интернет."));
+    xhr.ontimeout = () => reject(new Error("Загрузка заняла слишком много времени. Попробуйте ещё раз."));
+    xhr.timeout = 10 * 60 * 1000;
     xhr.send(fd);
   });
 }
