@@ -49,7 +49,7 @@ function VersesPage() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    let list = poems.filter((p) => {
+    let list = allPoems.filter((p) => {
       if (category !== "all" && p.category !== category) return false;
       if (!q) return true;
       return (
@@ -67,7 +67,7 @@ function VersesPage() {
       );
     });
     return list;
-  }, [sortBy, category, query]);
+  }, [sortBy, category, query, allPoems]);
 
   return (
     <div className="page-panel">
