@@ -295,6 +295,23 @@ function Footer() {
   );
 }
 
+function PageTracker() {
+  const router = useRouter();
+  useEffect(() => {
+    let last = "";
+    const send = () => {
+      const p = window.location.pathname || "/";
+      if (p === last) return;
+      last = p;
+      import("@/lib/analytics").then((m) => m.trackView(p)).catch(() => {});
+    };
+    send();
+    const unsub = router.subscribe("onResolved", send);
+    return () => unsub();
+  }, [router]);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
@@ -304,7 +321,9 @@ function RootComponent() {
         <Outlet />
         <Footer />
         <CookieConsent />
+        <PageTracker />
       </I18nProvider>
     </QueryClientProvider>
   );
 }
+
