@@ -711,6 +711,144 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
+/* ---------------- StatsTab (anonyme Reichweitenmessung) ---------------- */
+
+const PATH_LABELS: Record<string, string> = {
+  "/": "Главная / Startseite",
+  "/contact": "Контакты / Kontakt",
+  "/gallery": "Фото / Fotos",
+  "/sermons": "Проповеди / Predigten",
+  "/books": "Книги / Bücher",
+  "/verses": "Стихи / Gedichte",
+  "/confession": "Вероисповедание / Glaubensbekenntnis",
+  "/services": "Богослужения / Gottesdienste",
+  "/map": "Карта / Anfahrt",
+  "/impressum": "Impressum",
+  "/datenschutz": "Datenschutz",
+};
+
+function StatsTab({ password, onError }: { password: string; onError: (m: string) => void }) {
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState<Awaited<ReturnType<typeof fetchStats>> | null>(null);
+
+  async function reload() {
+    setLoading(true);
+    try { setStats(await fetchStats(password)); }
+    catch (e) { onError((e as Error).message); }
+    finally { setLoading(false); }
+  }
+  useEffect(() => { reload(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, []);
+
+  const topPaths = useMemo(() => {
+    if (!stats) return [];
+    return Object.entries(stats.paths).sort((a, b) => b[1] - a[1]);
+  }, [stats]);
+  const topPhotos = useMemo(() => {
+    if (!stats) return [];
+    return Object.entries(stats.items).filter(([k]) => k.startsWith("photo:")).sort((a, b) => b[1] - a[1]).slice(0, 20);
+  }, [stats]);
+  const topVerses = useMemo(() => {
+    if (!stats) return [];
+    return Object.entries(stats.items).filter(([k]) => k.startsWith("verse:")).sort((a, b) => b[1] - a[1]).slice(0, 20);
+  }, [stats]);
+  const last30 = useMemo(() => {
+    if (!stats) return [] as [string, { views: number; unique: number }][];
+    return Object.entries(stats.daily).sort((a, b) => a[0].localeCompare(b[0])).slice(-30);
+  }, [stats]);
+  const maxDaily = Math.max(1, ...last30.map(([, v]) => v.views));
+
+  if (loading) return <p>Загрузка статистики…</p>;
+  if (!stats) return <p>Нет данных.</p>;
+
+  const KpiCard = ({ label, value }: { label: string; value: number | string }) => (
+    <div style={{ background: "#fff", border: "1px solid #e2e2dc", borderRadius: 10, padding: 18, flex: "1 1 180px" }}>
+      <div style={{ fontSize: 12, color: "#666", textTransform: "uppercase", letterSpacing: .5 }}>{label}</div>
+      <div style={{ fontSize: 28, fontWeight: 700, marginTop: 6, color: "#2a5c27" }}>{value}</div>
+    </div>
+  );
+
+  return (
+    <div style={{ display: "grid", gap: 20 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+        <p style={{ margin: 0, color: "#666", fontSize: 13 }}>
+          Анонимная статистика · без IP, без cookies · с {stats.since}
+        </p>
+        <button onClick={reload} style={styles.btnGhost}>↻ Обновить</button>
+      </div>
+
+      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <KpiCard label="Всего посещений" value={stats.total.toLocaleString("ru")} />
+        <KpiCard label="Уникальных посещений" value={stats.unique_total.toLocaleString("ru")} />
+        <KpiCard label="Сегодня" value={(last30[last30.length - 1]?.[1].views ?? 0).toLocaleString("ru")} />
+        <KpiCard label="Дней с данными" value={Object.keys(stats.daily).length} />
+      </div>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>📈 Посещения — последние 30 дней</h2>
+        {last30.length === 0 ? (
+          <p style={styles.empty}>Пока нет данных.</p>
+        ) : (
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 3, height: 140, marginTop: 8 }}>
+            {last30.map(([day, v]) => (
+              <div key={day} title={`${day}: ${v.views} посещений (${v.unique} уникальных)`}
+                   style={{ flex: 1, background: "#2a5c27", opacity: .35 + .65 * (v.views / maxDaily), minHeight: 2, height: `${(v.views / maxDaily) * 100}%`, borderRadius: "3px 3px 0 0" }} />
+            ))}
+          </div>
+        )}
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6, fontSize: 11, color: "#888" }}>
+          <span>{last30[0]?.[0]}</span>
+          <span>{last30[last30.length - 1]?.[0]}</span>
+        </div>
+      </div>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>📄 Самые посещаемые страницы</h2>
+        {topPaths.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
+          <StatBars rows={topPaths} labelFor={(k) => PATH_LABELS[k] || k} />
+        )}
+      </div>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>🖼️ Самые просматриваемые фото</h2>
+        {topPhotos.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
+          <StatBars rows={topPhotos} labelFor={(k) => k.replace(/^photo:/, "")} />
+        )}
+      </div>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>📜 Самые читаемые стихи</h2>
+        {topVerses.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
+          <StatBars rows={topVerses} labelFor={(k) => k.replace(/^verse:/, "")} />
+        )}
+      </div>
+
+      <p style={{ fontSize: 12, color: "#888", margin: 0 }}>
+        Данные полностью анонимны: не сохраняются IP-адреса, cookies или личные идентификаторы.
+        Уникальные посещения считаются через ежедневный ротируемый хэш (удаляется через 48 ч).
+        Учитываются только посетители-люди (боты и Do-Not-Track исключаются).
+      </p>
+    </div>
+  );
+}
+
+function StatBars({ rows, labelFor }: { rows: [string, number][]; labelFor: (k: string) => string }) {
+  const max = Math.max(1, ...rows.map(([, v]) => v));
+  return (
+    <div style={{ display: "grid", gap: 8 }}>
+      {rows.map(([k, v]) => (
+        <div key={k} style={{ display: "grid", gridTemplateColumns: "minmax(140px, 1fr) 3fr 60px", gap: 10, alignItems: "center" }}>
+          <div style={{ fontSize: 13, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }} title={labelFor(k)}>{labelFor(k)}</div>
+          <div style={{ background: "#f0f0ea", borderRadius: 4, overflow: "hidden", height: 18 }}>
+            <div style={{ width: `${(v / max) * 100}%`, background: "#2a5c27", height: "100%" }} />
+          </div>
+          <div style={{ fontSize: 13, fontWeight: 600, textAlign: "right" }}>{v.toLocaleString("ru")}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
 const styles: Record<string, React.CSSProperties> = {
   gateWrap: { minHeight: "100vh", display: "grid", placeItems: "center", background: "#f5f5f2", padding: 20 },
   gateBox: { background: "#fff", padding: 28, borderRadius: 10, width: "100%", maxWidth: 360, boxShadow: "0 4px 20px rgba(0,0,0,.06)" },
