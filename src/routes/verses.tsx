@@ -218,7 +218,7 @@ function VersesPage() {
             >
               propovednik.my1.ru
             </a>
-            . Всего: {poems.length}.
+            . Всего: {allPoems.length}.
           </p>
         </div>
       </section>
