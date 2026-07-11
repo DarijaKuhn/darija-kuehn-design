@@ -122,10 +122,10 @@ function VersesPage() {
                 onChange={(e) => setCategory(e.target.value)}
                 style={{ padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 }}
               >
-                <option value="all">Все ({poems.length})</option>
+                <option value="all">Все ({allPoems.length})</option>
                 {categories.map((c) => (
                   <option key={c} value={c}>
-                    {c} ({poems.filter((p) => p.category === c).length})
+                    {c} ({allPoems.filter((p) => p.category === c).length})
                   </option>
                 ))}
               </select>
