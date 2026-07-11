@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, useRef, type FormEvent, type DragEvent } from "react";
+import { useEffect, useState, useRef, useMemo, type FormEvent, type DragEvent } from "react";
 import {
   loadContent,
   saveContent,
@@ -14,6 +14,7 @@ import {
   type Asset,
   type Verse,
 } from "@/lib/site-content";
+import { fetchStats } from "@/lib/analytics";
 
 // NOTE: this is a client-side convenience gate. The real check happens in
 // public/api/config.php (const ADMIN_PASSWORD). Change BOTH to rotate the password.
@@ -73,7 +74,7 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
   );
 }
 
-type Tab = "sermons" | "photos" | "books" | "assets" | "verses";
+type Tab = "sermons" | "photos" | "books" | "assets" | "verses" | "stats";
 
 function Dashboard({ password, onLogout }: { password: string; onLogout: () => void }) {
   const [content, setContent] = useState<SiteContent>(EMPTY_CONTENT);
@@ -114,10 +115,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </header>
 
       <nav style={styles.tabs}>
-        {(["sermons", "photos", "books", "assets", "verses"] as Tab[]).map((t) => (
+        {(["sermons", "photos", "books", "assets", "verses", "stats"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : "Стихи"}
-            <span style={styles.count}>{content[t].length}</span>
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : "📊 Статистика"}
+            {t !== "stats" && <span style={styles.count}>{content[t as Exclude<Tab,"stats">].length}</span>}
           </button>
         ))}
       </nav>
@@ -138,8 +139,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
         <BooksTab items={content.books} password={password} onSave={(items) => persist({ ...content, books: items })} onDelete={(id) => handleDelete("books", id)} onError={(m) => flash("err", m)} />
       ) : tab === "assets" ? (
         <AssetsTab items={content.assets} password={password} onSave={(items) => persist({ ...content, assets: items })} onDelete={(id) => handleDelete("assets", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
-      ) : (
+      ) : tab === "verses" ? (
         <VersesTab items={content.verses} onSave={(items) => persist({ ...content, verses: items })} onDelete={(id) => handleDelete("verses", id)} onError={(m) => flash("err", m)} />
+      ) : (
+        <StatsTab password={password} onError={(m) => flash("err", m)} />
       )}
     </div>
   );
