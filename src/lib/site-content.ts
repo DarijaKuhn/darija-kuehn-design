@@ -87,6 +87,7 @@ export async function loadContent(): Promise<SiteContent> {
         photos:  Array.isArray(raw.photos)  ? raw.photos  : [],
         books:   Array.isArray(raw.books)   ? raw.books   : [],
         assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
+        verses:  Array.isArray(raw.verses)  ? raw.verses  : [],
       };
     }
   } catch {
