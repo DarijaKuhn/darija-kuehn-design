@@ -12,6 +12,7 @@ import {
   type Photo,
   type Book,
   type Asset,
+  type Verse,
 } from "@/lib/site-content";
 
 // NOTE: this is a client-side convenience gate. The real check happens in
