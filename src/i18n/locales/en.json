@@ -231,7 +231,66 @@
         "… organise locally in independent congregations and connect regionally and worldwide."
       ],
       "principlesNote": "(based on the “Baptist Principles” and the formulation of the working group Kirche 21 of the GJW)",
-      "rechenschaftLinkLabel": "Read the full “Rechenschaft vom Glauben” (PDF, BEFG)"
+      "rechenschaftLinkLabel": "Read the full “Rechenschaft vom Glauben” (PDF, BEFG)",
+      "extendedTitle": "Detailed Statement of Faith",
+      "refsLabel": "Relevant Bible passages",
+      "extendedItems": [
+        {
+          "h": "The Triune God",
+          "paragraphs": [
+            "We believe in the one almighty, omnipresent, omniscient, eternal, triune God; one God in three persons: Father, Son and Holy Spirit.",
+            "We believe in God the Father, who created all things and holds the whole creation in His hand and leads it to His goal.",
+            "We believe in God the Son, who was sent by the Father to the earth out of love and became man in Jesus Christ. As true God, He also became fully man. Born of the Virgin Mary, He grew up and led a sinless life. Jesus Christ performed miracles in His divine authority and gave His life on the cross vicariously for the guilt of mankind. He was buried, rose bodily again, and ascended into heaven to His Father. Now He sits at the right hand of the Father in power and glory. From there He will come again in power and glory to judge all the living and the dead.",
+            "We believe in God the Holy Spirit. He is the Spirit of truth, who proceeds from the Father. At Pentecost He was sent by the Father in the name of the Son to the earth. Since then He carries out the redemptive work of the Son on earth by leading people through the new birth to saving faith, and thereby builds the church of Jesus Christ."
+          ],
+          "refs": "1. Mo 1,1; 3,22; Jes 48,12-16; Mt 28,18-20; Joh 3,5-6; 5,22-23; 14,26; 16,13-14; 2. Kor 13,13; Eph 2,18; Phil 2,6-11; 1. Joh 5,20; Offb 19,11-16"
+        },
+        {
+          "h": "The Bible",
+          "paragraphs": [
+            "We believe that God reveals Himself in the Bible as His Word. The Bible is the divinely inspired and therefore, in its original writings, in every respect infallible and inerrant Word of God. As such it has binding authority for faith and life."
+          ],
+          "refs": "2. Mo 24,4; Lk 24,27; 2. Pet 1,19-21; Joh 10,35; Mt 5,17-18; 2. Tim 3,16-17; Offb 22,18-19"
+        },
+        {
+          "h": "Humanity",
+          "paragraphs": [
+            "We believe that man is created in the image of God. This gives every human being value and dignity. We therefore stand for the protection of human life from conception to death. God created human beings as male and female and gave them the commission to multiply and to steward God's creation. We confess the resulting picture of marriage and family: marriage between one man and one woman. It is founded on a mutual promise of faithfulness until death. It is the legitimate framework within which human sexuality is to be lived out.",
+            "We believe that man turned away from his Creator through disobedience. Having fallen into sin, he is now under God's judgment. This will reach its finality in eternal lostness at the end of all times."
+          ],
+          "refs": "1. Mo 1,27f; 2,15.24; 9,1; Ps 14,1-3; Ps 139,13-16; Jes 53,6a; Mt 25,41; Röm 1,3.23.26-28; 5,12; 6,23a; 1. Kor 7,2.39; Eph 5,21-33; Heb 13,4"
+        },
+        {
+          "h": "Redemption",
+          "paragraphs": [
+            "We believe that lost man can only be saved through Jesus Christ and thus escape God's eternal judgment. Every person may personally turn to Him in faith, confess his sin, and appropriate the redemptive work of Jesus Christ. Thus he receives forgiveness of his sin and is credited with God's righteousness. He is born again by the Holy Spirit and thus made a child of God. He is to live according to his election so as not to fall back into unbelief."
+          ],
+          "refs": "Joh 1,12; 14,6; Apg 4,12; Röm 3,21-26; 8,1.29-33; Eph 1,4-8; 2,8-10; Kol 1,21-23; Tit 3,4-7; Heb 3,12-13; 1. Joh 1,9"
+        },
+        {
+          "h": "The Church",
+          "paragraphs": [
+            "We believe that the New Testament church of Jesus Christ was called into being by the Holy Spirit and has since existed through all times in all parts of the world up to this day. Every child of God is called to publicly confess his faith through baptism, to seek committed membership in a local church, and to serve it with the gifts received from the Holy Spirit.",
+            "We believe that the church is a visible expression of the kingdom of God. The independence of the local church and interchurch cooperation for the kingdom of God unite us. We believe that men called by the Holy Spirit and appointed by the local church are to hold the office of pastor, elder, or preacher.",
+            "We believe that the commission of Jesus Christ — namely, the proclamation of the gospel throughout the world — applies to every child of God and to the church. This commission is carried out in word and deed."
+          ],
+          "refs": "Mt 16,18f; 18,19f; 28,18-20; Mk 16,15f; Apg 2,1-4.38.41-47; 4,32f; Röm 12,3-7; 1. Kor 12-14; Eph 1,20-23; 2,13-22; 3,20f; 4,8-12; 1. Tim 2,12-3,13; 3,15; Tit 1,5-9; 1. Pet 1,13-17; 3,15; 4,10-12"
+        },
+        {
+          "h": "The Christian Life",
+          "paragraphs": [
+            "We believe that all followers of Jesus should strive to lead a life worthy of their identity as children of God. The Bible also calls this way of life sanctification. The ethical instructions of the Bible are normative and binding for all children of God."
+          ],
+          "refs": "Joh 14,15.21; 15,10; Eph 2,10; 4,1-2; Phil 2,12f; 1. Thess 4,3; Heb 12,14; Jak 2,17"
+        },
+        {
+          "h": "The Goal",
+          "paragraphs": [
+            "We believe that the personhood of man will outlast bodily death and that every person will also be raised bodily: the saved to eternal life, the lost to eternal judgment. We believe that at the end of time God will create a new heaven and a new earth and establish His kingdom, which will remain forever."
+          ],
+          "refs": "Dan 12,2; 1. Kor 15,53; Joh 5,28-29; Röm 2,6-7.10; Röm 2,5-6.8-9; 2. Thess 1,8-9; 2. Petr 3,13; Offb 21,1; Dan 6,27; 7,14; 2. Petr 1,11; Offb 11,15"
+        }
+      ]
     },
     "services": {
       "crumb": "Services",
