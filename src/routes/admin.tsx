@@ -136,8 +136,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
         <PhotosTab items={content.photos} password={password} onSave={(items) => persist({ ...content, photos: items })} onDelete={(id) => handleDelete("photos", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
       ) : tab === "books" ? (
         <BooksTab items={content.books} password={password} onSave={(items) => persist({ ...content, books: items })} onDelete={(id) => handleDelete("books", id)} onError={(m) => flash("err", m)} />
-      ) : (
+      ) : tab === "assets" ? (
         <AssetsTab items={content.assets} password={password} onSave={(items) => persist({ ...content, assets: items })} onDelete={(id) => handleDelete("assets", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
+      ) : (
+        <VersesTab items={content.verses} onSave={(items) => persist({ ...content, verses: items })} onDelete={(id) => handleDelete("verses", id)} onError={(m) => flash("err", m)} />
       )}
     </div>
   );
