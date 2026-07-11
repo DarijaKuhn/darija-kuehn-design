@@ -163,7 +163,7 @@ function VersesPage() {
                   >
                     <button
                       type="button"
-                      onClick={() => setOpenIdx(open ? null : i)}
+                      onClick={() => { if (!open) trackView("/verses", `verse:${p.title}`); setOpenIdx(open ? null : i); }}
                       style={{
                         appearance: "none",
                         background: "none",
