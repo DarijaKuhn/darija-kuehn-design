@@ -35,7 +35,7 @@ function ensure_dirs(): void {
   }
   if (!file_exists(DATA_FILE)) {
     file_put_contents(DATA_FILE, json_encode([
-      'sermons' => [], 'photos' => [], 'books' => [], 'assets' => []
+      'sermons' => [], 'photos' => [], 'books' => [], 'assets' => [], 'verses' => []
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 }
