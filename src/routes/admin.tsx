@@ -73,7 +73,7 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
   );
 }
 
-type Tab = "sermons" | "photos" | "books" | "assets";
+type Tab = "sermons" | "photos" | "books" | "assets" | "verses";
 
 function Dashboard({ password, onLogout }: { password: string; onLogout: () => void }) {
   const [content, setContent] = useState<SiteContent>(EMPTY_CONTENT);
