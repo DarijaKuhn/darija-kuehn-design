@@ -18,6 +18,8 @@ function Confession() {
   const items = (i18n.t("pages.confession.items", { returnObjects: true }) as [string, string][]) || [];
   const solaItems = (i18n.t("pages.confession.solaItems", { returnObjects: true }) as [string, string][]) || [];
   const baptistenItems = (i18n.t("pages.confession.baptistenItems", { returnObjects: true }) as string[]) || [];
+  const extendedItems = (i18n.t("pages.confession.extendedItems", { returnObjects: true }) as { h: string; paragraphs: string[]; refs: string }[]) || [];
+  const refsLabel = t("pages.confession.refsLabel");
   return (
     <div className="page-panel">
       <div className="page-breadcrumb">
@@ -50,6 +52,26 @@ function Confession() {
                 </ul>
               </>
             )}
+
+            {Array.isArray(extendedItems) && extendedItems.length > 0 && (
+              <>
+                <h2>{t("pages.confession.extendedTitle")}</h2>
+                {extendedItems.map((it, i) => (
+                  <div key={`ext-${i}`} style={{ marginBottom: 24 }}>
+                    <h3 style={{ marginBottom: 8 }}>{it.h}</h3>
+                    {it.paragraphs.map((p, j) => (
+                      <p key={`ext-${i}-p-${j}`}>{p}</p>
+                    ))}
+                    {it.refs && (
+                      <p style={{ opacity: 0.75, fontSize: "0.9em", fontStyle: "italic" }}>
+                        <strong>{refsLabel}:</strong> {it.refs}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </>
+            )}
+
 
 
             {Array.isArray(baptistenItems) && baptistenItems.length > 0 && (
