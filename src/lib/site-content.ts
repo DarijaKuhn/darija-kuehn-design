@@ -46,14 +46,24 @@ export type Asset = {
   createdAt: string;
 };
 
+export type Verse = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  text: string;
+  createdAt: string;
+};
+
 export type SiteContent = {
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
   assets: Asset[];
+  verses: Verse[];
 };
 
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [] };
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
@@ -77,6 +87,7 @@ export async function loadContent(): Promise<SiteContent> {
         photos:  Array.isArray(raw.photos)  ? raw.photos  : [],
         books:   Array.isArray(raw.books)   ? raw.books   : [],
         assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
+        verses:  Array.isArray(raw.verses)  ? raw.verses  : [],
       };
     }
   } catch {
@@ -251,7 +262,7 @@ function uploadChunk(args: {
 
 export async function deleteItem(
   password: string,
-  type: "sermons" | "photos" | "books" | "assets",
+  type: "sermons" | "photos" | "books" | "assets" | "verses",
   id: string,
 ): Promise<void> {
   const res = await fetch(API_DELETE, {

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n";
-import { poems } from "@/data/poems";
+import { poems, type Poem } from "@/data/poems";
+import { loadContent } from "@/lib/site-content";
 
 export const Route = createFileRoute("/verses")({
   component: VersesPage,
@@ -30,16 +31,25 @@ function VersesPage() {
   const [category, setCategory] = useState<string>("all");
   const [query, setQuery] = useState("");
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [extra, setExtra] = useState<Poem[]>([]);
+
+  useEffect(() => {
+    loadContent()
+      .then((c) => setExtra(c.verses.map((v) => ({ title: v.title, author: v.author, category: v.category || "Разное", text: v.text }))))
+      .catch(() => {});
+  }, []);
+
+  const allPoems = useMemo<Poem[]>(() => [...extra, ...poems], [extra]);
 
   const categories = useMemo(() => {
     const s = new Set<string>();
-    poems.forEach((p) => p.category && s.add(p.category));
+    allPoems.forEach((p) => p.category && s.add(p.category));
     return Array.from(s).sort((a, b) => a.localeCompare(b, "ru"));
-  }, []);
+  }, [allPoems]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    let list = poems.filter((p) => {
+    let list = allPoems.filter((p) => {
       if (category !== "all" && p.category !== category) return false;
       if (!q) return true;
       return (
@@ -57,7 +67,7 @@ function VersesPage() {
       );
     });
     return list;
-  }, [sortBy, category, query]);
+  }, [sortBy, category, query, allPoems]);
 
   return (
     <div className="page-panel">
@@ -112,10 +122,10 @@ function VersesPage() {
                 onChange={(e) => setCategory(e.target.value)}
                 style={{ padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 }}
               >
-                <option value="all">Все ({poems.length})</option>
+                <option value="all">Все ({allPoems.length})</option>
                 {categories.map((c) => (
                   <option key={c} value={c}>
-                    {c} ({poems.filter((p) => p.category === c).length})
+                    {c} ({allPoems.filter((p) => p.category === c).length})
                   </option>
                 ))}
               </select>
@@ -208,7 +218,7 @@ function VersesPage() {
             >
               propovednik.my1.ru
             </a>
-            . Всего: {poems.length}.
+            . Всего: {allPoems.length}.
           </p>
         </div>
       </section>
