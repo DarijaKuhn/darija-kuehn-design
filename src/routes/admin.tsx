@@ -95,7 +95,8 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
     catch (e) { flash("err", (e as Error).message); }
   }
 
-  async function handleDelete(type: Tab, id: string) {
+  type ContentTab = Exclude<Tab, "stats">;
+  async function handleDelete(type: ContentTab, id: string) {
     if (!confirm("Wirklich löschen? / Точно удалить?")) return;
     try {
       await deleteItem(password, type, id);
@@ -103,6 +104,7 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       flash("ok", "Gelöscht / Удалено ✓");
     } catch (e) { flash("err", (e as Error).message); }
   }
+
 
   return (
     <div style={styles.wrap}>
