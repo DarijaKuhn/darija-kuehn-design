@@ -598,6 +598,105 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
   );
 }
 
+function VersesTab({ items, onSave, onDelete, onError }: {
+  items: Verse[]; onSave: (i: Verse[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
+}) {
+  const [f, setF] = useState({ title: "", author: "", category: "", text: "" });
+  const [busy, setBusy] = useState(false);
+  const [query, setQuery] = useState("");
+
+  async function submit(e: FormEvent) {
+    e.preventDefault();
+    if (!f.title.trim() || !f.text.trim()) return onError("Введите название и текст стиха.");
+    setBusy(true);
+    try {
+      const item: Verse = {
+        id: newId(),
+        title: f.title.trim(),
+        author: f.author.trim(),
+        category: f.category.trim() || "Разное",
+        text: f.text,
+        createdAt: new Date().toISOString(),
+      };
+      onSave([item, ...items]);
+      setF({ title: "", author: "", category: "", text: "" });
+    } finally { setBusy(false); }
+  }
+
+  const filtered = items.filter((v) => {
+    const q = query.trim().toLowerCase();
+    if (!q) return true;
+    return v.title.toLowerCase().includes(q) || v.author.toLowerCase().includes(q) || v.category.toLowerCase().includes(q);
+  });
+
+  return (
+    <div style={styles.grid}>
+      <form onSubmit={submit} style={styles.card}>
+        <h2 style={styles.h2}>➕ Новый стих / Neues Gedicht</h2>
+        <Field label="Titel / Название">
+          <input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} />
+        </Field>
+        <Field label="Autor / Автор">
+          <input style={styles.input} value={f.author} onChange={(e) => setF({ ...f, author: e.target.value })} placeholder="напр. Алина Роот" />
+        </Field>
+        <Field label="Kategorie / Категория">
+          <input style={styles.input} value={f.category} onChange={(e) => setF({ ...f, category: e.target.value })} placeholder="напр. Покаяние и спасение" list="verse-cats" />
+          <datalist id="verse-cats">
+            <option value="Покаяние и спасение" />
+            <option value="Благодарение" />
+            <option value="Голгофа" />
+            <option value="Кто такой Христос" />
+            <option value="Христианину на заметку" />
+            <option value="Небесная жизнь" />
+            <option value="Размышления о вере" />
+            <option value="Разное" />
+          </datalist>
+        </Field>
+        <Field label="Текст стиха / Text">
+          <textarea
+            required
+            style={{ ...styles.input, minHeight: 220, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 15, lineHeight: 1.5 }}
+            value={f.text}
+            onChange={(e) => setF({ ...f, text: e.target.value })}
+            placeholder="Каждая строка с новой строки. Пустая строка — новая строфа."
+          />
+        </Field>
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>
+          {busy ? "Сохранение…" : "Добавить / Hinzufügen"}
+        </button>
+      </form>
+      <div style={styles.card}>
+        <h2 style={styles.h2}>Все стихи ({items.length})</h2>
+        <input
+          type="search"
+          placeholder="Поиск по названию, автору, категории…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          style={{ ...styles.input, marginBottom: 12 }}
+        />
+        {filtered.length === 0 ? (
+          <p style={styles.empty}>{items.length === 0 ? "Пока нет стихов." : "Ничего не найдено."}</p>
+        ) : filtered.map((v) => (
+          <div key={v.id} style={styles.item}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={styles.itemTitle}>{v.title}</div>
+              <div style={styles.itemMeta}>
+                {v.author && <>{v.author} · </>}
+                <span style={{ fontStyle: "italic" }}>{v.category}</span>
+              </div>
+              <details style={{ marginTop: 6 }}>
+                <summary style={{ cursor: "pointer", fontSize: 13, color: "#2a5c27" }}>Показать текст</summary>
+                <pre style={{ whiteSpace: "pre-wrap", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 15, lineHeight: 1.5, marginTop: 8, background: "#fafaf7", padding: 10, borderRadius: 6 }}>{v.text}</pre>
+              </details>
+            </div>
+            <button onClick={() => onDelete(v.id)} style={styles.btnDanger}>Удалить</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label style={{ display: "block", marginBottom: 12 }}>
