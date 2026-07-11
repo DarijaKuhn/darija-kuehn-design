@@ -64,13 +64,6 @@ export type SiteContent = {
 };
 
 export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [] };
-  sermons: Sermon[];
-  photos: Photo[];
-  books: Book[];
-  assets: Asset[];
-};
-
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
