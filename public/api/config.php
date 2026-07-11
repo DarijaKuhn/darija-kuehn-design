@@ -5,7 +5,7 @@ const ADMIN_PASSWORD = 'Dresden2026';
 
 const DATA_FILE     = __DIR__ . '/../data/site-content.json';
 const UPLOADS_DIR   = __DIR__ . '/../uploads';
-const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets'];
+const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets', 'verses'];
 
 function json_response($data, int $status = 200): void {
   http_response_code($status);
