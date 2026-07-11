@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VersesRouteImport } from './routes/verses'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SermonsRouteImport } from './routes/sermons'
 import { Route as MapRouteImport } from './routes/map'
@@ -21,6 +22,11 @@ import { Route as BooksRouteImport } from './routes/books'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VersesRoute = VersesRouteImport.update({
+  id: '/verses',
+  path: '/verses',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
+  '/verses': typeof VersesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
+  '/verses': typeof VersesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
+  '/verses': typeof VersesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/sermons'
     | '/services'
+    | '/verses'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/sermons'
     | '/services'
+    | '/verses'
   id:
     | '__root__'
     | '/'
@@ -157,6 +168,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/sermons'
     | '/services'
+    | '/verses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,10 +183,18 @@ export interface RootRouteChildren {
   MapRoute: typeof MapRoute
   SermonsRoute: typeof SermonsRoute
   ServicesRoute: typeof ServicesRoute
+  VersesRoute: typeof VersesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/verses': {
+      id: '/verses'
+      path: '/verses'
+      fullPath: '/verses'
+      preLoaderRoute: typeof VersesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -267,6 +287,7 @@ const rootRouteChildren: RootRouteChildren = {
   MapRoute: MapRoute,
   SermonsRoute: SermonsRoute,
   ServicesRoute: ServicesRoute,
+  VersesRoute: VersesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
