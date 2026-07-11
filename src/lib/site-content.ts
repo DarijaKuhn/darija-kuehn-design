@@ -262,7 +262,7 @@ function uploadChunk(args: {
 
 export async function deleteItem(
   password: string,
-  type: "sermons" | "photos" | "books" | "assets",
+  type: "sermons" | "photos" | "books" | "assets" | "verses",
   id: string,
 ): Promise<void> {
   const res = await fetch(API_DELETE, {
