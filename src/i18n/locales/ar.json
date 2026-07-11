@@ -148,19 +148,23 @@
         "p": "تُضمّن صفحة \"كيف تجدنا\" خرائط OpenStreetMap (OSMF، كامبريدج، المملكة المتحدة). عند التحميل تُرسَل بيانات تقنية بما في ذلك عنوان IP."
       },
       {
-        "h": "10. حقوقك",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. حقوقك",
         "p": "لديك الحق في الوصول والتصحيح والمسح والتقييد والنقل والاعتراض، وكذلك الحق في تقديم شكوى إلى السلطة الإشرافية."
       },
       {
-        "h": "11. حق الاعتراض الخاص (المادة 21 من اللائحة العامة لحماية البيانات)",
+        "h": "12. حق الاعتراض الخاص (المادة 21 من اللائحة العامة لحماية البيانات)",
         "p": "<div class=\"widerspruch-block\"><strong>يحق لك في أي وقت، لأسباب تتعلق بوضعك الخاص، الاعتراض على معالجة البيانات الشخصية المتعلقة بك.</strong></div>"
       },
       {
-        "h": "12. تشفير SSL",
+        "h": "13. تشفير SSL",
         "p": "يستخدم هذا الموقع تشفير SSL/TLS لأسباب أمنية."
       },
       {
-        "h": "13. التغييرات",
+        "h": "14. التغييرات",
         "p": "نحتفظ بالحق في تعديل هذه السياسة لتتوافق مع المتطلبات القانونية الحالية."
       }
     ]

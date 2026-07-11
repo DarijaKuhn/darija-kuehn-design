@@ -148,19 +148,23 @@
         "p": "Folosim Bunny Fonts (furnizor UE) ca alternativă prietenoasă cu confidențialitatea la Google Fonts."
       },
       {
-        "h": "10. Drepturile dumneavoastră",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. Drepturile dumneavoastră",
         "p": "Aveți drept de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune plângere la autoritatea de supraveghere."
       },
       {
-        "h": "11. Drept special de opoziție (art. 21 GDPR)",
+        "h": "12. Drept special de opoziție (art. 21 GDPR)",
         "p": "<div class=\"widerspruch-block\"><strong>Aveți dreptul ca, din motive legate de situația dvs. particulară, să vă opuneți în orice moment prelucrării datelor cu caracter personal care vă privesc.</strong></div>"
       },
       {
-        "h": "12. Criptare SSL",
+        "h": "13. Criptare SSL",
         "p": "Din motive de securitate, acest site utilizează criptare SSL/TLS."
       },
       {
-        "h": "13. Modificări",
+        "h": "14. Modificări",
         "p": "Ne rezervăm dreptul de a actualiza această declarație pentru a respecta cerințele legale în vigoare."
       }
     ]

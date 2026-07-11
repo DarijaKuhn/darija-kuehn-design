@@ -148,19 +148,23 @@
         "p": "אנו משתמשים ב-Bunny Fonts (ספק באיחוד האירופי) כחלופה ידידותית לפרטיות במקום Google Fonts."
       },
       {
-        "h": "10. הזכויות שלך",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. הזכויות שלך",
         "p": "יש לך זכות עיון, תיקון, מחיקה, הגבלה, ניידות והתנגדות, וכן זכות להגיש תלונה לרשות הפיקוח."
       },
       {
-        "h": "11. זכות מיוחדת להתנגדות (סעיף 21 ל-GDPR)",
+        "h": "12. זכות מיוחדת להתנגדות (סעיף 21 ל-GDPR)",
         "p": "<div class=\"widerspruch-block\"><strong>יש לך הזכות להתנגד בכל עת, מטעמים הקשורים למצבך הייחודי, לעיבוד נתונים אישיים הנוגעים אליך.</strong></div>"
       },
       {
-        "h": "12. הצפנת SSL",
+        "h": "13. הצפנת SSL",
         "p": "האתר משתמש בהצפנת SSL/TLS מטעמי אבטחה."
       },
       {
-        "h": "13. שינויים",
+        "h": "14. שינויים",
         "p": "אנו שומרים לעצמנו את הזכות לעדכן הצהרה זו בהתאם לדרישות החוק."
       }
     ]

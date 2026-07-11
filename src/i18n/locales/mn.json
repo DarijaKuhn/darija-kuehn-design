@@ -148,19 +148,23 @@
         "p": "Google Fonts-ийн нууцлалд ээлтэй орлуулагч болгон ЕХ-ны нийлүүлэгч Bunny Fonts-ыг ашигладаг."
       },
       {
-        "h": "10. Таны эрх",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. Таны эрх",
         "p": "Та хандах, засах, устгах, хязгаарлах, шилжүүлэх, эсэргүүцэх эрхтэй бөгөөд хяналтын байгууллагад гомдол гаргах эрхтэй."
       },
       {
-        "h": "11. Татгалзах онцгой эрх (GDPR-ийн 21-р зүйл)",
+        "h": "12. Татгалзах онцгой эрх (GDPR-ийн 21-р зүйл)",
         "p": "<div class=\"widerspruch-block\"><strong>Та өөрийн онцгой нөхцөл байдалтай холбоотой шалтгаанаар таны хувийн мэдээллийг боловсруулахыг хэдийд ч эсэргүүцэх эрхтэй.</strong></div>"
       },
       {
-        "h": "12. SSL шифрлэлт",
+        "h": "13. SSL шифрлэлт",
         "p": "Аюулгүй байдлын үүднээс энэ сайт SSL/TLS шифрлэлт ашигладаг."
       },
       {
-        "h": "13. Өөрчлөлт",
+        "h": "14. Өөрчлөлт",
         "p": "Бид энэхүү бодлогыг хүчин төгөлдөр хууль эрх зүйн шаардлагад нийцүүлэн шинэчлэх эрхтэй."
       }
     ]

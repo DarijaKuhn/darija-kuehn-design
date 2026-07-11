@@ -148,19 +148,23 @@
         "p": "Używamy Bunny Fonts (dostawca z UE) jako przyjaznej dla prywatności alternatywy dla Google Fonts."
       },
       {
-        "h": "10. Twoje prawa",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. Twoje prawa",
         "p": "Masz prawo dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia i sprzeciwu oraz prawo wniesienia skargi do organu nadzorczego."
       },
       {
-        "h": "11. Szczególne prawo sprzeciwu (art. 21 RODO)",
+        "h": "12. Szczególne prawo sprzeciwu (art. 21 RODO)",
         "p": "<div class=\"widerspruch-block\"><strong>Mają Państwo prawo w dowolnym momencie wnieść sprzeciw wobec przetwarzania dotyczących Państwa danych osobowych z przyczyn związanych ze szczególną sytuacją.</strong></div>"
       },
       {
-        "h": "12. Szyfrowanie SSL",
+        "h": "13. Szyfrowanie SSL",
         "p": "Ze względów bezpieczeństwa strona korzysta z szyfrowania SSL/TLS."
       },
       {
-        "h": "13. Zmiany",
+        "h": "14. Zmiany",
         "p": "Zastrzegamy sobie prawo do aktualizacji tej polityki zgodnie z aktualnymi wymogami prawnymi."
       }
     ]

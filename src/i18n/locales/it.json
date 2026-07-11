@@ -148,19 +148,23 @@
         "p": "Utilizziamo Bunny Fonts (provider UE) come alternativa rispettosa della privacy a Google Fonts."
       },
       {
-        "h": "10. I tuoi diritti",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. I tuoi diritti",
         "p": "Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, oltre al diritto di reclamo all'autorità di controllo."
       },
       {
-        "h": "11. Diritto particolare di opposizione (art. 21 GDPR)",
+        "h": "12. Diritto particolare di opposizione (art. 21 GDPR)",
         "p": "<div class=\"widerspruch-block\"><strong>Lei ha il diritto, per motivi connessi alla Sua situazione particolare, di opporsi in qualsiasi momento al trattamento dei dati personali che La riguardano.</strong></div>"
       },
       {
-        "h": "12. Crittografia SSL",
+        "h": "13. Crittografia SSL",
         "p": "Per motivi di sicurezza il sito utilizza crittografia SSL/TLS."
       },
       {
-        "h": "13. Modifiche",
+        "h": "14. Modifiche",
         "p": "Ci riserviamo il diritto di adeguare questa informativa ai requisiti di legge vigenti."
       }
     ]
