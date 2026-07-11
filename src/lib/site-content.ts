@@ -46,7 +46,24 @@ export type Asset = {
   createdAt: string;
 };
 
+export type Verse = {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  text: string;
+  createdAt: string;
+};
+
 export type SiteContent = {
+  sermons: Sermon[];
+  photos: Photo[];
+  books: Book[];
+  assets: Asset[];
+  verses: Verse[];
+};
+
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [] };
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
