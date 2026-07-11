@@ -148,19 +148,23 @@
         "p": "На странице «Как нас найти» встроены карты OpenStreetMap (OSMF, Кембридж, Великобритания). При загрузке передаются технические данные (в т. ч. IP). Правовая основа: ст. 6(1)(f) GDPR."
       },
       {
-        "h": "10. Ваши права",
+        "h": "10. Anonyme Reichweitenmessung (Statistik)",
+        "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
+      },
+      {
+        "h": "11. Ваши права",
         "p": "Вы вправе требовать доступ (ст. 15), исправление (ст. 16), удаление (ст. 17), ограничение обработки (ст. 18), переносимость (ст. 20) и возражение (ст. 21), а также подать жалобу в надзорный орган (уполномоченный по защите данных Саксонии)."
       },
       {
-        "h": "11. Особое право на возражение (ст. 21 GDPR)",
+        "h": "12. Особое право на возражение (ст. 21 GDPR)",
         "p": "<div class=\"widerspruch-block\"><strong>Вы имеете право в любое время по причинам, связанным с вашей особой ситуацией, возражать против обработки касающихся вас персональных данных.</strong></div>"
       },
       {
-        "h": "12. SSL-шифрование",
+        "h": "13. SSL-шифрование",
         "p": "Сайт использует SSL/TLS-шифрование из соображений безопасности."
       },
       {
-        "h": "13. Изменения",
+        "h": "14. Изменения",
         "p": "Мы оставляем за собой право изменять данную политику в соответствии с актуальными требованиями законодательства."
       }
     ]
