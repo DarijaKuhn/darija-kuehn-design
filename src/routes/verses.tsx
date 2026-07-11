@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n";
-import { poems } from "@/data/poems";
+import { poems, type Poem } from "@/data/poems";
+import { loadContent } from "@/lib/site-content";
 
 export const Route = createFileRoute("/verses")({
   component: VersesPage,
