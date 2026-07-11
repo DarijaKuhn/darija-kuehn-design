@@ -175,10 +175,10 @@ function VersesPage() {
                         color: "inherit",
                       }}
                     >
-                      <h3 style={{ margin: "0 0 4px", fontSize: 20, fontFamily: "'Cormorant Garamond', serif" }}>
+                      <h3 style={{ margin: "0 0 4px", fontSize: 18, fontFamily: "var(--font-sans)" }}>
                         {p.title}
                       </h3>
-                      <div style={{ fontSize: 13, color: "#666" }}>
+                      <div style={{ fontSize: 13, color: "#666", fontFamily: "var(--font-sans)" }}>
                         {p.author && <>{p.author} · </>}
                         <span style={{ fontStyle: "italic" }}>{p.category}</span>
                         <span style={{ marginLeft: 10, color: "#8a9c86" }}>
@@ -191,9 +191,9 @@ function VersesPage() {
                         style={{
                           marginTop: 14,
                           whiteSpace: "pre-wrap",
-                          fontFamily: "'Cormorant Garamond', Georgia, serif",
-                          fontSize: 17,
-                          lineHeight: 1.65,
+                          fontFamily: "var(--font-sans)",
+                          fontSize: 15,
+                          lineHeight: 1.4,
                           color: "#2a2a24",
                           background: "transparent",
                           padding: 0,
