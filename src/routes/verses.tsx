@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n";
 import { poems, type Poem } from "@/data/poems";
 import { loadContent } from "@/lib/site-content";
+import { trackView } from "@/lib/analytics";
 
 export const Route = createFileRoute("/verses")({
   component: VersesPage,
