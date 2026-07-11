@@ -114,9 +114,9 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </header>
 
       <nav style={styles.tabs}>
-        {(["sermons", "photos", "books", "assets"] as Tab[]).map((t) => (
+        {(["sermons", "photos", "books", "assets", "verses"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : "Баннер и лого"}
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : "Стихи"}
             <span style={styles.count}>{content[t].length}</span>
           </button>
         ))}
