@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "@/i18n";
 import { loadContent, type Photo as LocalPhoto, type PhotoCategory } from "@/lib/site-content";
+import { trackView } from "@/lib/analytics";
 
 const CATEGORY_KEYS: PhotoCategory[] = [
   "harvest", "christmas", "easter", "children",
@@ -114,7 +115,7 @@ function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void })
         {filtered.map((p) => {
           const catLabel = p.category ? t(`pages.gallery.categories.${p.category}`) : p.album;
           return (
-            <button key={p.id} type="button" onClick={() => onOpen(p.fileUrl, catLabel || p.album)} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
+            <button key={p.id} type="button" onClick={() => { trackView("/gallery", `photo:${catLabel || p.album}`); onOpen(p.fileUrl, catLabel || p.album); }} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
               <img src={p.fileUrl} alt={catLabel || p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
               <div style={{ padding: "8px 10px", textAlign: "left" }}>
                 <div style={{ fontSize: 14, fontWeight: 600 }}>{catLabel || p.album}</div>
