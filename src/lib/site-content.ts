@@ -61,8 +61,10 @@ const API_SAVE = "/api/save.php";
 const API_UPLOAD = "/api/upload.php";
 const API_UPLOAD_CHUNK = "/api/upload-chunk.php";
 const API_DELETE = "/api/delete.php";
-const LARGE_UPLOAD_THRESHOLD = 20 * 1024 * 1024;
-const CHUNK_SIZE = 5 * 1024 * 1024;
+// Hetzner shared hosting can keep a low post_max_size despite .user.ini/.htaccess.
+// Keep every chunk safely below the default 2 MB PHP limit and always chunk sermons.
+const LARGE_UPLOAD_THRESHOLD = 1 * 1024 * 1024;
+const CHUNK_SIZE = 768 * 1024;
 
 export async function loadContent(): Promise<SiteContent> {
   // Prefer the static JSON (cache-busted) — fast, no PHP needed for public pages.
@@ -105,7 +107,7 @@ export async function uploadFile(
   file: File,
   onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
 ): Promise<{ url: string; filename: string; size: number }> {
-  if (file.size > LARGE_UPLOAD_THRESHOLD) {
+  if (type === "sermons" || file.size > LARGE_UPLOAD_THRESHOLD) {
     return uploadFileChunked(password, type, file, onProgress);
   }
 
@@ -133,7 +135,12 @@ export async function uploadFile(
         catch { return {}; }
       })();
       if (xhr.status < 200 || xhr.status >= 300 || !json.ok) {
-        reject(new Error(json.error || `Upload failed (${xhr.status})`));
+        const errorMessage = json.error || `Upload failed (${xhr.status})`;
+        if (xhr.status === 413 || errorMessage.includes("обычной загрузки") || errorMessage.includes("post_max_size")) {
+          uploadFileChunked(password, type, file, onProgress).then(resolve).catch(reject);
+          return;
+        }
+        reject(new Error(errorMessage));
         return;
       }
       resolve({ url: json.url, filename: json.filename, size: json.size });
