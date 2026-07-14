@@ -252,7 +252,9 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <img src={LOGO_URL} alt="FECG Dresden" style={{ height: 32, width: "auto" }} />
+              <Link to="/" aria-label="Zur Startseite / На главную">
+                <img src={LOGO_URL} alt="FECG Dresden" style={{ height: 32, width: "auto" }} />
+              </Link>
             </div>
             <p style={{ marginTop: 14 }}>{t("footer.about")}</p>
             <p style={{ marginTop: 10, fontSize: 12, color: "rgba(255,255,255,.55)" }}>{t("footer.dsgvo")}</p>
