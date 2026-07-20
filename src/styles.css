@@ -472,7 +472,7 @@ footer a:hover { color: #fff; }
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: #fff; }
 .footer-brand .nav-logo-mark { background: var(--green-light); }
 
-.footer-bottom { margin-top: 32px; padding: 18px 24px 0; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,.5); background: #152b15; margin-left: -24px; margin-right: -24px; padding-bottom: 12px; }
+.footer-bottom { margin-top: 40px; padding: 20px 24px 12px; border-top: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; letter-spacing: .04em; color: rgba(255,255,255,.55); background: rgba(0,0,0,.18); margin-left: -24px; margin-right: -24px; }
 
 /* Field band between hero and footer */
 .field-band {
