@@ -70,7 +70,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "stylesheet", href: "https://fonts.bunny.net/css?family=inter:400,500,600,700,800|cormorant-garamond:400i,500,600,700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" },
       { rel: "canonical", href: "https://freieevangeliums-dresden.de/" },
       { rel: "alternate", hrefLang: "de", href: "https://freieevangeliums-dresden.de/" },
       { rel: "alternate", hrefLang: "ru", href: "https://freieevangeliums-dresden.de/" },
