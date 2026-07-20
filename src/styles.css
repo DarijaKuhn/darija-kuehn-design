@@ -2,18 +2,18 @@
 
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --green: #2a5c27;
-  --green-dark: #1e4520;
-  --green-light: #4a9c44;
-  --green-soft: #eaf3e7;
-  --ink: #1a2018;
-  --ink-2: #4a5e46;
-  --muted: #7a9076;
-  --line: rgba(42, 92, 39, .1);
-  --line-2: rgba(42, 92, 39, .2);
-  --bg: #f7f8f6;
+  --green: #3f6470;
+  --green-dark: #2e4c56;
+  --green-light: #5a8391;
+  --green-soft: #edf2f3;
+  --ink: #2a2a2a;
+  --ink-2: #4a5560;
+  --muted: #7a8890;
+  --line: rgba(63, 100, 112, .12);
+  --line-2: rgba(63, 100, 112, .24);
+  --bg: #ffffff;
   --white: #ffffff;
 }
 
