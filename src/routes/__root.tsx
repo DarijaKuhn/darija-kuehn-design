@@ -2,8 +2,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
+  Navigate,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -15,6 +17,12 @@ import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 import { CookieConsent } from "@/components/CookieConsent";
 
 function NotFoundComponent() {
+  const pathname = useLocation({ select: (location) => location.pathname });
+
+  if (pathname === "/index") {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24 }}>
       <div style={{ textAlign: "center" }}>
@@ -121,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <head><HeadContent /></head>
       <body>{children}<Scripts /></body>
     </html>

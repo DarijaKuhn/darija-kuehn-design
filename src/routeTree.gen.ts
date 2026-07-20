@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as VersesRouteImport } from './routes/verses'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SermonsRouteImport } from './routes/sermons'
@@ -22,6 +23,11 @@ import { Route as BooksRouteImport } from './routes/books'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
+const Char91indexChar93Route = Char91indexChar93RouteImport.update({
+  id: '/index',
+  path: '/index',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VersesRoute = VersesRouteImport.update({
   id: '/verses',
   path: '/verses',
@@ -92,6 +98,7 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
   '/impressum': typeof ImpressumRoute
+  '/index': typeof Char91indexChar93Route
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
   '/impressum': typeof ImpressumRoute
+  '/index': typeof Char91indexChar93Route
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/gallery': typeof GalleryRoute
   '/impressum': typeof ImpressumRoute
+  '/index': typeof Char91indexChar93Route
   '/map': typeof MapRoute
   '/sermons': typeof SermonsRoute
   '/services': typeof ServicesRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/gallery'
     | '/impressum'
+    | '/index'
     | '/map'
     | '/sermons'
     | '/services'
@@ -151,6 +161,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/gallery'
     | '/impressum'
+    | '/index'
     | '/map'
     | '/sermons'
     | '/services'
@@ -165,6 +176,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/gallery'
     | '/impressum'
+    | '/index'
     | '/map'
     | '/sermons'
     | '/services'
@@ -180,6 +192,7 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   GalleryRoute: typeof GalleryRoute
   ImpressumRoute: typeof ImpressumRoute
+  Char91indexChar93Route: typeof Char91indexChar93Route
   MapRoute: typeof MapRoute
   SermonsRoute: typeof SermonsRoute
   ServicesRoute: typeof ServicesRoute
@@ -188,6 +201,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/index': {
+      id: '/index'
+      path: '/index'
+      fullPath: '/index'
+      preLoaderRoute: typeof Char91indexChar93RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/verses': {
       id: '/verses'
       path: '/verses'
@@ -284,6 +304,7 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   GalleryRoute: GalleryRoute,
   ImpressumRoute: ImpressumRoute,
+  Char91indexChar93Route: Char91indexChar93Route,
   MapRoute: MapRoute,
   SermonsRoute: SermonsRoute,
   ServicesRoute: ServicesRoute,
