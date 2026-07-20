@@ -32,6 +32,7 @@ function Index() {
         playsInline
         preload="auto"
         aria-hidden="true"
+        ref={(el) => { if (el) el.playbackRate = 0.35; }}
       />
       <div className="hero-card">
         <p className="hero-eyebrow">{t("hero.eyebrow")}</p>
