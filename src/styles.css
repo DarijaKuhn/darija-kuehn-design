@@ -463,14 +463,15 @@ textarea.field-input { min-height: 120px; resize: vertical; }
 .quote-ref { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 
 /* Footer */
-footer { background: #1e3a1e; color: rgba(255,255,255,.78); padding: 48px 0 24px; margin-top: 0; position: relative; z-index: 3; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 28px; }
-@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
-footer h4 { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
-footer p, footer a { font-size: 13.5px; line-height: 1.7; color: rgba(255,255,255,.72); display: block; margin-bottom: 4px; }
+footer { background: linear-gradient(180deg, #2e4c56 0%, #223a42 100%); color: rgba(255,255,255,.78); padding: 56px 0 24px; margin-top: 0; position: relative; z-index: 3; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 32px; }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+footer h4 { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+footer p, footer a { font-size: 13.5px; line-height: 1.7; color: rgba(255,255,255,.72); display: block; margin-bottom: 4px; transition: color .2s ease; }
 footer a:hover { color: #fff; }
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: #fff; }
-.footer-brand .nav-logo-mark { background: var(--green); }
+.footer-brand .nav-logo-mark { background: var(--green-light); }
+
 .footer-bottom { margin-top: 32px; padding: 18px 24px 0; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,.5); background: #152b15; margin-left: -24px; margin-right: -24px; padding-bottom: 12px; }
 
 /* Field band between hero and footer */
