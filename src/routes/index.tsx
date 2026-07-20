@@ -19,11 +19,11 @@ function Index() {
       id="start"
       role="banner"
       aria-label={t("hero.imgAlt")}
-      style={{ backgroundImage: `url(${heroBgAsset.url})` }}
+      style={{ backgroundImage: `url(/assets/hero-bg.jpg)` }}
     >
       <video
         className="hero-video"
-        src={skyVideoAsset.url}
+        src="/assets/sky-clouds.mov"
         autoPlay
         loop
         muted
