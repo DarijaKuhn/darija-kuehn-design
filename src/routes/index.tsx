@@ -1,6 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
-import skyVideoAsset from "@/assets/sky-clouds.mov.asset.json";
 import { useI18n } from "@/i18n";
 
 export const Route = createFileRoute("/")({
@@ -21,11 +19,11 @@ function Index() {
       id="start"
       role="banner"
       aria-label={t("hero.imgAlt")}
-      style={{ backgroundImage: `url(${heroBgAsset.url})` }}
+      style={{ backgroundImage: `url(/assets/hero-bg.jpg)` }}
     >
       <video
         className="hero-video"
-        src={skyVideoAsset.url}
+        src="/assets/sky-clouds.mov"
         autoPlay
         loop
         muted
