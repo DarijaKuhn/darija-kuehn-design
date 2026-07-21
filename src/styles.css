@@ -702,7 +702,7 @@ footer a:hover { color: #fff; }
   flex-direction: column;
   background: #fff;
   border: 1px solid rgba(42, 92, 39, 0.12);
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;

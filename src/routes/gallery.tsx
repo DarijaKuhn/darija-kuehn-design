@@ -89,7 +89,7 @@ function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void })
 
   if (items.length === 0) return <p style={{ color: "var(--muted-fg, #555)", marginTop: 12 }}>Noch keine Fotos hochgeladen.</p>;
 
-  const selectStyle: React.CSSProperties = { padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 };
+  const selectStyle: React.CSSProperties = { padding: "8px 16px", border: "1px solid #ccc", borderRadius: 999, background: "#fff", fontSize: 14 };
 
   return (
     <>
@@ -115,7 +115,7 @@ function LocalPhotos({ onOpen }: { onOpen: (src: string, alt: string) => void })
         {filtered.map((p) => {
           const catLabel = p.category ? t(`pages.gallery.categories.${p.category}`) : p.album;
           return (
-            <button key={p.id} type="button" onClick={() => { trackView("/gallery", `photo:${catLabel || p.album}`); onOpen(p.fileUrl, catLabel || p.album); }} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 8, overflow: "hidden", background: "#fff", cursor: "zoom-in" }}>
+            <button key={p.id} type="button" onClick={() => { trackView("/gallery", `photo:${catLabel || p.album}`); onOpen(p.fileUrl, catLabel || p.album); }} style={{ padding: 0, border: "1px solid #e2e2dc", borderRadius: 18, overflow: "hidden", background: "#fff", cursor: "zoom-in", boxShadow: "0 2px 10px rgba(0,0,0,.05)" }}>
               <img src={p.fileUrl} alt={catLabel || p.album} loading="lazy" style={{ width: "100%", height: 160, objectFit: "cover", display: "block" }} />
               <div style={{ padding: "8px 10px", textAlign: "left" }}>
                 <div style={{ fontSize: 14, fontWeight: 600 }}>{catLabel || p.album}</div>
