@@ -103,5 +103,22 @@ $parsed = json_decode($content, true);
 if (!is_array($parsed)) fail('AI returned invalid JSON', 502);
 $theme = isset($parsed['theme']) && is_array($parsed['theme']) ? $parsed['theme'] : $parsed;
 
-// Sanitize через тот же whitelist что в theme.php
-require_once __DIR__ . '/theme.php';
+// Whitelist + sanitize (совпадает с theme.php)
+$THEME_KEYS = [
+  '--bg','--ink','--ink-2','--muted','--white',
+  '--green','--green-dark','--green-light','--green-soft',
+  '--accent-sky','--accent-lavender','--gradient-accent',
+  '--shadow-soft','--shadow-float',
+  '--radius-card','--radius-card-lg',
+  '--font-sans','--font-serif',
+];
+$clean = [];
+foreach ($THEME_KEYS as $k) {
+  if (!isset($theme[$k]) || !is_string($theme[$k])) continue;
+  $v = trim($theme[$k]);
+  if ($v === '' || strlen($v) > 400) continue;
+  if (preg_match('/(url\s*\(|expression\s*\(|javascript:|@import|;)/i', $v)) continue;
+  if (!preg_match('/^[A-Za-z0-9\s\'",\.\-\_\#\(\)\%\/\:]+$/u', $v)) continue;
+  $clean[$k] = $v;
+}
+json_response(['ok' => true, 'theme' => $clean]);
