@@ -5,7 +5,7 @@ const ADMIN_PASSWORD = 'Dresden2026';
 
 const DATA_FILE     = __DIR__ . '/../data/site-content.json';
 const UPLOADS_DIR   = __DIR__ . '/../uploads';
-const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets', 'verses'];
+const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets', 'verses', 'events'];
 
 // Brute-force protection
 const BF_FILE           = __DIR__ . '/../data/.auth-attempts.json';
