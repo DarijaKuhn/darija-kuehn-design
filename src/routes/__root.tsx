@@ -330,11 +330,19 @@ function PageTracker() {
   return null;
 }
 
+function ThemeLoader() {
+  useEffect(() => {
+    import("@/lib/theme").then((m) => m.loadAndApplyTheme()).catch(() => {});
+  }, []);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
+        <ThemeLoader />
         <Header />
         <Outlet />
         <Footer />
