@@ -111,7 +111,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
 
   function flash(kind: "ok" | "err", text: string) {
     setMsg({ kind, text });
-    window.setTimeout(() => setMsg(null), 5000);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.setTimeout(() => setMsg(null), 6000);
+    }
   }
 
   async function persist(next: SiteContent) {
@@ -151,7 +154,28 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </nav>
 
       {msg && (
-        <div style={{ ...styles.flash, background: msg.kind === "ok" ? "#e8f5e9" : "#fde7e7", color: msg.kind === "ok" ? "#2e7d32" : "#b71c1c" }}>
+        <div
+          role="status"
+          aria-live="polite"
+          onClick={() => setMsg(null)}
+          style={{
+            position: "fixed",
+            top: 12,
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 9999,
+            maxWidth: "calc(100vw - 24px)",
+            padding: "12px 18px",
+            borderRadius: 10,
+            fontWeight: 600,
+            fontSize: 14,
+            boxShadow: "0 8px 24px rgba(0,0,0,0.18)",
+            cursor: "pointer",
+            background: msg.kind === "ok" ? "#e8f5e9" : "#fde7e7",
+            color: msg.kind === "ok" ? "#2e7d32" : "#b71c1c",
+            border: `1px solid ${msg.kind === "ok" ? "#a5d6a7" : "#f5b3b3"}`,
+          }}
+        >
           {msg.text}
         </div>
       )}
