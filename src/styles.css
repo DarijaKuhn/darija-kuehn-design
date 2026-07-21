@@ -449,17 +449,17 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
 .field-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 6px; }
 .req { color: #c4392a; }
-.field-input { width: 100%; padding: 10px 14px; border: 1px solid var(--line-2); border-radius: 10px; font-family: var(--font-sans); font-size: 14px; color: var(--ink); background: #fff; outline: none; transition: all .2s; }
-.field-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(42,92,39,.1); }
+.field-input { width: 100%; padding: 12px 16px; border: 1px solid var(--line-2); border-radius: 14px; font-family: var(--font-sans); font-size: 14px; color: var(--ink); background: #fff; outline: none; transition: all .2s; }
+.field-input:focus { border-color: var(--accent-sky); box-shadow: 0 0 0 4px rgba(125,211,252,.18); }
 textarea.field-input { min-height: 120px; resize: vertical; }
 .form-footer-row { display: flex; align-items: center; gap: 14px; justify-content: space-between; flex-wrap: wrap; margin-top: 14px; }
 .form-privacy { font-size: 11px; color: var(--muted); max-width: 220px; }
 
 /* Events */
 .events-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; max-width: 760px; }
-.event-card { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; box-shadow: 0 2px 8px rgba(0,0,0,.04); transition: transform .2s; }
-.event-card:hover { transform: translateX(4px); }
-.event-badge { background: var(--green-soft); border-radius: 10px; text-align: center; padding: 8px 6px; }
+.event-card { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px; box-shadow: var(--shadow-soft); transition: transform .25s ease, box-shadow .25s ease; }
+.event-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-float); }
+.event-badge { background: linear-gradient(135deg, rgba(125,211,252,.2), rgba(192,132,252,.2)); border-radius: 12px; text-align: center; padding: 10px 6px; }
 .event-badge-day { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--green); line-height: 1; }
 .event-badge-mon { font-size: 9px; font-weight: 700; text-transform: uppercase; color: #5a8c55; letter-spacing: .06em; margin-top: 2px; }
 .event-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
