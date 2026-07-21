@@ -5,7 +5,7 @@ const ADMIN_PASSWORD = 'Dresden2026';
 
 const DATA_FILE     = __DIR__ . '/../data/site-content.json';
 const UPLOADS_DIR   = __DIR__ . '/../uploads';
-const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets', 'verses'];
+const ALLOWED_TYPES = ['sermons', 'photos', 'books', 'assets', 'verses', 'events'];
 
 // Brute-force protection
 const BF_FILE           = __DIR__ . '/../data/.auth-attempts.json';
@@ -130,7 +130,7 @@ function ensure_dirs(): void {
   }
   if (!file_exists(DATA_FILE)) {
     file_put_contents(DATA_FILE, json_encode([
-      'sermons' => [], 'photos' => [], 'books' => [], 'assets' => [], 'verses' => []
+      'sermons' => [], 'photos' => [], 'books' => [], 'assets' => [], 'verses' => [], 'events' => []
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
   }
 }

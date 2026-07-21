@@ -13,6 +13,7 @@ import {
   type Book,
   type Asset,
   type Verse,
+  type EventItem,
 } from "@/lib/site-content";
 import { fetchStats } from "@/lib/analytics";
 
@@ -98,7 +99,7 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
   );
 }
 
-type Tab = "sermons" | "photos" | "books" | "assets" | "verses" | "stats";
+type Tab = "sermons" | "photos" | "books" | "assets" | "verses" | "events" | "stats";
 
 function Dashboard({ password, onLogout }: { password: string; onLogout: () => void }) {
   const [content, setContent] = useState<SiteContent>(EMPTY_CONTENT);
@@ -141,9 +142,9 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </header>
 
       <nav style={styles.tabs}>
-        {(["sermons", "photos", "books", "assets", "verses", "stats"] as Tab[]).map((t) => (
+        {(["sermons", "photos", "books", "assets", "verses", "events", "stats"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : "📊 Статистика"}
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : t === "events" ? "📅 События" : "📊 Статистика"}
             {t !== "stats" && <span style={styles.count}>{content[t as Exclude<Tab,"stats">].length}</span>}
           </button>
         ))}
@@ -167,6 +168,8 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
         <AssetsTab items={content.assets} password={password} onSave={(items) => persist({ ...content, assets: items })} onDelete={(id) => handleDelete("assets", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
       ) : tab === "verses" ? (
         <VersesTab items={content.verses} onSave={(items) => persist({ ...content, verses: items })} onDelete={(id) => handleDelete("verses", id)} onError={(m) => flash("err", m)} />
+      ) : tab === "events" ? (
+        <EventsTab items={content.events} onSave={(items) => persist({ ...content, events: items })} onDelete={(id) => handleDelete("events", id)} onError={(m) => flash("err", m)} />
       ) : (
         <StatsTab password={password} onError={(m) => flash("err", m)} />
       )}
@@ -725,6 +728,87 @@ function VersesTab({ items, onSave, onDelete, onError }: {
     </div>
   );
 }
+
+/* ---------------- EventsTab (календарь событий) ---------------- */
+
+function EventsTab({ items, onSave, onDelete, onError }: {
+  items: EventItem[]; onSave: (i: EventItem[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
+}) {
+  const today = new Date().toISOString().slice(0, 10);
+  const [f, setF] = useState({ date: today, time: "", title: "", note: "", cancel: false });
+  const [busy, setBusy] = useState(false);
+
+  async function submit(e: FormEvent) {
+    e.preventDefault();
+    if (!f.date) return onError("Укажите дату / Datum angeben.");
+    if (!f.cancel && !f.title.trim()) return onError("Введите название события / Titel angeben.");
+    setBusy(true);
+    try {
+      const item: EventItem = {
+        id: newId(),
+        date: f.date,
+        time: f.time.trim() || undefined,
+        title: f.cancel ? (f.title.trim() || "— отменено —") : f.title.trim(),
+        note: f.note.trim() || undefined,
+        cancel: f.cancel || undefined,
+        createdAt: new Date().toISOString(),
+      };
+      onSave([item, ...items]);
+      setF({ date: today, time: "", title: "", note: "", cancel: false });
+    } finally { setBusy(false); }
+  }
+
+  const sorted = [...items].sort((a, b) => a.date.localeCompare(b.date));
+
+  return (
+    <div style={styles.grid}>
+      <form onSubmit={submit} style={styles.card}>
+        <h2 style={styles.h2}>➕ Новое событие / Neuer Termin</h2>
+        <p style={{ fontSize: 13, color: "#666", marginTop: -6, marginBottom: 12 }}>
+          Регулярные служения (Вс 10:00, Ср 18:00, Пт 18:00) добавляются автоматически. Здесь можно добавить особые даты (праздники, поездки), пометки или отменить регулярное служение на конкретный день.
+        </p>
+        <Field label="Datum / Дата">
+          <input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} />
+        </Field>
+        <Field label="Uhrzeit / Время (напр. 18:00)">
+          <input style={styles.input} value={f.time} onChange={(e) => setF({ ...f, time: e.target.value })} placeholder="18:00" />
+        </Field>
+        <Field label="Titel / Название">
+          <input style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} placeholder="напр. Weihnachten — Festgottesdienst" />
+        </Field>
+        <Field label="Anmerkung / Пометка">
+          <input style={styles.input} value={f.note} onChange={(e) => setF({ ...f, note: e.target.value })} placeholder="напр. с общим обедом" />
+        </Field>
+        <label style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 12, fontSize: 14 }}>
+          <input type="checkbox" checked={f.cancel} onChange={(e) => setF({ ...f, cancel: e.target.checked })} />
+          Отменить регулярное служение на эту дату / Regelmäßigen Gottesdienst absagen
+        </label>
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>
+          {busy ? "Сохранение…" : "Добавить / Hinzufügen"}
+        </button>
+      </form>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>Все записи ({items.length})</h2>
+        {sorted.length === 0 ? (
+          <p style={styles.empty}>Пока нет записей. Регулярные служения показываются автоматически.</p>
+        ) : sorted.map((ev) => (
+          <div key={ev.id} style={styles.item}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={styles.itemTitle}>
+                {ev.cancel ? "❌ " : "📌 "}{ev.date}{ev.time ? ` · ${ev.time}` : ""} — {ev.title}
+              </div>
+              {ev.note && <div style={styles.itemMeta}>{ev.note}</div>}
+              {ev.cancel && <div style={{ ...styles.itemMeta, color: "#b71c1c" }}>Отмена регулярного служения</div>}
+            </div>
+            <button onClick={() => onDelete(ev.id)} style={styles.btnDanger}>Удалить</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (

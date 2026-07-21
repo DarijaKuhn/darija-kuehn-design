@@ -55,15 +55,26 @@ export type Verse = {
   createdAt: string;
 };
 
+export type EventItem = {
+  id: string;
+  date: string;         // ISO yyyy-mm-dd
+  time?: string;        // "HH:mm" or free-form
+  title: string;
+  note?: string;
+  cancel?: boolean;     // true = hide the recurring service on this date
+  createdAt: string;
+};
+
 export type SiteContent = {
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
   assets: Asset[];
   verses: Verse[];
+  events: EventItem[];
 };
 
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [] };
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [], events: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
@@ -88,6 +99,7 @@ export async function loadContent(): Promise<SiteContent> {
         books:   Array.isArray(raw.books)   ? raw.books   : [],
         assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
         verses:  Array.isArray(raw.verses)  ? raw.verses  : [],
+        events:  Array.isArray(raw.events)  ? raw.events  : [],
       };
     }
   } catch {
@@ -262,7 +274,7 @@ function uploadChunk(args: {
 
 export async function deleteItem(
   password: string,
-  type: "sermons" | "photos" | "books" | "assets" | "verses",
+  type: "sermons" | "photos" | "books" | "assets" | "verses" | "events",
   id: string,
 ): Promise<void> {
   const res = await fetch(API_DELETE, {
