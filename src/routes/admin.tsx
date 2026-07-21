@@ -1020,3 +1020,189 @@ const styles: Record<string, React.CSSProperties> = {
   fileRow: { display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", background: "#f5f7f3", border: "1px solid #e2e6dc", borderRadius: 6, fontSize: 13 },
   fileRemove: { border: 0, background: "transparent", color: "#b33", fontSize: 20, lineHeight: 1, cursor: "pointer", padding: "0 4px" },
 };
+
+/* ---------------- DesignTab (AI design assistant) ---------------- */
+
+const THEME_KEY_LABELS: Array<[string, string, string]> = [
+  ["--bg", "Фон страниц", "color"],
+  ["--ink", "Основной текст", "color"],
+  ["--ink-2", "Вторичный текст", "color"],
+  ["--muted", "Приглушённый текст", "color"],
+  ["--accent-sky", "Градиент — начало", "color"],
+  ["--accent-lavender", "Градиент — конец", "color"],
+  ["--gradient-accent", "Полный градиент (CSS)", "text"],
+  ["--green-dark", "Тёмный акцент (футер)", "color"],
+  ["--green-soft", "Мягкий акцент (фон)", "color"],
+  ["--radius-card", "Скругление карточек", "text"],
+  ["--radius-card-lg", "Крупное скругление", "text"],
+  ["--shadow-soft", "Мягкая тень", "text"],
+];
+
+function DesignTab({ password, onError, onOk }: { password: string; onError: (m: string) => void; onOk: (m: string) => void }) {
+  const [theme, setTheme] = useState<Record<string, string>>({});
+  const [prompt, setPrompt] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [aiResult, setAiResult] = useState<Record<string, string> | null>(null);
+
+  useEffect(() => {
+    fetch("/api/theme.php").then((r) => r.json()).then((d) => setTheme(d.theme || {})).catch(() => {});
+  }, []);
+
+  async function ask() {
+    if (!prompt.trim() || busy) return;
+    setBusy(true);
+    setAiResult(null);
+    try {
+      const { askAiTheme, applyTheme } = await import("@/lib/theme");
+      const result = await askAiTheme(password, prompt.trim(), theme);
+      if (!Object.keys(result).length) throw new Error("ИИ не вернул изменений. Уточните запрос.");
+      setAiResult(result);
+      // Показать предпросмотр сразу
+      applyTheme(result);
+    } catch (e) { onError((e as Error).message); }
+    finally { setBusy(false); }
+  }
+
+  async function save() {
+    if (!aiResult) return;
+    setBusy(true);
+    try {
+      const { saveTheme } = await import("@/lib/theme");
+      const merged = { ...theme, ...aiResult };
+      const saved = await saveTheme(password, merged);
+      setTheme(saved);
+      setAiResult(null);
+      setPrompt("");
+      onOk("Тема сохранена ✓");
+    } catch (e) { onError((e as Error).message); }
+    finally { setBusy(false); }
+  }
+
+  async function cancelPreview() {
+    setAiResult(null);
+    const { applyTheme, clearAppliedTheme } = await import("@/lib/theme");
+    clearAppliedTheme();
+    applyTheme(theme);
+  }
+
+  async function resetAll() {
+    if (!confirm("Сбросить всю тему к дефолтной?")) return;
+    setBusy(true);
+    try {
+      const { resetTheme } = await import("@/lib/theme");
+      await resetTheme(password);
+      setTheme({});
+      setAiResult(null);
+      onOk("Тема сброшена ✓");
+    } catch (e) { onError((e as Error).message); }
+    finally { setBusy(false); }
+  }
+
+  function updateField(k: string, v: string) {
+    setTheme((t) => ({ ...t, [k]: v }));
+  }
+
+  async function saveManual() {
+    setBusy(true);
+    try {
+      const { saveTheme } = await import("@/lib/theme");
+      const saved = await saveTheme(password, theme);
+      setTheme(saved);
+      onOk("Тема сохранена ✓");
+    } catch (e) { onError((e as Error).message); }
+    finally { setBusy(false); }
+  }
+
+  const examples = [
+    "Сделай фон светло-бежевым, а текст тёмно-коричневым",
+    "Кнопки — оранжевый градиент от #FFB86B до #FF7A00",
+    "Увеличь скругления карточек до 32px",
+    "Строгая классическая тема: тёмно-синий и белый",
+    "Тёплая осенняя палитра",
+  ];
+
+  return (
+    <div style={{ display: "grid", gap: 20 }}>
+      <div style={{ background: "#fff", border: "1px solid #e2e6dc", borderRadius: 12, padding: 20 }}>
+        <h3 style={{ margin: "0 0 8px", fontSize: 17 }}>🤖 Опишите, что изменить</h3>
+        <p style={{ margin: "0 0 12px", fontSize: 13, color: "#666" }}>
+          ИИ подберёт цвета, градиенты и скругления. Меняется только оформление — тексты и структура сайта остаются.
+        </p>
+        <textarea
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Например: сделай кнопки зелёными, а фон футера тёмно-серым"
+          rows={3}
+          style={{ width: "100%", padding: 10, borderRadius: 8, border: "1px solid #d5d9cc", fontSize: 14, fontFamily: "inherit", resize: "vertical" }}
+        />
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "10px 0" }}>
+          {examples.map((ex) => (
+            <button key={ex} onClick={() => setPrompt(ex)} style={{ fontSize: 12, padding: "4px 10px", borderRadius: 999, border: "1px solid #d5d9cc", background: "#f7f8f4", cursor: "pointer" }}>
+              {ex}
+            </button>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <button onClick={ask} disabled={busy || !prompt.trim()} style={{ ...styles.btn, opacity: busy || !prompt.trim() ? 0.6 : 1 }}>
+            {busy ? "…" : "✨ Сгенерировать"}
+          </button>
+          {aiResult && (
+            <>
+              <button onClick={save} disabled={busy} style={{ ...styles.btn, background: "#2e7d32" }}>💾 Применить и сохранить</button>
+              <button onClick={cancelPreview} disabled={busy} style={styles.btnGhost}>Отменить предпросмотр</button>
+            </>
+          )}
+        </div>
+        {aiResult && (
+          <div style={{ marginTop: 14, padding: 12, background: "#f5f7f3", borderRadius: 8, fontSize: 13 }}>
+            <b>Предпросмотр применён.</b> ИИ предлагает изменить:
+            <ul style={{ margin: "8px 0 0", paddingLeft: 20 }}>
+              {Object.entries(aiResult).map(([k, v]) => (
+                <li key={k}><code>{k}</code> → <code>{v}</code></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <div style={{ background: "#fff", border: "1px solid #e2e6dc", borderRadius: 12, padding: 20 }}>
+        <h3 style={{ margin: "0 0 12px", fontSize: 17 }}>🎨 Тонкая настройка вручную</h3>
+        <div style={{ display: "grid", gap: 10 }}>
+          {THEME_KEY_LABELS.map(([key, label, kind]) => (
+            <label key={key} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 10, alignItems: "center", fontSize: 13 }}>
+              <span>{label} <code style={{ color: "#888" }}>{key}</code></span>
+              {kind === "color" ? (
+                <span style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                  <input
+                    type="color"
+                    value={/^#([0-9a-f]{6})$/i.test(theme[key] || "") ? (theme[key] as string) : "#000000"}
+                    onChange={(e) => updateField(key, e.target.value)}
+                    style={{ width: 40, height: 32, border: "1px solid #d5d9cc", borderRadius: 6, padding: 0, cursor: "pointer" }}
+                  />
+                  <input
+                    type="text"
+                    value={theme[key] || ""}
+                    placeholder="#RRGGBB"
+                    onChange={(e) => updateField(key, e.target.value)}
+                    style={{ width: 130, padding: "6px 8px", border: "1px solid #d5d9cc", borderRadius: 6, fontSize: 13, fontFamily: "monospace" }}
+                  />
+                </span>
+              ) : (
+                <input
+                  type="text"
+                  value={theme[key] || ""}
+                  onChange={(e) => updateField(key, e.target.value)}
+                  style={{ width: 260, padding: "6px 8px", border: "1px solid #d5d9cc", borderRadius: 6, fontSize: 13, fontFamily: "monospace" }}
+                />
+              )}
+            </label>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+          <button onClick={saveManual} disabled={busy} style={styles.btn}>💾 Сохранить</button>
+          <button onClick={resetAll} disabled={busy} style={{ ...styles.btnGhost, color: "#b33", borderColor: "#f5b3b3" }}>♻️ Сбросить всё</button>
+        </div>
+      </div>
+    </div>
+  );
+}
