@@ -189,10 +189,10 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
 
   return (
     <article
+      className="sermon-card"
       style={{
-        padding: "24px 26px",
         border: "1px solid rgba(15,23,42,.06)",
-        borderRadius: 28,
+        borderRadius: 24,
         background: "#ffffff",
         boxShadow: playing
           ? "0 20px 50px -20px rgba(125, 211, 252, .45), 0 8px 24px -12px rgba(192,132,252,.25)"
@@ -200,7 +200,7 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
         transition: "box-shadow .35s ease, transform .2s ease",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
         <div style={{ position: "relative", flex: "0 0 auto" }}>
           {/* soft glow */}
           <span
