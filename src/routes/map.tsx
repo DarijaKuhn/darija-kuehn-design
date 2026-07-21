@@ -28,7 +28,7 @@ function MapPage() {
       <section className="map-section">
         <div className="map-section-content">
           <div className="container">
-            <div className="label" style={{ color: "rgba(255,255,255,.7)", marginBottom: 12 }}>{t("pages.map.eyebrow")}</div>
+            <div className="label" style={{ marginBottom: 12 }}>{t("pages.map.eyebrow")}</div>
             <h1 className="map-heading">{t("pages.map.h1")}</h1>
             <p className="map-subhead">{t("pages.map.subhead")}</p>
             <figure className="map-building">
