@@ -534,7 +534,7 @@ textarea.field-input { min-height: 120px; resize: vertical; }
 .quote-ref { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 
 /* Footer */
-footer { background: linear-gradient(180deg, #2563EB 0%, #1e40af 55%, #172554 100%); color: rgba(255,255,255,.82); padding: 36px 0 24px; margin-top: 0; position: relative; z-index: 3; }
+footer { background: linear-gradient(180deg, #172554 0%, #0f172a 55%, #020617 100%); color: rgba(255,255,255,.82); padding: 36px 0 24px; margin-top: 0; position: relative; z-index: 3; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 32px; align-items: start; }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 24px; } }
 footer h4 { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
