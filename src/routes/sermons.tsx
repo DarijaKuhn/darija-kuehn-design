@@ -220,11 +220,10 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
             type="button"
             onClick={toggle}
             aria-label={playing ? "Pause" : "Play"}
+            className="sermon-play-btn"
             style={{
               position: "relative",
               zIndex: 1,
-              width: 72,
-              height: 72,
               borderRadius: "50%",
               border: "none",
               cursor: "pointer",
