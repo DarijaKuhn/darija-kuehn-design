@@ -7,14 +7,23 @@
   --green: #3f6470;
   --green-dark: #2e4c56;
   --green-light: #5a8391;
-  --green-soft: #edf2f3;
-  --ink: #2a2a2a;
-  --ink-2: #4a5560;
-  --muted: #7a8890;
-  --line: rgba(63, 100, 112, .12);
-  --line-2: rgba(63, 100, 112, .24);
-  --bg: #ffffff;
+  --green-soft: #eef4f6;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --muted: #94a3b8;
+  --line: rgba(15, 23, 42, .06);
+  --line-2: rgba(15, 23, 42, .12);
+  --bg: #F9FAFB;
   --white: #ffffff;
+
+  /* Apple-style soft gradient accents */
+  --accent-sky: #7DD3FC;
+  --accent-lavender: #C084FC;
+  --gradient-accent: linear-gradient(135deg, #7DD3FC 0%, #A5B4FC 50%, #C084FC 100%);
+  --shadow-soft: 0 4px 18px rgba(15, 23, 42, .05);
+  --shadow-float: 0 10px 32px rgba(15, 23, 42, .07);
+  --radius-card: 24px;
+  --radius-card-lg: 28px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
