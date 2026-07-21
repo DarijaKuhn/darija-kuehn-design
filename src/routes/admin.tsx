@@ -13,6 +13,7 @@ import {
   type Book,
   type Asset,
   type Verse,
+  type EventItem,
 } from "@/lib/site-content";
 import { fetchStats } from "@/lib/analytics";
 
