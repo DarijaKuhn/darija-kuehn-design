@@ -729,6 +729,87 @@ function VersesTab({ items, onSave, onDelete, onError }: {
   );
 }
 
+/* ---------------- EventsTab (календарь событий) ---------------- */
+
+function EventsTab({ items, onSave, onDelete, onError }: {
+  items: EventItem[]; onSave: (i: EventItem[]) => void; onDelete: (id: string) => void; onError: (m: string) => void;
+}) {
+  const today = new Date().toISOString().slice(0, 10);
+  const [f, setF] = useState({ date: today, time: "", title: "", note: "", cancel: false });
+  const [busy, setBusy] = useState(false);
+
+  async function submit(e: FormEvent) {
+    e.preventDefault();
+    if (!f.date) return onError("Укажите дату / Datum angeben.");
+    if (!f.cancel && !f.title.trim()) return onError("Введите название события / Titel angeben.");
+    setBusy(true);
+    try {
+      const item: EventItem = {
+        id: newId(),
+        date: f.date,
+        time: f.time.trim() || undefined,
+        title: f.cancel ? (f.title.trim() || "— отменено —") : f.title.trim(),
+        note: f.note.trim() || undefined,
+        cancel: f.cancel || undefined,
+        createdAt: new Date().toISOString(),
+      };
+      onSave([item, ...items]);
+      setF({ date: today, time: "", title: "", note: "", cancel: false });
+    } finally { setBusy(false); }
+  }
+
+  const sorted = [...items].sort((a, b) => a.date.localeCompare(b.date));
+
+  return (
+    <div style={styles.grid}>
+      <form onSubmit={submit} style={styles.card}>
+        <h2 style={styles.h2}>➕ Новое событие / Neuer Termin</h2>
+        <p style={{ fontSize: 13, color: "#666", marginTop: -6, marginBottom: 12 }}>
+          Регулярные служения (Вс 10:00, Ср 18:00, Пт 18:00) добавляются автоматически. Здесь можно добавить особые даты (праздники, поездки), пометки или отменить регулярное служение на конкретный день.
+        </p>
+        <Field label="Datum / Дата">
+          <input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} />
+        </Field>
+        <Field label="Uhrzeit / Время (напр. 18:00)">
+          <input style={styles.input} value={f.time} onChange={(e) => setF({ ...f, time: e.target.value })} placeholder="18:00" />
+        </Field>
+        <Field label="Titel / Название">
+          <input style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} placeholder="напр. Weihnachten — Festgottesdienst" />
+        </Field>
+        <Field label="Anmerkung / Пометка">
+          <input style={styles.input} value={f.note} onChange={(e) => setF({ ...f, note: e.target.value })} placeholder="напр. с общим обедом" />
+        </Field>
+        <label style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 12, fontSize: 14 }}>
+          <input type="checkbox" checked={f.cancel} onChange={(e) => setF({ ...f, cancel: e.target.checked })} />
+          Отменить регулярное служение на эту дату / Regelmäßigen Gottesdienst absagen
+        </label>
+        <button disabled={busy} type="submit" style={styles.btnPrimary}>
+          {busy ? "Сохранение…" : "Добавить / Hinzufügen"}
+        </button>
+      </form>
+
+      <div style={styles.card}>
+        <h2 style={styles.h2}>Все записи ({items.length})</h2>
+        {sorted.length === 0 ? (
+          <p style={styles.empty}>Пока нет записей. Регулярные служения показываются автоматически.</p>
+        ) : sorted.map((ev) => (
+          <div key={ev.id} style={styles.item}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={styles.itemTitle}>
+                {ev.cancel ? "❌ " : "📌 "}{ev.date}{ev.time ? ` · ${ev.time}` : ""} — {ev.title}
+              </div>
+              {ev.note && <div style={styles.itemMeta}>{ev.note}</div>}
+              {ev.cancel && <div style={{ ...styles.itemMeta, color: "#b71c1c" }}>Отмена регулярного служения</div>}
+            </div>
+            <button onClick={() => onDelete(ev.id)} style={styles.btnDanger}>Удалить</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label style={{ display: "block", marginBottom: 12 }}>
