@@ -522,7 +522,7 @@ textarea.field-input { min-height: 120px; resize: vertical; }
 .events-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; max-width: 760px; }
 .event-card { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px; box-shadow: var(--shadow-soft); transition: transform .25s ease, box-shadow .25s ease; }
 .event-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-float); }
-.event-badge { background: linear-gradient(135deg, rgba(125,211,252,.2), rgba(37,99,235,.2)); border-radius: 12px; text-align: center; padding: 10px 6px; }
+.event-badge { background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(29,78,216,.2)); border-radius: 12px; text-align: center; padding: 10px 6px; }
 .event-badge-day { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--green); line-height: 1; }
 .event-badge-mon { font-size: 9px; font-weight: 700; text-transform: uppercase; color: #5a8c55; letter-spacing: .06em; margin-top: 2px; }
 .event-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
