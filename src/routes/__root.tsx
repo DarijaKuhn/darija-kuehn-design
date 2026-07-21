@@ -52,6 +52,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "format-detection", content: "telephone=no, address=no, email=no, date=no" },
       { title: "FECG Dresden — Русскоязычная евангельская церковь · Богослужения Вс 10:00" },
       { name: "description", content: "Freie Evangeliums-Christen-Gemeinde Dresden e.V. — русскоязычная евангельская церковь (христиане-баптисты) в Дрездене. Воскресные богослужения в 10:00. Altenberger Str. 87, 01279 Dresden. Проповеди, стихи, книги." },
       { name: "keywords", content: "FECG Dresden, Freie Evangeliums-Christen-Gemeinde, русская церковь Дрезден, евангельская церковь Дрезден, баптисты Дрезден, богослужение Дрезден, христианская церковь Дрезден, russische Kirche Dresden, evangelische Freikirche Dresden, Baptisten Dresden, Gottesdienst Dresden, проповеди, христианские стихи" },
