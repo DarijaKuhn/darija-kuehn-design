@@ -145,10 +145,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </header>
 
       <nav style={styles.tabs}>
-        {(["sermons", "photos", "books", "assets", "verses", "events", "stats"] as Tab[]).map((t) => (
+        {(["sermons", "photos", "books", "assets", "verses", "events", "design", "stats"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : t === "events" ? "📅 События" : "📊 Статистика"}
-            {t !== "stats" && <span style={styles.count}>{content[t as Exclude<Tab,"stats">].length}</span>}
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : t === "events" ? "📅 События" : t === "design" ? "🎨 ИИ дизайн" : "📊 Статистика"}
+            {t !== "stats" && t !== "design" && <span style={styles.count}>{content[t as ContentTab].length}</span>}
           </button>
         ))}
       </nav>
