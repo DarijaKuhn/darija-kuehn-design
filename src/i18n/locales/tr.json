@@ -157,19 +157,23 @@
         "p": "Zur Optimierung unserer Website und zur Analyse der Sichtbarkeit in den Google-Suchergebnissen nutzen wir <strong>Google Search Console</strong>. Dabei werden keine personenbezogenen Daten der Websitebesucher verarbeitet. Google erhält lediglich technische Informationen, die für die Indexierung und Darstellung der Website in den Suchergebnissen erforderlich sind. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, technisch optimierten Website)."
       },
       {
-        "h": "12. Haklarınız",
+        "h": "12. Einsatz von Künstlicher Intelligenz für Designanpassungen",
+        "p": "Zur internen Anpassung des Designs (Farben, Schriften, Abstände) nutzen wir im Admin-Panel ein KI-gestütztes Tool. Dabei werden keine personenbezogenen Daten von Websitebesuchern verarbeitet; es werden lediglich Gestaltungsanweisungen über das Lovable AI Gateway an den Anbieter Google/Gemini übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Websitegestaltung)."
+      },
+      {
+        "h": "13. Haklarınız",
         "p": "Erişim, düzeltme, silme, kısıtlama, taşınabilirlik ve itiraz hakkınızın yanı sıra denetim makamına şikayet hakkına sahipsiniz."
       },
       {
-        "h": "13. Özel İtiraz Hakkı (GDPR md. 21)",
+        "h": "14. Özel İtiraz Hakkı (GDPR md. 21)",
         "p": "<div class=\"widerspruch-block\"><strong>Özel durumunuzdan kaynaklanan nedenlerle, sizinle ilgili kişisel verilerin işlenmesine her zaman itiraz etme hakkına sahipsiniz.</strong></div>"
       },
       {
-        "h": "14. SSL şifrelemesi",
+        "h": "15. SSL şifrelemesi",
         "p": "Bu site güvenlik nedeniyle SSL/TLS şifrelemesi kullanır."
       },
       {
-        "h": "15. Değişiklikler",
+        "h": "16. Değişiklikler",
         "p": "Bu beyanı güncel yasal gereklilikleri karşılayacak şekilde değiştirme hakkımız saklıdır."
       }
     ]
