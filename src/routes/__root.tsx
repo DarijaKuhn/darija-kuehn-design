@@ -60,8 +60,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "googlebot", content: "index, follow" },
       { name: "geo.region", content: "DE-SN" },
       { name: "geo.placename", content: "Dresden, Sachsen, Deutschland" },
-      { name: "geo.position", content: "51.0195;13.8110" },
-      { name: "ICBM", content: "51.0195, 13.8110" },
+      { name: "geo.position", content: "51.0299532;13.8090255" },
+      { name: "ICBM", content: "51.0299532, 13.8090255" },
       { name: "theme-color", content: "#556" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "FECG Dresden" },
@@ -108,8 +108,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 51.0195,
-            "longitude": 13.8110
+            "latitude": 51.0299532,
+            "longitude": 13.8090255
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=51.0299532,13.8090255",
+          "areaServed": [
+            { "@type": "City", "name": "Dresden" },
+            { "@type": "State", "name": "Sachsen" },
+            { "@type": "Country", "name": "Deutschland" }
+          ],
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Dresden",
+            "address": { "@type": "PostalAddress", "addressCountry": "DE", "addressRegion": "Sachsen" }
           },
           "openingHoursSpecification": [
             { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "12:30" },
