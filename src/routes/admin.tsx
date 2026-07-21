@@ -111,7 +111,10 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
 
   function flash(kind: "ok" | "err", text: string) {
     setMsg({ kind, text });
-    window.setTimeout(() => setMsg(null), 5000);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.setTimeout(() => setMsg(null), 6000);
+    }
   }
 
   async function persist(next: SiteContent) {
