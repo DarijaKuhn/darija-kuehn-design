@@ -238,6 +238,7 @@ a { color: inherit; text-decoration: none; }
     text-decoration-color: var(--accent-lavender);
     text-decoration-thickness: 2px;
   }
+  .nav-btn.active:hover { color: var(--accent-lavender) !important; }
 }
 
 /* ─────── HERO ─────── */
