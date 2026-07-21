@@ -153,19 +153,23 @@
         "p": "Zur Verbesserung unseres Angebots erfassen wir eine anonyme Zugriffsstatistik. Gezählt werden ausschließlich die aufgerufenen Seiten sowie die Anzahl der Aufrufe. Es werden KEINE IP-Adressen im Klartext gespeichert, KEINE Cookies gesetzt, KEINE Nutzer-IDs oder Nutzerkonten angelegt und KEINE personenbezogenen Daten verarbeitet, aus denen sich Rückschlüsse auf die Identität einer Person ziehen lassen. Zur Unterscheidung wiederkehrender Aufrufe innerhalb eines Tages wird ausschließlich ein täglich wechselnder, gesalzener Hashwert aus IP-Adresse und User-Agent gebildet; dieser Hashwert wird ausschließlich für die Zählung genutzt und spätestens nach 48 Stunden automatisch und unwiderruflich gelöscht. Die Statistik verbleibt vollständig auf unserem Hosting-Server bei der Hetzner Online GmbH; es findet KEINE Weitergabe an Dritte, KEIN Tracking über verschiedene Websites hinweg und KEINE Profilbildung statt. Bots, Crawler und Zugriffe mit aktiviertem „Do Not Track\"-Signal werden nicht gezählt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, sicheren und statistisch auswertbaren Bereitstellung der Website ohne Einsatz von Cookies oder Drittanbieter-Diensten). Sie können der Zählung jederzeit widersprechen, indem Sie in Ihrem Browser die „Do Not Track\"-Funktion aktivieren – wir respektieren dieses Signal automatisch."
       },
       {
-        "h": "11. Haklarınız",
+        "h": "11. Google Search Console",
+        "p": "Zur Optimierung unserer Website und zur Analyse der Sichtbarkeit in den Google-Suchergebnissen nutzen wir <strong>Google Search Console</strong>. Dabei werden keine personenbezogenen Daten der Websitebesucher verarbeitet. Google erhält lediglich technische Informationen, die für die Indexierung und Darstellung der Website in den Suchergebnissen erforderlich sind. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer bedarfsgerechten, technisch optimierten Website)."
+      },
+      {
+        "h": "12. Haklarınız",
         "p": "Erişim, düzeltme, silme, kısıtlama, taşınabilirlik ve itiraz hakkınızın yanı sıra denetim makamına şikayet hakkına sahipsiniz."
       },
       {
-        "h": "12. Özel İtiraz Hakkı (GDPR md. 21)",
+        "h": "13. Özel İtiraz Hakkı (GDPR md. 21)",
         "p": "<div class=\"widerspruch-block\"><strong>Özel durumunuzdan kaynaklanan nedenlerle, sizinle ilgili kişisel verilerin işlenmesine her zaman itiraz etme hakkına sahipsiniz.</strong></div>"
       },
       {
-        "h": "13. SSL şifrelemesi",
+        "h": "14. SSL şifrelemesi",
         "p": "Bu site güvenlik nedeniyle SSL/TLS şifrelemesi kullanır."
       },
       {
-        "h": "14. Değişiklikler",
+        "h": "15. Değişiklikler",
         "p": "Bu beyanı güncel yasal gereklilikleri karşılayacak şekilde değiştirme hakkımız saklıdır."
       }
     ]
