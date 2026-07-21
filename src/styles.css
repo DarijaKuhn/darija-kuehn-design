@@ -419,10 +419,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Buttons */
 .btn { display: inline-block; padding: 11px 22px; border-radius: 100px; font-weight: 600; font-size: 14px; cursor: pointer; border: none; transition: all .2s; font-family: var(--font-sans); }
-.btn-primary { background: var(--green); color: #fff; box-shadow: 0 4px 14px rgba(42,92,39,.25); }
-.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(42,92,39,.35); }
-.btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
-.btn-outline:hover { background: var(--green); color: #fff; }
+.btn-primary { background: var(--gradient-accent); color: #fff; box-shadow: 0 4px 14px rgba(96,165,250,.25); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(96,165,250,.35); }
+.btn-outline { background: transparent; color: var(--accent-lavender); border: 1.5px solid var(--accent-lavender); }
+.btn-outline:hover { background: var(--gradient-accent); color: #fff; border-color: transparent; }
 
 /* Confession list */
 .confession-body { max-width: 760px; font-size: 16px; line-height: 1.8; color: var(--ink-2); }
