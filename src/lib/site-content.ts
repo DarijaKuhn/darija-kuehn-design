@@ -99,6 +99,7 @@ export async function loadContent(): Promise<SiteContent> {
         books:   Array.isArray(raw.books)   ? raw.books   : [],
         assets:  Array.isArray(raw.assets)  ? raw.assets  : [],
         verses:  Array.isArray(raw.verses)  ? raw.verses  : [],
+        events:  Array.isArray(raw.events)  ? raw.events  : [],
       };
     }
   } catch {
