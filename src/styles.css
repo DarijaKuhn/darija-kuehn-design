@@ -333,6 +333,7 @@ a { color: inherit; text-decoration: none; }
   padding: 6px 12px; background: rgba(15,23,42,.04); border-radius: 999px;
 }
 .hero-address::before { content: "📍"; }
+.hero-address, .hero-address a { text-decoration: none !important; -webkit-text-decoration: none !important; }
 
 .hero-schedule {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
