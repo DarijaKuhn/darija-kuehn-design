@@ -55,15 +55,26 @@ export type Verse = {
   createdAt: string;
 };
 
+export type EventItem = {
+  id: string;
+  date: string;         // ISO yyyy-mm-dd
+  time?: string;        // "HH:mm" or free-form
+  title: string;
+  note?: string;
+  cancel?: boolean;     // true = hide the recurring service on this date
+  createdAt: string;
+};
+
 export type SiteContent = {
   sermons: Sermon[];
   photos: Photo[];
   books: Book[];
   assets: Asset[];
   verses: Verse[];
+  events: EventItem[];
 };
 
-export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [] };
+export const EMPTY_CONTENT: SiteContent = { sermons: [], photos: [], books: [], assets: [], verses: [], events: [] };
 
 const JSON_URL = "/data/site-content.json";
 const API_LOAD = "/api/save.php";
