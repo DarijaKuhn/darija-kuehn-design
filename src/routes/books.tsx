@@ -259,7 +259,7 @@ function LocalBooks() {
         <h2 className="section-h" style={{ marginBottom: 20 }}>Weitere Bücher zum Herunterladen</h2>
         <div style={{ display: "grid", gap: 16 }}>
           {items.map((b) => (
-            <article key={b.id} style={{ padding: 16, border: "1px solid #e2e2dc", borderRadius: 8, background: "#fff" }}>
+            <article key={b.id} style={{ padding: 20, border: "1px solid #e2e2dc", borderRadius: 20, background: "#fff", boxShadow: "0 2px 10px rgba(0,0,0,.04)" }}>
               <h3 style={{ margin: "0 0 4px", fontSize: 18 }}>{b.title}</h3>
               <div style={{ fontSize: 13, color: "#666", marginBottom: 8 }}>{b.author}</div>
               {b.description && <p style={{ margin: "0 0 10px", fontSize: 14 }}>{b.description}</p>}

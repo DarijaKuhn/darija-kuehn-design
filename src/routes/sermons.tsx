@@ -60,7 +60,7 @@ function LocalSermons() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortKey)}
-              style={{ padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 }}
+              style={{ padding: "8px 16px", border: "1px solid #ccc", borderRadius: 999, background: "#fff", fontSize: 14 }}
             >
               <option value="title">{t("pages.sermons.sortTitle")}</option>
               <option value="preacher">{t("pages.sermons.sortPreacher")}</option>
@@ -70,7 +70,7 @@ function LocalSermons() {
         </div>
         <div style={{ display: "grid", gap: 16 }}>
           {sorted.map((s) => (
-            <article key={s.id} style={{ padding: 16, border: "1px solid #e2e2dc", borderRadius: 8, background: "#fff" }}>
+            <article key={s.id} style={{ padding: 20, border: "1px solid #e2e2dc", borderRadius: 20, background: "#fff", boxShadow: "0 2px 10px rgba(0,0,0,.04)" }}>
               <h3 style={{ margin: "0 0 4px", fontSize: 18 }}>{s.title}</h3>
               <div style={{ fontSize: 13, color: "#666", marginBottom: 8 }}>
                 {s.preacher} · {s.date}{s.scripture ? ` · ${s.scripture}` : ""}

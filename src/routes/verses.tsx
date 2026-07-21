@@ -109,9 +109,9 @@ function VersesPage() {
               onChange={(e) => setQuery(e.target.value)}
               style={{
                 flex: "1 1 240px",
-                padding: "8px 12px",
+                padding: "10px 18px",
                 border: "1px solid #ccc",
-                borderRadius: 6,
+                borderRadius: 999,
                 fontSize: 14,
                 background: "#fff",
               }}
@@ -121,7 +121,7 @@ function VersesPage() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                style={{ padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 }}
+                style={{ padding: "8px 16px", border: "1px solid #ccc", borderRadius: 999, background: "#fff", fontSize: 14 }}
               >
                 <option value="all">Все ({allPoems.length})</option>
                 {categories.map((c) => (
@@ -136,7 +136,7 @@ function VersesPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortKey)}
-                style={{ padding: "6px 10px", border: "1px solid #ccc", borderRadius: 6, background: "#fff", fontSize: 14 }}
+                style={{ padding: "8px 16px", border: "1px solid #ccc", borderRadius: 999, background: "#fff", fontSize: 14 }}
               >
                 <option value="category">По категории</option>
                 <option value="title">По названию</option>
@@ -155,10 +155,11 @@ function VersesPage() {
                   <article
                     key={`${p.title}-${i}`}
                     style={{
-                      padding: 18,
+                      padding: 20,
                       border: "1px solid #e2e2dc",
-                      borderRadius: 8,
+                      borderRadius: 20,
                       background: "#fff",
+                      boxShadow: "0 2px 10px rgba(0,0,0,.04)",
                     }}
                   >
                     <button
