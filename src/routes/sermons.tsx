@@ -273,26 +273,26 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
 
         <div style={{ minWidth: 0, flex: 1 }}>
           <h3
+            className="sermon-title"
             style={{
               margin: "0 0 6px",
-              fontSize: 19,
               fontWeight: 700,
               color: "#0f172a",
               letterSpacing: "-0.01em",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
+              overflowWrap: "anywhere",
+              wordBreak: "break-word",
             }}
           >
             {sermon.title}
           </h3>
-          <div style={{ fontSize: 14, color: "#94a3b8", fontWeight: 400 }}>
+          <div className="sermon-meta" style={{ color: "#94a3b8", fontWeight: 400, overflowWrap: "anywhere" }}>
             {sermon.preacher}
             {sermon.scripture ? ` · ${sermon.scripture}` : ""}
             {sermon.date ? ` · ${sermon.date}` : ""}
           </div>
         </div>
       </div>
+
 
       <div style={{ marginTop: 18 }}>
         <div
