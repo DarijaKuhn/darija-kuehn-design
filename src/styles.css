@@ -362,14 +362,14 @@ a { color: inherit; text-decoration: none; }
 /* Hero CTAs — Apple-style gradient primary + subtle glass outline */
 .hero-card .btn { padding: 12px 24px; font-size: 14px; font-weight: 600; letter-spacing: -0.005em; }
 .hero-card .btn-primary {
-  background: linear-gradient(135deg, #7DD3FC 0%, #60A5FA 50%, #2563EB 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 50%, #1d4ed8 100%);
   color: #fff;
-  box-shadow: 0 10px 26px -8px rgba(125,211,252,.55), 0 6px 20px -8px rgba(37,99,235,.45);
+  box-shadow: 0 10px 26px -8px rgba(96,165,250,.55), 0 6px 20px -8px rgba(29,78,216,.45);
   border: none;
 }
 .hero-card .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px -8px rgba(125,211,252,.7), 0 8px 24px -8px rgba(37,99,235,.55);
+  box-shadow: 0 14px 32px -8px rgba(96,165,250,.7), 0 8px 24px -8px rgba(29,78,216,.55);
 }
 .hero-card .btn-outline {
   background: rgba(255,255,255,.7);
