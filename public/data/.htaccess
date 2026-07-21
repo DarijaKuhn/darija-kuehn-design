@@ -1,0 +1,9 @@
+# Block direct HTTP access to server-side data files (auth logs, rate-limit logs).
+# The public site-content.json is served through /api/save.php.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.tmp$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
