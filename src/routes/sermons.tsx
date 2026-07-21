@@ -16,7 +16,7 @@ export const Route = createFileRoute("/sermons")({
 function Sermons() {
   const { t } = useI18n();
   return (
-    <div className="page-panel">
+    <div className="page-panel" style={{ background: "#F9FAFB" }}>
       <div className="page-breadcrumb">
         <div className="page-breadcrumb-inner container">
           <Link to="/">{t("legal.breadcrumbHome")}</Link>
@@ -24,10 +24,17 @@ function Sermons() {
           <span className="crumb-here">{t("pages.sermons.crumb")}</span>
         </div>
       </div>
-      <section className="section section-white">
+      <section className="section" style={{ background: "#F9FAFB", paddingBottom: 12 }}>
         <div className="container">
-          <div className="label" style={{ marginBottom: 8 }}>{t("pages.sermons.eyebrow")}</div>
-          <h1 className="section-h" style={{ marginBottom: 0 }}>{t("pages.sermons.h1")}</h1>
+          <div className="label" style={{ marginBottom: 10, color: "#7a8890", letterSpacing: ".14em" }}>
+            {t("pages.sermons.eyebrow")}
+          </div>
+          <h1
+            className="section-h"
+            style={{ margin: 0, fontSize: "clamp(30px, 4.2vw, 44px)", letterSpacing: "-0.02em", fontWeight: 700, color: "#0f172a" }}
+          >
+            {t("pages.sermons.h1")}
+          </h1>
         </div>
       </section>
       <LocalSermons />
@@ -65,35 +72,64 @@ function LocalSermons() {
 
   if (items.length === 0) return null;
 
+  const sortOptions: { key: SortKey; label: string }[] = [
+    { key: "title", label: t("pages.sermons.sortTitle") },
+    { key: "preacher", label: t("pages.sermons.sortPreacher") },
+    { key: "date", label: t("pages.sermons.sortDate") },
+  ];
+
   return (
-    <section className="section section-white" style={{ borderTop: "1px solid #eee" }}>
+    <section className="section" style={{ background: "#F9FAFB", paddingTop: 24 }}>
       <div className="container">
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
-          <h2 className="section-h" style={{ margin: 0 }}>Predigten-Archiv</h2>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            <input
-              type="search"
-              placeholder="Поиск…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              style={{ padding: "10px 18px", border: "1px solid #d9d9d3", borderRadius: 999, background: "#fff", fontSize: 14, minWidth: 200 }}
-            />
-            <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14 }}>
-              <span>{t("pages.sermons.sortBy")}:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortKey)}
-                style={{ padding: "10px 16px", border: "1px solid #d9d9d3", borderRadius: 999, background: "#fff", fontSize: 14 }}
-              >
-                <option value="title">{t("pages.sermons.sortTitle")}</option>
-                <option value="preacher">{t("pages.sermons.sortPreacher")}</option>
-                <option value="date">{t("pages.sermons.sortDate")}</option>
-              </select>
-            </label>
-          </div>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 20 }}>
+          <input
+            type="search"
+            placeholder="Suchen…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            style={{
+              padding: "12px 20px",
+              border: "1px solid #e5e7eb",
+              borderRadius: 999,
+              background: "#fff",
+              fontSize: 14,
+              minWidth: 220,
+              outline: "none",
+              boxShadow: "0 1px 2px rgba(15,23,42,.04)",
+            }}
+          />
         </div>
 
-        <div style={{ display: "grid", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
+          <span style={{ fontSize: 14, color: "#64748b", fontWeight: 500, marginRight: 4 }}>
+            Sortieren nach:
+          </span>
+          {sortOptions.map((opt) => {
+            const active = sortBy === opt.key;
+            return (
+              <button
+                key={opt.key}
+                type="button"
+                onClick={() => setSortBy(opt.key)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: 999,
+                  border: `1.5px solid ${active ? "#0f172a" : "#e5e7eb"}`,
+                  background: active ? "#0f172a" : "#fff",
+                  color: active ? "#fff" : "#334155",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  transition: "all .2s ease",
+                }}
+              >
+                {opt.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ display: "grid", gap: 20 }}>
           {sorted.map((s) => (
             <SermonCard
               key={s.id}
@@ -122,11 +158,8 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
   const [duration, setDuration] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  // Pause this player when another card starts playing
   useEffect(() => {
-    if (!isActive && playing) {
-      audioRef.current?.pause();
-    }
+    if (!isActive && playing) audioRef.current?.pause();
   }, [isActive, playing]);
 
   const toggle = async () => {
@@ -157,83 +190,112 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
   return (
     <article
       style={{
-        padding: 18,
-        border: "1px solid #e6e6df",
-        borderRadius: 22,
-        background: "linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%)",
-        boxShadow: playing ? "0 10px 30px -12px rgba(46,76,86,.25)" : "0 2px 10px rgba(0,0,0,.04)",
-        transition: "box-shadow .3s ease, transform .2s ease",
+        padding: "24px 26px",
+        border: "1px solid rgba(15,23,42,.06)",
+        borderRadius: 28,
+        background: "#ffffff",
+        boxShadow: playing
+          ? "0 20px 50px -20px rgba(125, 211, 252, .45), 0 8px 24px -12px rgba(192,132,252,.25)"
+          : "0 4px 18px rgba(15,23,42,.05)",
+        transition: "box-shadow .35s ease, transform .2s ease",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={playing ? "Pause" : "Play"}
-          style={{
-            flex: "0 0 auto",
-            width: 64,
-            height: 64,
-            borderRadius: "50%",
-            border: "none",
-            cursor: "pointer",
-            background: "conic-gradient(from 210deg at 50% 50%, #b7e4ff, #8ab6ff, #a99bff, #d7c1ff, #b7e4ff)",
-            boxShadow: "0 10px 24px -8px rgba(90, 110, 180, .55), inset 0 -2px 6px rgba(0,0,0,.08)",
-            display: "grid",
-            placeItems: "center",
-            position: "relative",
-            transition: "transform .15s ease",
-          }}
-          onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.96)")}
-          onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        >
+      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div style={{ position: "relative", flex: "0 0 auto" }}>
+          {/* soft glow */}
           <span
+            aria-hidden
             style={{
-              width: 42,
-              height: 42,
+              position: "absolute",
+              inset: -8,
               borderRadius: "50%",
-              background: "#fff",
+              background: "radial-gradient(circle, rgba(125,211,252,.55), rgba(192,132,252,.35) 55%, transparent 72%)",
+              filter: "blur(14px)",
+              opacity: playing ? 1 : 0.75,
+              transition: "opacity .3s ease",
+              zIndex: 0,
+            }}
+          />
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={playing ? "Pause" : "Play"}
+            style={{
+              position: "relative",
+              zIndex: 1,
+              width: 72,
+              height: 72,
+              borderRadius: "50%",
+              border: "none",
+              cursor: "pointer",
+              padding: 3,
+              background: "linear-gradient(135deg, #7DD3FC 0%, #A5B4FC 50%, #C084FC 100%)",
+              boxShadow: "0 10px 26px -10px rgba(125,211,252,.7), 0 6px 20px -8px rgba(192,132,252,.55)",
               display: "grid",
               placeItems: "center",
-              boxShadow: "0 2px 6px rgba(0,0,0,.15)",
-              color: "#2e4c56",
+              transition: "transform .15s ease",
             }}
+            onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.96)")}
+            onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            {loading ? (
-              <span
-                style={{
-                  width: 16, height: 16, borderRadius: "50%",
-                  border: "2px solid #cfd6d9", borderTopColor: "#2e4c56",
-                  animation: "spin 0.8s linear infinite",
-                }}
-              />
-            ) : playing ? (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
-                <rect x="3" y="2.5" width="3.5" height="11" rx="1" />
-                <rect x="9.5" y="2.5" width="3.5" height="11" rx="1" />
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
-                <path d="M4 2.5v11a.5.5 0 0 0 .77.42l8.5-5.5a.5.5 0 0 0 0-.84l-8.5-5.5A.5.5 0 0 0 4 2.5z" />
-              </svg>
-            )}
-          </span>
-        </button>
+            <span
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                background: "#ffffff",
+                display: "grid",
+                placeItems: "center",
+                color: "#0f172a",
+              }}
+            >
+              {loading ? (
+                <span
+                  style={{
+                    width: 18, height: 18, borderRadius: "50%",
+                    border: "2px solid #e2e8f0", borderTopColor: "#0f172a",
+                    animation: "spin 0.8s linear infinite",
+                  }}
+                />
+              ) : playing ? (
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
+                  <rect x="3.5" y="2.5" width="3" height="11" rx="1" />
+                  <rect x="9.5" y="2.5" width="3" height="11" rx="1" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden style={{ marginLeft: 3 }}>
+                  <path d="M4 2.5v11a.5.5 0 0 0 .77.42l8.5-5.5a.5.5 0 0 0 0-.84l-8.5-5.5A.5.5 0 0 0 4 2.5z" />
+                </svg>
+              )}
+            </span>
+          </button>
+        </div>
 
         <div style={{ minWidth: 0, flex: 1 }}>
-          <h3 style={{ margin: "0 0 4px", fontSize: 17, fontWeight: 600, color: "#1f2a2f", overflow: "hidden", textOverflow: "ellipsis" }}>
+          <h3
+            style={{
+              margin: "0 0 6px",
+              fontSize: 19,
+              fontWeight: 700,
+              color: "#0f172a",
+              letterSpacing: "-0.01em",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
             {sermon.title}
           </h3>
-          <div style={{ fontSize: 13, color: "#6b7a80" }}>
+          <div style={{ fontSize: 14, color: "#94a3b8", fontWeight: 400 }}>
             {sermon.preacher}
-            {sermon.date ? ` · ${sermon.date}` : ""}
             {sermon.scripture ? ` · ${sermon.scripture}` : ""}
+            {sermon.date ? ` · ${sermon.date}` : ""}
           </div>
         </div>
       </div>
 
-      <div style={{ marginTop: 14 }}>
+      <div style={{ marginTop: 18 }}>
         <div
           onClick={seek}
           role="slider"
@@ -241,8 +303,8 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
           aria-valuemin={0}
           aria-valuemax={100}
           style={{
-            height: 6,
-            background: "#eceae2",
+            height: 4,
+            background: "#eef2f6",
             borderRadius: 999,
             cursor: duration ? "pointer" : "default",
             overflow: "hidden",
@@ -253,13 +315,13 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
             style={{
               width: `${pct}%`,
               height: "100%",
-              background: "linear-gradient(90deg, #3f6470, #2e4c56)",
+              background: "linear-gradient(90deg, #7DD3FC, #C084FC)",
               borderRadius: 999,
               transition: "width .1s linear",
             }}
           />
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#8a949a", marginTop: 6, fontVariantNumeric: "tabular-nums" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#94a3b8", marginTop: 8, fontVariantNumeric: "tabular-nums", fontWeight: 500 }}>
           <span>{formatTime(current)}</span>
           <span>{formatTime(duration)}</span>
         </div>
