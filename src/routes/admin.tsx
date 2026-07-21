@@ -123,7 +123,7 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
     catch (e) { flash("err", (e as Error).message); }
   }
 
-  type ContentTab = Exclude<Tab, "stats">;
+  type ContentTab = Exclude<Tab, "stats" | "design">;
   async function handleDelete(type: ContentTab, id: string) {
     if (!confirm("Wirklich löschen? / Точно удалить?")) return;
     try {
