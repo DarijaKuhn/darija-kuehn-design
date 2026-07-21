@@ -99,7 +99,7 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
   );
 }
 
-type Tab = "sermons" | "photos" | "books" | "assets" | "verses" | "stats";
+type Tab = "sermons" | "photos" | "books" | "assets" | "verses" | "events" | "stats";
 
 function Dashboard({ password, onLogout }: { password: string; onLogout: () => void }) {
   const [content, setContent] = useState<SiteContent>(EMPTY_CONTENT);
@@ -142,9 +142,9 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       </header>
 
       <nav style={styles.tabs}>
-        {(["sermons", "photos", "books", "assets", "verses", "stats"] as Tab[]).map((t) => (
+        {(["sermons", "photos", "books", "assets", "verses", "events", "stats"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
-            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : "📊 Статистика"}
+            {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : t === "events" ? "📅 События" : "📊 Статистика"}
             {t !== "stats" && <span style={styles.count}>{content[t as Exclude<Tab,"stats">].length}</span>}
           </button>
         ))}
@@ -168,6 +168,8 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
         <AssetsTab items={content.assets} password={password} onSave={(items) => persist({ ...content, assets: items })} onDelete={(id) => handleDelete("assets", id)} onError={(m) => flash("err", m)} onOk={(m) => flash("ok", m)} />
       ) : tab === "verses" ? (
         <VersesTab items={content.verses} onSave={(items) => persist({ ...content, verses: items })} onDelete={(id) => handleDelete("verses", id)} onError={(m) => flash("err", m)} />
+      ) : tab === "events" ? (
+        <EventsTab items={content.events} onSave={(items) => persist({ ...content, events: items })} onDelete={(id) => handleDelete("events", id)} onError={(m) => flash("err", m)} />
       ) : (
         <StatsTab password={password} onError={(m) => flash("err", m)} />
       )}
