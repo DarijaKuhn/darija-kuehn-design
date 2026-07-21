@@ -1143,12 +1143,12 @@ function DesignTab({ password, onError, onOk }: { password: string; onError: (m:
           ))}
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <button onClick={ask} disabled={busy || !prompt.trim()} style={{ ...styles.btn, opacity: busy || !prompt.trim() ? 0.6 : 1 }}>
+          <button onClick={ask} disabled={busy || !prompt.trim()} style={{ ...styles.btnPrimary, opacity: busy || !prompt.trim() ? 0.6 : 1 }}>
             {busy ? "…" : "✨ Сгенерировать"}
           </button>
           {aiResult && (
             <>
-              <button onClick={save} disabled={busy} style={{ ...styles.btn, background: "#2e7d32" }}>💾 Применить и сохранить</button>
+              <button onClick={save} disabled={busy} style={{ ...styles.btnPrimary, background: "#2e7d32" }}>💾 Применить и сохранить</button>
               <button onClick={cancelPreview} disabled={busy} style={styles.btnGhost}>Отменить предпросмотр</button>
             </>
           )}
@@ -1199,7 +1199,7 @@ function DesignTab({ password, onError, onOk }: { password: string; onError: (m:
           ))}
         </div>
         <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-          <button onClick={saveManual} disabled={busy} style={styles.btn}>💾 Сохранить</button>
+          <button onClick={saveManual} disabled={busy} style={styles.btnPrimary}>💾 Сохранить</button>
           <button onClick={resetAll} disabled={busy} style={{ ...styles.btnGhost, color: "#b33", borderColor: "#f5b3b3" }}>♻️ Сбросить всё</button>
         </div>
       </div>
