@@ -330,7 +330,7 @@ function SermonCard({ sermon, isActive, onPlay }: { sermon: Sermon; isActive: bo
       <audio
         ref={audioRef}
         src={sermon.fileUrl}
-        preload="none"
+        preload="metadata"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
