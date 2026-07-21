@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
 
-const CONSENT_KEY = "cookie-consent-v1";
 const MAP_CONSENT_KEY = "map-consent-osm-v1";
 
 const MAP_SRC =
   "https://www.openstreetmap.org/export/embed.html?bbox=13.7991%2C51.0250%2C13.8191%2C51.0350&layer=mapnik&marker=51.029953%2C13.809026";
-
-function hasAnalyticsConsent(): boolean {
-  try {
-    const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return false;
-    const c = JSON.parse(raw);
-    return c?.analytics === true || c?.functional === true;
-  } catch {
-    return false;
-  }
-}
 
 function hasMapConsent(): boolean {
   try {
@@ -31,7 +19,10 @@ export function MapEmbed() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (hasAnalyticsConsent() || hasMapConsent()) setActive(true);
+    // Map (OpenStreetMap) requires its OWN separate consent per DSGVO —
+    // the general cookie banner (analytics/functional) does not cover
+    // third-party embeds. Show the map only after explicit map consent.
+    if (hasMapConsent()) setActive(true);
   }, []);
 
   const activate = () => {
