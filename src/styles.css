@@ -16,10 +16,10 @@
   --bg: #F9FAFB;
   --white: #ffffff;
 
-  /* Apple-style soft gradient accents */
-  --accent-sky: #7DD3FC;
-  --accent-lavender: #2563EB;
-  --gradient-accent: linear-gradient(135deg, #7DD3FC 0%, #60A5FA 50%, #2563EB 100%);
+  /* Apple-style soft gradient accents — darker blue */
+  --accent-sky: #60A5FA;
+  --accent-lavender: #1d4ed8;
+  --gradient-accent: linear-gradient(135deg, #60A5FA 0%, #2563EB 50%, #1d4ed8 100%);
   --shadow-soft: 0 4px 18px rgba(15, 23, 42, .05);
   --shadow-float: 0 10px 32px rgba(15, 23, 42, .07);
   --radius-card: 24px;
