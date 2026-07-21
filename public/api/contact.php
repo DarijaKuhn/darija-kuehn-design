@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/config.php';
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -10,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   echo json_encode(['ok' => false, 'error' => 'Method not allowed']);
   exit;
 }
+
+contact_rate_limit();
 
 $raw = file_get_contents('php://input');
 $body = json_decode($raw, true);

@@ -32,6 +32,12 @@ Options -Indexes
 
 # Cache policy — prevent stale SPA HTML from referencing deleted chunk hashes.
 <IfModule mod_headers.c>
+  # Security headers (defense in depth)
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
   # HTML shell must never be cached — it points to the current asset hashes.
   <FilesMatch "\.(html)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
@@ -47,3 +53,11 @@ Options -Indexes
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 </IfModule>
+
+# Block access to hidden/dot files and backup files everywhere
+<FilesMatch "^\.|\.(bak|old|orig|swp|log)$">
+  Require all denied
+</FilesMatch>
+
+# Disable server signature
+ServerSignature Off

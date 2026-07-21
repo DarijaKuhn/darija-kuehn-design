@@ -16,10 +16,10 @@ import {
 } from "@/lib/site-content";
 import { fetchStats } from "@/lib/analytics";
 
-// NOTE: this is a client-side convenience gate. The real check happens in
-// public/api/config.php (const ADMIN_PASSWORD). Change BOTH to rotate the password.
-const ADMIN_PASSWORD = "Dresden2026";
+// The password is verified server-side (public/api/verify.php).
+// Nothing about the secret ships in the client bundle.
 const STORAGE_KEY = "fecg-admin-pw";
+const VERIFY_URL = "/api/verify.php";
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
@@ -46,12 +46,32 @@ function AdminPage() {
 
 function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
   const [value, setValue] = useState("");
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
 
-  function submit(e: FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault();
-    if (value === ADMIN_PASSWORD) onUnlock(value);
-    else { setErr(true); setValue(""); }
+    if (busy || !value) return;
+    setBusy(true);
+    setErr(null);
+    try {
+      const res = await fetch(VERIFY_URL, {
+        method: "POST",
+        headers: { "X-Admin-Password": value },
+      });
+      if (res.ok) { onUnlock(value); return; }
+      if (res.status === 429) {
+        const data = await res.json().catch(() => ({} as { error?: string }));
+        setErr(data.error || "Zu viele Fehlversuche. Bitte später versuchen.");
+      } else {
+        setErr("Falsches Passwort / Неверный пароль.");
+      }
+      setValue("");
+    } catch {
+      setErr("Verbindungsfehler / Ошибка соединения.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
@@ -62,13 +82,17 @@ function PasswordGate({ onUnlock }: { onUnlock: (pw: string) => void }) {
         <input
           type="password"
           value={value}
-          onChange={(e) => { setValue(e.target.value); setErr(false); }}
+          onChange={(e) => { setValue(e.target.value); setErr(null); }}
           placeholder="Passwort"
           autoFocus
+          autoComplete="current-password"
           style={styles.input}
+          disabled={busy}
         />
-        {err && <div style={{ color: "#c33", marginTop: 8, fontSize: 14 }}>Falsches Passwort / Неверный пароль.</div>}
-        <button type="submit" style={{ ...styles.btnPrimary, marginTop: 16, width: "100%" }}>Anmelden / Войти</button>
+        {err && <div style={{ color: "#c33", marginTop: 8, fontSize: 14 }}>{err}</div>}
+        <button type="submit" disabled={busy} style={{ ...styles.btnPrimary, marginTop: 16, width: "100%", opacity: busy ? 0.6 : 1 }}>
+          {busy ? "…" : "Anmelden / Войти"}
+        </button>
       </form>
     </div>
   );
