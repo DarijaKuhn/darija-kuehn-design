@@ -135,8 +135,31 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
 
 
   return (
-    <div style={styles.wrap}>
-      <header style={styles.header}>
+    <div style={styles.wrap} className="admin-root">
+      <style>{`
+        @media (max-width: 720px) {
+          .admin-root { padding: 14px 12px 60px !important; }
+          .admin-root h1 { font-size: 18px !important; }
+          .admin-root [data-admin-grid] { grid-template-columns: 1fr !important; gap: 14px !important; }
+          .admin-root [data-admin-card] { padding: 14px !important; border-radius: 12px !important; }
+          .admin-root [data-admin-tabs] {
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 4px !important;
+            margin: 0 -12px 16px !important;
+            padding: 0 12px 2px !important;
+          }
+          .admin-root [data-admin-tabs]::-webkit-scrollbar { display: none; }
+          .admin-root [data-admin-tabs] button { flex: 0 0 auto; padding: 10px 12px !important; font-size: 14px !important; white-space: nowrap; }
+          .admin-root [data-admin-header] { flex-direction: row; align-items: center; }
+          .admin-root [data-admin-photogrid] { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important; gap: 10px !important; }
+          .admin-root input, .admin-root select, .admin-root textarea { font-size: 16px !important; }
+          .admin-root button { min-height: 40px; }
+        }
+      `}</style>
+      <header style={styles.header} data-admin-header>
         <div>
           <h1 style={{ margin: 0, fontSize: 22 }}>FECG Dresden — Admin</h1>
           <p style={{ margin: "4px 0 0", color: "#666", fontSize: 13 }}>Загрузка файлов с компьютера · Hetzner-Server</p>
@@ -144,7 +167,7 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
         <button onClick={onLogout} style={styles.btnGhost}>Abmelden / Выйти</button>
       </header>
 
-      <nav style={styles.tabs}>
+      <nav style={styles.tabs} data-admin-tabs>
         {(["sermons", "photos", "books", "assets", "verses", "events", "design", "stats"] as Tab[]).map((t) => (
           <button key={t} onClick={() => setTab(t)} style={{ ...styles.tab, ...(tab === t ? styles.tabActive : {}) }}>
             {t === "sermons" ? "Проповеди" : t === "photos" ? "Фото" : t === "books" ? "Книги" : t === "assets" ? "Баннер и лого" : t === "verses" ? "Стихи" : t === "events" ? "📅 События" : t === "design" ? "🎨 ИИ дизайн" : "📊 Статистика"}
@@ -308,8 +331,8 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
   }
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новая проповедь / Neue Predigt</h2>
         <Field label="Prediger / Проповедник"><input required style={styles.input} value={f.preacher} onChange={(e) => setF({ ...f, preacher: e.target.value })} /></Field>
         <Field label="Datum / Дата"><input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
@@ -330,7 +353,7 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
         )}
         <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Загрузка…" : "Добавить / Hinzufügen"}</button>
       </form>
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все проповеди ({items.length})</h2>
         {items.length === 0 ? <p style={styles.empty}>Пока нет проповедей.</p> : items.map((s) => (
           <div key={s.id} style={styles.item}>
@@ -408,8 +431,8 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
   const catLabel = (k: string) => PHOTO_CATEGORIES.find((c) => c.key === k)?.label ?? k;
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новые фото / Neue Fotos</h2>
         <Field label="Категория / Kategorie">
           <select
@@ -442,7 +465,7 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
           {busy ? "Загрузка…" : `Добавить ${files.length > 0 ? `(${files.length})` : ""}`.trim()}
         </button>
       </form>
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все фото ({items.length})</h2>
         {items.length === 0 ? <p style={styles.empty}>Пока нет фото.</p> : (
           Object.keys(grouped).map((cat) => (
@@ -451,7 +474,7 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
                 {catLabel(cat)}
                 <span style={{ ...styles.count, marginLeft: 8 }}>{grouped[cat].length}</span>
               </div>
-              <div style={styles.photoGrid}>
+              <div style={styles.photoGrid} data-admin-photogrid>
                 {grouped[cat].map((p) => (
                   <div key={p.id} style={styles.photoCard}>
                     <img src={p.fileUrl} alt={p.album} style={styles.photoImg} loading="lazy" />
@@ -493,8 +516,8 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
   }
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новая книга / Neues Buch</h2>
         <Field label="Autor / Автор"><input required style={styles.input} value={f.author} onChange={(e) => setF({ ...f, author: e.target.value })} /></Field>
         <Field label="Titel / Название"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
@@ -509,7 +532,7 @@ function BooksTab({ items, password, onSave, onDelete, onError }: {
         </Field>
         <button disabled={busy} type="submit" style={styles.btnPrimary}>{busy ? "Загрузка…" : "Добавить / Hinzufügen"}</button>
       </form>
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все книги ({items.length})</h2>
         {items.length === 0 ? <p style={styles.empty}>Пока нет книг.</p> : items.map((b) => (
           <div key={b.id} style={styles.item}>
@@ -584,8 +607,8 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
   }
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новое изображение / Neues Bild</h2>
         <Field label="Kategorie / Категория">
           <select
@@ -623,7 +646,7 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
           {busy ? "Загрузка…" : `Добавить ${files.length > 0 ? `(${files.length})` : ""}`.trim()}
         </button>
       </form>
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все изображения ({items.length})</h2>
         {items.length === 0 ? (
           <p style={styles.empty}>Пока нет изображений.</p>
@@ -634,7 +657,7 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
                 {cat === "banner" ? "Баннеры" : cat === "banner-video" ? "Видео-баннеры" : cat === "logo" ? "Логотипы" : cat}
                 <span style={{ ...styles.count, marginLeft: 8 }}>{grouped[cat].length}</span>
               </div>
-              <div style={styles.photoGrid}>
+              <div style={styles.photoGrid} data-admin-photogrid>
                 {grouped[cat].map((a) => {
                   const isVideo = /\.(mp4|webm|mov|m4v|ogv)$/i.test(a.fileUrl);
                   return (
@@ -696,8 +719,8 @@ function VersesTab({ items, onSave, onDelete, onError }: {
   });
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новый стих / Neues Gedicht</h2>
         <Field label="Titel / Название">
           <input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} />
@@ -731,7 +754,7 @@ function VersesTab({ items, onSave, onDelete, onError }: {
           {busy ? "Сохранение…" : "Добавить / Hinzufügen"}
         </button>
       </form>
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все стихи ({items.length})</h2>
         <input
           type="search"
@@ -795,8 +818,8 @@ function EventsTab({ items, onSave, onDelete, onError }: {
   const sorted = [...items].sort((a, b) => a.date.localeCompare(b.date));
 
   return (
-    <div style={styles.grid}>
-      <form onSubmit={submit} style={styles.card}>
+    <div style={styles.grid} data-admin-grid>
+      <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новое событие / Neuer Termin</h2>
         <p style={{ fontSize: 13, color: "#666", marginTop: -6, marginBottom: 12 }}>
           Регулярные служения (Вс 10:00, Ср 18:00, Пт 18:00) добавляются автоматически. Здесь можно добавить особые даты (праздники, поездки), пометки или отменить регулярное служение на конкретный день.
@@ -822,7 +845,7 @@ function EventsTab({ items, onSave, onDelete, onError }: {
         </button>
       </form>
 
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>Все записи ({items.length})</h2>
         {sorted.length === 0 ? (
           <p style={styles.empty}>Пока нет записей. Регулярные служения показываются автоматически.</p>
@@ -925,7 +948,7 @@ function StatsTab({ password, onError }: { password: string; onError: (m: string
         <KpiCard label="Дней с данными" value={Object.keys(stats.daily).length} />
       </div>
 
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>📈 Посещения — последние 30 дней</h2>
         {last30.length === 0 ? (
           <p style={styles.empty}>Пока нет данных.</p>
@@ -943,21 +966,21 @@ function StatsTab({ password, onError }: { password: string; onError: (m: string
         </div>
       </div>
 
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>📄 Самые посещаемые страницы</h2>
         {topPaths.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
           <StatBars rows={topPaths} labelFor={(k) => PATH_LABELS[k] || k} />
         )}
       </div>
 
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>🖼️ Самые просматриваемые фото</h2>
         {topPhotos.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
           <StatBars rows={topPhotos} labelFor={(k) => k.replace(/^photo:/, "")} />
         )}
       </div>
 
-      <div style={styles.card}>
+      <div style={styles.card} data-admin-card>
         <h2 style={styles.h2}>📜 Самые читаемые стихи</h2>
         {topVerses.length === 0 ? <p style={styles.empty}>Пока нет данных.</p> : (
           <StatBars rows={topVerses} labelFor={(k) => k.replace(/^verse:/, "")} />
