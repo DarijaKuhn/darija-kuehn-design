@@ -526,6 +526,10 @@ textarea.field-input { min-height: 120px; resize: vertical; }
 .event-badge { background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(29,78,216,.2)); border-radius: 12px; text-align: center; padding: 10px 6px; }
 .event-badge-day { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--green); line-height: 1; }
 .event-badge-mon { font-size: 9px; font-weight: 700; text-transform: uppercase; color: #5a8c55; letter-spacing: .06em; margin-top: 2px; }
+.event-card-custom { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1.5px solid var(--accent-lavender); box-shadow: 0 8px 24px rgba(29,78,216,.18); }
+.event-card-custom .event-badge { background: var(--gradient-accent); }
+.event-card-custom .event-badge-day, .event-card-custom .event-badge-mon { color: #fff; }
+.event-card-custom .event-title { color: var(--accent-lavender); font-weight: 700; }
 .event-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
 .event-time { font-size: 12.5px; color: var(--muted); }
 
