@@ -18,7 +18,7 @@ $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
   'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif'],
   'books'   => ['pdf', 'epub', 'mobi'],
-  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg'],
+  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv'],
 ];
 
 function remove_dir(string $dir): void {
