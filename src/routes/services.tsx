@@ -60,24 +60,32 @@ function Services() {
     loadContent().then((c) => setCustomEvents(c.events || [])).catch(() => {});
   }, []);
 
-  const events = useMemo<DisplayEvent[]>(() => {
+  const events = useMemo<(DisplayEvent & { custom?: boolean })[]>(() => {
     const now = new Date();
     const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const horizonDays = 70; // ~10 weeks
+    // ~2 months ahead
+    const end = new Date(start);
+    end.setMonth(end.getMonth() + 2);
+    const horizonDays = Math.round((end.getTime() - start.getTime()) / 86400000);
 
     const cancelSet = new Set(
       customEvents.filter((e) => e.cancel).map((e) => e.date),
     );
+    // Any custom (non-cancel) event on a date replaces the recurring one for that date
+    const customDateSet = new Set(
+      customEvents.filter((e) => !e.cancel).map((e) => e.date),
+    );
 
-    const list: DisplayEvent[] = [];
+    const list: (DisplayEvent & { custom?: boolean })[] = [];
 
     // Generate recurring services
     for (let i = 0; i < horizonDays; i++) {
       const d = new Date(start);
       d.setDate(start.getDate() + i);
       const iso = toISODate(d);
-      const wd = d.getDay(); // 0 Sun, 3 Wed, 5 Fri
+      const wd = d.getDay();
       if (cancelSet.has(iso)) continue;
+      if (customDateSet.has(iso)) continue; // custom event overrides recurring
       if (wd === 0) {
         list.push({ key: `r-sun-${iso}`, date: d, isoDate: iso, title: titles.sun, time: "10:00", note: titles.sunNote, recurring: true });
       } else if (wd === 3) {
@@ -87,13 +95,13 @@ function Services() {
       }
     }
 
-    // Add custom events (non-cancel) — only future/today
+    // Add custom events (non-cancel) — only future/today, within horizon
     for (const ev of customEvents) {
       if (ev.cancel) continue;
       const [y, m, dd] = ev.date.split("-").map((n) => parseInt(n, 10));
       if (!y || !m || !dd) continue;
       const d = new Date(y, m - 1, dd);
-      if (d < start) continue;
+      if (d < start || d > end) continue;
       list.push({
         key: `c-${ev.id}`,
         date: d,
@@ -101,12 +109,14 @@ function Services() {
         title: ev.title,
         time: ev.time || "",
         note: ev.note,
+        custom: true,
       });
     }
 
     list.sort((a, b) => a.date.getTime() - b.date.getTime());
-    return list.slice(0, 24);
+    return list;
   }, [customEvents, titles]);
+
 
   const dayFmt = useMemo(() => new Intl.DateTimeFormat(lang, { day: "2-digit" }), [lang]);
   const monFmt = useMemo(() => new Intl.DateTimeFormat(lang, { month: "short" }), [lang]);
