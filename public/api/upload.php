@@ -51,9 +51,9 @@ if ($file['size'] > $max) fail('Файл слишком большой (макс
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
-  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif'],
+  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
   'books'   => ['pdf', 'epub', 'mobi'],
-  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv'],
+  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', 'quicktime'],
 ];
 $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 if (!in_array($ext, $allowedExt[$type], true)) {
