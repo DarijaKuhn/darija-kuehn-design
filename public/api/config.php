@@ -155,5 +155,56 @@ function write_data(array $data): void {
 
 function safe_filename(string $name): string {
   $name = preg_replace('/[^A-Za-z0-9._-]/', '_', $name) ?? 'file';
+  $name = trim($name, '._-');
+  if ($name === '') $name = 'file';
   return substr($name, 0, 120);
+}
+
+function upload_ext_from_mime(string $mime): string {
+  $mime = strtolower(trim(explode(';', $mime)[0] ?? ''));
+  $map = [
+    'image/jpeg' => 'jpg',
+    'image/jpg' => 'jpg',
+    'image/pjpeg' => 'jpg',
+    'image/png' => 'png',
+    'image/webp' => 'webp',
+    'image/gif' => 'gif',
+    'image/avif' => 'avif',
+    'image/heic' => 'heic',
+    'image/heif' => 'heif',
+    'image/svg+xml' => 'svg',
+    'video/mp4' => 'mp4',
+    'video/mpeg' => 'mp4',
+    'video/webm' => 'webm',
+    'video/quicktime' => 'mov',
+    'video/x-quicktime' => 'mov',
+    'video/mov' => 'mov',
+    'video/x-m4v' => 'm4v',
+    'video/ogg' => 'ogv',
+    'video/3gpp' => '3gp',
+    'video/3gpp2' => '3gpp',
+    'audio/mpeg' => 'mp3',
+    'audio/mp3' => 'mp3',
+    'audio/mp4' => 'm4a',
+    'audio/x-m4a' => 'm4a',
+    'audio/wav' => 'wav',
+    'audio/x-wav' => 'wav',
+    'audio/ogg' => 'ogg',
+    'application/pdf' => 'pdf',
+    'application/epub+zip' => 'epub',
+    'application/x-mobipocket-ebook' => 'mobi',
+  ];
+  return $map[$mime] ?? '';
+}
+
+function upload_ext_from_name(string $name, string $mime = ''): string {
+  $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+  $ext = preg_replace('/[^a-z0-9]/', '', $ext) ?? '';
+  if ($ext === 'jpeg') return 'jpg';
+  if ($ext === 'qt') return 'mov';
+  if (($ext === '' || in_array($ext, ['blob', 'tmp', 'file', 'download'], true)) && $mime !== '') {
+    $fromMime = upload_ext_from_mime($mime);
+    if ($fromMime !== '') return $fromMime;
+  }
+  return $ext;
 }

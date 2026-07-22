@@ -16,9 +16,9 @@ check_auth();
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
-  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
+  'photos'  => ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
   'books'   => ['pdf', 'epub', 'mobi'],
-  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', 'quicktime'],
+  'assets'  => ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', '3gp', '3gpp'],
 ];
 
 function remove_dir(string $dir): void {
@@ -44,9 +44,10 @@ $uploadId = preg_replace('/[^A-Za-z0-9_-]/', '', (string)($_POST['uploadId'] ?? 
 if ($uploadId === '' || strlen($uploadId) > 80) fail('Invalid upload id');
 
 $originalName = (string)($_POST['filename'] ?? 'file');
-$ext = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+$mime = (string)($_POST['mime'] ?? '');
+$ext = upload_ext_from_name($originalName, $mime);
 if (!in_array($ext, $allowedExt[$type], true)) {
-  fail('Extension .' . $ext . ' not allowed for ' . $type);
+  fail('Этот формат файла не поддерживается для раздела ' . $type . '. Если это фото с iPhone, выберите JPEG/Most Compatible или попробуйте ещё раз из Safari.', 415);
 }
 
 $chunkIndex = filter_input(INPUT_POST, 'chunkIndex', FILTER_VALIDATE_INT);

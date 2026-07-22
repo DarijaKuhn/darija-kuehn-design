@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 const LOGO_URL = "https://freieevangeliums-dresden.de/uploads/assets/Removal-518_86e18fc0.png";
 import { I18nProvider, useI18n, LANGS, type Lang } from "@/i18n";
 import { CookieConsent } from "@/components/CookieConsent";
+import { loadContent } from "@/lib/site-content";
 
 function NotFoundComponent() {
   const pathname = useLocation({ select: (location) => location.pathname });
@@ -212,11 +213,25 @@ function LanguagePicker() {
 
 function Header() {
   const { t } = useI18n();
+  const [logoUrl, setLogoUrl] = useState(LOGO_URL);
+
+  useEffect(() => {
+    let alive = true;
+    loadContent().then((content) => {
+      if (!alive) return;
+      const logo = content.assets
+        .filter((asset) => asset.category === "logo" && !/\.(mp4|webm|mov|m4v|ogv|3gp|3gpp)(\?|$)/i.test(asset.fileUrl))
+        .sort((a, b) => Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0];
+      if (logo?.fileUrl) setLogoUrl(logo.fileUrl);
+    }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
   return (
     <nav className="nav">
       <div className="nav-inner">
         <Link to="/" className="nav-logo" aria-label="FECG Dresden">
-          <img src={LOGO_URL} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
+          <img src={logoUrl} alt="FECG Dresden — Freie Evangeliums-Christen-Gemeinde" className="nav-logo-img" />
         </Link>
         <div className="nav-links-wrap">
           <button

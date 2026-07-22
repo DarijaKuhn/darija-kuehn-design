@@ -86,6 +86,7 @@ const API_DELETE = "/api/delete.php";
 // Keep every chunk safely below the default 2 MB PHP limit and always chunk sermons.
 const LARGE_UPLOAD_THRESHOLD = 1 * 1024 * 1024;
 const CHUNK_SIZE = 768 * 1024;
+const WEB_IMAGE_MAX_EDGE = 2400;
 
 export async function loadContent(): Promise<SiteContent> {
   // Prefer the static JSON (cache-busted) — fast, no PHP needed for public pages.
@@ -129,22 +130,71 @@ const MIME_TO_EXT: Record<string, string> = {
   "image/webp": "webp", "image/gif": "gif", "image/avif": "avif",
   "image/heic": "heic", "image/heif": "heif", "image/svg+xml": "svg",
   "video/mp4": "mp4", "video/webm": "webm", "video/quicktime": "mov",
-  "video/x-m4v": "m4v", "video/ogg": "ogv",
+  "video/x-quicktime": "mov", "video/mov": "mov", "video/x-m4v": "m4v",
+  "video/ogg": "ogv", "video/3gpp": "3gp", "video/3gpp2": "3gpp",
   "audio/mpeg": "mp3", "audio/mp3": "mp3", "audio/mp4": "m4a",
   "audio/x-m4a": "m4a", "audio/wav": "wav", "audio/ogg": "ogg",
   "application/pdf": "pdf", "application/epub+zip": "epub",
 };
 
-function normalizeFile(file: File): File {
+function fileExt(file: File): string {
   const dot = file.name.lastIndexOf(".");
-  const ext = dot > 0 ? file.name.slice(dot + 1).toLowerCase() : "";
+  return dot > 0 ? file.name.slice(dot + 1).toLowerCase() : "";
+}
+
+function normalizeFile(file: File): File {
+  const ext = fileExt(file);
   const mimeExt = MIME_TO_EXT[file.type?.toLowerCase() ?? ""] ?? "";
   // If no extension, or extension doesn't match a known type but MIME does — fix it.
-  if (!ext && mimeExt) {
-    const base = file.name || "file";
+  if ((!ext || ["blob", "tmp", "file", "download"].includes(ext)) && mimeExt) {
+    const base = file.name && file.name !== ext ? file.name.replace(/\.[^.]*$/, "") : "file";
     return new File([file], `${base}.${mimeExt}`, { type: file.type });
   }
   return file;
+}
+
+async function convertHeicToJpeg(file: File): Promise<File> {
+  if (typeof window === "undefined" || typeof document === "undefined") return file;
+  const ext = fileExt(file);
+  if (ext !== "heic" && ext !== "heif" && file.type !== "image/heic" && file.type !== "image/heif") return file;
+
+  const source: ImageBitmap | HTMLImageElement = await (async () => {
+    if ("createImageBitmap" in window) {
+      try { return await createImageBitmap(file); } catch { /* fallback below */ }
+    }
+    return await new Promise<HTMLImageElement>((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("HEIC decode failed")); };
+      img.src = url;
+    });
+  })();
+
+  const width = source instanceof HTMLImageElement ? source.naturalWidth : source.width;
+  const height = source instanceof HTMLImageElement ? source.naturalHeight : source.height;
+  const scale = Math.min(1, WEB_IMAGE_MAX_EDGE / Math.max(width, height));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(width * scale));
+  canvas.height = Math.max(1, Math.round(height * scale));
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas unavailable");
+  ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+  if ("close" in source && typeof source.close === "function") source.close();
+  const blob = await new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob((b) => b ? resolve(b) : reject(new Error("JPEG conversion failed")), "image/jpeg", 0.9);
+  });
+  const base = (file.name || "iphone-photo").replace(/\.[^.]*$/, "");
+  return new File([blob], `${base}.jpg`, { type: "image/jpeg", lastModified: Date.now() });
+}
+
+async function prepareFileForUpload(file: File): Promise<File> {
+  const normalized = normalizeFile(file);
+  try {
+    return normalizeFile(await convertHeicToJpeg(normalized));
+  } catch {
+    throw new Error("Фото HEIC с iPhone не удалось автоматически преобразовать в JPG. В настройках камеры выберите “Most Compatible / Наиболее совместимый” или отправьте фото как JPEG.");
+  }
 }
 
 export async function uploadFile(
@@ -153,7 +203,7 @@ export async function uploadFile(
   input: File,
   onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
 ): Promise<{ url: string; filename: string; size: number }> {
-  const file = normalizeFile(input);
+  const file = await prepareFileForUpload(input);
   if (type === "sermons" || file.size > LARGE_UPLOAD_THRESHOLD) {
     return uploadFileChunked(password, type, file, onProgress);
   }
@@ -220,6 +270,7 @@ async function uploadFileChunked(
       password,
       type,
       fileName: file.name,
+      mime: file.type,
       uploadId,
       chunk,
       chunkIndex,
@@ -243,6 +294,7 @@ function uploadChunk(args: {
   password: string;
   type: "sermons" | "photos" | "books" | "assets";
   fileName: string;
+  mime: string;
   uploadId: string;
   chunk: Blob;
   chunkIndex: number;
@@ -256,6 +308,7 @@ function uploadChunk(args: {
     fd.append("type", args.type);
     fd.append("uploadId", args.uploadId);
     fd.append("filename", args.fileName);
+    fd.append("mime", args.mime);
     fd.append("chunkIndex", String(args.chunkIndex));
     fd.append("totalChunks", String(args.totalChunks));
     fd.append("totalSize", String(args.totalSize));
