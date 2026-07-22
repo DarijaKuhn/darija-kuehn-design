@@ -594,6 +594,7 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
             onChange={(e) => setF({ ...f, category: e.target.value })}
           >
             <option value="banner">Баннер / Banner</option>
+            <option value="banner-video">Видео для баннера / Banner-Video</option>
             <option value="logo">Логотип / Logo</option>
             <option value="other">Другое / Sonstige</option>
           </select>
@@ -604,11 +605,11 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
         <Field label="Beschreibung / Описание">
           <textarea style={{ ...styles.input, minHeight: 60 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} />
         </Field>
-        <Field label="Изображения / Bilder (можно несколько)">
+        <Field label="Файлы / Dateien (изображения или видео, можно несколько)">
           <FileDrop
-            accept="image/*,.svg"
+            accept="image/*,.svg,video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov,.m4v,.ogv"
             multiple
-            hint="JPG, PNG, WEBP, SVG · до 200 MB"
+            hint="JPG, PNG, WEBP, SVG, MP4, WEBM, MOV · до 2 GB"
             files={files}
             onFiles={setFiles}
           />
@@ -630,13 +631,19 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
           Object.keys(grouped).map((cat) => (
             <div key={cat} style={{ marginBottom: 20 }}>
               <div style={{ fontWeight: 600, fontSize: 14, color: "#2a5c27", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
-                {cat === "banner" ? "Баннеры" : cat === "logo" ? "Логотипы" : cat}
+                {cat === "banner" ? "Баннеры" : cat === "banner-video" ? "Видео-баннеры" : cat === "logo" ? "Логотипы" : cat}
                 <span style={{ ...styles.count, marginLeft: 8 }}>{grouped[cat].length}</span>
               </div>
               <div style={styles.photoGrid}>
-                {grouped[cat].map((a) => (
+                {grouped[cat].map((a) => {
+                  const isVideo = /\.(mp4|webm|mov|m4v|ogv)$/i.test(a.fileUrl);
+                  return (
                   <div key={a.id} style={styles.photoCard}>
-                    <img src={a.fileUrl} alt={a.name} style={styles.photoImg} loading="lazy" />
+                    {isVideo ? (
+                      <video src={a.fileUrl} style={styles.photoImg} controls preload="metadata" muted playsInline />
+                    ) : (
+                      <img src={a.fileUrl} alt={a.name} style={styles.photoImg} loading="lazy" />
+                    )}
                     <div style={{ padding: 8 }}>
                       <div style={{ ...styles.itemTitle, fontSize: 13 }}>{a.name}</div>
                       {a.description && <div style={{ ...styles.itemMeta, fontSize: 12 }}>{a.description}</div>}
