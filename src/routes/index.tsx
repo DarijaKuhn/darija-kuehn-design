@@ -100,7 +100,7 @@ function Index() {
 
         <div style={{ marginTop: 20, display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
           <Link to="/map" className="btn btn-primary">{t("hero.findUs")}</Link>
-          <Link to="/confession" className="btn btn-outline">{t("hero.ourFaith")}</Link>
+          <Link to="/services" className="btn btn-outline">{t("hero.servicesEvents")}</Link>
         </div>
       </div>
     </header>
