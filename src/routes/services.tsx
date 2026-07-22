@@ -147,7 +147,7 @@ function Services() {
               const wd = wdFmt.format(ev.date).replace(/\.$/, "");
               const meta = [wd, ev.time, ev.note].filter(Boolean).join(" · ");
               return (
-                <div key={ev.key} className="event-card">
+                <div key={ev.key} className={`event-card${ev.custom ? " event-card-custom" : ""}`}>
                   <div className="event-badge">
                     <div className="event-badge-day">{day}</div>
                     <div className="event-badge-mon">{mon}</div>
@@ -159,6 +159,7 @@ function Services() {
                 </div>
               );
             })}
+
           </div>
         </div>
       </section>
