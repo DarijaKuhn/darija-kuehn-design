@@ -335,7 +335,7 @@ function SermonsTab({ items, password, onSave, onDelete, onError }: {
       <form onSubmit={submit} style={styles.card} data-admin-card>
         <h2 style={styles.h2}>➕ Новая проповедь / Neue Predigt</h2>
         <Field label="Prediger / Проповедник"><input required style={styles.input} value={f.preacher} onChange={(e) => setF({ ...f, preacher: e.target.value })} /></Field>
-        <Field label="Datum / Дата"><input required type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
+        <Field label="Jahr / Год"><input type="number" min="1900" max="2100" step="1" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} placeholder="напр. 2025" /></Field>
         <Field label="Titel / Название"><input required style={styles.input} value={f.title} onChange={(e) => setF({ ...f, title: e.target.value })} /></Field>
         <Field label="Bibeltext / Библейский текст"><input style={styles.input} value={f.scripture} onChange={(e) => setF({ ...f, scripture: e.target.value })} placeholder="напр. Johannes 3,16" /></Field>
         <Field label="Аудио-файл / MP3">
@@ -445,7 +445,7 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
             ))}
           </select>
         </Field>
-        <Field label="Datum / Дата"><input type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
+        <Field label="Jahr / Год"><input type="number" min="1900" max="2100" step="1" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} placeholder="напр. 2025" /></Field>
         <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
         <Field label="Изображения / Bilder (можно несколько)">
           <FileDrop
