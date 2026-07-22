@@ -16,9 +16,9 @@ check_auth();
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
-  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif'],
+  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
   'books'   => ['pdf', 'epub', 'mobi'],
-  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv'],
+  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', 'quicktime'],
 ];
 
 function remove_dir(string $dir): void {
