@@ -158,7 +158,7 @@ async function convertHeicToJpeg(file: File): Promise<File> {
   const ext = fileExt(file);
   if (ext !== "heic" && ext !== "heif" && file.type !== "image/heic" && file.type !== "image/heif") return file;
 
-  const source = await (async () => {
+  const source: ImageBitmap | HTMLImageElement = await (async () => {
     if ("createImageBitmap" in window) {
       try { return await createImageBitmap(file); } catch { /* fallback below */ }
     }
@@ -171,8 +171,8 @@ async function convertHeicToJpeg(file: File): Promise<File> {
     });
   })();
 
-  const width = "width" in source ? source.width : source.naturalWidth;
-  const height = "height" in source ? source.height : source.naturalHeight;
+  const width = source instanceof HTMLImageElement ? source.naturalWidth : source.width;
+  const height = source instanceof HTMLImageElement ? source.naturalHeight : source.height;
   const scale = Math.min(1, WEB_IMAGE_MAX_EDGE / Math.max(width, height));
   const canvas = document.createElement("canvas");
   canvas.width = Math.max(1, Math.round(width * scale));
