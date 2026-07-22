@@ -445,7 +445,7 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
             ))}
           </select>
         </Field>
-        <Field label="Datum / Дата"><input type="date" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} /></Field>
+        <Field label="Jahr / Год"><input type="number" min="1900" max="2100" step="1" style={styles.input} value={f.date} onChange={(e) => setF({ ...f, date: e.target.value })} placeholder="напр. 2025" /></Field>
         <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
         <Field label="Изображения / Bilder (можно несколько)">
           <FileDrop
