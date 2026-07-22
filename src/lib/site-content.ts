@@ -124,12 +124,36 @@ export async function saveContent(password: string, content: SiteContent): Promi
   if (!res.ok) throw new Error((await res.text()) || `Save failed (${res.status})`);
 }
 
+const MIME_TO_EXT: Record<string, string> = {
+  "image/jpeg": "jpg", "image/jpg": "jpg", "image/png": "png",
+  "image/webp": "webp", "image/gif": "gif", "image/avif": "avif",
+  "image/heic": "heic", "image/heif": "heif", "image/svg+xml": "svg",
+  "video/mp4": "mp4", "video/webm": "webm", "video/quicktime": "mov",
+  "video/x-m4v": "m4v", "video/ogg": "ogv",
+  "audio/mpeg": "mp3", "audio/mp3": "mp3", "audio/mp4": "m4a",
+  "audio/x-m4a": "m4a", "audio/wav": "wav", "audio/ogg": "ogg",
+  "application/pdf": "pdf", "application/epub+zip": "epub",
+};
+
+function normalizeFile(file: File): File {
+  const dot = file.name.lastIndexOf(".");
+  const ext = dot > 0 ? file.name.slice(dot + 1).toLowerCase() : "";
+  const mimeExt = MIME_TO_EXT[file.type?.toLowerCase() ?? ""] ?? "";
+  // If no extension, or extension doesn't match a known type but MIME does — fix it.
+  if (!ext && mimeExt) {
+    const base = file.name || "file";
+    return new File([file], `${base}.${mimeExt}`, { type: file.type });
+  }
+  return file;
+}
+
 export async function uploadFile(
   password: string,
   type: "sermons" | "photos" | "books" | "assets",
-  file: File,
+  input: File,
   onProgress?: (progress: { loaded: number; total: number; percent: number }) => void,
 ): Promise<{ url: string; filename: string; size: number }> {
+  const file = normalizeFile(input);
   if (type === "sermons" || file.size > LARGE_UPLOAD_THRESHOLD) {
     return uploadFileChunked(password, type, file, onProgress);
   }
