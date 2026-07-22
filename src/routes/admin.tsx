@@ -653,7 +653,8 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))
