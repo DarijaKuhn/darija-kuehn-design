@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, useRef, useMemo, type FormEvent, type DragEvent } from "react";
+import { useEffect, useState, useRef, useMemo, type FormEvent, type DragEvent, type ChangeEvent } from "react";
 import {
   loadContent,
   saveContent,
@@ -242,28 +242,57 @@ function FileDrop({
   onFiles: (files: File[]) => void;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const inputIdRef = useRef(`file-${Math.random().toString(36).slice(2)}`);
   const [drag, setDrag] = useState(false);
 
-  function handleDrop(e: DragEvent<HTMLDivElement>) {
+  function applyFiles(listLike: FileList | File[]) {
+    const list = Array.from(listLike ?? []).filter((file) => file && (file.name || file.size > 0));
+    if (list.length) onFiles(multiple ? list : [list[0]]);
+  }
+
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+    applyFiles(e.currentTarget.files ?? []);
+    // iPhone Safari sometimes does not fire change again for the same media item unless the input is reset.
+    e.currentTarget.value = "";
+  }
+
+  function handleDrop(e: DragEvent<HTMLLabelElement>) {
     e.preventDefault();
     setDrag(false);
-    const list = Array.from(e.dataTransfer.files ?? []);
-    if (list.length) onFiles(multiple ? list : [list[0]]);
+    applyFiles(e.dataTransfer.files ?? []);
   }
 
   return (
     <div>
-      <div
-        onClick={() => inputRef.current?.click()}
+      <label
+        htmlFor={inputIdRef.current}
         onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
         onDragLeave={() => setDrag(false)}
         onDrop={handleDrop}
         style={{
           ...styles.dropzone,
+          position: "relative",
           background: drag ? "#eef7ee" : "#fafaf7",
           borderColor: drag ? "#2a5c27" : "#c8ccc0",
         }}
       >
+        <input
+          id={inputIdRef.current}
+          ref={inputRef}
+          type="file"
+          accept={accept}
+          multiple={multiple}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: 0,
+            cursor: "pointer",
+            zIndex: 2,
+          }}
+          onChange={handleInputChange}
+        />
         <div style={{ fontSize: 32, lineHeight: 1 }}>📁</div>
         <div style={{ fontSize: 15, fontWeight: 600, color: "#2a5c27", marginTop: 8 }}>
           Файл выбрать / Datei auswählen
@@ -271,18 +300,7 @@ function FileDrop({
         <div style={{ fontSize: 12, color: "#777", marginTop: 4 }}>
           нажмите или перетащите сюда · {hint}
         </div>
-        <input
-          ref={inputRef}
-          type="file"
-          accept={accept}
-          multiple={multiple}
-          style={{ display: "none" }}
-          onChange={(e) => {
-            const list = Array.from(e.target.files ?? []);
-            if (list.length) onFiles(multiple ? list : [list[0]]);
-          }}
-        />
-      </div>
+      </label>
       {files.length > 0 && (
         <ul style={styles.fileList}>
           {files.map((f, i) => (
@@ -449,9 +467,9 @@ function PhotosTab({ items, password, onSave, onDelete, onError, onOk }: {
         <Field label="Beschreibung / Описание"><textarea style={{ ...styles.input, minHeight: 70 }} value={f.description} onChange={(e) => setF({ ...f, description: e.target.value })} /></Field>
         <Field label="Изображения / Bilder (можно несколько)">
           <FileDrop
-            accept="image/*"
+            accept="image/*,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.gif,.avif,.heic,.heif"
             multiple
-            hint="JPG, PNG, WEBP · выберите сразу несколько"
+            hint="iPhone фото, JPG, PNG, WEBP · выберите сразу несколько"
             files={files}
             onFiles={setFiles}
           />

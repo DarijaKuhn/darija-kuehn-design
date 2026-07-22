@@ -193,7 +193,9 @@ async function prepareFileForUpload(file: File): Promise<File> {
   try {
     return normalizeFile(await convertHeicToJpeg(normalized));
   } catch {
-    throw new Error("Фото HEIC с iPhone не удалось автоматически преобразовать в JPG. В настройках камеры выберите “Most Compatible / Наиболее совместимый” или отправьте фото как JPEG.");
+    // If Safari cannot decode/convert HEIC locally, still upload the original iPhone file.
+    // The PHP backend accepts HEIC/HEIF, and this is better than blocking the admin form.
+    return normalized;
   }
 }
 
