@@ -256,7 +256,7 @@ function FileDrop({
     e.currentTarget.value = "";
   }
 
-  function handleDrop(e: DragEvent<HTMLDivElement>) {
+  function handleDrop(e: DragEvent<HTMLLabelElement>) {
     e.preventDefault();
     setDrag(false);
     applyFiles(e.dataTransfer.files ?? []);
