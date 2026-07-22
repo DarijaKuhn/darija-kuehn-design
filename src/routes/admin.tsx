@@ -135,7 +135,30 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
 
 
   return (
-    <div style={styles.wrap}>
+    <div style={styles.wrap} className="admin-root">
+      <style>{`
+        @media (max-width: 720px) {
+          .admin-root { padding: 14px 12px 60px !important; }
+          .admin-root h1 { font-size: 18px !important; }
+          .admin-root [data-admin-grid] { grid-template-columns: 1fr !important; gap: 14px !important; }
+          .admin-root [data-admin-card] { padding: 14px !important; border-radius: 12px !important; }
+          .admin-root [data-admin-tabs] {
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 4px !important;
+            margin: 0 -12px 16px !important;
+            padding: 0 12px 2px !important;
+          }
+          .admin-root [data-admin-tabs]::-webkit-scrollbar { display: none; }
+          .admin-root [data-admin-tabs] button { flex: 0 0 auto; padding: 10px 12px !important; font-size: 14px !important; white-space: nowrap; }
+          .admin-root [data-admin-header] { flex-direction: row; align-items: center; }
+          .admin-root [data-admin-photogrid] { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important; gap: 10px !important; }
+          .admin-root input, .admin-root select, .admin-root textarea { font-size: 16px !important; }
+          .admin-root button { min-height: 40px; }
+        }
+      `}</style>
       <header style={styles.header}>
         <div>
           <h1 style={{ margin: 0, fontSize: 22 }}>FECG Dresden — Admin</h1>
