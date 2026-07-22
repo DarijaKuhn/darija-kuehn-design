@@ -1,5 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n";
+import { loadContent, type Asset } from "@/lib/site-content";
+
+const DEFAULT_HERO_IMAGE = "/assets/hero-bg.jpg";
+const DEFAULT_HERO_VIDEO = "/assets/sky-clouds.mov";
+
+function isVideoAsset(url: string): boolean {
+  return /\.(mp4|webm|mov|m4v|ogv|3gp|3gpp)(\?|$)/i.test(url);
+}
+
+function latestAsset(assets: Asset[], category: string, wantVideo: boolean): Asset | undefined {
+  return assets
+    .filter((asset) => asset.category === category && isVideoAsset(asset.fileUrl) === wantVideo)
+    .sort((a, b) => Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0];
+}
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -13,25 +28,44 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { t } = useI18n();
+  const [heroMedia, setHeroMedia] = useState({ image: DEFAULT_HERO_IMAGE, video: DEFAULT_HERO_VIDEO });
+
+  useEffect(() => {
+    let alive = true;
+    loadContent().then((content) => {
+      if (!alive) return;
+      const banner = latestAsset(content.assets, "banner", false);
+      const bannerVideo = latestAsset(content.assets, "banner-video", true);
+      setHeroMedia({
+        image: banner?.fileUrl || DEFAULT_HERO_IMAGE,
+        video: bannerVideo?.fileUrl || (banner ? "" : DEFAULT_HERO_VIDEO),
+      });
+    }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
   return (
     <header
       className="hero"
       id="start"
       role="banner"
       aria-label={t("hero.imgAlt")}
-      style={{ backgroundImage: `url(/assets/hero-bg.jpg)` }}
+      style={{ backgroundImage: `url(${heroMedia.image})` }}
     >
-      <video
-        className="hero-video"
-        src="/assets/sky-clouds.mov"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-        ref={(el) => { if (el) el.playbackRate = 0.35; }}
-      />
+      {heroMedia.video && (
+        <video
+          key={heroMedia.video}
+          className="hero-video"
+          src={heroMedia.video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          ref={(el) => { if (el) el.playbackRate = 0.35; }}
+        />
+      )}
       <div className="hero-card">
         <p className="hero-eyebrow">{t("hero.eyebrow")}</p>
         <h1 className="hero-title">{t("hero.h1")}</h1>

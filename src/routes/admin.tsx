@@ -558,6 +558,13 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
 
+  function categoryForFile(file: File): string {
+    const isVideo = file.type.startsWith("video/") || /\.(mp4|webm|mov|m4v|ogv|3gp|3gpp)$/i.test(file.name);
+    if (isVideo && f.category === "banner") return "banner-video";
+    if (!isVideo && f.category === "banner-video") return "banner";
+    return f.category;
+  }
+
   async function submit(e: FormEvent) {
     e.preventDefault();
     if (files.length === 0) return onError("Выберите файл / Datei auswählen.");
@@ -567,9 +574,10 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
     try {
       for (let i = 0; i < files.length; i++) {
         const up = await uploadFile(password, "assets", files[i]);
+        const category = categoryForFile(files[i]);
         uploaded.push({
           id: newId(),
-          category: f.category,
+          category,
           name: f.name || files[i].name,
           description: f.description,
           fileUrl: up.url,
@@ -609,7 +617,7 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
   return (
     <div style={styles.grid} data-admin-grid>
       <form onSubmit={submit} style={styles.card} data-admin-card>
-        <h2 style={styles.h2}>➕ Новое изображение / Neues Bild</h2>
+        <h2 style={styles.h2}>➕ Баннер, видео или лого / Banner, Video oder Logo</h2>
         <Field label="Kategorie / Категория">
           <select
             style={styles.input}
@@ -630,9 +638,9 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
         </Field>
         <Field label="Файлы / Dateien (изображения или видео, можно несколько)">
           <FileDrop
-            accept="image/*,.svg,video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov,.m4v,.ogv"
+            accept="image/*,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif,.svg,video/*,video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov,.m4v,.ogv,.3gp,.3gpp"
             multiple
-            hint="JPG, PNG, WEBP, SVG, MP4, WEBM, MOV · до 2 GB"
+            hint="iPhone фото/видео, JPG, PNG, WEBP, SVG, MP4, WEBM, MOV · до 2 GB"
             files={files}
             onFiles={setFiles}
           />
@@ -659,7 +667,7 @@ function AssetsTab({ items, password, onSave, onDelete, onError, onOk }: {
               </div>
               <div style={styles.photoGrid} data-admin-photogrid>
                 {grouped[cat].map((a) => {
-                  const isVideo = /\.(mp4|webm|mov|m4v|ogv)$/i.test(a.fileUrl);
+                  const isVideo = /\.(mp4|webm|mov|m4v|ogv|3gp|3gpp)$/i.test(a.fileUrl);
                   return (
                   <div key={a.id} style={styles.photoCard}>
                     {isVideo ? (

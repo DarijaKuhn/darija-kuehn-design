@@ -51,17 +51,17 @@ if ($file['size'] > $max) fail('Файл слишком большой (макс
 
 $allowedExt = [
   'sermons' => ['mp3', 'm4a', 'wav', 'ogg'],
-  'photos'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
+  'photos'  => ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'gif', 'avif', 'heic', 'heif'],
   'books'   => ['pdf', 'epub', 'mobi'],
-  'assets'  => ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', 'quicktime'],
+  'assets'  => ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'gif', 'avif', 'heic', 'heif', 'svg', 'mp4', 'webm', 'mov', 'm4v', 'ogv', '3gp', '3gpp'],
 ];
-$ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+$ext = upload_ext_from_name((string)($file['name'] ?? ''), (string)($file['type'] ?? ''));
 if (!in_array($ext, $allowedExt[$type], true)) {
-  fail('Extension .' . $ext . ' not allowed for ' . $type);
+  fail('Этот формат файла не поддерживается для раздела ' . $type . '. Если это фото с iPhone, выберите JPEG/Most Compatible или попробуйте ещё раз из Safari.', 415);
 }
 
 ensure_dirs();
-$base = safe_filename(pathinfo($file['name'], PATHINFO_FILENAME));
+$base = safe_filename(pathinfo((string)($file['name'] ?? 'file'), PATHINFO_FILENAME));
 $fname = $base . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
 $dest = UPLOADS_DIR . '/' . $type . '/' . $fname;
 
